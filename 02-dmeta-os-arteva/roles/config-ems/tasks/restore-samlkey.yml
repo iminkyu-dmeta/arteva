@@ -1,0 +1,41 @@
+---
+
+- name: check that file exist
+  become: False
+  connection: local
+  stat:
+    path: "{{ def_dir }}/{{ bk_dir }}/{{ saml_dir }}/{{ saml_name }}"
+  register: check_file
+
+- name: set vars
+  set_fact:
+    read_file: "{{ lookup('file', '{{ def_dir }}/{{ bk_dir }}/{{ saml_dir }}/{{ saml_name }}') }}"
+  when: check_file.stat.exists
+
+- name: check that file exist
+  become: False
+  connection: local
+  stat:
+    path: "{{ clayhome }}/common/nems/{{ saml_dir }}/{{ read_file | basename }}"
+  register: check_origfile
+  when: check_file.stat.exists
+
+- name: backup orig file
+  copy:
+    src: "{{ clayhome }}/common/nems/{{ saml_dir }}/{{ read_file | basename }}"
+    dest: "{{ clayhome }}/common/nems/{{ saml_dir }}/{{ read_file | basename }}.orig"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+    remote_src: yes
+  when: check_file.stat.exists and check_origfile.stat.exists
+
+- name: copy saml key
+  copy:
+    src: "{{ def_dir }}/{{ bk_dir }}/{{ saml_dir }}/{{ read_file | basename }}"
+    dest: "{{ clayhome }}/common/nems/{{ saml_dir }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+    backup: yes
+  when: check_file.stat.exists

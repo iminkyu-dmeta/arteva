@@ -1,0 +1,12 @@
+---
+
+- name: set timezone to Asia/Seoul
+  become: true
+  timezone:
+    name: Asia/Seoul
+  register: values
+
+- name: display return values
+  debug:
+    msg: "{{ values }}"
+

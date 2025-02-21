@@ -1,0 +1,94 @@
+---
+
+#- name: Create config file
+#  vars:
+#    side: ""
+#    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+#    host: "{{ setup_cfg.VNF|lower }}{{ side }}"
+#  hosts: "{{ host | lower }}"
+#  roles:
+#    - role: create-config
+
+# 9. EMS config setup
+- name: EMS config setup
+  vars:
+    side: ""
+    host: "ems{{ side }}"
+    updatenemsdb: "update_nemsdb.sql"
+    passwd_expire: "90"
+    script_dir: "{{ clayhome }}/script"
+    my_script: "mysql-util"
+    backup_dir: "backup"
+    bk_dir: "{{ backup_dir }}/{{ ansible_host }}"
+    ssl_dir: "keystore"
+    saml_dir: "saml"
+    ssl_name: "KEYSTORE_FILE_NAME.txt"
+    saml_name: "SAML_FILE_NAME.txt"
+    drbackup_dir: "drbackup"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  roles:
+    - role: config-ems
+
+# 10. presence config setup
+- name: presence config setup
+  vars:
+    side: ""
+    host: "ps{{ side }}"
+    pname: "rcs_ps.exe"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  roles:
+    - role: config-ps
+
+# 11. XDMS config setup
+- name: XDMS config setup
+  vars:
+    side: ""
+    host: "xdms{{ side }}"
+    backup_dir: "backup"
+    bk_dir: "{{ backup_dir }}/{{ ansible_host }}"
+    token_dir: "token"
+    jws_name: "JWS_FILE_NAME.txt"
+    jwe_name: "JWE_FILE_NAME.txt"
+    drbackup_dir: "drbackup"
+    pname: "rcs_xdms.exe"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  roles:
+    - role: config-xdms
+
+# 12. db config setup and replication
+- name: DB config setup
+  vars:
+    side: ""
+    tcp_keepalive_intvl: '5'
+    tcp_keepalive_probes: '3'
+    tcp_keepalive_time: '100'
+    max_client: '1000'
+    def_dir: "../file"
+    tmp_dir: "/tmp"
+    alti_home: "/altibase/altibase_home"
+    host: "db{{ side }}"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  roles:
+    - role: config-db
+
+# 13. upload clayd file
+#- name: upload clayd file
+#  vars:
+#    side: ""
+#    host: "presence{{ side }}"
+#  hosts: "{{ host | lower }}"
+#  roles:
+#    - role: config-clayd
+
+# 14. vm reboot
+#- name: vm reboot
+#  vars:
+#    side: ""
+#    host: "presence{{ side }}"
+#  hosts: "{{ host | lower }}"
+#  roles:
+#    - role: os-reboot

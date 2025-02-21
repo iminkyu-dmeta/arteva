@@ -1,0 +1,52 @@
+---
+
+- name: upload db script
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  with_items:
+    - "db-script.tar"
+
+- name: update root passwd
+  become: True
+  shell: |
+    mariadb -u root mysql -e 'alter user root@localhost identified via mysql_native_password using password("dmeta!@34");'
+    #mariadb -u root mysql -e 'flush privileges;'
+
+#- name: create db
+#  become: True
+#  shell: |
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/1.database.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/2.tables.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/3.archive-trigger.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/4.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/1.code.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/2.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/3.menu.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/4.bbs.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/5.ai.sql
+
+- name: create tables
+  become: True
+  mysql_db:
+    name: mysql
+    state: import
+    login_user: "root"
+    login_password: "dmeta!@34"
+    target: "{{ item }}"
+  with_items:
+    - "{{ tmp_dir }}/{{ sql_dir }}/ddl/1.database.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/ddl/2.tables.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/ddl/3.archive-trigger.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/ddl/4.user.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/dml/1.code.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/dml/2.user.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/dml/3.menu.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/dml/4.bbs.sql"
+    - "{{ tmp_dir }}/{{ sql_dir }}/dml/5.ai.sql"
+
+- name: delete upload file
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ sql_dir }}"
+    state: absent

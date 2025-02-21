@@ -1,0 +1,29 @@
+---
+
+
+- name: config repo
+  vars:
+    repo_url: "{{ baseurl }}" 
+  yum_repository:
+    name: "{{ repo_name }}"
+    description: "CentOS-{{ repo_name }}"
+    file: "CentOS-{{ repo_name }}"
+    baseurl: "{{ repo_url }}"
+    enabled: yes
+    gpgcheck: no
+  when: baseurl is defined
+
+- name: config repo
+  vars:
+    repo_url: "{{ mirrorlist }}"
+  yum_repository:
+    name: "{{ repo_name }}"
+    description: "CentOS-{{ repo_name }}"
+    file: "CentOS-{{ repo_name }}"
+    baseurl: "{{ repo_url }}"
+    enabled: yes
+    gpgcheck: no
+  when: mirrorlist is defined 
+
+- name: repo cleal all
+  shell: dnf clean all

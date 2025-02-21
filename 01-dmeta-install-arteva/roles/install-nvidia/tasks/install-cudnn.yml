@@ -1,0 +1,98 @@
+---
+
+- name: upload cudnn files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  with_items:
+    - "{{ cudnn_file }}"
+
+#- name: copy cudnn files
+#  become: True
+#  shell: |
+#    cp {{ tmp_dir }}/{{ cudnn_dir }}/include/cudnn* /usr/local/cuda/include
+#    cp {{ tmp_dir }}/{{ cudnn_dir }}/lib/libcudnn* /usr/local/cuda/lib64
+#    chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+- name: find libcudnn
+  become: True
+  find:
+    paths: "{{ tmp_dir }}/{{ cudnn_dir }}/include"
+    patterns: "cudnn*"
+  register: cudnn_result
+
+- name: Copy files
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/cuda/include"
+    remote_src: yes
+  with_items:
+    - "{{ cudnn_result.files | map(attribute='path') | list }}"
+
+- name: find libcudnn
+  become: True
+  find:
+    paths: "{{ tmp_dir }}/{{ cudnn_dir }}/lib"
+    patterns: "libcudnn*"
+  register: libcudnn_result
+
+- name: Copy files
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/cuda/lib64"
+    remote_src: yes
+  with_items:
+    - "{{ libcudnn_result.files | map(attribute='path') | list }}"
+
+- name: chmod ar
+  become: True
+  shell: |
+    sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+- name: soft link
+  become: True
+  file:
+    src: "{{ cudnn_link_dir }}/{{ item.src }}"
+    dest: "{{ cudnn_link_dir }}/{{ item.dest }}"
+    state: link
+  with_items:
+    - { src: 'libcudnn_adv_train.so.8.6.0', dest: 'libcudnn_adv_train.so.8' }
+    - { src: 'libcudnn_ops_infer.so.8.6.0', dest: 'libcudnn_ops_infer.so.8' }
+    - { src: 'libcudnn_cnn_train.so.8.6.0', dest: 'libcudnn_cnn_train.so.8' }
+    - { src: 'libcudnn_adv_infer.so.8.6.0', dest: 'libcudnn_adv_infer.so.8' }
+    - { src: 'libcudnn_ops_train.so.8.6.0', dest: 'libcudnn_ops_train.so.8' }
+    - { src: 'libcudnn_cnn_infer.so.8.6.0', dest: 'libcudnn_cnn_infer.so.8' }
+    - { src: 'libcudnn.so.8.6.0', dest: 'libcudnn.so.8'  }
+    - { src: 'libcudnn_adv_train.so.8', dest: 'libcudnn_adv_train.so' }
+    - { src: 'libcudnn_ops_infer.so.8', dest: 'libcudnn_ops_infer.so' }
+    - { src: 'libcudnn_cnn_train.so.8', dest: 'libcudnn_cnn_train.so' }
+    - { src: 'libcudnn_adv_infer.so.8', dest: 'libcudnn_adv_infer.so' }
+    - { src: 'libcudnn_ops_train.so.8', dest: 'libcudnn_ops_train.so' }
+    - { src: 'libcudnn_cnn_infer.so.8', dest: 'libcudnn_cnn_infer.so' }
+    - { src: 'libcudnn.so.8', dest: 'libcudnn.so'  }
+    - { src: 'libcudnn_adv_train_static.a', dest: 'libcudnn_adv_train_static_v8.a' }
+    - { src: 'libcudnn_adv_infer_static.a', dest: 'libcudnn_adv_infer_static_v8.a' }
+    - { src: 'libcudnn_ops_train_static.a', dest: 'libcudnn_ops_train_static_v8.a' }
+    - { src: 'libcudnn_ops_infer_static.a', dest: 'libcudnn_ops_infer_static_v8.a' }
+    - { src: 'libcudnn_cnn_train_static.a', dest: 'libcudnn_cnn_train_static_v8.a' }
+    - { src: 'libcudnn_cnn_infer_static.a', dest: 'libcudnn_cnn_infer_static_v8.a' }
+
+- name: run ldconfig
+  become: True
+  shell: |
+    ldconfig
+    cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+  register: result
+
+- name: verify install
+  debug:
+    msg: "{{ result.stdout_lines }}"
+
+- name: delete rpm file to VM
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ cudnn_dir }}"
+    state: absent

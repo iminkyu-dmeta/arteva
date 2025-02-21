@@ -1,0 +1,41 @@
+---
+
+- name: config repo
+  vars:
+    repo_path: "{{ repo_url | urlsplit('path') }}"
+    repo_alias: "{{ repo_path[1:-1] | regex_replace('/', '-') }}"
+  yum_repository:
+    name: "{{ repo_name }}"
+    description: "{{ repo_alias }}"
+    file: "{{ repo_alias }}"
+    baseurl: "{{ repo_url }}"
+    enabled: yes
+    gpgcheck: no
+  when: repo_url is defined
+
+- name: repo_name
+  debug:
+    msg: "{{ item.strip().split(' ')[0] }} {{ item.strip().split(' ')[1] }}"
+  with_items:
+    - "{{ repo.split(',') }}"
+  when: repo is defined
+
+- name: config repo
+  vars:
+    repo_path: "{{ repo_url | urlsplit('path') }}"
+    repo_alias: "{{ repo_path[1:-1] | regex_replace('/', '-') }}"
+    repo_name: "{{ item.strip().split(' ')[0] }}"
+    repo_url: "{{ item.strip().split(' ')[1] }}"
+  yum_repository:
+    name: "{{ repo_name }}"
+    description: "{{ repo_alias }}"
+    file: "{{ repo_alias }}"
+    baseurl: "{{ repo_url }}"
+    enabled: yes
+    gpgcheck: no
+  when: repo is defined
+  with_items:
+    - "{{ repo.split(',') }}"
+
+- name: repo clean all
+  shell: yum clean all

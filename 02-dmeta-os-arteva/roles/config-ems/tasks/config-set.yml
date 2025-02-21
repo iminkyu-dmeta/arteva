@@ -1,0 +1,26 @@
+---
+
+- name: set vars
+  set_fact:
+    hostip: "{{ VMIP }}"
+    role: "act"
+    node: "ems"
+  when: Notes[-1:] == "1" and NE_Group == "PresenceEMS"
+
+- name: set vars
+  set_fact:
+    hostip: "{{ VMIP }}"
+    role: "sby"
+    node: "ems"
+  when: Notes[-1:] == "2" and NE_Group == "PresenceEMS"
+
+- name: Set the config 
+  connection: local
+  shell: | 
+    python3 ../script/config_application.py {{ hostip }} {{ node }} {{ role }}
+  register: result
+
+- name: display 
+  debug:
+    msg: "{{ result.stdout_lines }}"
+

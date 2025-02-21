@@ -1,0 +1,10 @@
+---
+
+- import_tasks: install-cudnn.yml
+  tags: [ 'never', 'install-cudnn' ]
+
+- import_tasks: update-bashrc.yml
+  tags: [ 'never', 'update-bashrc', 'install-cudnn' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'config-nvidia', 'verify' ]

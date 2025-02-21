@@ -1,0 +1,101 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ csvfile.split('\r\n') }}"
+  run_once: True
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+  run_once: True
+   
+- name: repoquery list
+  set_fact:
+    repo_list: []
+  run_once: True
+
+- name: put repoquery list
+  vars:
+    repo_query: "dnf repoquery --latest-limit 1 {{ item.split('-')[:-2] | join('-') }}"
+  set_fact:
+    repo_list: '{{ repo_list + [ repo_query ] }}'
+  when: ck == '1'
+  run_once: True
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: put repoquery list
+  vars:
+    repo_query: "dnf repoquery --latest-limit 1 {{ item }}"
+  set_fact:
+    repo_list: '{{ repo_list + [ repo_query ] }}'
+  when: ck == '0'
+  run_once: True
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: debug
+  debug:
+    msg: "{{ repo_list | join(';')  }}"
+  run_once: True
+
+- name: Create update file
+  shell: | 
+    "{{ repo_list | join(';') }}"
+    #date
+  register: filelist
+  run_once: True
+
+- name: file state
+  become: False
+  connection: local
+  stat:
+    path: "{{ def_dir }}/{{ item }}"
+  with_items:
+    - "{{ create_file }}"
+  register: check_file
+  run_once: True
+
+- name: Delete empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: absent
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+  run_once: True
+
+- name: Create empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: touch
+  run_once: True
+
+- name: debug
+  debug:
+    msg: "{{ filelist.stdout_lines }}"
+
+- name: Creat rpm list
+  become: False
+  connection: local
+  shell: echo {{ item | join('') }}  >> {{ def_dir }}/{{ create_file }}
+  with_items: 
+    - "{{ filelist.stdout }}"
+  run_once: True

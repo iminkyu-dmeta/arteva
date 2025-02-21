@@ -1,0 +1,7 @@
+---
+
+- name: stopped firewalld
+  become: True
+  systemd:
+    name: firewalld
+    state: stopped

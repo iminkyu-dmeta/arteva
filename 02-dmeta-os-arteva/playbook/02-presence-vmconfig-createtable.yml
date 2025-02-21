@@ -1,0 +1,51 @@
+---
+
+# 4. altibase license key change and start
+- name: altibase license key change
+  vars:
+    side: ""
+    host: "db{{ side }}"
+    HOSTNAME: "{{ Name }}"
+    defaulthost: "vPSPresenceDB1"
+  hosts: "{{ host | lower }}"
+  become: True
+
+  roles:
+    - role: config-db-license
+
+# 6. DB table Create
+- name: DATABASE Table Create
+  vars:
+    side: ""
+    host: "db{{ side }}"
+    db_script: "Create-DB.py"
+    conf_info_file: "config-info.json"
+    upload_tmp: "/tmp"
+    upload: "/tmp"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  roles:
+    - role: config-db-table-create
+
+# 7. EMS config
+- name: EMS config
+  vars:
+    side: ""
+    host: "ems{{ side }}"
+  hosts: "{{ host | lower }}"
+  become: True
+  roles:
+    - role: config-mysql
+
+# 8. TO BE EMS NE IP Change (hosts )
+- name: Presence NE IP Change
+  vars:
+    side: ""
+    host: "ems{{ side }}"
+    script_dir: "{{ clayhome }}/script"
+    my_script: "mysql-util"
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+  hosts: "{{ host | lower }}"
+  become: True
+  roles:
+    - role: config-emsneipchange

@@ -1,0 +1,59 @@
+---
+
+- name: create mysql dir
+  become: True
+  file:
+    path: /data/mariadb/mysql
+    state: directory
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: chown data dir
+  become: True
+  file:
+    path: /data
+    state: directory
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: stop mysql 
+  become: True
+  systemd:
+    name: "{{ db_service }}"
+    state: stopped
+
+- name: copy mysql
+  become: True
+  shell: |
+    cp -R -p /var/lib/mysql/* {{ data_dir }}
+    rsync -av /var/lib/mysql/ /data/mariadb/
+
+- name: update my.cnf
+  become: True
+  template:
+    src: my.cnf.j2
+    dest: /etc/{{ item }}
+  with_items:
+    - "my.cnf"
+
+- name: start mysql
+  become: True
+  systemd:
+    name: "{{ db_service }}"
+    state: started
+    enabled: yes
+
+- name: config firewall port
+  become: True
+  firewalld:
+    port: "{{ item }}"
+    permanent: True
+    state: enabled
+  with_items:
+    - '{{ db_port }}'
+
+- name: reload firewalld
+  become: True
+  command: firewall-cmd --reload

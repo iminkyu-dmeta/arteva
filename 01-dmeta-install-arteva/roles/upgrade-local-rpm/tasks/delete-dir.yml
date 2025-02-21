@@ -1,0 +1,7 @@
+---
+
+- name: delete rpm file to VM
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ rpm_dir }}"
+    state: absent

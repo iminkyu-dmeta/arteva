@@ -1,0 +1,43 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+  when: input is defined
+
+- name: display csv files
+  debug:
+    msg: "{{ csvfile.split('\r\n') }}"
+  run_once: yes
+
+- name: create list var
+  set_fact:
+    rpm_list: []
+  when: input is defined
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: upgrade packages
+  dnf:
+    name: '{{ rpm_list }}'
+    state: present
+  register: upgrade
+
+- name: save upgrade packages results
+  copy:
+    content: "{{ upgrade.results }}"
+    dest: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-')  }}-{{ ansible_host }}.txt"
+
+- name: get upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-')   }}-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    flat: yes
+
+- name: display 
+  debug:
+    msg: "{{ upgrade.results }}" 

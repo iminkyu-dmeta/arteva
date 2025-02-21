@@ -1,0 +1,17 @@
+---
+
+- name: set repo
+  vars:
+    repo_name: "{{ repo_id }}" 
+    repo_names: "{{ repo_url | urlsplit('path') }}"
+  yum_repository:
+    name: "{{ repo_name }}"
+    description: "{{ repo_names[1:] | regex_replace('/', '-') }}"
+    file: "{{ repo_name }}"
+    baseurl: "{{ repo_url }}"
+    enabled: yes
+    gpgcheck: no
+  when: repo_url is defined 
+
+- name: repo cleal all
+  shell: dnf clean all

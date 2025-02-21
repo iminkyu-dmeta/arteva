@@ -1,0 +1,20 @@
+---
+
+- name: Xorg server down
+  become: True
+  shell: |
+    systemctl isolate multi-user.target
+    pkill Xorg
+    systemctl stop gdm
+
+- name: Added blacklist-nouveau.conf
+  become: True
+  template:
+    src: blacklist-nouveau.conf.j2
+    dest: /etc/modprobe.d/{{ item }}
+  with_items:
+    - "blacklist-nouveau.conf"
+
+- name: change limits.conf
+  become: True
+  shell: dracut --force

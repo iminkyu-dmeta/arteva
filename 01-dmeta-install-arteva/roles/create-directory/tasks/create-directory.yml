@@ -1,0 +1,39 @@
+---
+
+- name: create install directory
+  become: True
+  file:
+    path: "{{ app_path }}/arteva-install/arteva-{{ version }}/ai-engine/ai"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0755'
+
+- name: create mariadb data directory
+  become: True
+  file:
+    path: "{{ db_path }}/{{ db }}/mysql"
+    state: directory
+    owner: "{{ db_user }}"
+    group: "{{ db_user }}"
+    mode: '0755'
+
+- name: Recursively mariadb data directory
+  become: True
+  file:
+    path: "{{ db_path }}"
+    state: directory
+    recurse: yes
+    owner: "{{ db_user }}"
+    group: "{{ db_user }}"
+    mode: '0755'
+
+- name: create tomcat directory
+  become: True
+  file:
+    path: "{{ app_path }}/tomcat"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    mode: '0755'
+

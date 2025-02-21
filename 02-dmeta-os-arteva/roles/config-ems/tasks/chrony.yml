@@ -1,0 +1,39 @@
+---
+
+- name: check that file exist
+  stat:
+    path: /etc/{{ item }}
+  with_items:
+    - "chrony.conf"
+  no_log: True
+  register: check_file
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/{{ item.item }}
+    dest: /etc/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+
+- name: Get eth1 IP Address
+  shell: ip route show dev {{ ipc_nic }} | awk '{print $1}'
+  register: ipcnetwork
+
+- name: change chrony server list
+  become: True
+  vars:
+    ALLOW: "{{ ipcnetwork.stdout }}"
+  template:
+    src: chrony.conf.j2
+    dest: /etc/{{ item }}
+  with_items:
+    - "chrony.conf"
+
+- name: enabled chronyd
+  become: True
+  systemd:
+    name: chronyd
+    enabled: True
+    state: restarted

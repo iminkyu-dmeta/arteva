@@ -1,0 +1,86 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+  when: input is defined
+
+- name: display csv files
+  debug:
+    msg: "{{ csvfile.split('\r\n') }}"
+  run_once: yes
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+
+- name: Check vars fact
+  set_fact:
+    rpm_list: []
+  when: input is defined
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item.split("-")[:-2] | join("-") ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: input is defined and ck == '1'
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: input is defined and ck == '0'
+
+- name: upgrade packages
+  dnf:
+    name: "{{ rpm_list }}"
+    state: latest
+    releasever: "{{ releasever }}"
+  register: upgrade1
+  when: releasever is defined
+
+- name: upgrade rpm
+  dnf:
+    name: "{{ rpm_list }}"
+    state: latest
+  register: upgrade2
+  when: releasever is not defined
+
+- name: save upgrade packages results
+  copy:
+    content: "{{ upgrade1.results }}" 
+    dest: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-') }}-{{ ansible_host }}.txt"
+  when: releasever is defined
+
+- name: save upgrade packages results
+  copy:  
+    content: "{{ upgrade2.results }}"
+    dest: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-') }}-{{ ansible_host }}.txt"
+  when: releasever is not defined
+
+- name: get upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-') }}-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    flat: yes
+
+- name: display results
+  debug:
+    msg: "{{ upgrade1.results }}" 
+  when: releasever is defined
+
+- name: display results
+  debug:
+    msg: "{{ upgrade2.results }}"
+  when: releasever is not defined

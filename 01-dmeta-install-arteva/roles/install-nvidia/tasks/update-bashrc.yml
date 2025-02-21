@@ -1,0 +1,30 @@
+---
+
+- name: update bashrc
+  become: True
+  template:
+    src: bashrc.j2
+    dest: "/home/{{ user }}/.bashrc"
+
+- name: bashrc 
+  become: True
+  become_user: "{{ user }}"
+  become_flags: "-i"
+  shell: source ~/.bashrc
+
+#- name: update profile
+#  become: True
+#  lineinfile:
+#    path: /etc/profile
+#    regexp: "{{ item.regexp }}"
+#    line: "{{ item.line }}"
+#  with_items:
+#    - { regexp: '^export PATH=', line: 'export PATH=$PATH:/usr/local/cuda-11.8/bin' }
+#    - { regexp: '^export LD_LIBRARY_PATH=', line: 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.8/lib64' }
+#    - { regexp: '^export CUDARDIR=', line: 'export CUDARDIR=/usr/local/cuda-11.8' }
+#
+#- name: apply config
+#  become: True
+#  shell: source /etc/profile
+
+

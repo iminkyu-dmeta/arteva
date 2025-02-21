@@ -1,0 +1,11 @@
+---
+
+- name: Upgrade local RPM
+  vars:
+    host: arteva
+  hosts: "{{ host | lower }}"
+  become: True
+
+  roles:
+    - role: config-repo
+    - role: upgrade-local-rpm

@@ -1,0 +1,10 @@
+---
+
+# Reboot system
+- name: Synchronize cached writes to persistent storage
+  command: sync
+
+- name: reboot the machine with delay 1
+  become: True
+  reboot:
+    pre_reboot_delay: 1

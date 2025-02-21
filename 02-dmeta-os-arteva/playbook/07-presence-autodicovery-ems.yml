@@ -1,0 +1,15 @@
+---
+
+- name: Config ssl key
+  vars:
+    side: ""
+    host: "ems{{ side }}"
+    eport: "8443"
+    api: "discover"
+    sid: "svnf"
+    msql_dir: "{{ clayhome }}/script"
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-autodiscovery-ems

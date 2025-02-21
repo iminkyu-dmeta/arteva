@@ -1,0 +1,19 @@
+---
+
+- name: add group
+  become: True
+  group:
+    name: "{{ dmeta_group }}"
+    state: present
+
+- name: add the user 
+  become: True
+  user:
+    name: "{{ tomcat_user }}"
+    groups: "{{ dmeta_group }}"
+    append: yes
+
+- name: add the user
+  become: True
+  shell: |
+    usermod -a -G dmeta-users dmeta

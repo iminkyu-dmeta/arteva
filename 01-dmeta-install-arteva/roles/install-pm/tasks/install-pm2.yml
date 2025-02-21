@@ -1,0 +1,42 @@
+---
+
+- name: upload pm2 node files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: upload_file is not defined
+  with_items:
+    - "{{ pm_files }}"
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"
+
+- name: soft link
+  become: True
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items:
+    - { src: '{{ apps_dir }}/{{ node_ver }}/bin/node', dest: '/usr/sbin/node' }
+    - { src: '{{ apps_dir }}/{{ pm_ver }}/bin/pm2', dest: '/usr/sbin/pm2' }
+
+- name: soft link
+  become: True
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: '{{ apps_dir }}/{{ node_ver }}', dest: '{{ apps_dir }}/{{ pm_ver }}/node' }

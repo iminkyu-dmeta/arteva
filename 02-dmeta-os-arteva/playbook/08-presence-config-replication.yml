@@ -1,0 +1,12 @@
+---
+
+# 1. Backup Process config
+- name: Backup Presencedb data
+  vars:
+    side: ""
+    host: "db{{ side }}"
+  hosts: "{{ host | lower }}"
+  become: True
+
+  roles:
+    - role: backup-presencedb

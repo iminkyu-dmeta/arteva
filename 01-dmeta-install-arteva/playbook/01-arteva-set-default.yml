@@ -1,0 +1,15 @@
+---
+
+- name: Configure timcedate
+  gather_facts: True
+  vars:
+    hostname: "arteva01"
+    host: arteva
+
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: config-timedate
+    - role: config-limits
+    - role: config-selinux

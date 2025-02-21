@@ -1,0 +1,19 @@
+---
+
+- name: Check repo file
+  find:
+    paths: /etc/yum.repos.d/backup_repo
+    patterns: '*.repo'
+  register: filelist
+
+- name: display files
+  debug:
+    msg: "{{ filelist.files | map(attribute='path') | list }}"
+
+- name: Restore repo files
+  copy:
+    src: "{{ item.path }}"
+    dest: /etc/yum.repos.d
+    remote_src: yes
+  no_log: True
+  with_items: "{{ filelist.files }}"

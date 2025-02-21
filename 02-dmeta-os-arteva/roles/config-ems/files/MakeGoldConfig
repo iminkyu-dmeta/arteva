@@ -1,0 +1,804 @@
+#!/usr/bin/python
+
+import os, sys, re
+import json
+import difflib
+import pymysql
+import platform
+import socket
+import hashlib
+import time
+import argparse
+import subprocess
+from pwd import getpwnam
+from datetime import datetime
+from datetime import date
+from datetime import timedelta
+import urllib.parse
+import xml.etree.ElementTree as ET 
+import csv
+
+from pysnmp.hlapi import *
+from pysnmp import debug
+
+try:
+        import http.client as httplib
+except:
+        import httplib
+
+### Presence goldparameter path
+DIR=os.path.join('/', 'logs', 'CM')
+SDIR=os.path.join('/', 'apps', 'RCS', 'script')
+CSVFILE="Presence-Gold-Config.csv"
+FCSVFILE=os.path.join(SDIR, CSVFILE) 
+
+SQL="select id, name, ip, hostName from ne where name = '"
+COLUMN_SQL = "SELECT CHARACTER_MAXIMUM_LENGTH FROM information_schema.COLUMNS WHERE TABLE_NAME='fault' AND COLUMN_NAME='message';"
+GET_SQL = "select name from process where ne_id = '"
+Fault_SQL = "SELECT B.hostname AS 'HostName', B.ip AS 'IP', C.entity AS 'Entity', C.category AS 'Category', C.name AS 'Title', C.code AS 'Alarm Code' , C.event_time AS 'Start Time', C.clear_time AS 'Clear Time' FROM nemsdb.fault C INNER JOIN nemsdb.ne B ON B.id = C.ne_id INNER JOIN nemsdb.ne_group A ON B.group_id = A.id WHERE C.clear_time is null ORDER BY C.event_time limit 1;"
+
+## NE infomation
+VMS={"Presence1" : "rcs_ps.exe", "Presence2" : "rcs_ps.exe", "XDMS1" : "rcs_xdms.exe", "XDMS2" : "rcs_xdms.exe"}
+NENAME="Presence"
+SECTION=["TIMER", "RESOURCE_RATE_CONTROL", "METHOD_RATE_CONTROL"]
+PROCESS=["rcs_ps.exe", "rcs_xdms.exe"]
+
+S1="  "
+XML='<?xml version="1.0" encoding="EUC-KR"?>\r\n'
+
+GOLD_DIC=dict()
+GOLD_DIC[NENAME]=dict()
+GOLD_REF = dict()
+GOLD_REF[NENAME] = dict()
+
+# GoldConfig-20210802-Presence-wtc1a1fpse-vip.json
+DATE=date.today()
+YDATE=DATE - timedelta(days=1)
+RMDATE=DATE - timedelta(days=91)
+HOSTNAME=platform.node()
+GOLD_PARAMETER_FILE="GoldConfig-" + DATE.strftime("%Y%m%d") + "-Presence-" + HOSTNAME[:-3] + "-vip.json"
+GOLD_PARAMETER_FILE_YESTER="GoldConfig-" + YDATE.strftime("%Y%m%d") + "-Presence-" + HOSTNAME[:-3] + "-vip.json"
+GOLD_PARAMETER_REFE="GoldConfig-reference-Presence-" + HOSTNAME[:-3] + "-vip.json"
+FULL_GOLD_PARAMETER_FILE=os.path.join(DIR, GOLD_PARAMETER_FILE)
+REFE_GOLD_PARAMETER_FILE=os.path.join(DIR, GOLD_PARAMETER_REFE)
+FULL_GOLD_PARAMETER_FILE_YESTER=os.path.join(DIR, GOLD_PARAMETER_FILE_YESTER)
+USER='attps'
+COMMONPATH = os.path.join('common', 'usr', 'sbin')
+
+CRITICAL = 1
+MAJOR = 2
+MINOR =3
+WARNING = 4
+RELEASE = 5
+INFOR = 6
+
+class DBAcc:
+    def __init__(self, user, passwd, host, db):
+        config = {
+                'host':host,
+                'user':user,
+                'passwd':passwd,
+                'database':db,
+                'port':3306,
+                'charset':'utf8'
+        }
+
+        self.conn = pymysql.connect(**config)
+        self.curs = self.conn.cursor()
+
+    def selectDB(self, sql=None, fetchall=False):
+        self.curs.execute(sql)
+        if fetchall:
+            result = self.curs.fetchall()
+        else:
+            result = self.curs.fetchone()
+
+        return result
+
+    def insertDB(self, sql=None):
+        print("ToBe")
+
+    def closeDB(self):
+        self.conn.close()
+
+
+class Reference:
+    def __init__(self, referencefname):
+        self.referencefname = referencefname
+
+    def updatejson(self, sec, hostname, pname):
+        params = dict()
+        sections = dict()
+        reader = readconfigcsv(self.referencefname)
+        
+        for lines in reader:
+            process = lines[0].strip()
+            sect = lines[1].strip()
+            if process == 'Process':
+                continue
+            if pname in process:
+                if sec == sect:
+                    if lines[3].strip().isdigit():
+                        params[lines[2].strip()] = int(lines[3].strip())
+                    else:
+                        params[lines[2].strip()] = lines[3].strip()
+        
+        if params:
+            sections[sec] = params
+        Reference.makereference(self, hostname, sections, '3')
+
+    def makereference(self, hostname, sections, level):
+        if level == '2':
+            GOLD_REF[NENAME][hostname] = dict()
+            GOLD_REF[NENAME][hostname]["goldenParameters"] = dict()
+        elif level == '3':
+            GOLD_REF[NENAME][hostname]["goldenParameters"].update(sections)
+
+    def referencewrite(self):
+        with open(REFE_GOLD_PARAMETER_FILE, 'w', encoding='utf8') as wfile:
+            json.dump(GOLD_REF, wfile, indent="  ")
+
+        print(REFE_GOLD_PARAMETER_FILE)
+
+    def reference(self, hostname, pname):
+        Reference.makereference(self, hostname, None, '2')
+        SECTION = readconfigcsv(self.referencefname, True)
+        for sec in SECTION:
+            Reference.updatejson(self, sec, hostname, pname)
+
+class MakeGoldParameters:
+    def __init__(self, filename):
+        self.filename = filename
+
+    def findXml(self, xmldata, section, hostname):
+        tree = ET.fromstring(xmldata)
+    
+        sections = dict()
+        params = dict()
+        parameters = tree.iter(tag='param')
+        if parameters:
+            for ele in parameters:
+                if ele.get('type') == "number":
+                    params[ele.get('name')] = int(ele.get('value'))
+                else:
+                    params[ele.get('name')] = ele.get('value')
+    
+        xmldata_string = str(xmldata)
+        startindex=0
+        endindex=0
+        while True:
+            startindex = xmldata_string.find('<table', endindex)
+            endindex = xmldata_string.find('</table>', startindex)
+            if startindex == -1:
+                break
+            xmltable_string = xmldata_string[startindex:endindex+8]
+            ttree = ET.fromstring(xmltable_string)
+            tables = ttree.iter(tag='table')
+            fields = ttree.iter(tag='field')
+            for table in tables:
+                cols = table.get('cols')
+                rows = table.get('rows')
+                for idx, field in enumerate(fields):
+                    index = idx//int(rows)
+                    name = table.get('name') + "." + str(index) + "." + field.get('name')
+                    if field.get('type') == "number":
+                        params[name] = int(field.get('value'))
+                    else:
+                        params[name] = field.get('value')
+    
+        sections[section] = params
+        MakeGoldParameters.makeJson(self, hostname, sections, '3')
+    
+    def makeJson(self, hostname, json_data, level):
+        if level == '2':
+            GOLD_DIC[NENAME][hostname]=dict()
+            GOLD_DIC[NENAME][hostname]["goldenParameters"]=dict()
+        elif level == '3':
+            GOLD_DIC[NENAME][hostname]["goldenParameters"].update(json_data)
+    
+    def writeGoldParameters(self):
+        with open(self.filename, 'w', encoding='utf8') as wfile:
+            json.dump(GOLD_DIC, wfile, indent="  ")
+
+        print(self.filename)
+
+    def makeconfig(self, neid, nename, remoteip, hostname, pname):
+        MakeGoldParameters.makeJson(self, hostname, None, '2')
+        if os.path.isfile(FCSVFILE):
+            section = readconfigcsv(FCSVFILE, True)
+
+        for sec in SECTION:
+            xmldata=sendHttpGet(remoteip, '8800', pname, sec)
+            MakeGoldParameters.findXml(self, xmldata, sec, hostname)
+
+
+class SetConfig:
+    def __init__(self, filename=None):
+        self.filename = filename
+
+    def getconfigxml(self, xmldata, url=None, node=None):
+        try:
+            tree = ET.fromstring(xmldata)
+        except ValueError :
+            xmlp = ET.XMLParser(encoding="utf-8")
+            tree = ET.fromstring(xmldata, parser=xmlp)
+    
+        removeparam = ['default', 'description', 'max', 'min', 'oneof', 'type']
+        removetable = ['cols', 'restart', 'rows']
+        removefield = ['description', 'oneof', 'max', 'min', 'restart', 'type', 'notnull']
+    
+        if url == 'pkg':
+            for package in tree.findall('package'):
+                if package.get('activate') == 'false' or package.get('id') == 'clay':
+                    tree.remove(package)
+                else:
+                    del package.attrib['type']
+                    del package.attrib['activate']
+                    package.set('vm', node)
+        else:
+            for sec in tree.findall('section'):
+                if sec.get('pair'):
+                    del sec.attrib['pair']
+                for param in sec.findall('param'):
+                    for rp in removeparam:
+                        if param.get(rp):
+                            del param.attrib[rp]
+                for table in sec.findall('table'):
+                    for rt in removetable:
+                        if table.get(rt):
+                            del table.attrib[rt]
+                    for columns in table.findall('columns'):
+                        table.remove(columns)
+                    for record in table.findall('record'):
+                        for field in record.findall('field'):
+                            for rf in removefield:
+                                if field.get(rf):
+                                    del field.attrib[rf]
+        #print(ET.tostring(tree, encoding='utf-8', method='xml').decode('utf-8'))
+        return tree
+    
+    def setconfigxml(self, xmldata, section, pname):
+        reader = readconfigcsv(self.filename)
+    
+        if pname == 'rcs_ps.exe':
+            Node = 'PS'
+        elif pname == 'rcs_xdms.exe':
+            Node = 'XDMS'
+    
+        for line in reader:
+            if pname in line[0]: #== Node or line[0] == 'Presence':
+                se = line[1].strip()
+                Name = line[2].strip()
+                Value = line[3].strip()
+                for sec in xmldata.findall('section'):
+                    if sec.get('name') == se:
+                        for param in sec.findall('param'):
+                            if param.get('name') == Name:
+                                param.set('value', Value)
+                        for table in sec.findall('table'):
+                            if len(Name.split('.')) == 3:
+                                tname = Name.split('.')[0]
+                                index = Name.split('.')[1]
+                                fname = Name.split('.')[2]
+                                if table.get('name') == tname:
+                                    for record in table.findall('record'):
+                                        if record.get('index') == index:
+                                            for field in record.findall('field'):
+                                                if field.get('name') == fname:
+                                                    field.set('value', Value)
+    
+        #print(ET.tostring(xmldata, encoding='utf-8', method='xml').decode('utf-8'))
+        return ET.tostring(xmldata, encoding='utf-8', method='xml').decode('utf-8')
+    
+    def setconfig(self, neid, nename, remoteip, hostname, pname):
+        readconfigcsv(self.filename, True)
+        for section in SECTION:
+            xmldata=sendHttpGet(remoteip, '8800', pname, section)
+            configxml = SetConfig.getconfigxml(self, xmldata)
+            setxml = SetConfig.setconfigxml(self, configxml, section, pname)
+
+            sendHttpPost(remoteip, '8800', pname, section, setxml)
+
+
+class CompareGoldparameters:
+    def __init__(self, csize, reffile, curfile):
+        self.csize = csize
+        self.reffile = reffile
+        self.curfile = curfile
+
+    def readGoldconfig(self, data=None, name=None):
+        goldparameters = data.get('Presence', [])
+        vms = getKey(goldparameters)
+    
+        diffkey = dict()
+        for vm in vms:
+            parameters = goldparameters.get(vm).get('goldenParameters', [])
+            sections = getKey(parameters)
+    
+            for section in sections:
+                keys = getKey(parameters.get(section))
+    
+                for value in keys:
+                    if name is None:
+                        name = 'goldparameters'
+    
+                    key = vm + '-' + section + '-' + value
+                    diffkey[key] = parameters[section][value]
+    
+        return diffkey
+    
+    def diffJson(self, referencedict, currentdict):
+        diffString = []
+        for key in referencedict.keys():
+            try:
+                if referencedict[key] != currentdict[key]:
+                    value = "["
+                    string = key.split('-')
+                    value += '/'.join(string)
+                    value += "]: refer value=" + str(referencedict[key]) + " & " + "current value=" + str(currentdict[key])
+                    msize = len(value) + len(','.join(diffString))
+                    print("%d %d %d" % (self.csize, msize, len(','.join(diffString))))
+                    if self.csize > msize:
+                        diffString.append(value)
+            except KeyError as e:
+                value = "["
+                string = key.split('-')
+                value += '/'.join(string)
+                value += "]: refer value=" + str(referencedict[key]) + " & " + "current Key is None"
+                #print(str(e))
+                diffString.append(value)
+    
+        return diffString
+    
+    def getDiffKey(self):
+        reference=md5sumFile(self.reffile)
+        current=md5sumFile(self.curfile)
+    
+        if reference == None:
+            return None
+    
+        if current != reference:
+            json_reference = CompareGoldparameters.readGoldconfig(self, readJson(self.reffile), YDATE.strftime("%Y%m%d"))
+            json_current   = CompareGoldparameters.readGoldconfig(self, readJson(self.curfile), DATE.strftime("%Y%m%d"))
+    
+            diffString = CompareGoldparameters.diffJson(self, json_reference, json_current)
+    
+            return diffString
+    
+        return None
+
+class AlarmTrap:
+    def __init__(self, oid, hostname, entify, alarmcode, title, category, info, severity):
+        self.oid = oid
+        self.hostname = hostname
+        self.entify = entify
+        self.alarmcode = alarmcode
+        self.title = title
+        self.category = category
+        self.info = info
+        self.severity = severity
+
+    def SendSNMPTrap(self, filename=None, alarmTime=None, dateTime=None):
+            OID = self.oid
+            if filename:
+                Entify = self.entify + '-[' + filename + '(' + dateTime + ')]'
+            else:
+                Entify = self.entify
+            Description = self.entify + '. '
+    
+            nconfigurepath = commandpath('nconfigure')
+            cmd = [nconfigurepath, 'get', 'clay', 'SNMP', 'trapCommunity']
+            community = CheckOutput(cmd, shell=True)
+            cmd = [nconfigurepath, 'get', 'clay', 'SNMP', 'manager1']
+            emsvip = CheckOutput(cmd, shell=True)
+            cmd = [nconfigurepath, 'get', 'clay', 'SNMP', 'trapport']
+            trapport = CheckOutput(cmd, shell=True)
+            cmd = [nconfigurepath, 'get', 'clay', 'SNMP', 'inform']
+            inform = CheckOutput(cmd, shell=True)
+            Type = 'trap'
+    
+            errorIndication, errorStatus, errorIndex, varbinds = next(sendNotification(SnmpEngine(),
+                    CommunityData(community),
+                    UdpTransportTarget((emsvip, trapport)),
+                    ContextData(),
+                    Type,
+                    [
+                    # Trap OID (SNMPv2-MIB::coldStart)
+                     ObjectType(ObjectIdentity('1.3.6.1.6.3.1.1.4.1.0'), '1.3.6.1.4.1.25256.1.3.1.2'),
+                    # sequence of custom OID-value pairs
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.1'), OctetString(self.hostname)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.2'), OctetString(Entify)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.3'), OctetString(self.alarmcode)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.4'), OctetString(self.title)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.5'), OctetString(self.category)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.6'), Integer32(self.severity)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.7'), OctetString(Description)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.8'), OctetString(self.info)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.9'), Integer32(1)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.10'), Integer32(0)),
+                     ObjectType(ObjectIdentity('.1.3.6.1.4.1.25256.1.3.1.1.11'), OctetString(alarmTime))])
+            )
+            print(errorStatus)
+
+def CheckOutput(cmd, shell=False):
+    ''' command [] '''
+    ''' Return result '''
+    cmd = " ".join(cmd)
+    
+    try:
+        output = subprocess.check_output(cmd, shell=shell)
+    except subprocess.CalledProcessError as e:
+        ERROR(e)
+        return None
+    
+    return output.rstrip()
+
+def readconfigcsv(filename, section=False):
+    refdata = open(filename)
+    reader = csv.reader(refdata)
+
+    if section:
+        for lines in reader:
+            sec = lines[1].strip()
+            if sec == 'SECTION':
+                continue
+            if not is_all_unique(SECTION, sec):
+                print(sec)
+                SECTION.append(sec)
+
+        return SECTION
+
+    return reader
+
+def sendHttpGet(remoteip, port, name=None, section=None) :
+    if section:
+        params = urllib.parse.urlencode({'id': name, 'section': section})
+    else:
+        params = urllib.parse.urlencode({'id': name})
+    headers = {"Host": remoteip + ":" + port,
+                "Cache-Control": "no-cache",
+                "Pragma": "no-cache",
+                "User-Agent": "Gold-Config",
+                "Accept": "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2",
+                "Connection": "keep-alive"
+    } 
+    try:
+        conn = httplib.HTTPConnection(remoteip, port)
+        conn.request("GET", "/get.xml?" + params, "" ,headers)
+        response = conn.getresponse()
+        body = response.read()
+        return body
+    except (httplib.HTTPException, socket.error) as ex :
+        print("ERROR: %s" % ex)
+        return 0
+
+def sendHttpGetPKG(remoteip, port, name=None, section=None) :
+    headers = {"Host": remoteip + ":" + port,
+                "Cache-Control": "no-cache",
+                "Pragma": "no-cache",
+                "User-Agent": "Gold-Config",
+                "Accept": "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2",
+                "Connection": "keep-alive"
+    }
+    try:
+        conn = httplib.HTTPConnection(remoteip, port)
+        conn.request("GET", "/pkg.xml", "" ,headers)
+        response = conn.getresponse()
+        body = response.read()
+        return body
+    except (httplib.HTTPException, socket.error) as ex :
+        print("ERROR: %s" % ex)
+        return 0
+
+def sendHttpPost(remoteip, port, name, section, xmlbody):
+    params = urllib.parse.urlencode({'id': name, 'section': section})
+    headers = {"Host": remoteip + ":" + port,
+                "Accept": "text/plain, application/json, application/*+json, */*",
+                "Content-Type": "text/xml;charset=EUC-KR",
+                "Accept-Charset": "big5, big5-hkscs, cesu-8, euc-kr, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8", 
+                "Connection": "keep-alive",
+                "User-Agent": "Gold-Config",
+                "Accept-Encoding": "gzip,deflate"
+    }
+    body = XML
+    body += xmlbody
+    print(remoteip, body)
+
+    try:
+        conn = httplib.HTTPConnection(remoteip, port)
+        conn.request("POST", "/set.xml?" + params, body, headers)
+        response = conn.getresponse()
+        print(response.status, response.reason)
+    except (httplib.HTTPException, socket.error) as ex :
+        print("ERROR: %s" % ex)
+        return 0
+
+def is_all_unique(lst, line):
+    for ch in lst:
+        if ch == line:
+            return True
+
+    return False
+
+def md5sumFile(filename):
+    if os.path.isfile(filename):
+        with open(filename, 'rb') as mdfile:
+            content = mdfile.read()
+            md5sum = hashlib.md5()
+            md5sum.update(content)
+            md5result = md5sum.hexdigest()
+
+        return md5result
+    return None
+
+def readJson(filename):
+    with open(filename, 'r') as js:
+        json_data = json.load(js)
+
+    return json_data
+
+def getKey(jsondata=None):
+    vms = []
+    for key in jsondata.keys():
+        vms.append(key)
+
+    return vms
+
+def deleteFile(ODATE):
+    for (path, dir, files) in os.walk(DIR):
+        for filename in files:
+            fileMtime = datetime.fromtimestamp(os.path.getmtime(path + '/' + filename))
+            fileWtime = fileMtime.strftime('%Y%m%d')
+            if ODATE > fileWtime:
+                file_path = os.path.join(path, filename)
+                print(file_path)
+                os.remove(file_path)
+
+def setchown(filename):
+    UID = getpwnam(USER)[2]
+    GID = getpwnam(USER)[3]
+    os.chown(filename, UID, GID)
+
+def commandpath(command):
+    clayhome, claylog, user = readclayconf()
+    path = os.path.join(clayhome, COMMONPATH)
+    cpath = os.path.join(path, command)
+    if os.path.isfile(cpath):
+        return cpath
+    
+    else:
+        return command
+
+def readclayconf():
+    filename = 'clay.conf'
+    path = '~/etc/clay'
+    cpath = os.path.join(path, filename)
+    check_file = os.path.isfile(cpath)
+
+    if not check_file:
+        cpath = '/etc/clay/clay.conf'
+
+    with open(cpath, 'r') as cf:
+        reader = cf.readline()
+        for line in reader:
+            if 'CLAYHOME' in line:
+                CLAYHOME = line.split('=')[1]
+            else:
+                CLAYHOME = "/apps/RCS"
+
+            if 'CLAYLOG' in line:
+                CLAYLOG = line.split('=')[1]
+            else:
+                CLAYLOG= "/logs/RCS"
+            if 'SOCKET_FILE_OWN_GROUP' in line:
+                USER = line.split('=')[1]
+            else:
+                USER = "attps"
+
+    return CLAYHOME, CLAYLOG, USER
+
+def clearAlarm():
+    oid = '1.3.6.1.4.1.25256.1.3.1.2'
+    notcleared = db.selectDB(Fault_SQL, False)
+
+    hostname = notcleared[0]
+    entify = notcleared[2]
+    category = notcleared[3]
+    title = notcleared[4]
+    alarmcode = notcleared[5]
+    info = ""
+    severity = RELEASE
+    datetime = DATE.strftime('%Y%m%d')
+    alarmTime = str(int(round(time.time() * 1000000000)))[:-6]
+    
+    fault = AlarmTrap(oid, hostname, entify, alarmcode, title, category, info, severity)
+    fault.SendSNMPTrap(None, alarmTime, datetime)
+
+def main():
+    parser = argparse.ArgumentParser(description='GoldParameters')
+    parser.add_argument('-s', dest='set', help='Set config', action='store_true')
+    parser.add_argument('-r', dest='ref', help='reference config', action='store_false')
+    parser.add_argument('-f', dest='fname', help='reference csv file')
+    parser.add_argument('-m', dest='make', help='Create Gold config', action='store_false')
+    parser.add_argument('-y', dest='yester', help='compare yesterday Gold config', action='store_true')
+    parser.add_argument('-g', dest='get', help='Get config', action='store_true')
+    parser.add_argument('-n', dest='node', help='Presence Node')
+    parser.add_argument('-p', dest='process', help='process name')
+    parser.add_argument('-sec', dest='sec', help='config section name')
+    parser.add_argument('-l', dest='plist', help='Package List name' , action='store_true')
+    parser.add_argument('-a', dest='all', help='Full xml' , action='store_true')
+
+    args = parser.parse_args()
+    newreference = args.ref
+    getconf = args.get
+    setconfig = args.set
+    makegoldconfig = args.make
+    pkglist = args.plist
+    csvfile = args.fname
+    yester = args.yester
+
+    nconfigurepath = commandpath('nconfigure')
+
+    cmduser = [nconfigurepath, 'get', 'nems', 'database', 'db.user']
+    user = str(CheckOutput(cmduser, shell=True), 'utf-8')
+    cmdpasswd = [nconfigurepath, 'get', 'nems', 'database', 'db.password']
+    passwd = str(CheckOutput(cmdpasswd, shell=True), 'utf-8')
+    cmdhost = [nconfigurepath, 'get', 'nems', 'database', 'db.host']
+    hostip = str(CheckOutput(cmdhost, shell=True), 'utf-8')
+    if hostip == 'localhost':
+        hostip = '127.0.0.1'
+    cmdname = [nconfigurepath, 'get', 'nems', 'database', 'db.name']
+    dbname = str(CheckOutput(cmdname, shell=True), 'utf-8')
+
+    db = DBAcc(user, passwd, '127.0.0.1', dbname)
+
+	
+    #if not os.path.isfile(REFE_GOLD_PARAMETER_FILE) or newreference:
+    if newreference:
+        filename = None
+        if csvfile:
+            filename = os.path.join(SDIR, csvfile)
+        elif os.path.isfile(FCSVFILE):
+            filename = FCSVFILE
+
+        if filename:
+            ref = Reference(filename)
+            for vm, pname in VMS.items():
+                SELECT_SQL = SQL + vm + "'"
+                result = db.selectDB(SELECT_SQL, False)
+                hostname = result[3]
+
+                ref.reference(hostname, pname)
+
+            ref.referencewrite() 
+            setchown(REFE_GOLD_PARAMETER_FILE)
+        else:
+            yester = True
+
+    if getconf:
+        if not args.node or not args.process:
+            SELECT_SQL = "select name from ne;"
+            result = db.selectDB(SELECT_SQL, True)
+            print("python MakeGoldConfig -g -n [Presence Node] -p [Process]")
+            print("./MakeGoldConfig -g -n Presence1 -p rcs_ps.exe")
+            print("[Presence Node]")
+            for line in result:
+                print("    " + line[0])
+            sys.exit(1)
+        node = args.node
+        process = args.process
+        sec = args.sec
+        SELECT_SQL = SQL + node + "'"
+        result = db.selectDB(SELECT_SQL, False)
+        neid = result[0]
+        nename = result[1]
+        remoteip = result[2]
+        hostname = result[3]
+
+        xmldata = sendHttpGet(remoteip, '8800', process, sec)
+
+        xml = SetConfig(None)
+        data = xml.getconfigxml(xmldata)
+        data = ET.tostring(data, encoding='utf-8', method='xml').decode('utf-8')
+        for lines in data.splitlines():
+            if 'section' in lines:
+                print(lines)
+            elif 'param' in lines:
+                print('    ' + lines)
+            elif 'table' in lines:
+                print('    ' + lines)
+            elif 'record' in lines:
+                print('        ' + lines)
+            elif 'field' in lines:
+                print('            ' + lines)
+            else:
+                print(lines)
+
+    elif pkglist:
+        SSQL = "select name from ne;"
+        nelist = db.selectDB(SSQL, True)
+        for vm in nelist:
+            SELECT_SQL = SQL + vm[0] + "'"
+            result = db.selectDB(SELECT_SQL, False)
+            neid = result[0]
+            nename = result[1]
+            remoteip = result[2]
+            hostname = result[3]
+
+            xmldata = sendHttpGetPKG(remoteip, '8800', None, None)
+
+            if args.all:
+                xmldata = xmldata.decode('utf-8')
+                print(vm[0])
+                for lines in xmldata.splitlines():
+                    print("    " + lines)
+            else:
+                xml = SetConfig(None)
+                data = xml.getconfigxml(xmldata, 'pkg', vm[0])
+                data = ET.tostring(data, encoding='utf-8', method='xml').decode('utf-8')
+                for lines in data.splitlines():
+                    if 'package ' in lines:
+                        print(lines)
+
+    elif setconfig:
+        if csvfile:
+            sconf = SetConfig(FCSVFILE)
+        else:
+            sconf = SetConfig(FCSVFILE)
+        for vm, pname in VMS.items():
+            SELECT_SQL = SQL + vm + "'"
+            result = db.selectDB(SELECT_SQL, False)
+            neid = result[0]
+            nename = result[1]
+            remoteip = result[2]
+            hostname = result[3]
+
+            sconf.setconfig(neid, nename, remoteip, hostname, pname)
+
+    elif makegoldconfig:
+        ODATE = RMDATE.strftime('%Y%m%d')
+        deleteFile(ODATE)
+        mkgold = MakeGoldParameters(FULL_GOLD_PARAMETER_FILE)
+        for vm, pname in VMS.items():
+            SELECT_SQL = SQL + vm + "'"
+            result = db.selectDB(SELECT_SQL, False)
+            neid = result[0]
+            nename = result[1]
+            remoteip = result[2]
+            hostname = result[3]
+
+            mkgold.makeconfig(neid, nename, remoteip, hostname, pname)
+
+        mkgold.writeGoldParameters()
+        setchown(FULL_GOLD_PARAMETER_FILE)
+
+        #print(json.dumps(GOLD_REF, ensure_ascii=False, indent="  "))
+        #print(json.dumps(GOLD_DIC, ensure_ascii=False, indent="  "))
+        column_type = db.selectDB(COLUMN_SQL, False)
+        entity="Golden parameter mismatch"
+        csize = column_type[0] - len(entity)
+
+        if yester:
+            cgp = CompareGoldparameters(csize, FULL_GOLD_PARAMETER_FILE_YESTER, FULL_GOLD_PARAMETER_FILE)
+
+        else:
+            cgp = CompareGoldparameters(csize, REFE_GOLD_PARAMETER_FILE, FULL_GOLD_PARAMETER_FILE)
+
+        diffString = cgp.getDiffKey()
+    
+        if diffString:
+            oid = '1.3.6.1.4.1.25256.1.3.1.2'
+            alarmTime = str(int(round(time.time() * 1000000000)))[:-6]
+            datetime = DATE.strftime('%Y%m%d')
+            alarmcode = 'A0000103' 
+            title = entity
+            category = 'System'
+            info = ','.join(diffString)
+            severity = WARNING
+
+            print(info)
+            fault = AlarmTrap(oid, hostname, entity, alarmcode, title, category, info, severity)
+            fault.SendSNMPTrap(GOLD_PARAMETER_FILE, alarmTime, datetime)
+
+if __name__=='__main__':
+    main()

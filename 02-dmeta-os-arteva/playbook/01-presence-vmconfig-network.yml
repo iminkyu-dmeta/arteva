@@ -1,0 +1,48 @@
+---
+
+
+- name: Configure hostname 
+  gather_facts: True
+  vars:
+    side: ""
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+    host: "{{ setup_cfg.VNF | lower }}{{ side }}"
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-hostname
+
+- name: Configure IP setup 
+  vars:
+    side: ""
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+    host: "{{ setup_cfg.VNF | lower }}{{ side }}"
+    device_name: "Wired connection"
+    route_dev: "{{ signal2_nic }}"
+    route_gw: "{{ SIGNAL2GW }}"
+    mode: 1
+    miimon: 100
+    fail_over_mac: 0
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-network
+    - role: config-route
+
+- name: Extenstion partition 
+  vars:
+    side: ""
+    setup_cfg: "{{ lookup('file', '../script/config-info.json') }}"
+    host: "{{ setup_cfg.VNF | lower }}{{ side }}"
+    sda: "/dev/sda2"
+    device: "/dev/{{ second_disk_device }}"
+    vgname: "{{ volume_group }}"
+    number: "{{ device_number }}"
+    condition: "{{ Disk2nd }} > 0"
+  hosts: "{{ host | lower }}"
+  become: True
+
+  roles:
+    - role: config-partition

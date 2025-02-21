@@ -1,0 +1,12 @@
+---
+
+- name: dnf history rollback Transaction_ID
+  shell: dnf history -y rollback {{ Transaction_ID }}
+
+- name: dnf history
+  shell: dnf history
+  register: result
+
+- name: display dnf history
+  debug:
+    msg: "{{ result.stdout_lines }}"

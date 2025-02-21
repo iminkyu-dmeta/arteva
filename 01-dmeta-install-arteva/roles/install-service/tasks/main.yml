@@ -1,0 +1,25 @@
+---
+
+- import_tasks: create-user.yml
+  tags: [ 'never', 'create-user', 'install-arteva' ]
+
+- import_tasks: install-service.yml
+  tags: [ 'never', 'install-service', 'install-arteva' ]
+
+- import_tasks: install-tomcat.yml
+  tags: [ 'never', 'install-tomcat', 'install-arteva' ]
+
+- import_tasks: config-profile.yml
+  tags: [ 'never', 'config-profile', 'install-arteva' ]
+
+- import_tasks: update-bashrc.yml
+  tags: [ 'never', 'update-bashrc', 'install-arteva' ]
+
+- import_tasks: config-tomcat.yml
+  tags: [ 'never', 'config-tomcat', 'install-arteva' ]
+
+- import_tasks: change-config.yml
+  tags: [ 'never', 'change-config', 'install-arteva' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

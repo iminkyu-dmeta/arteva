@@ -1,0 +1,15 @@
+---
+
+- name: Update kernel args
+  become: True
+  shell: grubby --update-kernel=ALL --args={{ item }}
+  with_items:
+    - "{{ args.split(',') }}"
+  when: kernel_path == "ALL"
+
+- name: Update kernel args
+  become: True
+  shell: grubby --update-kernel={{ kernel_path }} --args={{ item }}
+  with_items:
+    - "{{ args.split(',') }}"
+  when: kernel_path != "ALL"

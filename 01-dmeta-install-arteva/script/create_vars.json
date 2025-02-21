@@ -1,0 +1,192 @@
+{
+	"VERSION": "5.0.0",
+	"VNF": "Presence",
+	"NE": [
+		"PresenceEMS1",
+		"PresenceEMS2",
+		"Presence1",
+		"Presence2",
+		"XDMS1",
+		"XDMS2",
+		"PresenceDB1",
+		"PresenceDB2",
+		"XDMSDB1",
+		"XDMSDB2"
+	],
+	"NEGroup": [
+		"PresenceEMS",
+		"Presence",
+		"XDMS",
+		"PresenceDB",
+		"XDMSDB"
+	],
+	"VNFC": {
+		"ems": [
+			"PresenceEMS"
+		],
+		"ps": [
+			"Presence"
+		],
+		"xdms": [
+			"XDMS"
+		],
+		"db": [
+			"PresenceDB",
+			"XDMSDB"
+		],
+		"psdb": [
+			"PresenceDB"
+		],
+		"xdmsdb": [
+			"XDMSDB"
+		]
+	},
+	"group_vars": {
+		"version": "2.9.1",
+		"core_version": "2.11.1",
+		"username": "attps",
+		"groupname": "attps",
+		"altibaseuser": "altibase",
+		"volume_group": "rl",
+		"second_disk_device": "sdb",
+		"device_number": "1",
+		"sidetype": "1v,2v",
+		"oam_nic": "ens192",
+		"ipc_nic": "ens224",
+		"signal_nic": "ens256",
+		"signal2_nic": "ens161",
+		"4ipvgw": "ens192",
+		"6ipvgw": "ens256",
+		"clayhome": "/apps/RCS",
+		"claylog": "/logs/RCS",
+		"def_dir": "../file",
+		"tmp_dir": "/tmp",
+		"altibase_home": "/altibase/altibase_home",
+		"trace_target": "rcs_ps.exe,rcs_xdms.exe",
+        	"admin_user": [
+                	"sysadmin",
+                	"operator",
+                	"guest"
+        	]
+	},
+        "NICLIST": [
+                "IPC",
+                "SIGNAL",
+                "SIGNAL2",
+                "FORTH"
+        ],
+        "BONDINGLIST": {
+                "BOND0": "ens161,ens193"
+        },
+	"PresenceEMS": {
+		"Partition": {
+			"APPS": [
+				"20",
+				"0"
+			],
+			"LOGS": [
+				"20",
+				"0.3"
+			],
+			"DATA": [
+				"30",
+				"0.64"
+			]
+		},
+		"Host_vars": {
+			"Priority": "priority",
+			"SERVER_ID": "num",
+			"MASTER_USER": "master",
+			"SLAVE_USER": "slave"
+		}
+	},
+	"Presence": {
+		"Partition": {
+                	"APPS": [
+                	        "20",
+                	        "0"
+                	],
+                	"LOGS": [
+                	        "50",
+                	        "0.94"
+                	]
+		},
+                "Host_vars": {
+                        "Priority": "priority",
+                        "DB1_IPCIP": "PresenceDB1,IPCIP",
+                        "DB2_IPCIP": "PresenceDB2,IPCIP",
+                        "DB1_SIGNALIP": "PresenceDB1,SIGNALIP",
+                        "DB2_SIGNALIP": "PresenceDB2,SIGNALIP",
+			"ADD_TARGET": "add_route"
+                }
+	},
+	"XDMS": {
+		"Partition": {
+                	"APPS": [
+                	        "20",
+                	        "0"
+                	],
+                	"LOGS": [
+                	        "50",
+                	        "0.94"
+                	]
+		},
+                "Host_vars": {
+                        "Priority": "priority",
+                        "DB1_IPCIP": "PresenceDB1,IPCIP",
+                        "DB2_IPCIP": "PresenceDB2,IPCIP",
+                        "DB1_SIGNALIP": "PresenceDB1,SIGNALIP",
+                        "DB2_SIGNALIP": "PresenceDB2,SIGNALIP",
+			"SITE": "site",
+			"ADD_TARGET": "add_route"
+                }
+	},
+	"PresenceDB": {
+		"Partition": {
+                	"APPS": [
+                	        "10",
+                	        "0"
+                	],
+                	"LOGS": [
+                	        "10",
+                	        "0"
+                	],
+                	"ALTI_DATA": [
+                	        "20",
+                	        "0.3"
+                	],
+                	"ALTI_LOG": [
+                	        "10",
+                	        "0.3"
+                	],
+			"ALTI_ARCH": [
+				"10",
+				"0.3"
+			]
+		}
+	},
+        "XDMSDB": {
+		"Partition": {
+                	"APPS": [
+                	        "10",
+                	        "0"
+                	],
+                	"LOGS": [
+                	        "10",
+                	        "0"
+                	],
+                	"ALTI_DATA": [
+                	        "20",
+                	        "0.3"
+                	],
+                	"ALTI_LOG": [
+                	        "10",
+                	        "0.3"
+                	],
+                	"ALTI_ARCH": [
+                	        "10",
+                	        "0.3"
+                	]
+		}
+        }
+}

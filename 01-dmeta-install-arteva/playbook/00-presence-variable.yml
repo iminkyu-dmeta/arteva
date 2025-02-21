@@ -1,0 +1,19 @@
+---
+
+- name: create config variables
+  hosts: localhost
+  vars:
+    vars_cfg: "{{ lookup('file', '../script/create_vars.json') }}"
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ vm_csv_file }}') }}"
+    VNF: "{{ vars_cfg.VNF }}"
+    def_dir: "../file"
+    VERSION: "{{ vars_cfg.VERSION }}"
+    sidetype: "{{ vars_cfg.group_vars.sidetype }}"
+    matchfirst: 'Name'
+    matchsecond: "Notes"
+    matchthird: "VMIP"
+    matchforth: "Remark"
+  connection: local
+  gather_facts: no
+  roles:
+    - role: config-variables

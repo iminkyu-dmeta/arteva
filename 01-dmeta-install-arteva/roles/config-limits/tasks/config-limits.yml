@@ -1,0 +1,38 @@
+---
+
+#- name: Add a line soft, hard
+#  become: True
+#  lineinfile:
+#    path: /etc/security/limits.conf
+#    regexp: "{{ item.regexp }}"
+#    line: "{{ item.line }}"
+#    insertbefore: '#*               soft    core'
+#  with_items:
+#    - { regexp: '^*               soft', line: '*               soft    nofile           65535' }
+#    - { regexp: '^*               hard', line: '*               hard    nofile           65535' }
+
+- name: Add a line soft, hard
+  become: True
+  stat:
+    path: /etc/security/{{ item }}
+  with_items:
+    - "limits.conf"
+  no_log: True
+  register: check_file
+
+- name: Copy file orifinal config
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}
+    dest: /etc/security/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+
+- name: change limits.conf
+  become: True
+  template:
+    src: limits.conf.j2
+    dest: /etc/security/{{ item }}
+  with_items:
+    - "limits.conf"

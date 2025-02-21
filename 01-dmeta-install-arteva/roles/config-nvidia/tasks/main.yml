@@ -1,0 +1,14 @@
+---
+
+- import_tasks: config-xorg.yml
+  tags: [ 'never', 'config-nvidia', 'config-xorg' ]
+
+- import_tasks: config-kernel-args.yml
+  tags: [ 'never', 'config-nvidia', 'config-kernel-args' ]
+
+- import_tasks: grub-mkconfig.yml
+  tags: [ 'never', 'config-nvidia', 'grub-mkconfig' ]
+
+- import_tasks: os-reboot.yml
+  tags: [ 'never', 'config-nvidia', 'os-reboot' ]
+

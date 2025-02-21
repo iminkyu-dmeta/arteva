@@ -1,0 +1,23 @@
+---
+
+- name: upgrade all packages
+  dnf:
+    name: '*'
+    state: latest
+  register: upgrade
+
+- name: save upgrade packages results
+  copy:
+    content: "{{ upgrade.results }}"
+    dest: "{{ tmp_dir }}/upgrade-all-{{ ansible_host }}.txt"
+  when: releasever is not defined
+
+- name: get upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/upgrade-all-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir/"
+    flat: yes
+
+- name: display 
+  debug:
+    msg: "{{ upgrade.results }}" 

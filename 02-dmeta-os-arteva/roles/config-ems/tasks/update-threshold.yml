@@ -1,0 +1,8 @@
+---
+
+- name: update Threshold
+  become: True
+  become_user: "{{ username }}"
+  become_flags: "-i"
+  shell: |
+    python {{ clayhome }}/script/Threshold-setting.py

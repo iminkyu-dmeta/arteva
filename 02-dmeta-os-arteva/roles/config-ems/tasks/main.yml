@@ -1,0 +1,51 @@
+---
+
+- import_tasks: create-config.yml
+  tags: [ 'ems', 'config-ems', 'create-config']
+
+- import_tasks: config-nemsdb.yml
+  tags: [ 'ems', 'update-nemsdb']
+
+- import_tasks: config-ne-filter.yml
+  tags: [ 'ems', 'config-ne-filter']
+
+- import_tasks: config-keystore.yml
+  tags: [ 'ems', 'config-keystore']
+
+- import_tasks: chrony.yml
+  tags: [ 'ems', 'chrony-ems']
+
+- import_tasks: restore-sslkey.yml
+  tags: [ 'ems', 'restore-sslkey']
+
+- import_tasks: restore-samlkey.yml
+  tags: [ 'ems', 'restore-samlkey']
+
+- import_tasks: config-ems.yml
+  tags: [ 'ems', 'config-ems', 'create-template', 'run-jinja']
+
+- import_tasks: update-threshold.yml
+  tags: [ 'never', 'ems', 'update-threshold']
+
+- import_tasks: config-firewalld.yml
+  tags: [ 'firewall', 'config-firewall', 'ems-config-firewall']
+
+- import_tasks: remove-firewalld.yml
+  tags: [ 'never', 'remove-firewall', 'ems-remove-firewall']
+
+- import_tasks: start-firewalld.yml
+  tags: [ 'never', 'start-firewall']
+
+- import_tasks: stop-firewalld.yml
+  tags: [ 'never', 'stop-firewall']
+
+- import_tasks: disable-firewalld.yml
+  tags: [ 'never', 'disable-firewall']
+
+- import_tasks: config-set.yml
+  tags: [ 'never', 'config-set']
+
+- import_tasks: config-get.yml
+  tags: [ 'never', 'config-get']
+
+

@@ -1,0 +1,11 @@
+---
+
+- name: Change Audit file list
+  vars:
+    side: ""
+    host: "presence{{ side }}"
+  hosts: "{{ host | lower }}"
+  become: True
+
+  roles:
+    - role: config-audit-list

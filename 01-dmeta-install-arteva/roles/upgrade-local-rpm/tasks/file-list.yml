@@ -1,0 +1,17 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: get file list
+  become: False
+  connection: local
+  shell: cat {{ def_dir }}/{{ rpm_file }}
+  run_once: yes
+  register: filelist
+
+- name: display file list
+  debug:
+    msg: "{{ filelist.stdout_lines }}"
+  run_once: yes

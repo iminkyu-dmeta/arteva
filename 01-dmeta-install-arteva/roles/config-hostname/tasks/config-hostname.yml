@@ -1,0 +1,11 @@
+---
+
+- name: set a hostname
+  become: true
+  community.builtin.hostname:
+    name: {{ hostname }}
+  register: values
+
+- name: display hostname
+  debug:
+    msg: {{ values.stdout }}

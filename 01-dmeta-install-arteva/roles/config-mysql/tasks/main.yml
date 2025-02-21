@@ -1,0 +1,10 @@
+---
+
+- import_tasks: config-mysql.yml
+  tags: [ 'never', 'config-mysql', 'config-db' ]
+
+- import_tasks: create-db.yml
+  tags: [ 'never', 'create-db', 'config-db' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

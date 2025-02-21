@@ -1,0 +1,25 @@
+---
+
+- name: systemd stop tomcat
+  become: True
+  systemd:
+    name: tomcat
+    state: stopped 
+
+- name: upload arteva backend files
+  become: True
+  replace: 
+    path: "{{ item }}"
+    regexp: '/home/dmeta'
+    replace: '{{ apps_dir }}'
+  with_items:
+    - '{{ apps_dir }}/arteva/webapps/arteva/WEB-INF/classes/log4j2.xml'
+    - '{{ apps_dir }}/arteva/webapps/arteva/WEB-INF/classes/dmeta/egovProps/globals.properties'
+    - '{{ apps_dir }}/arteva/webapps/arteva/WEB-INF/classes/dmeta/spring/com/context-properties.xml'
+
+- name: systemd stop tomcat
+  become: True
+  systemd:
+    name: tomcat
+    state: started
+    enabled: yes

@@ -1,0 +1,44 @@
+---
+
+# password_expired(90)
+- name: Config nemsdb
+  connection: local
+  template:
+    src: update_nemsdb.j2
+    dest: "../roles/config-ems/files/{{ updatenemsdb }}"
+
+- name: read config file
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: "{{ tmp_dir }}"
+    mode: '0644'
+  with_items:
+    - '{{ updatenemsdb }}'
+
+- name: update nemsdb databases
+  mysql_db:
+    name: nemsdb
+    state: import
+    login_user: nems
+    login_password: nems
+    target: "{{ tmp_dir }}/{{ updatenemsdb }}"
+
+- name: Create Function nemsdb
+  mysql_db:
+    name: nemsdb
+    state: import
+    login_user: nems
+    login_password: nems
+    target: "{{ clayhome }}/nems/current/sql/nemsdb_time_func.sql"
+  when: ONLINE is defined
+
+- name: Create Function nemsdb 
+  mysql_db:
+    name: nemsdb
+    state: import
+    login_user: nems
+    login_password: nems
+    target: "{{ clayhome }}/nems/current/sql/nemsdb_time_func.sql"
+  run_once: yes
+  when: ONLINE is not defined

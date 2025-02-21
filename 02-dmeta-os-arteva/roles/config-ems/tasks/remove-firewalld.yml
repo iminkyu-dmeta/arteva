@@ -1,0 +1,74 @@
+---
+
+- name: VMIP, IPCIP to  x.x.x.0
+  set_fact:
+    vmnetwork: "{{ VMIP | splitext | list | first }}.0"
+    ipcnetwork: "{{ IPCIP | splitext | list | first }}.0"
+
+- name: Config firewall
+  connection: local
+  template:
+    src: config-firewall-rich-rule.j2
+    dest: "../roles/config-ems/files/config-firewall-rich-rule"
+
+- name: read config file
+  set_fact:
+    richrule: "{{ lookup('file', '../roles/config-ems/files/config-firewall-rich-rule') }}"
+
+- name: Config firewalld rich-rule
+  become: True
+  firewalld:
+    rich_rule: "{{ item }}"
+    permanent: True
+    state: disabled
+  with_items:
+    - "{{ richrule.split('\r\n') }}"
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+
+- name: Config firewall
+  connection: local
+  template:
+    src: config-firewall-port.j2
+    dest: "../roles/config-ems/files/config-firewall-port"
+
+- name: read config file
+  set_fact:
+    sport: "{{ lookup('file', '../roles/config-ems/files/config-firewall-port') }}"
+
+- name: Config firewalld port
+  become: True
+  firewalld:
+    port: "{{ item }}"
+    permanent: True
+    state: disabled 
+  with_items:
+    - "{{ sport.split('\r\n') }}"
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+
+- name: Config firewall
+  connection: local
+  template:
+    src: config-firewall-service.j2
+    dest: "../roles/config-ems/files/config-firewall-service"
+
+- name: read config file
+  set_fact:
+    serv: "{{ lookup('file', '../roles/config-ems/files/config-firewall-service') }}"
+
+- name: Cofig firewalld service
+  become: True
+  firewalld:
+    service: "{{ item }}"
+    permanent: True
+    state: disabled 
+  with_items:
+    - "{{ sport.split('\r\n') }}"
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+#  notify: reload firewalld
+
+- name: reload firewalld
+  become: True
+  command: firewall-cmd --reload

@@ -1,0 +1,73 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+    depfile: "{{ input.split('.')[:-1][0] }}"
+  run_once: yes
+
+- name: delete rpm list
+  file:
+    path: "{{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt"
+    state: absent
+  run_once: yes
+
+- name: get dependancy requires resolve rpm list
+  become: True
+  shell: |
+    echo "dnf repoquery --requires --resolve --recursive  {{ item }}"  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --requires --resolve --recursive {{ item }} >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "===================================" >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "dnf repoquery --depends --resolve {{ item }}"  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --depends --resolve {{ item }} >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "===================================" >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+  run_once: yes
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: local user
+  become: False
+  local_action: shell whoami
+  register: user
+  run_once: yes
+
+- name: check dependence file
+  shell: egrep -v "dnf|==" {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt | wc -l
+  register: cnt
+  run_once: yes
+
+- name: get output file
+  fetch:
+    src: /tmp/ref-{{ depfile }}-rpmdeplist.txt
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    user: "{{ user.stdout }}"
+    group: "{{ user.stdout }}"
+    flat: yes
+  run_once: yes
+  when: cnt.stdout != "0"
+
+- name: get dependancy requires resolve rpm list
+  become: True
+  vars:
+    rpmname: '{{ item.split("-")[:-2] | join("-") }}'
+  shell: |
+    echo "dnf repoquery --requires --resolve --recursive  {{ rpmname }}"  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --requires --resolve --recursive {{ rpmname }} >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "===================================" >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "dnf repoquery --depends --resolve {{ rpmname }}"  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --depends --resolve {{ rpmname }} >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "===================================" >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+  run_once: yes
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: cnt.stdout == "0"
+
+- name: get output file
+  fetch:
+    src: "{{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    user: "{{ user.stdout }}"
+    group: "{{ user.stdout }}"
+    flat: yes
+  run_once: yes
+  when: cnt.stdout == "0"

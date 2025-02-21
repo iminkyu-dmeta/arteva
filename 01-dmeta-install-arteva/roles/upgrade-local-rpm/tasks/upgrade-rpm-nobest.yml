@@ -1,0 +1,32 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ csvfile.split('\r\n') }}"
+
+- name: copy rpm file to VM
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  with_items:
+    "{{ csvfile.split('\r\n') }}"
+
+- name: upgrad rpm nobest
+  vars:
+    rpm_name: "mysql-community"
+  shell: rpm -ivh --nodeps {{ tmp_dir }}/{{ rpm_name }}-*
+  #shell: dnf install -y --nobest /tmp/mysql-community-*
+
+- name: delete rpm file to VM
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    "{{ csvfile.split('\r\n') }}"

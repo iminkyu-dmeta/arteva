@@ -1,0 +1,291 @@
+#!/usr/bin/python
+
+import os, sys, re
+import json
+import difflib
+import pymysql
+import platform
+import socket
+import hashlib
+import time
+import argparse
+import subprocess
+from pwd import getpwnam
+from datetime import datetime
+from datetime import date
+from datetime import timedelta
+import urllib.parse
+import xml.etree.ElementTree as ET
+import csv
+import itertools
+
+from pysnmp.hlapi import *
+from pysnmp import debug
+
+try:
+        import http.client as httplib
+except:
+        import httplib
+
+COMMONPATH = os.path.join('common', 'usr', 'sbin')
+
+class DBAcc:
+    def __init__(self, user, passwd, host, db):
+        config = {
+                'host':host,
+                'user':user,
+                'passwd':passwd,
+                'database':db,
+                'port':3306,
+                'charset':'utf8'
+        }
+
+        self.conn = pymysql.connect(**config)
+        self.curs = self.conn.cursor()
+
+    def selectDB(self, sql=None, fetchall=False, desc=False):
+        self.curs.execute(sql)
+
+        if desc:
+            desc = self.curs.description
+
+        if fetchall:
+            result = self.curs.fetchall()
+        else:
+            result = self.curs.fetchone()
+
+        if desc:
+            return result, desc
+        else:
+            return result
+
+    def insertDB(self, sql=None, many=None):
+        if many:
+            var=many
+            self.curs.executemany(sql, var)
+        else:
+            self.curs.execute(sql)
+
+        self.conn.commit()
+
+    def closeDB(self):
+        self.conn.close()
+
+def CheckOutput(cmd, shell=False):
+    ''' command [] '''
+    ''' Return result '''
+    cmd = " ".join(cmd)
+
+    try:
+        output = subprocess.check_output(cmd, shell=shell)
+    except subprocess.CalledProcessError as e:
+        ERROR(e)
+        return None
+
+    return output.rstrip()
+
+def findfieldas(sql, result):
+    fstr = '(AS )\'([A-Za-z]+)[_]([A-Za-z0-9]+)|(AS )\'([A-Za-z0-9]+)'
+    findstr = re.findall(fstr, sql)
+
+    collist = []
+    for col in findstr:
+        if col[0]:
+            name = col[1] + "_" + col[2]
+            collist.append(name)
+        else:
+            name = col[4]
+            collist.append(name)
+
+    lsize = len(collist)
+    colsize = []
+    for idx, cl in enumerate(collist):
+        sz = len(cl)
+        colsize.append(sz)
+    for rows in result:
+        for idx, row in enumerate(rows):
+            sz = len(str(row))
+            if colsize[idx] < sz:
+                colsize[idx] = sz
+
+    return collist, colsize
+
+def findfield(sql, result):
+    findstr = sql.split(' ') 
+
+    collist = []
+    if findstr[1]:
+        name = findstr[1].split(',')
+        for field in name:
+            collist.append(field)
+
+    lsize = len(collist)
+    colsize = []
+    for idx, cl in enumerate(collist):
+        sz = len(cl)
+        colsize.append(sz)
+    for rows in result:
+        for idx, row in enumerate(rows):
+            sz = len(str(row))
+            if colsize[idx] < sz:
+                colsize[idx] = sz
+    return collist, colsize
+
+def print_result(output, field, opt=None):
+    rows = list(output)
+
+    for a in range(len(rows)):
+        rows[a] = list(rows[a])
+
+    print(field)
+    for i in range(len(rows)):
+        print(rows[i])
+
+
+def display(data, field, size, table=None):
+    LogLevel = 'info'
+    pstr = ""
+    lows = ""
+    fids = ""
+    fsz = len(field)
+
+    lines = []
+
+    if table:
+        for idx, sz in enumerate(size):
+            pstr += '+'
+            for i in range(int(sz+2)):
+                pstr += '-'
+            lows += "| %-" + str(sz+1) + "s"
+        pstr += '+'
+        lows += "|"
+
+        lines.append(pstr)
+        if LogLevel == 'debug':
+            print(lows)
+        lines.append(lows % tuple(field))
+        lines.append(pstr)
+
+        for row in data:
+            lines.append(lows % tuple(row))
+            if LogLevel == 'debug':
+                print(lows % tuple(row))
+
+        lines.append(pstr)
+    else: 
+        for row in data:
+            length = len(row)
+            if length == 2:
+                line = str(row[0]) + ',' + row[1]
+                lines.append(line)
+            elif length == 1:
+                lines.append(row[0])
+
+    for row in lines:
+        print(row)
+
+def getColumn(desc):
+    clist = []
+    for row in desc:
+        clist.append(row[0])
+
+    return clist
+
+def commandpath(command):
+    clayhome, claylog, user = readclayconf()
+    path = os.path.join(clayhome, COMMONPATH)
+    cpath = os.path.join(path, command)
+    if os.path.isfile(cpath):
+        return cpath
+
+    else:
+        return command
+
+def readclayconf():
+    filename = 'clay.conf'
+    path = '~/etc/clay'
+    cpath = os.path.join(path, filename)
+
+    if not os.path.isfile(cpath):
+        cpath = '/etc/clay/clay.conf'
+
+    with open(cpath, 'r') as cf:
+        reader = cf.readline()
+        for line in reader:
+            if 'CLAYHOME' in line:
+                CLAYHOME = line.split('=')[1]
+            else:
+                CLAYHOME = "/apps/RCS"
+
+            if 'CLAYLOG' in line:
+                CLAYLOG = line.split('=')[1]
+            else:
+                CLAYLOG= "/logs/RCS"
+            if 'export SOCKET_FILE_OWN_GROUP' in line:
+                USER = line.split('=')[1]
+            else:
+                USER = "attps"
+
+    return CLAYHOME, CLAYLOG, USER
+
+def main():
+    try :
+        dml = sys.argv[1]
+        sql = sys.argv[2]
+        host = sys.argv[3]
+    except IndexError :
+        host = ""
+
+    nconfigurepath = commandpath('nconfigure')
+
+    cmduser = [nconfigurepath, 'get', 'nems', 'database', 'db.user']
+    user = str(CheckOutput(cmduser, shell=True), 'utf-8')
+    cmdpasswd = [nconfigurepath, 'get', 'nems', 'database', 'db.password']
+    passwd = str(CheckOutput(cmdpasswd, shell=True), 'utf-8')
+    cmdhost = [nconfigurepath, 'get', 'nems', 'database', 'db.host']
+    hostip = str(CheckOutput(cmdhost, shell=True), 'utf-8')
+    if host:
+        hostip = host
+    else:
+        hostip = '127.0.0.1'
+
+    if "nstatdb" in dml:
+        cmdname = [nconfigurepath, 'get', 'nstat', 'database', 'DBName']
+        dbname = str(CheckOutput(cmdname, shell=True), 'utf-8')
+    else:
+        cmdname = [nconfigurepath, 'get', 'nems', 'database', 'db.name']
+        dbname = str(CheckOutput(cmdname, shell=True), 'utf-8')
+
+    db = DBAcc(user, passwd, host, dbname)
+
+    if dml == 'select' or dml == 'select-nstatdb':
+        result = db.selectDB(sql, fetchall=True)
+        flist, fsize  = findfieldas(sql, result)
+        display(result, flist, fsize, True)
+
+    if dml == 'selectc' or dml == 'selectc-nstatdb':
+        result = db.selectDB(sql, fetchall=True)
+        print(result)
+        flist, fsize  = findfield(sql, result)
+        display(result, flist, fsize)
+
+    elif dml == 'update' or dml == 'update-nstatdb':
+        result = db.insertDB(sql)
+
+    elif dml == 'desc' or dml == 'desc-nstatdb':
+        result = db.selectDB(sql)
+
+        print(result)
+    elif dml == 'show':
+        result, desc = db.selectDB(sql, desc=True)
+        collist = getColumn(desc)
+        for colid, colval in zip(collist, result):
+            print("%31s : %-60s" % (colid, colval))
+
+    elif dml == 'table' or dml == 'table-nstatdb':
+        result = db.selectDB(sql, fetchall=True)
+        for row in result:
+            print(row[0])
+
+if __name__=='__main__':
+    main()

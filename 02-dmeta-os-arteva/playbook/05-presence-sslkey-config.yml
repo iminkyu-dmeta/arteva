@@ -1,0 +1,12 @@
+---
+
+- name: Config ssl key
+  vars:
+    side: ""
+    java_dir: "/usr/bin"
+    host: "ems{{ side }}"
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-sslkey

@@ -1,0 +1,13 @@
+---
+
+- name: Change ssh Client alive interval 
+  vars:
+    interval: 3000
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^ClientAliveInterval'
+    line: "ClientAliveInterval {{ interval }}"
+
+- name: Restart sshd
+  become: True
+  shell: systemctl restart sshd

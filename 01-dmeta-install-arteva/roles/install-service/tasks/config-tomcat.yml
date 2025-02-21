@@ -1,0 +1,52 @@
+---
+
+- name: upload server.xml
+  become: True
+  template:
+    src: server.xml.j2
+    dest: "{{ apps_dir }}/tomcat/conf/{{ item }}"
+  with_items:
+    - "server.xml"
+
+- name: upload server.xml
+  become: True
+  template:
+    src: tomcat.service.j2
+    dest: "/etc/systemd/system/{{ item }}"
+    mode: '0755'
+  with_items:
+    - "tomcat.service"
+
+- name: chown tomcat
+  become: True
+  file:
+    path: "{{ apps_dir }}/tomcat"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: directory
+    recurse: yes
+
+- name: systemd reread
+  become: True
+  systemd:
+    daemon_reload: yes
+
+- name: systemd enable tomcat
+  become: True
+  systemd:
+    name: tomcat
+    state: started
+    enabled: yes
+
+- name: config firewall port
+  become: True
+  firewalld:
+    port: "{{ item }}"
+    permanent: True
+    state: enabled
+  with_items:
+    - '{{ was_port }}'
+
+- name: reload firewalld
+  become: True
+  command: firewall-cmd --reload

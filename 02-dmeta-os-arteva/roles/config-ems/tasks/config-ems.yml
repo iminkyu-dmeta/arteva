@@ -1,0 +1,154 @@
+---
+
+- name: Chown home log directory 
+  become: True
+  file:
+    path: "{{ item }}"
+    group: "{{ username }}"
+    owner: "{{ groupname }}"
+    recurse: yes
+    state: directory
+  with_items:
+    - '{{ clayhome }}'
+    - '{{ claylog }}'
+
+- name: Create /logs/DC/report
+  become: True
+  file:
+    path: /logs/DC/report
+    group: "{{ username }}"
+    owner: "{{ groupname }}"
+    mode: '0755'
+    state: directory
+
+- name: copy mysql script
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: /etc
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - mysql
+
+- name: copy MakeGoldConfig file
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: "{{ clayhome }}/script"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: '0755'
+  with_items:
+    - MakeGoldConfig
+    - Presence-Gold-Config.csv
+    - Presence-DailyCheck.py
+    - Presence-Report.py
+    - Presence-current-alarm.py
+    - Optimize.py
+    - enginID.py
+    - switchover.sh
+    - Threshold-setting.py
+    - mysql-util
+    - msql
+
+- name: Add hosts
+  become: True
+  lineinfile:
+    path: /etc/hosts
+    regexp: "-vip"
+    line: "{{ EMSVIP }}     {{ ansible_host }}-vip"
+
+- name: MIN_DISK_SIZE
+  local_action: shell echo $(( {{ LOGS }} * 6 / 10))
+  register: size
+
+#- name: debug
+#  debug:
+#    msg: "{{ item }}"
+#  with_items:
+#    - "{{ setup_cfg[NE_Group]['clay'] }}"
+
+- name: Config ems act
+  connection: local
+  template:
+    src: "config-{{ NE_Group|lower }}.j2"
+    dest: "../roles/config-ems/files/config-{{ NE_Group|lower }}-act"
+  when: Notes == 'PresenceEMS1'
+
+- name: read config file
+  set_fact:
+    actfile: "{{ lookup('file', '../roles/config-ems/files/config-{{ NE_Group|lower }}-act') }}"
+  when: Notes == 'PresenceEMS1'
+
+- name: nconfigure process
+  become: True
+  become_user: "{{ username }}"
+  become_flags: "-i"
+  shell: |
+    {{ item }}
+  with_items:
+    - "{{ actfile.split('\r\n') }}"
+  when: Notes == 'PresenceEMS1'
+
+- name: Config ems sby
+  connection: local
+  template:
+    src: "config-{{ NE_Group|lower }}.j2"
+    dest: "../roles/config-ems/files/config-{{ NE_Group|lower }}-sby"
+  when: Notes == 'PresenceEMS2'
+
+- name: read config file
+  set_fact:
+    sbyfile: "{{ lookup('file', '../roles/config-ems/files/config-{{ NE_Group|lower }}-sby') }}"
+  when: Notes == 'PresenceEMS2'
+
+- name: nconfigure process
+  become: True
+  become_user: "{{ username }}"
+  become_flags: "-i"
+  shell: |
+    {{ item }}
+  with_items:
+    - "{{ sbyfile.split('\r\n') }}"
+  when: Notes == 'PresenceEMS2'
+
+#- name: restart clay
+#  shell: nohup /usr/sbin/nrestart clay
+
+#- name: current alarm
+#  become: True
+#  cron:
+#    name: "current alarm"
+#    minute: "*/5"
+#    job: "{{ clayhome }}/script/Presence-current-alarm.py >> /dev/null"
+
+- name: copy pm delete script
+  copy:
+    src: "{{ item }}"
+    dest: "{{ clayhome }}/PM"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0755'
+  when: Notes == "PresenceEMS1" or Notes == "PresenceEMS2"
+  with_items:
+    - delete.sh
+    - run.sh
+
+- name: PM Config setup
+  vars:
+    PATH: "{{ clayhome }}/PM/conf"
+    CONF_FILE: "pm_stat.exe.conf"
+    CONF_NAME: "PM_EMS_HOSTNAME"
+  lineinfile:
+    path: "{{ PATH }}/{{ CONF_FILE }}"
+    regexp: '^{{ CONF_NAME }}'
+    line: '{{ CONF_NAME }}={{ Name }}'
+  when: Notes == "PresenceEMS1" or Notes == "PresenceEMS2"
+
+- name: restart
+  become: True
+  become_user: "{{ username }}"
+  become_flags: "-i"
+  shell: nohup nrestart

@@ -1,0 +1,49 @@
+---
+
+- name: UI enable
+  become: True
+  shell: |
+    rabbitmq-plugins list
+  register: result
+
+- name: list rabbitmq plugins 
+  debug:
+    msg: "{{ result.stdout_lines }}"
+
+- name: list users
+  become: True
+  shell: |
+    rabbitmqctl list_users
+  register: user_result
+
+- name: list users
+  debug: 
+    msg: "{{ user_result.stdout_lines }}"
+
+- name: list queues
+  become: True
+  shell: |
+    rabbitmqadmin list queues
+  register: qu_result
+
+- name: list queues
+  debug: 
+    msg: "{{ qu_result.stdout_lines }}"
+
+- name: list exchange
+  shell: |
+    rabbitmqctl list_bindings
+  register: e_result
+
+- name: list exchange
+  debug:
+    msg: "{{ e_result.stdout_lines }}"
+
+- name: bind exchange and queue
+  shell: |
+    rabbitmqctl list_bindings
+  register: b_result
+
+- name: bind exchange and queue
+  debug:
+    msg: "{{ b_result.stdout_lines }}"
