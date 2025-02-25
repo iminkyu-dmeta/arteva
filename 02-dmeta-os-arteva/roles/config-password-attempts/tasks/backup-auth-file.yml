@@ -1,0 +1,69 @@
+---
+
+- name: check that file exist
+  stat:
+    path: /etc/pam.d/{{ item }}
+  with_items:
+    - "system-auth"
+  no_log: True
+  register: system
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/pam.d/{{ item.item }}
+    dest: /etc/pam.d/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ system.results }}"
+  when: item.stat.exists
+
+- name: check that file exist
+  stat:
+    path: /etc/pam.d/{{ item }}
+  with_items:
+    - "password-auth"
+  no_log: True
+  register: password 
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/pam.d/{{ item.item }}
+    dest: /etc/pam.d/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ password.results }}"
+  when: item.stat.exists
+
+- name: check that file exist
+  stat:
+    path: /etc/security/{{ item }}
+  with_items:
+    - "faillock.conf"
+  no_log: True
+  register: faillock
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}
+    dest: /etc/security/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ faillock.results }}"
+  when: item.stat.exists
+
+- name: check that file exist
+  stat:
+    path: /etc/security/{{ item }}
+  with_items:
+    - "pwhistory.conf"
+  no_log: True
+  register: pwhistory 
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}
+    dest: /etc/security/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ pwhistory.results }}"
+  when: item.stat.exists

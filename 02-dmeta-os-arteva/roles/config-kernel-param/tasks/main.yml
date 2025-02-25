@@ -1,0 +1,82 @@
+---
+
+- import_tasks: config-route-ipv6.yml
+  tags: [ 'never', 'config-route-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-icmp-ipv6.yml
+  tags: [ 'never', 'config-icmp-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-sourcerouted-ipv6.yml
+  tags: [ 'never', 'disable-sourcerouted-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-route-default-ipv6.yml
+  tags: [ 'never', 'config-route-default-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-icmp-default-ipv6.yml
+  tags: [ 'never', 'config-icmp-default-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-sourcerouted-default-ipv6.yml
+  tags: [ 'never', 'disable-sourcerouted-default-ipv6', 'config-ipv6', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-icmp-redirct-ipv4.yml
+  tags: [ 'never', 'disable-icmp-redirct-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-martian-ipv4.yml
+  tags: [ 'never', 'config-martian-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-icmp-ipv4.yml
+  tags: [ 'never', 'disable-icmp-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-icmp-redirect-default-ipv4.yml
+  tags: [ 'never', 'config-icmp-redirect-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-sourcerouted-default-ipv4.yml
+  tags: [ 'never', 'disable-sourcerouted-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-martian-default-ipv4.yml
+  tags: [ 'never', 'config-martian-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-filter-default-ipv4.yml
+  tags: [ 'never', 'config-filter-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-secure-redirect-default-ipv4.yml
+  tags: [ 'never', 'config-secure-redirect-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-icmp-broadcast-ipv4.yml
+  tags: [ 'never', 'config-icmp-broadcast-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-icmp-error-ipv4.yml
+  tags: [ 'never', 'config-icmp-error-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: config-tcp-syncookies-ipv4.yml
+  tags: [ 'never', 'config-tcp-syncookies-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-send-icmp-redirect-ipv4.yml
+  tags: [ 'never', 'disable-send-icmp-redirect-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-send-icmp-redirect-default-ipv4.yml
+  tags: [ 'never', 'disable-send-icmp-redirect-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-ip-forwarding-ipv4.yml
+  tags: [ 'never', 'disable-ip-forwarding-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-storing-dump.yml
+  tags: [ 'never', 'disable-storing-dump', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: restrict-dmesg.yml
+  tags: [ 'never', 'restrict-dmesg', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-kernel-image-load.yml
+  tags: [ 'never', 'disable-kernel-image-load', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-kernel-profiling.yml
+  tags: [ 'never', 'disable-kernel-profiling', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: disable-network-bpf-syscall.yml
+  tags: [ 'never', 'disable-network-bpf-syscall', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: restrict-usage-ptrace.yml
+  tags: [ 'never', 'restrict-usage-ptrace', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: harden-bpf-jit.yml
+  tags: [ 'never', 'harden-bpf-jit', 'config-restrict-program', 'config-kernel-param', 'config-security']

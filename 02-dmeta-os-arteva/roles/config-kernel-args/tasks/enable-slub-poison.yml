@@ -1,0 +1,35 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-010423
+  - NIST-800-53-CM-6(a)
+  - grub2_slub_debug_argument
+  - low_disruption
+  - medium_complexity
+  - medium_severity
+  - reboot_required
+  - restrict_strategy
+
+- name: XCCDF Value var_slub_debug_options # promote to variable
+  set_fact:
+    var_slub_debug_options: !!str P
+  tags:
+    - always
+
+- name: Update grub defaults and the bootloader menu
+  command: /sbin/grubby --update-kernel=ALL --args="slub_debug={{ var_slub_debug_options }}"
+  when:
+  - '"kernel" in ansible_facts.packages'
+  - '"grub2-common" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-010423
+  - NIST-800-53-CM-6(a)
+  - grub2_slub_debug_argument
+  - low_disruption
+  - medium_complexity
+  - medium_severity
+  - reboot_required
+  - restrict_strategy

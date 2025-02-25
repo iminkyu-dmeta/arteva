@@ -1,0 +1,13 @@
+---
+
+- import_tasks: disable-process-core.yml
+  tags: [ 'never', 'disable-process-core', 'config-core-dump', 'config-security']
+
+- import_tasks: disable-backtraces.yml
+  tags: [ 'never', 'disable-backtraces', 'config-core-dump', 'config-security']
+
+- import_tasks: disable-storing.yml
+  tags: [ 'never', 'disable-storing', 'config-core-dump', 'config-security']
+
+- import_tasks: disable-core-all.yml
+  tags: [ 'never', 'disable-core-all', 'config-core-dump', 'config-security']

@@ -1,0 +1,25 @@
+---
+
+- import_tasks: backup-auth-file.yml
+  tags: [ 'never', 'backup-auth-file', 'config-password-attempts', 'config-security']
+
+- import_tasks: config-password-reuse.yml
+  tags: [ 'never', 'config-password-reuse', 'config-password-attempts', 'config-security']
+
+- import_tasks: config-faillock.yml
+  tags: [ 'never', 'config-faillock', 'config-password-attempts', 'config-security']
+
+- import_tasks: set-interval-failed.yml
+  tags: [ 'never', 'set-interval-failed', 'config-password-attempts', 'config-security']
+
+- import_tasks: set-lockout-failed.yml
+  tags: [ 'never', 'set-lockout-failed', 'config-password-attempts', 'config-security']
+
+- import_tasks: config-empty-password.yml
+  tags: [ 'never', 'config-empty-password', 'config-password-attempts', 'config-security']
+
+- import_tasks: config-pam-wheel-su.yml
+  tags: [ 'never', 'config-pam-wheel-su', 'config-password-attempts', 'config-security']
+
+- import_tasks: rollback-auth-file.yml
+  tags: [ 'never', 'rollback-auth-file']

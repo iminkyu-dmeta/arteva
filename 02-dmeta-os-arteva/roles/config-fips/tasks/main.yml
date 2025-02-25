@@ -1,0 +1,10 @@
+---
+
+- import_tasks: enable-dracut-fips.yml
+  tags: [ 'never', 'enable-dracut-fips', 'config-fips']
+
+- import_tasks: enable-fips-mode.yml
+  tags: [ 'never', 'enable-fips-mode', 'config-fips']
+
+#- import_tasks: verify.yml
+#  tags: [ 'never', 'verify-sshd']

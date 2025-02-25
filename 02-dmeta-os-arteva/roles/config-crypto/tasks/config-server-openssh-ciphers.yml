@@ -1,0 +1,85 @@
+---
+
+- name: XCCDF Value sshd_approved_ciphers # promote to variable
+  set_fact:
+    sshd_approved_ciphers: !!str aes256-ctr,aes192-ctr,aes128-ctr,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+  tags:
+    - always
+
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
+    Set facts'
+  set_fact:
+    path: /etc/crypto-policies/back-ends/opensshserver.config
+    correct_value: -oCiphers={{ sshd_approved_ciphers }}
+  tags:
+  - DISA-STIG-RHEL-08-010291
+  - NIST-800-53-AC-17(2)
+  - harden_sshd_ciphers_opensshserver_conf_crypto_policy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - reboot_required
+  - restrict_strategy
+
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
+    Stat'
+  stat:
+    path: '{{ path }}'
+    follow: true
+  register: opensshserver_file
+  tags:
+  - DISA-STIG-RHEL-08-010291
+  - NIST-800-53-AC-17(2)
+  - harden_sshd_ciphers_opensshserver_conf_crypto_policy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - reboot_required
+  - restrict_strategy
+
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
+    Create'
+  lineinfile:
+    path: '{{ path }}'
+    line: CRYPTO_POLICY='{{ correct_value }}'
+    create: true
+  when: not opensshserver_file.stat.exists or opensshserver_file.stat.size <= correct_value|length
+  tags:
+  - DISA-STIG-RHEL-08-010291
+  - NIST-800-53-AC-17(2)
+  - harden_sshd_ciphers_opensshserver_conf_crypto_policy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - reboot_required
+  - restrict_strategy
+
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config'
+  block:
+
+  - name: Existing value check
+    lineinfile:
+      path: '{{ path }}'
+      create: false
+      regexp: '{{ correct_value }}'
+      state: absent
+    check_mode: true
+    changed_when: false
+    register: opensshserver
+
+  - name: Update/Correct value
+    replace:
+      path: '{{ path }}'
+      regexp: (-oCiphers=\S+)
+      replace: '{{ correct_value }}'
+    when: opensshserver.found is defined and opensshserver.found != 1
+  when: opensshserver_file.stat.exists and opensshserver_file.stat.size > correct_value|length
+  tags:
+  - DISA-STIG-RHEL-08-010291
+  - NIST-800-53-AC-17(2)
+  - harden_sshd_ciphers_opensshserver_conf_crypto_policy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - reboot_required
+  - restrict_strategy

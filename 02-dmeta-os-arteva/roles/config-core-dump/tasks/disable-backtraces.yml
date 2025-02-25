@@ -1,0 +1,41 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-010675
+  - NIST-800-53-CM-6
+  - PCI-DSS-Req-3.2
+  - PCI-DSSv4-3.3
+  - PCI-DSSv4-3.3.1
+  - PCI-DSSv4-3.3.1.1
+  - coredump_disable_backtraces
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Set 'ProcessSizeMax' to '0' in the [Coredump] section of '/etc/systemd/coredump.conf'
+  ini_file:
+    path: /etc/systemd/coredump.conf
+    section: Coredump
+    option: ProcessSizeMax
+    value: '0'
+    create: true
+    mode: 420
+  when: '"systemd" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-010675
+  - NIST-800-53-CM-6
+  - PCI-DSS-Req-3.2
+  - PCI-DSSv4-3.3
+  - PCI-DSSv4-3.3.1
+  - PCI-DSSv4-3.3.1.1
+  - coredump_disable_backtraces
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy

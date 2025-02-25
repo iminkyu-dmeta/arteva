@@ -1,0 +1,91 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-040180
+  - NIST-800-171-3.4.5
+  - NIST-800-53-CM-6
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_debug-shell_disabled
+
+- name: Disable debug-shell SystemD Service - Collect systemd Services Present in the System
+  ansible.builtin.command: systemctl -q list-unit-files --type service
+  register: service_exists
+  changed_when: false
+  failed_when: service_exists.rc not in [0, 1]
+  check_mode: false
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040180
+  - NIST-800-171-3.4.5
+  - NIST-800-53-CM-6
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_debug-shell_disabled
+
+- name: Disable debug-shell SystemD Service - Ensure debug-shell.service is Masked
+  ansible.builtin.systemd:
+    name: debug-shell.service
+    state: stopped
+    enabled: false
+    masked: true
+  when:
+  - '"kernel" in ansible_facts.packages'
+  - service_exists.stdout_lines is search("debug-shell.service", multiline=True)
+  tags:
+  - DISA-STIG-RHEL-08-040180
+  - NIST-800-171-3.4.5
+  - NIST-800-53-CM-6
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_debug-shell_disabled
+
+- name: Unit Socket Exists - debug-shell.socket
+  ansible.builtin.command: systemctl -q list-unit-files debug-shell.socket
+  register: socket_file_exists
+  changed_when: false
+  failed_when: socket_file_exists.rc not in [0, 1]
+  check_mode: false
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040180
+  - NIST-800-171-3.4.5
+  - NIST-800-53-CM-6
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_debug-shell_disabled
+
+- name: Disable debug-shell SystemD Service - Disable Socket debug-shell
+  ansible.builtin.systemd:
+    name: debug-shell.socket
+    enabled: false
+    state: stopped
+    masked: true
+  when:
+  - '"kernel" in ansible_facts.packages'
+  - socket_file_exists.stdout_lines is search("debug-shell.socket", multiline=True)
+  tags:
+  - DISA-STIG-RHEL-08-040180
+  - NIST-800-171-3.4.5
+  - NIST-800-53-CM-6
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_debug-shell_disabled

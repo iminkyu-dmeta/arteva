@@ -1,0 +1,48 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-040021
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_atm_disabled
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+
+- name: Ensure kernel module 'atm' is disabled
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/atm.conf
+    regexp: install\s+atm
+    line: install atm /bin/false
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040021
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_atm_disabled
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+
+- name: Ensure kernel module 'atm' is blacklisted
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/atm.conf
+    regexp: ^blacklist atm$
+    line: blacklist atm
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040021
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_atm_disabled
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required

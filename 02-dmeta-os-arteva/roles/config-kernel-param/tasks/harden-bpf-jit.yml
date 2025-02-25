@@ -1,0 +1,74 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-040286
+  - NIST-800-53-CM-6
+  - NIST-800-53-SC-7(10)
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_core_bpf_jit_harden
+
+- name: List /etc/sysctl.d/*.conf files
+  find:
+    paths:
+    - /etc/sysctl.d/
+    - /run/sysctl.d/
+    - /usr/local/lib/sysctl.d/
+    contains: ^[\s]*net.core.bpf_jit_harden.*$
+    patterns: '*.conf'
+    file_type: any
+  register: find_sysctl_d
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040286
+  - NIST-800-53-CM-6
+  - NIST-800-53-SC-7(10)
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_core_bpf_jit_harden
+
+- name: Comment out any occurrences of net.core.bpf_jit_harden from config files
+  replace:
+    path: '{{ item.path }}'
+    regexp: ^[\s]*net.core.bpf_jit_harden
+    replace: '#net.core.bpf_jit_harden'
+  loop: '{{ find_sysctl_d.files }}'
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040286
+  - NIST-800-53-CM-6
+  - NIST-800-53-SC-7(10)
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_core_bpf_jit_harden
+
+- name: Ensure sysctl net.core.bpf_jit_harden is set to 2
+  sysctl:
+    name: net.core.bpf_jit_harden
+    value: '2'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040286
+  - NIST-800-53-CM-6
+  - NIST-800-53-SC-7(10)
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_core_bpf_jit_harden

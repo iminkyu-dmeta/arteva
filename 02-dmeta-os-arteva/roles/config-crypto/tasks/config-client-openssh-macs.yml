@@ -1,0 +1,45 @@
+---
+
+- name: XCCDF Value sshd_approved_macs # promote to variable
+  set_fact:
+    sshd_approved_macs: !!str hmac-sha2-512,hmac-sha2-256,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+  tags:
+    - always
+
+- name: 'Configure SSH Daemon to Use FIPS 140-2 Validated MACs: openssh.config'
+  block:
+
+  - name: Check for duplicate values
+    lineinfile:
+      path: /etc/crypto-policies/back-ends/openssh.config
+      create: true
+      regexp: (?i)^.*MACs\s+
+      state: absent
+    check_mode: true
+    changed_when: false
+    register: dupes
+
+  - name: Deduplicate values from /etc/crypto-policies/back-ends/openssh.config
+    lineinfile:
+      path: /etc/crypto-policies/back-ends/openssh.config
+      create: true
+      regexp: (?i)^.*MACs\s+
+      state: absent
+    when: dupes.found is defined and dupes.found > 1
+
+  - name: Insert correct line to /etc/crypto-policies/back-ends/openssh.config
+    lineinfile:
+      path: /etc/crypto-policies/back-ends/openssh.config
+      create: true
+      regexp: (?i)^.*MACs\s+
+      line: MACs {{ sshd_approved_macs }}
+      state: present
+  tags:
+  - DISA-STIG-RHEL-08-010020
+  - NIST-800-53-AC-17(2)
+  - harden_sshd_macs_openssh_conf_crypto_policy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - reboot_required
+  - restrict_strategy

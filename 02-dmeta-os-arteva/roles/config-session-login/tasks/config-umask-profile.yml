@@ -1,0 +1,81 @@
+---
+
+- name: XCCDF Value var_accounts_user_umask # promote to variable
+  set_fact:
+    var_accounts_user_umask: !!str {{ umask }}
+  tags:
+    - always
+
+- name: Ensure the Default Umask is Set Correctly in /etc/profile - Locate Profile  Configuration Files Where umask Is Defined
+  ansible.builtin.find:
+    paths:
+    - /etc/profile.d
+    patterns:
+    - sh.local
+    - '*.sh'
+    contains: ^[\s]*umask\s+\d+
+  register: result_profile_d_files
+  tags:
+  - DISA-STIG-RHEL-08-020353
+  - NIST-800-53-AC-6(1)
+  - NIST-800-53-CM-6(a)
+  - accounts_umask_etc_profile
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Ensure the Default Umask is Set Correctly in /etc/profile - Replace Existing umask Value in Files From /etc/profile.d
+  ansible.builtin.replace:
+    path: '{{ item.path }}'
+    regexp: ^(\s*)umask\s+\d+
+    replace: \1umask {{ var_accounts_user_umask }}
+  loop: '{{ result_profile_d_files.files }}'
+  register: result_umask_replaced_profile_d
+  when: result_profile_d_files.matched
+  tags:
+  - DISA-STIG-RHEL-08-020353
+  - NIST-800-53-AC-6(1)
+  - NIST-800-53-CM-6(a)
+  - accounts_umask_etc_profile
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Ensure the Default Umask is Set Correctly in /etc/profile - Ensure umask Is Set in /etc/profile if Not Already Set Elsewhere
+  ansible.builtin.lineinfile:
+    create: true
+    mode: 420
+    path: /etc/profile
+    line: umask {{ var_accounts_user_umask }}
+  when: not result_profile_d_files.matched
+  tags:
+  - DISA-STIG-RHEL-08-020353
+  - NIST-800-53-AC-6(1)
+  - NIST-800-53-CM-6(a)
+  - accounts_umask_etc_profile
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Ensure the Default Umask is Set Correctly in /etc/profile - Ensure umask Value For All Existing umask Definition in /etc/profile
+  ansible.builtin.replace:
+    path: /etc/profile
+    regexp: ^(\s*)umask\s+\d+
+    replace: \1umask {{ var_accounts_user_umask }}
+  register: result_umask_replaced_profile
+  tags:
+  - DISA-STIG-RHEL-08-020353
+  - NIST-800-53-AC-6(1)
+  - NIST-800-53-CM-6(a)
+  - accounts_umask_etc_profile
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy

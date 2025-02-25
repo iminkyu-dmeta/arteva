@@ -1,0 +1,13 @@
+---
+
+- import_tasks: disable-debug-shell.yml
+  tags: [ 'never', 'disable-debug-shell', 'config-screen-lock', 'config-security']
+
+- import_tasks: disable-ctrlaltdel-burstaction.yml
+  tags: [ 'never', 'disable-ctrlaltdel-burstaction', 'config-screen-lock', 'config-security']
+
+- import_tasks: disable-ctrlaltdel-reboot.yml
+  tags: [ 'never', 'disable-ctrlaltdel-reboot', 'config-screen-lock', 'config-security']
+
+- import_tasks: config-require-auth.yml
+  tags: [ 'never', 'config-require-auth', 'config-screen-lock', 'config-security']

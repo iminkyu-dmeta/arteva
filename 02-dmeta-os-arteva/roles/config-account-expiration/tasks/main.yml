@@ -1,0 +1,19 @@
+---
+
+- import_tasks: config-account-exprie-inactivity.yml
+  tags: [ 'never', 'config-account-exprie-inactivity', 'config-account-expiration']
+
+- import_tasks: config-password-maximum-age.yml
+  tags: [ 'never', 'config-password-maximum-age', 'config-account-expiration']
+
+- import_tasks: config-password-minimum-age.yml
+  tags: [ 'never', 'config-password-minimum-age', 'config-account-expiration']
+
+- import_tasks: config-password-minimum-length.yml
+  tags: [ 'never', 'config-password-minimum-length', 'config-account-expiration']
+
+- import_tasks: config-exist-password-maximum-age.yml
+  tags: [ 'never', 'config-exist-password-maximum-age', 'config-account-expiration']
+
+- import_tasks: config-exist-password-minimum-age.yml
+  tags: [ 'never', 'config-exist-password-minimum-age', 'config-account-expiration']

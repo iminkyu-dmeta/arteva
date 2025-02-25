@@ -1,0 +1,25 @@
+---
+
+- name: Check that original file exist
+  stat:
+    path: /etc/security/{{ item }}.orig
+  with_items:
+    - "pwquality.conf"
+  no_log: True
+  register: pwquality
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}.orig
+    dest: /etc/security/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ pwquality.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/security/{{ item }}.orig
+    state: absent
+  with_items:
+    - "pwquality.conf"

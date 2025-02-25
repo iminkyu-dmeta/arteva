@@ -1,0 +1,42 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-020140
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-IA-5(1)(a)
+  - NIST-800-53-IA-5(4)
+  - NIST-800-53-IA-5(c)
+  - accounts_password_pam_maxclassrepeat
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+- name: XCCDF Value var_password_pam_maxclassrepeat # promote to variable
+  set_fact:
+    var_password_pam_maxclassrepeat: !!str 4
+  tags:
+    - always
+
+- name: Ensure PAM Enforces Password Requirements - Maximum Consecutive Repeating Characters from Same Character Class - Ensure PAM variable maxclassrepeat is set accordingly
+  ansible.builtin.lineinfile:
+    create: true
+    dest: /etc/security/pwquality.conf
+    regexp: ^#?\s*maxclassrepeat
+    line: maxclassrepeat = {{ var_password_pam_maxclassrepeat }}
+  when: '"pam" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-020140
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-IA-5(1)(a)
+  - NIST-800-53-IA-5(4)
+  - NIST-800-53-IA-5(c)
+  - accounts_password_pam_maxclassrepeat
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy

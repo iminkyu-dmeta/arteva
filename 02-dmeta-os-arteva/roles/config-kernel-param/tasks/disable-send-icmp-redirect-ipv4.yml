@@ -1,0 +1,102 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040220
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - NIST-800-53-SC-7(a)
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.5
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_conf_all_send_redirects
+
+- name: List /etc/sysctl.d/*.conf files
+  find:
+    paths:
+    - /etc/sysctl.d/
+    - /run/sysctl.d/
+    - /usr/local/lib/sysctl.d/
+    contains: ^[\s]*net.ipv4.conf.all.send_redirects.*$
+    patterns: '*.conf'
+    file_type: any
+  register: find_sysctl_d
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040220
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - NIST-800-53-SC-7(a)
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.5
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_conf_all_send_redirects
+
+- name: Comment out any occurrences of net.ipv4.conf.all.send_redirects from config files
+  replace:
+    path: '{{ item.path }}'
+    regexp: ^[\s]*net.ipv4.conf.all.send_redirects
+    replace: '#net.ipv4.conf.all.send_redirects'
+  loop: '{{ find_sysctl_d.files }}'
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040220
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - NIST-800-53-SC-7(a)
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.5
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_conf_all_send_redirects
+
+- name: Ensure sysctl net.ipv4.conf.all.send_redirects is set to 0
+  sysctl:
+    name: net.ipv4.conf.all.send_redirects
+    value: '0'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040220
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - NIST-800-53-SC-7(a)
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.5
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_conf_all_send_redirects

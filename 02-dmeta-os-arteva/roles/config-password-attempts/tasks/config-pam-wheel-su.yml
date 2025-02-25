@@ -1,0 +1,26 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+  - use_pam_wheel_for_su
+
+- name: Restrict usage of su command only to members of wheel group
+  replace:
+    path: /etc/pam.d/su
+    regexp: ^[\s]*#[\s]*auth[\s]+required[\s]+pam_wheel\.so[\s]+use_uid$
+    replace: auth             required        pam_wheel.so use_uid
+  when: '"pam" in ansible_facts.packages'
+  tags:
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+  - use_pam_wheel_for_su

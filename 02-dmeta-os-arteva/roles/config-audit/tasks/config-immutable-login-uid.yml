@@ -1,0 +1,45 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - NIST-800-53-AU-2(a)
+  - audit_immutable_login_uids
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Put contents into /etc/audit/rules.d/11-loginuid.rules according to policy
+  copy:
+    dest: /etc/audit/rules.d/11-loginuid.rules
+    content: |+
+      ## Make the loginuid immutable. This prevents tampering with the auid.
+      --loginuid-immutable
+
+    force: true
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - NIST-800-53-AU-2(a)
+  - audit_immutable_login_uids
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+- name: Remove any permissions from other group
+  file:
+    path: /etc/audit/rules.d/11-loginuid.rules
+    mode: o-rwx
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - NIST-800-53-AU-2(a)
+  - audit_immutable_login_uids
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy

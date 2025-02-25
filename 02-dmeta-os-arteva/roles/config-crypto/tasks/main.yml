@@ -1,0 +1,25 @@
+---
+
+- import_tasks: config-crypto-policy.yml
+  tags: [ 'never', 'config-crypto-policy', 'config-crypto']
+
+- import_tasks: config-openssl-strong.yml
+  tags: [ 'never', 'config-openssl-strong', 'config-crypto']
+
+#- import_tasks: config-tls-encryption.yml
+#  tags: [ 'never', 'config-tls-encryption', 'config-crypto']
+#
+#- import_tasks: config-client-openssh-ciphers.yml
+#  tags: [ 'never', 'config-client-openssh-ciphers', 'config-crypto']
+#
+#- import_tasks: config-server-openssh-ciphers.yml
+#  tags: [ 'never', 'config-server-openssh-ciphers', 'config-crypto']
+#
+#- import_tasks: config-client-openssh-macs.yml
+#  tags: [ 'never', 'config-client-openssh-macs', 'config-crypto']
+#
+#- import_tasks: config-server-openssh-macs.yml
+#  tags: [ 'never', 'config-server-openssh-macs', 'config-crypto']
+#
+#- import_tasks: verify.yml
+#  tags: [ 'never', 'verify-sshd']

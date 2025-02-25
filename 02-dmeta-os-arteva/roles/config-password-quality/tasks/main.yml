@@ -1,0 +1,31 @@
+---
+
+- import_tasks: backup-pwquality.yml
+  tags: [ 'never', 'backup-pwquality', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-digit.yml
+  tags: [ 'never', 'config-minimum-digit', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-different-charactor.yml
+  tags: [ 'never', 'config-minimum-different-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-lowercase-charactor.yml
+  tags: [ 'never', 'config-minimum-lowercase-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: config-maximum-consecutive-repeat-charactor.yml
+  tags: [ 'never', 'config-maximum-consecutive-repeat-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: config-password-maximum-consecutive-repeat-charactor.yml
+  tags: [ 'never', 'config-maximum-consecutive-repeat-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-length.yml
+  tags: [ 'never', 'config-minimum-length', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-special-charactor.yml
+  tags: [ 'never', 'config-minimum-special-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: config-minimum-uppercase-charactor.yml
+  tags: [ 'never', 'config-minimum-uppercase-charactor', 'config-password-quality', 'config-security']
+
+- import_tasks: rollback-pwquality.yml
+  tags: [ 'never', 'rollback-pwquality']

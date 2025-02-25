@@ -1,0 +1,16 @@
+---
+
+- import_tasks: disable-atm.yml
+  tags: [ 'never', 'disable-atm', 'config-network-protocol', 'config-security']
+
+- import_tasks: disable-can.yml
+  tags: [ 'never', 'disable-can', 'config-network-protocol', 'config-security']
+
+- import_tasks: disable-ieee-firewire.yml
+  tags: [ 'never', 'disable-ieee-firewire', 'config-network-protocol', 'config-security']
+
+- import_tasks: disable-sctp.yml
+  tags: [ 'never', 'disable-sctp', 'config-network-protocol', 'config-security']
+
+- import_tasks: disable-tipc.yml
+  tags: [ 'never', 'disable-tipc', 'config-network-protocol', 'config-security']

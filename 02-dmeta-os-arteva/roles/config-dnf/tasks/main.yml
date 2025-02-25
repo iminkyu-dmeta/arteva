@@ -1,0 +1,10 @@
+---
+
+- import_tasks: config-dnf-automatic.yml
+  tags: [ 'never', 'config-dnf-automatic', 'config-dnf']
+
+- import_tasks: config-gpgcheck-enabled.yml
+  tags: [ 'never', 'config-gpgcheck-enabled', 'config-dnf']
+
+- import_tasks: enabled-timer-dnf.yml
+  tags: [ 'never', 'enabled-timer-dnf', 'config-dnf']

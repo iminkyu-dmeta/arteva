@@ -1,0 +1,33 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-030602
+  - NIST-800-53-CM-6(a)
+  - PCI-DSSv4-10.7
+  - PCI-DSSv4-10.7.2
+  - grub2_audit_backlog_limit_argument
+  - low_disruption
+  - low_severity
+  - medium_complexity
+  - reboot_required
+  - restrict_strategy
+
+- name: Update grub defaults and the bootloader menu
+  command: /sbin/grubby --update-kernel=ALL --args="audit_backlog_limit=8192"
+  when:
+  - '"kernel" in ansible_facts.packages'
+  - '"grub2-common" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-030602
+  - NIST-800-53-CM-6(a)
+  - PCI-DSSv4-10.7
+  - PCI-DSSv4-10.7.2
+  - grub2_audit_backlog_limit_argument
+  - low_disruption
+  - low_severity
+  - medium_complexity
+  - reboot_required
+  - restrict_strategy

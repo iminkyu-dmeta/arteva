@@ -1,8 +1,0 @@
----
-
-- name: started firewalld
-  become: True
-  systemd:
-    name: firewalld
-    state: started
-    enabled: True

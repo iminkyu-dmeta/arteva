@@ -1,0 +1,7 @@
+---
+
+- import_tasks: enabled-file-access-policy.yml
+  tags: [ 'never', 'enabled-file-access-policy', 'enabled-service'] #, 'config-security']
+
+- import_tasks: enable-usbguard.yml
+  tags: [ 'never', 'enable-usbguard', 'enabled-service'] #, 'config-security']

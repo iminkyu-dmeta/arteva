@@ -1,0 +1,54 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-040024
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - kernel_module_tipc_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+
+- name: Ensure kernel module 'tipc' is disabled
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/tipc.conf
+    regexp: install\s+tipc
+    line: install tipc /bin/false
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040024
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - kernel_module_tipc_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+
+- name: Ensure kernel module 'tipc' is blacklisted
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/tipc.conf
+    regexp: ^blacklist tipc$
+    line: blacklist tipc
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040024
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - kernel_module_tipc_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required

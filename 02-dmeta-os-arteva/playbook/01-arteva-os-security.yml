@@ -1,0 +1,25 @@
+---
+
+- name: Configure OS hardning
+  vars:
+    side: ""
+    host: "arteva"
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-network
+    - role: config-route
+    - role: config-password-attempts
+    - role: config-password-quality
+    - role: config-screen-lock
+    - role: config-session-login
+    - role: config-kernel-param
+    - role: config-kernel-args
+    - role: config-network-protocol
+    - role: config-file-permission
+    - role: config-core-dump
+    - role: config-ssh
+    - role: config-audit
+    - role: enabled-service
+    - role: config-usbguard

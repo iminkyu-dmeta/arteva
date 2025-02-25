@@ -1,0 +1,70 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-010376
+  - NIST-800-53-AC-6
+  - disable_strategy
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+  - sysctl_kernel_perf_event_paranoid
+
+- name: List /etc/sysctl.d/*.conf files
+  find:
+    paths:
+    - /etc/sysctl.d/
+    - /run/sysctl.d/
+    - /usr/local/lib/sysctl.d/
+    contains: ^[\s]*kernel.perf_event_paranoid.*$
+    patterns: '*.conf'
+    file_type: any
+  register: find_sysctl_d
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-010376
+  - NIST-800-53-AC-6
+  - disable_strategy
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+  - sysctl_kernel_perf_event_paranoid
+
+- name: Comment out any occurrences of kernel.perf_event_paranoid from config files
+  replace:
+    path: '{{ item.path }}'
+    regexp: ^[\s]*kernel.perf_event_paranoid
+    replace: '#kernel.perf_event_paranoid'
+  loop: '{{ find_sysctl_d.files }}'
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-010376
+  - NIST-800-53-AC-6
+  - disable_strategy
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+  - sysctl_kernel_perf_event_paranoid
+
+- name: Ensure sysctl kernel.perf_event_paranoid is set to 2
+  sysctl:
+    name: kernel.perf_event_paranoid
+    value: '2'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-010376
+  - NIST-800-53-AC-6
+  - disable_strategy
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+  - sysctl_kernel_perf_event_paranoid

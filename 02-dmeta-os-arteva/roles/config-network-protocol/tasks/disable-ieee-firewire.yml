@@ -1,0 +1,48 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - DISA-STIG-RHEL-08-040026
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_firewire-core_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+
+- name: Ensure kernel module 'firewire-core' is disabled
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/firewire-core.conf
+    regexp: install\s+firewire-core
+    line: install firewire-core /bin/false
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040026
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_firewire-core_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required
+
+- name: Ensure kernel module 'firewire-core' is blacklisted
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/firewire-core.conf
+    regexp: ^blacklist firewire-core$
+    line: blacklist firewire-core
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - DISA-STIG-RHEL-08-040026
+  - NIST-800-53-AC-18
+  - disable_strategy
+  - kernel_module_firewire-core_disabled
+  - low_complexity
+  - low_severity
+  - medium_disruption
+  - reboot_required

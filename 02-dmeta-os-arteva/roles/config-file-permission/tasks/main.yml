@@ -1,0 +1,67 @@
+---
+
+- import_tasks: disable-mount-cramfs.yml
+  tags: [ 'never', 'disable-mount-cramfs', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-boot.yml
+  tags: [ 'never', 'add-nodev-boot', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-boot.yml
+  tags: [ 'never', 'add-nosuid-boot', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-shm.yml
+  tags: [ 'never', 'add-nodev-shm', 'config-file-permission', 'config-security']
+
+- import_tasks: add-noexec-shm.yml
+  tags: [ 'never', 'add-noexec-shm', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-shm.yml
+  tags: [ 'never', 'add-nosuid-shm', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-home.yml
+  tags: [ 'never', 'add-nodev-home', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-home.yml
+  tags: [ 'never', 'add-nosuid-home', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-non-root.yml
+  tags: [ 'never', 'add-nodev-non-root', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-tmp.yml
+  tags: [ 'never', 'add-nodev-tmp', 'config-file-permission', 'config-security']
+
+- import_tasks: add-noexec-tmp.yml
+  tags: [ 'never', 'add-noexec-tmp', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-tmp.yml
+  tags: [ 'never', 'add-nosuid-tmp', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-var-log-audit.yml
+  tags: [ 'never', 'add-nodev-var-log-audit', 'config-file-permission', 'config-security']
+
+- import_tasks: add-noexec-var-log-audit.yml
+  tags: [ 'never', 'add-noexec-var-log-audit', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-var-log-audit.yml
+  tags: [ 'never', 'add-nosuid-var-log-audit', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-var-log.yml
+  tags: [ 'never', 'add-nodev-var-log', 'config-file-permission', 'config-security']
+
+- import_tasks: add-noexec-var-log.yml
+  tags: [ 'never', 'add-noexec-var-log', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nosuid-var-log.yml
+  tags: [ 'never', 'add-nosuid-var-log', 'config-file-permission', 'config-security']
+
+- import_tasks: add-nodev-var.yml
+  tags: [ 'never', 'add-nodev-var', 'config-file-permission', 'config-security']
+
+#- import_tasks: add-nodev-var-tmp.yml
+#  tags: [ 'never', 'add-nodev-var-tmp', 'config-file-permission', 'config-security']
+
+#- import_tasks: add-noexec-var-tmp.yml
+#  tags: [ 'never', 'add-noexec-var-tmp', 'config-file-permission', 'config-security']
+
+#- import_tasks: add-nosuid-var-tmp.yml
+#  tags: [ 'never', 'add-nosuid-var-tmp', 'config-file-permission', 'config-security']

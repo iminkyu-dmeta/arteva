@@ -1,0 +1,104 @@
+---
+
+- name: Gather the package facts
+  package_facts:
+    manager: auto
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040230
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - PCI-DSS-Req-1.4.3
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.2
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+
+- name: List /etc/sysctl.d/*.conf files
+  find:
+    paths:
+    - /etc/sysctl.d/
+    - /run/sysctl.d/
+    - /usr/local/lib/sysctl.d/
+    contains: ^[\s]*net.ipv4.icmp_echo_ignore_broadcasts.*$
+    patterns: '*.conf'
+    file_type: any
+  register: find_sysctl_d
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040230
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - PCI-DSS-Req-1.4.3
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.2
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+
+- name: Comment out any occurrences of net.ipv4.icmp_echo_ignore_broadcasts from config files
+  replace:
+    path: '{{ item.path }}'
+    regexp: ^[\s]*net.ipv4.icmp_echo_ignore_broadcasts
+    replace: '#net.ipv4.icmp_echo_ignore_broadcasts'
+  loop: '{{ find_sysctl_d.files }}'
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040230
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - PCI-DSS-Req-1.4.3
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.2
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+
+- name: XCCDF Value sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value # promote to variable
+  set_fact:
+    sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value: !!str 1
+  tags:
+    - always
+
+- name: Ensure sysctl net.ipv4.icmp_echo_ignore_broadcasts is set
+  sysctl:
+    name: net.ipv4.icmp_echo_ignore_broadcasts
+    value: '{{ sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value }}'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  when: '"kernel" in ansible_facts.packages'
+  tags:
+  - CJIS-5.10.1.1
+  - DISA-STIG-RHEL-08-040230
+  - NIST-800-171-3.1.20
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - NIST-800-53-SC-5
+  - PCI-DSS-Req-1.4.3
+  - PCI-DSSv4-1.4
+  - PCI-DSSv4-1.4.2
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_net_ipv4_icmp_echo_ignore_broadcasts

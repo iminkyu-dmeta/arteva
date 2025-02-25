@@ -1,0 +1,15 @@
+---
+
+- name: Configure OS manual hardning
+  vars:
+    side: ""
+    host: "arteva"
+  hosts: "{{ host | lower }}"
+  become: True 
+
+  roles:
+    - role: config-chrony
+    - role: config-fips
+    - role: config-crypto
+    - role: config-dnf
+    - role: config-selinux
