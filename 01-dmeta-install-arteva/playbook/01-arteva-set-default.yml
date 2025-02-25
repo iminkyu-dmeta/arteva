@@ -13,3 +13,4 @@
     - role: config-timedate
     - role: config-limits
     - role: config-selinux
+    - role: config-hostname
