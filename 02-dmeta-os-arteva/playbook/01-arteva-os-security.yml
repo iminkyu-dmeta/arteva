@@ -8,8 +8,6 @@
   become: True 
 
   roles:
-    - role: config-network
-    - role: config-route
     - role: config-password-attempts
     - role: config-password-quality
     - role: config-screen-lock

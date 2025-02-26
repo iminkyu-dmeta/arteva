@@ -2,8 +2,7 @@
 
 - name: set a hostname
   become: true
-  community.builtin.hostname:
-    name: "{{ hostname }}"
+  command: hostnamectl set-hostname --static "{{ hostname }}"
   register: values
 
 - name: display hostname
