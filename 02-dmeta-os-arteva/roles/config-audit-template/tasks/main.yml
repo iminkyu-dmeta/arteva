@@ -1,0 +1,52 @@
+---
+
+- import_tasks: config-set-type-nodename.yml
+  tags: [ 'never', 'config-set-type-nodename', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-access.yml
+  tags: [ 'never', 'config-unsuccessful-access', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-access.yml
+  tags: [ 'never', 'config-successful-access', 'config-audit', 'config-security']
+
+- import_tasks: config-basic-param.yml
+  tags: [ 'never', 'config-basic-param', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-create.yml
+  tags: [ 'never', 'config-unsuccessful-create', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-create.yml
+  tags: [ 'never', 'config-successful-create', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-delete.yml
+  tags: [ 'never', 'config-unsuccessful-delete', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-delete.yml
+  tags: [ 'never', 'config-successful-delete', 'config-audit', 'config-security']
+
+- import_tasks: config-immutable-login-uid.yml
+  tags: [ 'never', 'config-immutable-login-uid', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-modification.yml
+  tags: [ 'never', 'config-unsuccessful-modification', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-modification.yml
+  tags: [ 'never', 'config-successful-modification', 'config-audit', 'config-security']
+
+- import_tasks: config-load-unload-kernel.yml
+  tags: [ 'never', 'config-load-unload-kernel', 'config-audit', 'config-security']
+
+- import_tasks: config-perform-general.yml
+  tags: [ 'never', 'config-perform-general', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-owner-change.yml
+  tags: [ 'never', 'config-unsuccessful-owner-change', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-owner-change.yml
+  tags: [ 'never', 'config-successful-owner-change', 'config-audit', 'config-security']
+
+- import_tasks: config-unsuccessful-perm-change.yml
+  tags: [ 'never', 'config-unsuccessful-perm-change', 'config-audit', 'config-security']
+
+- import_tasks: config-successful-perm-change.yml
+  tags: [ 'never', 'config-successful-perm-change', 'config-audit', 'config-security']

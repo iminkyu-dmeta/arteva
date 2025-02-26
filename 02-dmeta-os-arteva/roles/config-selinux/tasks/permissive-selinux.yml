@@ -1,31 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010170
-  - NIST-800-171-3.1.2
-  - NIST-800-171-3.7.2
-  - NIST-800-53-AC-3
-  - NIST-800-53-AC-3(3)(a)
-  - NIST-800-53-AU-9
-  - NIST-800-53-SC-7(21)
-  - PCI-DSSv4-1.2
-  - PCI-DSSv4-1.2.6
-  - high_severity
-  - low_complexity
-  - low_disruption
-  - no_reboot_needed
-  - restrict_strategy
-  - selinux_state
-
-- name: XCCDF Value var_selinux_state # promote to variable
-  set_fact:
-    var_selinux_state: !!str permissive
-  tags:
-    - always
-
 - name: Ensure SELinux State is Permissive
   block:
 
@@ -52,9 +26,8 @@
       path: /etc/selinux/config
       create: true
       regexp: (?i)^SELINUX=
-      line: SELINUX={{ var_selinux_state }}
+      line: SELINUX=permissive
       state: present
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010170
   - NIST-800-171-3.1.2

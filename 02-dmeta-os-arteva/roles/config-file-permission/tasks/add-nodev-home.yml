@@ -1,25 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - configure_strategy
-  - high_disruption
-  - low_complexity
-  - mount_option_home_nodev
-  - no_reboot_needed
-  - unknown_severity
-
 - name: 'Add nodev Option to /home: Check information associated to mountpoint'
   command: findmnt --fstab '/home'
   register: device_name
   failed_when: device_name.rc > 1
   changed_when: false
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - '"/home" in ansible_mounts | map(attribute="mount") | list'
   tags:
   - configure_strategy
@@ -36,9 +22,6 @@
   - '{{ device_name.stdout_lines[0].split() | list | lower }}'
   - '{{ device_name.stdout_lines[1].split() | list }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - '"/home" in ansible_mounts | map(attribute="mount") | list'
   - device_name.stdout is defined and device_name.stdout_lines is defined
   - (device_name.stdout | length > 0)
@@ -63,9 +46,6 @@
     - ''
     - defaults
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - '"/home" in ansible_mounts | map(attribute="mount") | list'
   - ("--fstab" | length == 0)
   - device_name.stdout is defined and device_name.stdout_lines is defined
@@ -82,9 +62,6 @@
   set_fact:
     mount_info: '{{ mount_info | combine( {''options'':''''~mount_info.options~'',nodev'' }) }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - '"/home" in ansible_mounts | map(attribute="mount") | list'
   - mount_info is defined and "nodev" not in mount_info.options
   tags:
@@ -103,9 +80,6 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - '"/home" in ansible_mounts | map(attribute="mount") | list'
   - mount_info is defined
   - (device_name.stdout is defined and (device_name.stdout | length > 0)) or ("--fstab" | length == 0)

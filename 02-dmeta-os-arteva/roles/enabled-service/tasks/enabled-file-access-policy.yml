@@ -1,19 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-040136
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-SI-4(22)
-  - enable_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - service_fapolicyd_enabled
-
 - name: Enable the File Access Policy Service - Enable service fapolicyd
   block:
 
@@ -27,9 +13,6 @@
       enabled: true
       state: started
       masked: false
-    when:
-    - '"fapolicyd" in ansible_facts.packages'
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040136
   - NIST-800-53-CM-6(a)

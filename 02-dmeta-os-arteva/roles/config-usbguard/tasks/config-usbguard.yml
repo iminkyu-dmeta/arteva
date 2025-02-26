@@ -1,18 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - NIST-800-53-CM-8(3)
-  - NIST-800-53-IA-3
-  - configure_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - usbguard_allow_hid_and_hub
-
 - name: Allow HID devices and hubs
   lineinfile:
     path: /etc/usbguard/rules.conf
@@ -20,7 +7,8 @@
     regexp: ''
     line: allow with-interface match-all { 03:*:* 09:00:* }
     state: present
-  when: ( ansible_architecture != "s390x" and "kernel" in ansible_facts.packages )
+      #when: ( ansible_architecture != "s390x" and "kernel" in ansible_facts.packages )
+  when: ( ansible_architecture != "s390x" )
   tags:
   - NIST-800-53-CM-8(3)
   - NIST-800-53-IA-3

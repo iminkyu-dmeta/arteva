@@ -1,21 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-040262
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv6_conf_default_accept_ra
-
 - name: List /etc/sysctl.d/*.conf files
   find:
     paths:
@@ -26,7 +10,6 @@
     patterns: '*.conf'
     file_type: any
   register: find_sysctl_d
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040262
   - NIST-800-171-3.1.20
@@ -46,7 +29,6 @@
     regexp: ^[\s]*net.ipv6.conf.default.accept_ra
     replace: '#net.ipv6.conf.default.accept_ra'
   loop: '{{ find_sysctl_d.files }}'
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040262
   - NIST-800-171-3.1.20
@@ -60,12 +42,6 @@
   - reboot_required
   - sysctl_net_ipv6_conf_default_accept_ra
 
-- name: XCCDF Value sysctl_net_ipv6_conf_default_accept_ra_value # promote to variable
-  set_fact:
-    sysctl_net_ipv6_conf_default_accept_ra_value: !!str 0
-  tags:
-    - always
-
 - name: Ensure sysctl net.ipv6.conf.default.accept_ra is set
   sysctl:
     name: net.ipv6.conf.default.accept_ra
@@ -73,7 +49,6 @@
     sysctl_file: /etc/sysctl.conf
     state: present
     reload: true
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040262
   - NIST-800-171-3.1.20

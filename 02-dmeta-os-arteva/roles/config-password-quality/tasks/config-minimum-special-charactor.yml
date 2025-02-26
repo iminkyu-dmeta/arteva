@@ -1,33 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-020280
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-IA-5(1)(a)
-  - NIST-800-53-IA-5(4)
-  - NIST-800-53-IA-5(c)
-  - accounts_password_pam_ocredit
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
-- name: XCCDF Value var_password_pam_ocredit # promote to variable
-  set_fact:
-    var_password_pam_ocredit: !!str -1
-  tags:
-    - always
-
 - name: Ensure PAM Enforces Password Requirements - Minimum Special Characters - Ensure PAM variable ocredit is set accordingly
   ansible.builtin.lineinfile:
     create: true
     dest: /etc/security/pwquality.conf
     regexp: ^#?\s*ocredit
     line: ocredit = {{ var_password_pam_ocredit }}
-  when: '"pam" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-020280
   - NIST-800-53-CM-6(a)

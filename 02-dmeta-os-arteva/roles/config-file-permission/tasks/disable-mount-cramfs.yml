@@ -1,28 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-040025
-  - NIST-800-171-3.4.6
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - disable_strategy
-  - kernel_module_cramfs_disabled
-  - low_complexity
-  - low_severity
-  - medium_disruption
-  - reboot_required
-
 - name: Ensure kernel module 'cramfs' is disabled
   lineinfile:
     create: true
     dest: /etc/modprobe.d/cramfs.conf
     regexp: install\s+cramfs
     line: install cramfs /bin/false
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040025
   - NIST-800-171-3.4.6
@@ -42,7 +25,6 @@
     dest: /etc/modprobe.d/cramfs.conf
     regexp: ^blacklist cramfs$
     line: blacklist cramfs
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-040025
   - NIST-800-171-3.4.6

@@ -1,13 +1,6 @@
 ---
 
-- name: XCCDF Value sshd_approved_ciphers # promote to variable
-  set_fact:
-    sshd_approved_ciphers: !!str aes256-ctr,aes192-ctr,aes128-ctr,aes256-gcm@openssh.com,aes128-gcm@openssh.com
-  tags:
-    - always
-
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
-    Set facts'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config: Set facts'
   set_fact:
     path: /etc/crypto-policies/back-ends/opensshserver.config
     correct_value: -oCiphers={{ sshd_approved_ciphers }}
@@ -21,8 +14,7 @@
   - reboot_required
   - restrict_strategy
 
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
-    Stat'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config: Stat'
   stat:
     path: '{{ path }}'
     follow: true
@@ -37,8 +29,7 @@
   - reboot_required
   - restrict_strategy
 
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config:
-    Create'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated Ciphers: opensshserver.config: Create'
   lineinfile:
     path: '{{ path }}'
     line: CRYPTO_POLICY='{{ correct_value }}'

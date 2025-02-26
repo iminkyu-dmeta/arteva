@@ -1,0 +1,30 @@
+---
+
+- name: Put contents into /etc/audit/rules.d/30-ospp-v42-1-create-success.rules according to policy
+  template:
+    src: 30-ospp-v42-1-create-success.rules.j2
+    dest: /etc/audit/rules.d/30-ospp-v42-1-create-success.rules
+    owner: root
+    group: root
+    mode: '0640'
+  tags:
+  - NIST-800-53-AU-2(a)
+  - audit_create_success
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+
+#- name: Remove any permissions from other group
+#  file:
+#    path: /etc/audit/rules.d/30-ospp-v42-1-create-success.rules
+#    mode: o-rwx
+#  tags:
+#  - NIST-800-53-AU-2(a)
+#  - audit_create_success
+#  - low_complexity
+#  - low_disruption
+#  - medium_severity
+#  - no_reboot_needed
+#  - restrict_strategy

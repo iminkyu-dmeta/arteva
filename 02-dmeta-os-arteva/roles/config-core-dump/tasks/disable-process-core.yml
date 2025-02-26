@@ -1,24 +1,10 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010672
-  - NIST-800-53-SC-7(10)
-  - disable_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - service_systemd-coredump_disabled
-
 - name: Disable acquiring, saving, and processing core dumps - Collect systemd Socket Units Present in the System
   ansible.builtin.command:
     cmd: systemctl -q list-unit-files --type socket
   register: result_systemd_unit_files
   changed_when: false
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010672
   - NIST-800-53-SC-7(10)
@@ -36,7 +22,6 @@
     enabled: false
     masked: true
   when:
-  - '"kernel" in ansible_facts.packages'
   - result_systemd_unit_files.stdout_lines is search("systemd-coredump.socket")
   tags:
   - DISA-STIG-RHEL-08-010672

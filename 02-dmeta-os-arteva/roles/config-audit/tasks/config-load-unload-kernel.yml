@@ -1,17 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - NIST-800-53-AU-2(a)
-  - audit_module_load
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
-
 - name: Put contents into /etc/audit/rules.d/43-module-load.rules according to policy
   copy:
     dest: /etc/audit/rules.d/43-module-load.rules
@@ -23,7 +11,6 @@
       -a always,exit -F arch=b32 -S delete_module -F key=module-unload
       -a always,exit -F arch=b64 -S delete_module -F key=module-unload
     force: true
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - NIST-800-53-AU-2(a)
   - audit_module_load
@@ -37,7 +24,6 @@
   file:
     path: /etc/audit/rules.d/43-module-load.rules
     mode: o-rwx
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - NIST-800-53-AU-2(a)
   - audit_module_load

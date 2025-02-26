@@ -1,36 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010020
-  - NIST-800-53-CM-3(6)
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-IA-7
-  - NIST-800-53-SC-12
-  - NIST-800-53-SC-12(2)
-  - NIST-800-53-SC-12(3)
-  - NIST-800-53-SC-13
-  - enable_fips_mode
-  - high_severity
-  - medium_complexity
-  - medium_disruption
-  - reboot_required
-  - restrict_strategy
-- name: XCCDF Value var_system_crypto_policy # promote to variable
-  set_fact:
-    var_system_crypto_policy: !!str FIPS:OSPP
-  tags:
-    - always
-
 - name: Enable FIPS Mode - Check to See the Current Status of FIPS Mode
   ansible.builtin.command: /usr/bin/fips-mode-setup --check
   register: is_fips_enabled
   failed_when: false
   changed_when: false
-  when: ( not ( lookup("env", "container") == "bwrap-osbuild" ) and "kernel" in ansible_facts.packages
-    )
+  when: not ( lookup("env", "container") == "bwrap-osbuild" )
   tags:
   - DISA-STIG-RHEL-08-010020
   - NIST-800-53-CM-3(6)
@@ -50,8 +25,7 @@
 - name: Enable FIPS Mode - Enable FIPS Mode
   ansible.builtin.command: /usr/bin/fips-mode-setup --enable
   when:
-  - ( not ( lookup("env", "container") == "bwrap-osbuild" ) and "kernel" in ansible_facts.packages
-    )
+  - not ( lookup("env", "container") == "bwrap-osbuild" )
   - is_fips_enabled.stdout.find('FIPS mode is enabled.') == -1
   tags:
   - DISA-STIG-RHEL-08-010020
@@ -75,8 +49,7 @@
     regexp: ^(?!#)(\S+)$
     line: '{{ var_system_crypto_policy }}'
     create: true
-  when: ( not ( lookup("env", "container") == "bwrap-osbuild" ) and "kernel" in ansible_facts.packages
-    )
+  when: not ( lookup("env", "container") == "bwrap-osbuild" )
   tags:
   - DISA-STIG-RHEL-08-010020
   - NIST-800-53-CM-3(6)
@@ -96,8 +69,7 @@
 - name: Enable FIPS Mode - Verify that Crypto Policy is Set (runtime)
   ansible.builtin.command: /usr/bin/update-crypto-policies --set {{ var_system_crypto_policy
     }}
-  when: ( not ( lookup("env", "container") == "bwrap-osbuild" ) and "kernel" in ansible_facts.packages
-    )
+  when: not ( lookup("env", "container") == "bwrap-osbuild" )
   tags:
   - DISA-STIG-RHEL-08-010020
   - NIST-800-53-CM-3(6)

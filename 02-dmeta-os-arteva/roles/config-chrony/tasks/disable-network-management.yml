@@ -1,18 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-030742
-  - NIST-800-53-CM-7(1)
-  - chronyd_no_chronyc_network
-  - low_complexity
-  - low_disruption
-  - low_severity
-  - no_reboot_needed
-  - restrict_strategy
-
 - name: Disable network management of chrony daemon
   block:
 
@@ -41,7 +28,6 @@
       regexp: (?i)^\s*cmdport\s+
       line: cmdport 0
       state: present
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-030742
   - NIST-800-53-CM-7(1)

@@ -1,24 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-020353
-  - NIST-800-53-AC-6(1)
-  - NIST-800-53-CM-6(a)
-  - accounts_umask_etc_bashrc
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
-- name: XCCDF Value var_accounts_user_umask # promote to variable
-  set_fact:
-    var_accounts_user_umask: !!str {{ umask }}
-  tags:
-    - always
-
 - name: Check if umask in /etc/bashrc is already set
   ansible.builtin.lineinfile:
     path: /etc/bashrc
@@ -27,7 +8,6 @@
   check_mode: true
   changed_when: false
   register: umask_replace
-  when: '"bash" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-020353
   - NIST-800-53-AC-6(1)
@@ -45,7 +25,6 @@
     regexp: ^([^#]*\b)umask\s+\d+$
     replace: \g<1>umask {{ var_accounts_user_umask }}
   when:
-  - '"bash" in ansible_facts.packages'
   - umask_replace.found > 0
   tags:
   - DISA-STIG-RHEL-08-020353
@@ -64,7 +43,6 @@
     path: /etc/bashrc
     line: umask {{ var_accounts_user_umask }}
   when:
-  - '"bash" in ansible_facts.packages'
   - umask_replace.found == 0
   tags:
   - DISA-STIG-RHEL-08-020353

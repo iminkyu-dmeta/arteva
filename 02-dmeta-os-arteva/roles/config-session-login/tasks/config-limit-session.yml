@@ -1,25 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - CJIS-5.5.2.2
-  - DISA-STIG-RHEL-08-020024
-  - NIST-800-53-AC-10
-  - NIST-800-53-CM-6(a)
-  - accounts_max_concurrent_login_sessions
-  - low_complexity
-  - low_disruption
-  - low_severity
-  - no_reboot_needed
-  - restrict_strategy
-
-- name: XCCDF Value var_accounts_max_concurrent_login_sessions # promote to variable
-  set_fact:
-    var_accounts_max_concurrent_login_sessions: !!str 10
-  tags:
-    - always
 
 - name: Find /etc/security/limits.d files containing maxlogins configuration
   find:
@@ -27,7 +7,6 @@
     contains: ^[\s]*\*[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins
     patterns: '*.conf'
   register: maxlogins
-  when: '"pam" in ansible_facts.packages'
   tags:
   - CJIS-5.5.2.2
   - DISA-STIG-RHEL-08-020024
@@ -47,7 +26,6 @@
     replace: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions }}'
   with_items:
   - '{{ maxlogins.files }}'
-  when: '"pam" in ansible_facts.packages'
   tags:
   - CJIS-5.5.2.2
   - DISA-STIG-RHEL-08-020024
@@ -68,8 +46,6 @@
     regexp: ^#?\*.*maxlogins
     line: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions }}'
     create: true
-  when:
-  - '"pam" in ansible_facts.packages'
   - maxlogins.matched == 0
   tags:
   - CJIS-5.5.2.2

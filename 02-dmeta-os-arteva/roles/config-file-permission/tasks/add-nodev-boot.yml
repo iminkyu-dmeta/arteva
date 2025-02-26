@@ -1,30 +1,10 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - NIST-800-53-AC-6
-  - NIST-800-53-AC-6(1)
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-MP-7
-  - configure_strategy
-  - high_disruption
-  - low_complexity
-  - medium_severity
-  - mount_option_boot_nodev
-  - no_reboot_needed
-
 - name: 'Add nodev Option to /boot: Check information associated to mountpoint'
   command: findmnt --fstab '/boot'
   register: device_name
   failed_when: device_name.rc > 1
   changed_when: false
-  when: ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   tags:
   - NIST-800-53-AC-6
   - NIST-800-53-AC-6(1)
@@ -46,9 +26,6 @@
   - '{{ device_name.stdout_lines[0].split() | list | lower }}'
   - '{{ device_name.stdout_lines[1].split() | list }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - device_name.stdout is defined and device_name.stdout_lines is defined
   - (device_name.stdout | length > 0)
   tags:
@@ -78,9 +55,6 @@
     - ''
     - defaults
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - ("--fstab" | length == 0)
   - device_name.stdout is defined and device_name.stdout_lines is defined
   - (device_name.stdout | length == 0)
@@ -102,9 +76,6 @@
   set_fact:
     mount_info: '{{ mount_info | combine( {''options'':''''~mount_info.options~'',nodev'' }) }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - mount_info is defined and "nodev" not in mount_info.options
   tags:
   - NIST-800-53-AC-6
@@ -128,9 +99,6 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - ( not ( "kernel" in ansible_facts.packages and "rpm-ostree" in ansible_facts.packages
-    and "bootc" in ansible_facts.packages ) and not ( ansible_virtualization_type
-    in ["docker", "lxc", "openvz", "podman", "container"] ) )
   - mount_info is defined
   - (device_name.stdout is defined and (device_name.stdout | length > 0)) or ("--fstab" | length == 0)
   tags:

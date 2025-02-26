@@ -1,16 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - configure_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - ssh_client_use_strong_rng_csh
-
 - name: Ensure that correct variable is exported in /etc/profile.d/cc-ssh-strong-rng.csh
   lineinfile:
     path: /etc/profile.d/cc-ssh-strong-rng.csh
@@ -18,7 +7,6 @@
     line: setenv SSH_USE_STRONG_RNG 32
     state: present
     create: true
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity
@@ -32,7 +20,6 @@
     path: /etc/profile
     regexp: ^[\s]*setenv[\s]+SSH_USE_STRONG_RNG.*$
     state: absent
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity

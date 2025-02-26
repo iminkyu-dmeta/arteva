@@ -1,19 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-030741
-  - NIST-800-53-AU-12(1)
-  - NIST-800-53-AU-8(1)
-  - chronyd_client_only
-  - low_complexity
-  - low_disruption
-  - low_severity
-  - no_reboot_needed
-  - restrict_strategy
-
 - name: Disable chrony daemon from acting as server
   block:
 
@@ -42,7 +28,6 @@
       regexp: (?i)^\s*port\s+
       line: port 0
       state: present
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-030741
   - NIST-800-53-AU-12(1)

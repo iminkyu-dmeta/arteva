@@ -50,8 +50,7 @@
 - name: Configure GnuTLS library to use DoD-approved TLS Encryption
   block:
 
-  - name: 'Configure GnuTLS library to use DoD-approved TLS Encryption: Existing value
-      check'
+  - name: 'Configure GnuTLS library to use DoD-approved TLS Encryption: Existing value check'
     lineinfile:
       path: '{{ path }}'
       create: false

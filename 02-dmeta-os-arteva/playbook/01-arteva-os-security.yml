@@ -1,15 +1,19 @@
 ---
 
 - name: Configure OS hardning
+  gather_facts: yes
   vars:
     side: ""
     host: "arteva"
   hosts: "{{ host | lower }}"
   become: True 
 
+  tasks:
+    - name: packages
+      package_facts:
+        manager: auto
+
   roles:
-    - role: config-password-attempts
-    - role: config-password-quality
     - role: config-screen-lock
     - role: config-session-login
     - role: config-kernel-param
@@ -17,7 +21,11 @@
     - role: config-network-protocol
     - role: config-file-permission
     - role: config-core-dump
+    - role: config-audit-template
+      vars:
+        hostname: hostname
+    - role: config-password-attempts
+    - role: config-password-quality
     - role: config-ssh
-    - role: config-audit
     - role: enabled-service
     - role: config-usbguard

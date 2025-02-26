@@ -9,35 +9,38 @@
 - import_tasks: config-strong-entropy-bash.yml
   tags: [ 'never', 'config-strong-entropy-bash', 'config-ssh', 'config-security']
 
-- import_tasks: disable-host-based-auth.yml
-  tags: [ 'never', 'disable-host-based-auth', 'config-ssh', 'config-security']
+#- import_tasks: disable-host-based-auth.yml
+#  tags: [ 'never', 'disable-host-based-auth', 'config-ssh', 'config-security']
 
-- import_tasks: disable-access-empty-password.yml
-  tags: [ 'never', 'disable-access-empty-password', 'config-ssh', 'config-security']
+#- import_tasks: disable-access-empty-password.yml
+#  tags: [ 'never', 'disable-access-empty-password', 'config-ssh', 'config-security']
 
-- import_tasks: disable-gssapi-auth.yml
-  tags: [ 'never', 'disable-gssapi-auth', 'config-ssh', 'config-security']
+#- import_tasks: disable-gssapi-auth.yml
+#  tags: [ 'never', 'disable-gssapi-auth', 'config-ssh', 'config-security']
 
-- import_tasks: disable-kerberos-auth.yml
-  tags: [ 'never', 'disable-kerberos-auth', 'config-ssh', 'config-security']
+#- import_tasks: disable-kerberos-auth.yml
+#  tags: [ 'never', 'disable-kerberos-auth', 'config-ssh', 'config-security']
 
-- import_tasks: disable-root-login.yml
-  tags: [ 'never', 'disable-root-login', 'config-ssh', 'config-security']
+#- import_tasks: disable-root-login.yml
+#  tags: [ 'never', 'disable-root-login', 'config-ssh', 'config-security']
 
-- import_tasks: config-alive-interval.yml
-  tags: [ 'never', 'config-alive-interval', 'config-ssh', 'config-security']
+#- import_tasks: config-alive-interval.yml
+#  tags: [ 'never', 'config-alive-interval', 'config-ssh', 'config-security']
+#
+#- import_tasks: config-alive-count-zero.yml
+#  tags: [ 'never', 'config-alive-count-zero', 'config-ssh', 'config-security']
 
-- import_tasks: config-alive-count-zero.yml
-  tags: [ 'never', 'config-alive-count-zero', 'config-ssh', 'config-security']
+#- import_tasks: enable-strict-mode.yml
+#  tags: [ 'never', 'enable-strict-mode', 'config-ssh', 'config-security']
 
-- import_tasks: enable-strict-mode.yml
-  tags: [ 'never', 'enable-strict-mode', 'config-ssh', 'config-security']
+#- import_tasks: enable-warning-banner.yml
+#  tags: [ 'never', 'enable-warning-banner', 'config-ssh', 'config-security']
 
-- import_tasks: enable-warning-banner.yml
-  tags: [ 'never', 'enable-warning-banner', 'config-ssh', 'config-security']
-
-- import_tasks: force-frequent-session.yml
-  tags: [ 'never', 'force-frequent-session', 'config-ssh', 'config-security']
+#- import_tasks: force-frequent-session.yml
+#  tags: [ 'never', 'force-frequent-session', 'config-ssh', 'config-security']
 
 - import_tasks: config-strong-entropy.yml
   tags: [ 'never', 'config-strong-entropy', 'config-ssh', 'config-security']
+
+- import_tasks: config-sshd-config.yml
+  tags: [ 'never', 'config-sshd-config', 'config-ssh', 'config-security']

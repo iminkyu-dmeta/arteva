@@ -1,19 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-040141
-  - NIST-800-53-CM-8(3)(a)
-  - NIST-800-53-IA-3
-  - enable_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - service_usbguard_enabled
-
 - name: Enable the USBGuard Service - Enable service usbguard
   block:
 
@@ -27,9 +13,8 @@
       enabled: true
       state: started
       masked: false
-    when:
-    - '"usbguard" in ansible_facts.packages'
-  when: ( ansible_architecture != "s390x" and "kernel" in ansible_facts.packages )
+        #when: ( ansible_architecture != "s390x" and "kernel" in ansible_facts.packages )
+  when: ( ansible_architecture != "s390x" )
   tags:
   - DISA-STIG-RHEL-08-040141
   - NIST-800-53-CM-8(3)(a)

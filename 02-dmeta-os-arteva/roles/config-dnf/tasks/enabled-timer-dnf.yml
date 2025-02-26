@@ -12,8 +12,6 @@
       name: dnf-automatic.timer
       enabled: 'yes'
       state: started
-    when:
-    - '"dnf-automatic" in ansible_facts.packages'
   tags:
   - NIST-800-53-CM-6(a)
   - NIST-800-53-SI-2(5)

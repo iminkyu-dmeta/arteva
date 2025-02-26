@@ -1,11 +1,5 @@
 ---
 
-- name: XCCDF Value sshd_approved_ciphers # promote to variable
-  set_fact:
-    sshd_approved_ciphers: !!str aes256-ctr,aes192-ctr,aes128-ctr,aes256-gcm@openssh.com,aes128-gcm@openssh.com
-  tags:
-    - always
-
 - name: 'Configure SSH Daemon to Use FIPS 140-2 Validated Ciphers: openssh.config'
   block:
 

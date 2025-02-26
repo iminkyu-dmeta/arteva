@@ -1,35 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - configure_strategy
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - ssh_client_rekey_limit
-
-- name: XCCDF Value var_ssh_client_rekey_limit_size # promote to variable
-  set_fact:
-    var_ssh_client_rekey_limit_size: !!str 1G
-  tags:
-    - always
-
-- name: XCCDF Value var_ssh_client_rekey_limit_time # promote to variable
-  set_fact:
-    var_ssh_client_rekey_limit_time: !!str 1h
-  tags:
-    - always
-
 - name: Ensure RekeyLimit is not configured in /etc/ssh/ssh_config
   lineinfile:
     path: /etc/ssh/ssh_config
     create: false
     regexp: ^\s*RekeyLimit.*$
     state: absent
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity
@@ -44,7 +20,6 @@
     contains: ^[\s]*RekeyLimit.*$
     patterns: '*.config'
   register: ssh_config_include_files
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity
@@ -59,7 +34,6 @@
     regexp: ^[\s]*RekeyLimit.*$
     state: absent
   loop: '{{ ssh_config_include_files.files }}'
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity
@@ -75,7 +49,6 @@
     regexp: ^\s*RekeyLimit.*$
     line: RekeyLimit {{ var_ssh_client_rekey_limit_size }} {{ var_ssh_client_rekey_limit_time }}
     state: present
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - configure_strategy
   - low_complexity

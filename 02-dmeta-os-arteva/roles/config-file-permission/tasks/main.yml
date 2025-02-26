@@ -57,11 +57,11 @@
 - import_tasks: add-nodev-var.yml
   tags: [ 'never', 'add-nodev-var', 'config-file-permission', 'config-security']
 
-#- import_tasks: add-nodev-var-tmp.yml
-#  tags: [ 'never', 'add-nodev-var-tmp', 'config-file-permission', 'config-security']
+- import_tasks: add-nodev-var-tmp.yml
+  tags: [ 'never', 'add-nodev-var-tmp', 'config-file-permission', 'config-security']
 
-#- import_tasks: add-noexec-var-tmp.yml
-#  tags: [ 'never', 'add-noexec-var-tmp', 'config-file-permission', 'config-security']
+- import_tasks: add-noexec-var-tmp.yml
+  tags: [ 'never', 'add-noexec-var-tmp', 'config-file-permission', 'config-security']
 
-#- import_tasks: add-nosuid-var-tmp.yml
-#  tags: [ 'never', 'add-nosuid-var-tmp', 'config-file-permission', 'config-security']
+- import_tasks: add-nosuid-var-tmp.yml
+  tags: [ 'never', 'add-nosuid-var-tmp', 'config-file-permission', 'config-security']

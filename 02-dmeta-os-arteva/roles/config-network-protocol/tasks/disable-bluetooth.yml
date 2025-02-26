@@ -1,32 +1,11 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - CJIS-5.13.1.3
-  - DISA-STIG-RHEL-08-040111
-  - NIST-800-171-3.1.16
-  - NIST-800-53-AC-18(3)
-  - NIST-800-53-AC-18(a)
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-MP-7
-  - disable_strategy
-  - kernel_module_bluetooth_disabled
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-
 - name: Ensure kernel module 'bluetooth' is disabled
   lineinfile:
     create: true
     dest: /etc/modprobe.d/bluetooth.conf
     regexp: install\s+bluetooth
     line: install bluetooth /bin/false
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - CJIS-5.13.1.3
   - DISA-STIG-RHEL-08-040111
@@ -50,7 +29,6 @@
     dest: /etc/modprobe.d/bluetooth.conf
     regexp: ^blacklist bluetooth$
     line: blacklist bluetooth
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - CJIS-5.13.1.3
   - DISA-STIG-RHEL-08-040111

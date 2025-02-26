@@ -1,24 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-020351
-  - NIST-800-53-AC-6(1)
-  - NIST-800-53-CM-6(a)
-  - accounts_umask_etc_login_defs
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
-- name: XCCDF Value var_accounts_user_umask # promote to variable
-  set_fact:
-    var_accounts_user_umask: !!str {{ umask }}
-  tags:
-    - always
-
 - name: Check if UMASK is already set
   ansible.builtin.lineinfile:
     path: /etc/login.defs
@@ -27,7 +8,6 @@
   check_mode: true
   changed_when: false
   register: result_umask_is_set
-  when: '"shadow-utils" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-020351
   - NIST-800-53-AC-6(1)
@@ -45,7 +25,6 @@
     regexp: ^(\s*)UMASK(\s+).*
     replace: \g<1>UMASK\g<2>{{ var_accounts_user_umask }}
   when:
-  - '"shadow-utils" in ansible_facts.packages'
   - result_umask_is_set.found > 0
   tags:
   - DISA-STIG-RHEL-08-020351
@@ -64,7 +43,6 @@
     path: /etc/login.defs
     line: UMASK {{ var_accounts_user_umask }}
   when:
-  - '"shadow-utils" in ansible_facts.packages'
   - result_umask_is_set.found == 0
   tags:
   - DISA-STIG-RHEL-08-020351

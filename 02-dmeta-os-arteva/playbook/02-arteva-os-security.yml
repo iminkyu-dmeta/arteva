@@ -1,6 +1,7 @@
 ---
 
 - name: Configure OS manual hardning
+  gather_facts: yes
   vars:
     side: ""
     host: "arteva"

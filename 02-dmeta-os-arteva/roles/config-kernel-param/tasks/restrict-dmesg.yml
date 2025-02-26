@@ -1,20 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010375
-  - NIST-800-171-3.1.5
-  - NIST-800-53-SI-11(a)
-  - NIST-800-53-SI-11(b)
-  - disable_strategy
-  - low_complexity
-  - low_severity
-  - medium_disruption
-  - reboot_required
-  - sysctl_kernel_dmesg_restrict
-
 - name: List /etc/sysctl.d/*.conf files
   find:
     paths:
@@ -25,7 +10,6 @@
     patterns: '*.conf'
     file_type: any
   register: find_sysctl_d
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010375
   - NIST-800-171-3.1.5
@@ -44,7 +28,6 @@
     regexp: ^[\s]*kernel.dmesg_restrict
     replace: '#kernel.dmesg_restrict'
   loop: '{{ find_sysctl_d.files }}'
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010375
   - NIST-800-171-3.1.5
@@ -64,7 +47,6 @@
     sysctl_file: /etc/sysctl.conf
     state: present
     reload: true
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010375
   - NIST-800-171-3.1.5

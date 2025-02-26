@@ -1,13 +1,6 @@
 ---
 
-- name: XCCDF Value sshd_approved_macs # promote to variable
-  set_fact:
-    sshd_approved_macs: !!str hmac-sha2-512,hmac-sha2-256,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
-  tags:
-    - always
-
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config:
-    Set facts'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config: Set facts'
   set_fact:
     path: /etc/crypto-policies/back-ends/opensshserver.config
     correct_value: -oMACs={{ sshd_approved_macs }}
@@ -21,8 +14,7 @@
   - reboot_required
   - restrict_strategy
 
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config:
-    Stat'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config: Stat'
   stat:
     path: '{{ path }}'
     follow: true
@@ -37,8 +29,7 @@
   - reboot_required
   - restrict_strategy
 
-- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config:
-    Create'
+- name: 'Configure SSH Server to Use FIPS 140-2 Validated MACs: opensshserver.config: Create'
   lineinfile:
     path: '{{ path }}'
     line: CRYPTO_POLICY='{{ correct_value }}'

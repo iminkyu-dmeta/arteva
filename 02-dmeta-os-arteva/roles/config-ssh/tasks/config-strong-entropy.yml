@@ -1,17 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010292
-  - low_complexity
-  - low_disruption
-  - low_severity
-  - no_reboot_needed
-  - restrict_strategy
-  - sshd_use_strong_rng
-
 - name: Setting unquoted shell-style assignment of 'SSH_USE_STRONG_RNG' to '32' in '/etc/sysconfig/sshd'
   block:
 
@@ -42,7 +30,6 @@
       state: present
       insertbefore: ^# SSH_USE_STRONG_RNG
       validate: /usr/bin/bash -n %s
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010292
   - low_complexity

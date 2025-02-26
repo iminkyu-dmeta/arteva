@@ -1,23 +1,7 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - DISA-STIG-RHEL-08-010421
-  - NIST-800-53-CM-6(a)
-  - grub2_page_poison_argument
-  - low_disruption
-  - medium_complexity
-  - medium_severity
-  - reboot_required
-  - restrict_strategy
-
 - name: Update grub defaults and the bootloader menu
   command: /sbin/grubby --update-kernel=ALL --args="page_poison=1"
-  when:
-  - '"kernel" in ansible_facts.packages'
-  - '"grub2-common" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-010421
   - NIST-800-53-CM-6(a)

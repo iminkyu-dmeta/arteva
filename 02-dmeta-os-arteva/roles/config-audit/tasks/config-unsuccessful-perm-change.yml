@@ -1,17 +1,5 @@
 ---
 
-- name: Gather the package facts
-  package_facts:
-    manager: auto
-  tags:
-  - NIST-800-53-AU-2(a)
-  - audit_perm_change_failed
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
-
 - name: Put contents into /etc/audit/rules.d/30-ospp-v42-5-perm-change-failed.rules according to policy
   copy:
     dest: /etc/audit/rules.d/30-ospp-v42-5-perm-change-failed.rules
@@ -22,7 +10,6 @@
       -a always,exit -F arch=b32 -S chmod,fchmod,fchmodat,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-perm-change
       -a always,exit -F arch=b64 -S chmod,fchmod,fchmodat,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-perm-change
     force: true
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - NIST-800-53-AU-2(a)
   - audit_perm_change_failed
@@ -36,7 +23,6 @@
   file:
     path: /etc/audit/rules.d/30-ospp-v42-5-perm-change-failed.rules
     mode: o-rwx
-  when: '"kernel" in ansible_facts.packages'
   tags:
   - NIST-800-53-AU-2(a)
   - audit_perm_change_failed
