@@ -1,40 +1,40 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*kernel.kexec_load_disabled.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - DISA-STIG-RHEL-08-010372
-  - NIST-800-53-CM-6
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_kernel_kexec_load_disabled
-
-- name: Comment out any occurrences of kernel.kexec_load_disabled from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*kernel.kexec_load_disabled
-    replace: '#kernel.kexec_load_disabled'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - DISA-STIG-RHEL-08-010372
-  - NIST-800-53-CM-6
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_kernel_kexec_load_disabled
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*kernel.kexec_load_disabled.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - DISA-STIG-RHEL-08-010372
+#  - NIST-800-53-CM-6
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_kexec_load_disabled
+#
+#- name: Comment out any occurrences of kernel.kexec_load_disabled from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*kernel.kexec_load_disabled
+#    replace: '#kernel.kexec_load_disabled'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - DISA-STIG-RHEL-08-010372
+#  - NIST-800-53-CM-6
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_kexec_load_disabled
 
 - name: Ensure sysctl kernel.kexec_load_disabled is set to 1
   sysctl:

@@ -5,6 +5,7 @@
   vars:
     side: ""
     host: "arteva"
+    def_dir: "../file"
   hosts: "{{ host | lower }}"
   become: True 
 
@@ -15,17 +16,19 @@
 
   roles:
     - role: config-screen-lock
-    - role: config-session-login
-    - role: config-kernel-param
-    - role: config-kernel-args
     - role: config-network-protocol
     - role: config-file-permission
     - role: config-core-dump
     - role: config-audit-template
       vars:
         hostname: hostname
+    - role: config-session-login
+    - role: config-kernel-args
+    - role: config-kernel-param
     - role: config-password-attempts
     - role: config-password-quality
-    - role: config-ssh
-    - role: enabled-service
     - role: config-usbguard
+    - role: enabled-service
+    - role: config-ssh
+    - role: openscap
+

@@ -135,17 +135,10 @@
   - no_reboot_needed
   - restrict_strategy
 
-- name: XCCDF Value var_accounts_passwords_pam_faillock_fail_interval # promote to variable
-  set_fact:
-    var_accounts_passwords_pam_faillock_fail_interval: !!str 900
-  tags:
-    - always
-
 - name: Set Interval For Counting Failed Password Attempts - Check the presence of /etc/security/faillock.conf file
   ansible.builtin.stat:
     path: /etc/security/faillock.conf
   register: result_faillock_conf_check
-  when: '"pam" in ansible_facts.packages'
   tags:
   - DISA-STIG-RHEL-08-020012
   - DISA-STIG-RHEL-08-020013

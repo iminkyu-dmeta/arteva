@@ -1,0 +1,13 @@
+---
+
+- name: Update grub defaults and the bootloader menu
+  command: /sbin/grubby --update-kernel=ALL --args="pti=on"
+  tags:
+  - DISA-STIG-RHEL-08-040004
+  - NIST-800-53-SI-16
+  - grub2_pti_argument
+  - low_disruption
+  - low_severity
+  - medium_complexity
+  - reboot_required
+  - restrict_strategy

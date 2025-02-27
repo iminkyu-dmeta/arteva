@@ -1,30 +1,30 @@
 ---
 
-- name: Check if umask in /etc/csh.cshrc is already set
-  ansible.builtin.lineinfile:
-    path: /etc/csh.cshrc
-    regexp: ^(\s*)umask\s+.*
-    state: absent
-  check_mode: true
-  changed_when: false
-  register: umask_replace
-  tags:
-  - DISA-STIG-RHEL-08-020353
-  - NIST-800-53-AC-6(1)
-  - NIST-800-53-CM-6(a)
-  - accounts_umask_etc_csh_cshrc
-  - low_complexity
-  - low_disruption
-  - medium_severity
-  - no_reboot_needed
-  - restrict_strategy
+#- name: Check if umask in /etc/csh.cshrc is already set
+#  ansible.builtin.lineinfile:
+#    path: /etc/csh.cshrc
+#    regexp: ^(\s*)umask\s+.*
+#    state: absent
+#  check_mode: true
+#  changed_when: false
+#  register: umask_replace
+#  tags:
+#  - DISA-STIG-RHEL-08-020353
+#  - NIST-800-53-AC-6(1)
+#  - NIST-800-53-CM-6(a)
+#  - accounts_umask_etc_csh_cshrc
+#  - low_complexity
+#  - low_disruption
+#  - medium_severity
+#  - no_reboot_needed
+#  - restrict_strategy
 
 - name: Replace user umask in /etc/csh.cshrc
   ansible.builtin.replace:
     path: /etc/csh.cshrc
     regexp: ^(\s*)umask(\s+).*
     replace: \g<1>umask\g<2>{{ var_accounts_user_umask }}
-  when: umask_replace.found > 0
+  register: umask_replace
   tags:
   - DISA-STIG-RHEL-08-020353
   - NIST-800-53-AC-6(1)
@@ -41,7 +41,9 @@
     create: true
     path: /etc/csh.cshrc
     line: umask {{ var_accounts_user_umask }}
-  when: umask_replace.found == 0
+  when: 
+  - umask_replace is not changed
+  - var_accounts_user_umask != "022"
   tags:
   - DISA-STIG-RHEL-08-020353
   - NIST-800-53-AC-6(1)

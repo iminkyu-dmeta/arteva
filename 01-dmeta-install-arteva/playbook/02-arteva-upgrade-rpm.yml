@@ -9,3 +9,4 @@
   roles:
     - role: config-repo
     - role: upgrade-local-rpm
+    - role: delete-rpm

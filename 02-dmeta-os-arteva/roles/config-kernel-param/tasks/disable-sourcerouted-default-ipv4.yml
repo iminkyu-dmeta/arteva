@@ -1,50 +1,50 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*net.ipv4.conf.default.accept_source_route.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - CJIS-5.10.1.1
-  - DISA-STIG-RHEL-08-040249
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5
-  - NIST-800-53-SC-7(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv4_conf_default_accept_source_route
-
-- name: Comment out any occurrences of net.ipv4.conf.default.accept_source_route from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*net.ipv4.conf.default.accept_source_route
-    replace: '#net.ipv4.conf.default.accept_source_route'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - CJIS-5.10.1.1
-  - DISA-STIG-RHEL-08-040249
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5
-  - NIST-800-53-SC-7(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv4_conf_default_accept_source_route
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*net.ipv4.conf.default.accept_source_route.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - CJIS-5.10.1.1
+#  - DISA-STIG-RHEL-08-040249
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5
+#  - NIST-800-53-SC-7(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_default_accept_source_route
+#
+#- name: Comment out any occurrences of net.ipv4.conf.default.accept_source_route from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*net.ipv4.conf.default.accept_source_route
+#    replace: '#net.ipv4.conf.default.accept_source_route'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - CJIS-5.10.1.1
+#  - DISA-STIG-RHEL-08-040249
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5
+#  - NIST-800-53-SC-7(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_default_accept_source_route
 
 - name: Ensure sysctl net.ipv4.conf.default.accept_source_route is set
   sysctl:

@@ -14,3 +14,6 @@
 
 - import_tasks: disable-tipc.yml
   tags: [ 'never', 'disable-tipc', 'config-network-protocol', 'config-security']
+
+- import_tasks: disable-bluetooth.yml
+  tags: [ 'never', 'disable-bluetooth', 'config-network-protocol', 'config-security']

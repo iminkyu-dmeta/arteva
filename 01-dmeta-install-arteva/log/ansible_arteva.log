@@ -1939,3 +1939,87 @@ when running as another user. To avoid this, create the remote_tmp dir with the 
 2025-02-24 00:46:34,041 p=26281 u=dmeta n=ansible | failed: [arteva1] (item=nvidia-driver.tar.gz) => {"ansible_loop_var": "item", "changed": false, "item": "nvidia-driver.tar.gz", "msg": "Could not find or access '../file/nvidia-driver.tar.gz'\nSearched in:\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/files/../file/nvidia-driver.tar.gz\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/../file/nvidia-driver.tar.gz\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/tasks/files/../file/nvidia-driver.tar.gz\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/tasks/../file/nvidia-driver.tar.gz\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/playbook/files/../file/nvidia-driver.tar.gz\n\t/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/playbook/../file/nvidia-driver.tar.gz on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
 2025-02-24 00:46:34,042 p=26281 u=dmeta n=ansible | PLAY RECAP ************************************************************************************************************************
 2025-02-24 00:46:34,042 p=26281 u=dmeta n=ansible | arteva1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-27 04:34:33,442 p=38616 u=dmeta n=ansible | PLAY [Upgrade local RPM] ***********************************************************************************
+2025-02-27 04:34:34,516 p=38616 u=dmeta n=ansible | TASK [upgrade-local-rpm : delete rpm file to VM] ***********************************************************
+2025-02-27 04:34:34,517 p=38616 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 04:34:34,522 p=38616 u=dmeta n=ansible | PLAY RECAP *************************************************************************************************
+2025-02-27 04:34:34,522 p=38616 u=dmeta n=ansible | arteva1                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-27 04:36:29,479 p=38644 u=dmeta n=ansible | PLAY [Upgrade local RPM] ***********************************************************************************
+2025-02-27 04:36:30,579 p=38644 u=dmeta n=ansible | TASK [upgrade-local-rpm : delete rpm file to VM] ***********************************************************
+2025-02-27 04:36:30,579 p=38644 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 04:36:31,304 p=38644 u=dmeta n=ansible | TASK [upgrade-local-rpm : Synchronize cached writes to persistent storage] *********************************
+2025-02-27 04:36:31,304 p=38644 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 04:39:14,302 p=38644 u=dmeta n=ansible | TASK [upgrade-local-rpm : reboot the machine with delay 1] *************************************************
+2025-02-27 04:39:14,302 p=38644 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 04:39:14,307 p=38644 u=dmeta n=ansible | PLAY RECAP *************************************************************************************************
+2025-02-27 04:39:14,308 p=38644 u=dmeta n=ansible | arteva1                    : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-27 05:32:31,534 p=39235 u=dmeta n=ansible | PLAY [Upgrade local RPM] ***********************************************************************************
+2025-02-27 05:32:32,776 p=39235 u=dmeta n=ansible | TASK [upgrade-local-rpm : Synchronize cached writes to persistent storage] *********************************
+2025-02-27 05:32:32,777 p=39235 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 05:44:39,390 p=39235 u=dmeta n=ansible | TASK [upgrade-local-rpm : reboot the machine with delay 1] *************************************************
+2025-02-27 05:44:39,390 p=39235 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange\r\nConnection to 192.168.132.183 port 22 timed out"}
+2025-02-27 05:44:39,391 p=39235 u=dmeta n=ansible | PLAY RECAP *************************************************************************************************
+2025-02-27 05:44:39,391 p=39235 u=dmeta n=ansible | arteva1                    : ok=1    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-27 06:56:13,587 p=40168 u=dmeta n=ansible | PLAY [Upgrade local RPM] ********************************************************************************************
+2025-02-27 06:56:13,631 p=40168 u=dmeta n=ansible | TASK [delete-rpm : Read rpm delete list file] ***********************************************************************
+2025-02-27 06:56:13,632 p=40168 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'input' is undefined\n\nThe error appears to be in '/home/dmeta/ANSIBLE/arteva/01-dmeta-install-arteva/roles/delete-rpm/tasks/delete-rpm.yml': line 3, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Read rpm delete list file\n  ^ here\n"}
+2025-02-27 06:56:13,633 p=40168 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-27 06:56:13,633 p=40168 u=dmeta n=ansible | arteva1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-27 06:57:55,478 p=40183 u=dmeta n=ansible | PLAY [Upgrade local RPM] ********************************************************************************************
+2025-02-27 06:57:55,517 p=40183 u=dmeta n=ansible | TASK [delete-rpm : Read rpm delete list file] ***********************************************************************
+2025-02-27 06:57:55,518 p=40183 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 06:57:55,533 p=40183 u=dmeta n=ansible | TASK [delete-rpm : display csv files] *******************************************************************************
+2025-02-27 06:57:55,533 p=40183 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "nfs-utils",
+        "gssproxy",
+        "iprutils"
+    ]
+}
+2025-02-27 06:57:55,548 p=40183 u=dmeta n=ansible | TASK [delete-rpm : create list var] *********************************************************************************
+2025-02-27 06:57:55,548 p=40183 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 06:57:55,571 p=40183 u=dmeta n=ansible | TASK [delete-rpm : put the rpm name in list] ************************************************************************
+2025-02-27 06:57:55,571 p=40183 u=dmeta n=ansible | ok: [arteva1] => (item=nfs-utils)
+2025-02-27 06:57:55,575 p=40183 u=dmeta n=ansible | ok: [arteva1] => (item=gssproxy)
+2025-02-27 06:57:55,578 p=40183 u=dmeta n=ansible | ok: [arteva1] => (item=iprutils)
+2025-02-27 06:57:55,596 p=40183 u=dmeta n=ansible | TASK [delete-rpm : display csv files] *******************************************************************************
+2025-02-27 06:57:55,596 p=40183 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/nfs-utils",
+        "/tmp/rpm/gssproxy",
+        "/tmp/rpm/iprutils"
+    ]
+}
+2025-02-27 06:57:57,477 p=40183 u=dmeta n=ansible | TASK [delete-rpm : remove rpm] **************************************************************************************
+2025-02-27 06:57:57,480 p=40183 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "No group tmp/rpm/nfs-utils available.", "results": []}
+2025-02-27 06:57:57,482 p=40183 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-27 06:57:57,482 p=40183 u=dmeta n=ansible | arteva1                    : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-27 06:59:11,268 p=40221 u=dmeta n=ansible | PLAY [Upgrade local RPM] ********************************************************************************************
+2025-02-27 06:59:11,310 p=40221 u=dmeta n=ansible | TASK [delete-rpm : Read rpm delete list file] ***********************************************************************
+2025-02-27 06:59:11,313 p=40221 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 06:59:11,328 p=40221 u=dmeta n=ansible | TASK [delete-rpm : display csv files] *******************************************************************************
+2025-02-27 06:59:11,328 p=40221 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "nfs-utils",
+        "gssproxy",
+        "iprutils"
+    ]
+}
+2025-02-27 06:59:11,343 p=40221 u=dmeta n=ansible | TASK [delete-rpm : create list var] *********************************************************************************
+2025-02-27 06:59:11,343 p=40221 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 06:59:11,364 p=40221 u=dmeta n=ansible | TASK [delete-rpm : put the rpm name in list] ************************************************************************
+2025-02-27 06:59:11,366 p=40221 u=dmeta n=ansible | ok: [arteva1] => (item=nfs-utils)
+2025-02-27 06:59:11,366 p=40221 u=dmeta n=ansible | ok: [arteva1] => (item=gssproxy)
+2025-02-27 06:59:11,370 p=40221 u=dmeta n=ansible | ok: [arteva1] => (item=iprutils)
+2025-02-27 06:59:11,387 p=40221 u=dmeta n=ansible | TASK [delete-rpm : display csv files] *******************************************************************************
+2025-02-27 06:59:11,387 p=40221 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "nfs-utils",
+        "gssproxy",
+        "iprutils"
+    ]
+}
+2025-02-27 06:59:33,179 p=40221 u=dmeta n=ansible | TASK [delete-rpm : remove rpm] **************************************************************************************
+2025-02-27 06:59:33,179 p=40221 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 06:59:33,184 p=40221 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-27 06:59:33,184 p=40221 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

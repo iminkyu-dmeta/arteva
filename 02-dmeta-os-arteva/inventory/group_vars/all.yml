@@ -44,3 +44,7 @@
 
   sshd_approved_ciphers: !!str aes256-ctr,aes192-ctr,aes128-ctr,aes256-gcm@openssh.com,aes128-gcm@openssh.com
   sshd_approved_macs: !!str hmac-sha2-512,hmac-sha2-256,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+
+  var_accounts_passwords_pam_faillock_deny: !!str 3
+  var_accounts_passwords_pam_faillock_fail_interval: !!str 900
+  var_accounts_passwords_pam_faillock_unlock_time: !!str 0

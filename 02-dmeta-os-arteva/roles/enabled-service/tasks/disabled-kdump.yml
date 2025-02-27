@@ -1,0 +1,77 @@
+---
+
+- name: Disable KDump Kernel Crash Analyzer (kdump) - Collect systemd Services Present in the System
+  ansible.builtin.command: systemctl -q list-unit-files --type service
+  register: service_exists
+  changed_when: false
+  failed_when: service_exists.rc not in [0, 1]
+  check_mode: false
+  tags:
+  - DISA-STIG-RHEL-08-010670
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_kdump_disabled
+
+- name: Disable KDump Kernel Crash Analyzer (kdump) - Ensure kdump.service is Masked
+  ansible.builtin.systemd:
+    name: kdump.service
+    state: stopped
+    enabled: false
+    masked: true
+  when:
+  - service_exists.stdout_lines is search("kdump.service", multiline=True)
+  tags:
+  - DISA-STIG-RHEL-08-010670
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_kdump_disabled
+
+- name: Unit Socket Exists - kdump.socket
+  ansible.builtin.command: systemctl -q list-unit-files kdump.socket
+  register: socket_file_exists
+  changed_when: false
+  failed_when: socket_file_exists.rc not in [0, 1]
+  check_mode: false
+  tags:
+  - DISA-STIG-RHEL-08-010670
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_kdump_disabled
+
+- name: Disable KDump Kernel Crash Analyzer (kdump) - Disable Socket kdump
+  ansible.builtin.systemd:
+    name: kdump.socket
+    enabled: false
+    state: stopped
+    masked: true
+  when:
+  - socket_file_exists.stdout_lines is search("kdump.socket", multiline=True)
+  tags:
+  - DISA-STIG-RHEL-08-010670
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-CM-7(a)
+  - NIST-800-53-CM-7(b)
+  - disable_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - service_kdump_disabled

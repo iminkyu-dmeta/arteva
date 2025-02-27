@@ -80,3 +80,6 @@
 
 - import_tasks: harden-bpf-jit.yml
   tags: [ 'never', 'harden-bpf-jit', 'config-restrict-program', 'config-kernel-param', 'config-security']
+
+- import_tasks: perform-sysctl.yml
+  tags: [ 'never', 'perform-sysctl', 'config-restrict-program', 'config-kernel-param', 'config-security']

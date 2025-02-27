@@ -11,3 +11,6 @@
 
 - import_tasks: extend-backlog-limit.yml
   tags: [ 'never', 'extend-backlog-limit', 'config-kernel-args', 'config-security']
+
+- import_tasks: enable-page-table-isolation.yml
+  tags: [ 'never', 'enable-page-table-isolation', 'config-kernel-args', 'config-security']

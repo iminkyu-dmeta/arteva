@@ -1,46 +1,46 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*net.ipv4.conf.default.secure_redirects.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5
-  - NIST-800-53-SC-7(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv4_conf_default_secure_redirects
-
-- name: Comment out any occurrences of net.ipv4.conf.default.secure_redirects from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*net.ipv4.conf.default.secure_redirects
-    replace: '#net.ipv4.conf.default.secure_redirects'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5
-  - NIST-800-53-SC-7(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv4_conf_default_secure_redirects
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*net.ipv4.conf.default.secure_redirects.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5
+#  - NIST-800-53-SC-7(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_default_secure_redirects
+#
+#- name: Comment out any occurrences of net.ipv4.conf.default.secure_redirects from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*net.ipv4.conf.default.secure_redirects
+#    replace: '#net.ipv4.conf.default.secure_redirects'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5
+#  - NIST-800-53-SC-7(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_default_secure_redirects
 
 - name: Ensure sysctl net.ipv4.conf.default.secure_redirects is set
   sysctl:

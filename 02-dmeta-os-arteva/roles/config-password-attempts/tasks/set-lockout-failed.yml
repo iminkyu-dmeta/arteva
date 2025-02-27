@@ -150,12 +150,6 @@
   - no_reboot_needed
   - restrict_strategy
 
-- name: XCCDF Value var_accounts_passwords_pam_faillock_unlock_time # promote to variable
-  set_fact:
-    var_accounts_passwords_pam_faillock_unlock_time: !!str 0
-  tags:
-    - always
-
 - name: Set Lockout Time for Failed Password Attempts - Check the presence of /etc/security/faillock.conf file
   ansible.builtin.stat:
     path: /etc/security/faillock.conf

@@ -23,3 +23,6 @@
 
 - import_tasks: rollback-auth-file.yml
   tags: [ 'never', 'rollback-auth-file']
+
+- import_tasks: rollback-auth-template.yml
+  tags: [ 'never', 'rollback-auth-template']

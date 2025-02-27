@@ -1,44 +1,44 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*net.ipv4.conf.all.log_martians.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5(3)(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - reboot_required
-  - sysctl_net_ipv4_conf_all_log_martians
-  - unknown_severity
-
-- name: Comment out any occurrences of net.ipv4.conf.all.log_martians from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*net.ipv4.conf.all.log_martians
-    replace: '#net.ipv4.conf.all.log_martians'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - NIST-800-53-SC-5(3)(a)
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - reboot_required
-  - sysctl_net_ipv4_conf_all_log_martians
-  - unknown_severity
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*net.ipv4.conf.all.log_martians.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5(3)(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_all_log_martians
+#  - unknown_severity
+#
+#- name: Comment out any occurrences of net.ipv4.conf.all.log_martians from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*net.ipv4.conf.all.log_martians
+#    replace: '#net.ipv4.conf.all.log_martians'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - NIST-800-53-SC-5(3)(a)
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - reboot_required
+#  - sysctl_net_ipv4_conf_all_log_martians
+#  - unknown_severity
 
 - name: Ensure sysctl net.ipv4.conf.all.log_martians is set
   sysctl:

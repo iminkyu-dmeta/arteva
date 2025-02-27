@@ -1,0 +1,21 @@
+---
+
+- name: Scan oscap xccdf
+  become: True
+  command: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_ospp --results-arf /tmp/arf1.xml --report /tmp/report1.html /usr/share/xml/scap/ssg/content/ssg-rl8-ds.xml
+  register: result
+  failed_when: result.rc not in [ 0, 1, 2 ]
+
+- name: get arf file
+  become: True
+  fetch:
+    src: /tmp/arf1.xml
+    dest: "{{ def_dir }}/"
+    flat: yes
+
+- name: get report file
+  become: True
+  fetch:
+    src: /tmp/report1.html
+    dest: "{{ def_dir }}/"
+    flat: yes

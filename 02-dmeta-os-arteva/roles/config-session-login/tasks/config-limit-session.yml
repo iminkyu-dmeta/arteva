@@ -46,6 +46,7 @@
     regexp: ^#?\*.*maxlogins
     line: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions }}'
     create: true
+  when:
   - maxlogins.matched == 0
   tags:
   - CJIS-5.5.2.2

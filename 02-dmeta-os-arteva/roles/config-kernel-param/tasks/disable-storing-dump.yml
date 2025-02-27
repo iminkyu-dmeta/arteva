@@ -1,46 +1,46 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*kernel.core_pattern.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - DISA-STIG-RHEL-08-010671
-  - NIST-800-53-SC-7(10)
-  - PCI-DSSv4-3.3
-  - PCI-DSSv4-3.3.1
-  - PCI-DSSv4-3.3.1.1
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_kernel_core_pattern
-
-- name: Comment out any occurrences of kernel.core_pattern from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*kernel.core_pattern
-    replace: '#kernel.core_pattern'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - DISA-STIG-RHEL-08-010671
-  - NIST-800-53-SC-7(10)
-  - PCI-DSSv4-3.3
-  - PCI-DSSv4-3.3.1
-  - PCI-DSSv4-3.3.1.1
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_kernel_core_pattern
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*kernel.core_pattern.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - DISA-STIG-RHEL-08-010671
+#  - NIST-800-53-SC-7(10)
+#  - PCI-DSSv4-3.3
+#  - PCI-DSSv4-3.3.1
+#  - PCI-DSSv4-3.3.1.1
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_pattern
+#
+#- name: Comment out any occurrences of kernel.core_pattern from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*kernel.core_pattern
+#    replace: '#kernel.core_pattern'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - DISA-STIG-RHEL-08-010671
+#  - NIST-800-53-SC-7(10)
+#  - PCI-DSSv4-3.3
+#  - PCI-DSSv4-3.3.1
+#  - PCI-DSSv4-3.3.1.1
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_pattern
 
 - name: Ensure sysctl kernel.core_pattern is set to |/bin/false
   sysctl:

@@ -1,44 +1,44 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*kernel.dmesg_restrict.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - DISA-STIG-RHEL-08-010375
-  - NIST-800-171-3.1.5
-  - NIST-800-53-SI-11(a)
-  - NIST-800-53-SI-11(b)
-  - disable_strategy
-  - low_complexity
-  - low_severity
-  - medium_disruption
-  - reboot_required
-  - sysctl_kernel_dmesg_restrict
-
-- name: Comment out any occurrences of kernel.dmesg_restrict from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*kernel.dmesg_restrict
-    replace: '#kernel.dmesg_restrict'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - DISA-STIG-RHEL-08-010375
-  - NIST-800-171-3.1.5
-  - NIST-800-53-SI-11(a)
-  - NIST-800-53-SI-11(b)
-  - disable_strategy
-  - low_complexity
-  - low_severity
-  - medium_disruption
-  - reboot_required
-  - sysctl_kernel_dmesg_restrict
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*kernel.dmesg_restrict.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - DISA-STIG-RHEL-08-010375
+#  - NIST-800-171-3.1.5
+#  - NIST-800-53-SI-11(a)
+#  - NIST-800-53-SI-11(b)
+#  - disable_strategy
+#  - low_complexity
+#  - low_severity
+#  - medium_disruption
+#  - reboot_required
+#  - sysctl_kernel_dmesg_restrict
+#
+#- name: Comment out any occurrences of kernel.dmesg_restrict from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*kernel.dmesg_restrict
+#    replace: '#kernel.dmesg_restrict'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - DISA-STIG-RHEL-08-010375
+#  - NIST-800-171-3.1.5
+#  - NIST-800-53-SI-11(a)
+#  - NIST-800-53-SI-11(b)
+#  - disable_strategy
+#  - low_complexity
+#  - low_severity
+#  - medium_disruption
+#  - reboot_required
+#  - sysctl_kernel_dmesg_restrict
 
 - name: Ensure sysctl kernel.dmesg_restrict is set to 1
   sysctl:

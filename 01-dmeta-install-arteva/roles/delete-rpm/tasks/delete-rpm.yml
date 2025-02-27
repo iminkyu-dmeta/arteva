@@ -1,0 +1,32 @@
+---
+
+- name: Read rpm delete list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ csvfile.split('\r\n') }}"
+  run_once: yes
+
+- name: create list var
+  set_fact:
+    rpm_list: []
+  when: rpm_file is defined
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ rpm_list }}"
+
+- name: remove rpm
+  dnf:
+    name: '{{ rpm_list }}'
+    state: absent
+    autoremove: true
+  register: delete

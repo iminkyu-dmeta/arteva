@@ -147,12 +147,6 @@
   - no_reboot_needed
   - restrict_strategy
 
-- name: XCCDF Value var_accounts_passwords_pam_faillock_deny # promote to variable
-  set_fact:
-    var_accounts_passwords_pam_faillock_deny: !!str 3
-  tags:
-    - always
-
 - name: Lock Accounts After Failed Password Attempts - Check the presence of /etc/security/faillock.conf file
   ansible.builtin.stat:
     path: /etc/security/faillock.conf

@@ -17,6 +17,15 @@
   with_items: "{{ system.results }}"
   when: item.stat.exists
 
+- name: backup file
+  become: True
+  fetch:
+    src: /etc/pam.d/{{ item.item }}
+    dest: "{{ def_dir }}/"
+    flat: yes
+  with_items: "{{ system.results }}"
+  when: item.stat.exists
+
 - name: check that file exist
   stat:
     path: /etc/pam.d/{{ item }}
@@ -31,6 +40,15 @@
     src: /etc/pam.d/{{ item.item }}
     dest: /etc/pam.d/{{ item.item }}.orig
     remote_src: yes
+  with_items: "{{ password.results }}"
+  when: item.stat.exists
+
+- name: backup file
+  become: True
+  fetch:
+    src: /etc/pam.d/{{ item.item }}
+    dest: "{{ def_dir }}/"
+    flat: yes
   with_items: "{{ password.results }}"
   when: item.stat.exists
 
@@ -51,6 +69,15 @@
   with_items: "{{ faillock.results }}"
   when: item.stat.exists
 
+- name: backup file
+  become: True
+  fetch:
+    src: /etc/security/{{ item.item }}
+    dest: "{{ def_dir }}/"
+    flat: yes
+  with_items: "{{ faillock.results }}"
+  when: item.stat.exists
+
 - name: check that file exist
   stat:
     path: /etc/security/{{ item }}
@@ -65,5 +92,14 @@
     src: /etc/security/{{ item.item }}
     dest: /etc/security/{{ item.item }}.orig
     remote_src: yes
+  with_items: "{{ pwhistory.results }}"
+  when: item.stat.exists
+
+- name: backup file
+  become: True
+  fetch:
+    src: /etc/security/{{ item.item }}
+    dest: "{{ def_dir }}/"
+    flat: yes
   with_items: "{{ pwhistory.results }}"
   when: item.stat.exists

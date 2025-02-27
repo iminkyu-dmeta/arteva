@@ -1,56 +1,56 @@
 ---
 
-- name: List /etc/sysctl.d/*.conf files
-  find:
-    paths:
-    - /etc/sysctl.d/
-    - /run/sysctl.d/
-    - /usr/local/lib/sysctl.d/
-    contains: ^[\s]*net.ipv6.conf.default.accept_source_route.*$
-    patterns: '*.conf'
-    file_type: any
-  register: find_sysctl_d
-  tags:
-  - DISA-STIG-RHEL-08-040250
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-6(b)
-  - NIST-800-53-CM-6.1(iv)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - PCI-DSS-Req-1.4.3
-  - PCI-DSSv4-1.4
-  - PCI-DSSv4-1.4.2
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv6_conf_default_accept_source_route
-
-- name: Comment out any occurrences of net.ipv6.conf.default.accept_source_route from config files
-  replace:
-    path: '{{ item.path }}'
-    regexp: ^[\s]*net.ipv6.conf.default.accept_source_route
-    replace: '#net.ipv6.conf.default.accept_source_route'
-  loop: '{{ find_sysctl_d.files }}'
-  tags:
-  - DISA-STIG-RHEL-08-040250
-  - NIST-800-171-3.1.20
-  - NIST-800-53-CM-6(a)
-  - NIST-800-53-CM-6(b)
-  - NIST-800-53-CM-6.1(iv)
-  - NIST-800-53-CM-7(a)
-  - NIST-800-53-CM-7(b)
-  - PCI-DSS-Req-1.4.3
-  - PCI-DSSv4-1.4
-  - PCI-DSSv4-1.4.2
-  - disable_strategy
-  - low_complexity
-  - medium_disruption
-  - medium_severity
-  - reboot_required
-  - sysctl_net_ipv6_conf_default_accept_source_route
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*net.ipv6.conf.default.accept_source_route.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - DISA-STIG-RHEL-08-040250
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-6(a)
+#  - NIST-800-53-CM-6(b)
+#  - NIST-800-53-CM-6.1(iv)
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - PCI-DSS-Req-1.4.3
+#  - PCI-DSSv4-1.4
+#  - PCI-DSSv4-1.4.2
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv6_conf_default_accept_source_route
+#
+#- name: Comment out any occurrences of net.ipv6.conf.default.accept_source_route from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*net.ipv6.conf.default.accept_source_route
+#    replace: '#net.ipv6.conf.default.accept_source_route'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - DISA-STIG-RHEL-08-040250
+#  - NIST-800-171-3.1.20
+#  - NIST-800-53-CM-6(a)
+#  - NIST-800-53-CM-6(b)
+#  - NIST-800-53-CM-6.1(iv)
+#  - NIST-800-53-CM-7(a)
+#  - NIST-800-53-CM-7(b)
+#  - PCI-DSS-Req-1.4.3
+#  - PCI-DSSv4-1.4
+#  - PCI-DSSv4-1.4.2
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_net_ipv6_conf_default_accept_source_route
 
 - name: Ensure sysctl net.ipv6.conf.default.accept_source_route is set
   sysctl:

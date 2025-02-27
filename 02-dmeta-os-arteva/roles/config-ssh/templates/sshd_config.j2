@@ -25,7 +25,7 @@ HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 
 # Ciphers and keying
-RekeyLimit {{ var_rekey_limit_size }} {{ var_rekey_limit_time }}
+RekeyLimit {{ var_ssh_client_rekey_limit_size }} {{ var_ssh_client_rekey_limit_time }}
 
 # This system is following system-wide crypto policy. The changes to
 # crypto properties (Ciphers, MACs, ...) will not have any effect here.

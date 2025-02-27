@@ -1,0 +1,49 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+    depfile: "{{ input.split('.')[:-1] | join('.') }}"
+  run_once: yes
+
+- name: delete rpm list
+  file:
+    path: "{{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt"
+    state: absent
+  run_once: yes
+
+- name: get dependancy requires resolve rpm list
+  become: True
+  shell: |
+    echo "dnf repoquery --requires --resolve --recursive #{{ item }}"  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --requires --resolve --recursive {{ item }}  >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    echo "dnf repoquery --alldeps --whatdepends #{{ item }}" >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+    dnf repoquery --depends --resolve {{ item }} >> {{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt
+  run_once: yes
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+#- name: save result 
+#  become: True
+#  copy:
+#    content: "{{ item }}"
+#    dest: "{{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt"
+#  run_once: yes
+#  with_items:
+#    - "{{ rpmdeplist.results | map(attribute='cmd') | list }}"
+#    - "{{ rpmdeplist.results | map(attribute='stdout_lines') | list }}"
+
+- name: local user
+  become: False
+  local_action: shell whoami
+  register: user
+  run_once: yes
+  
+- name: get output file
+  fetch:
+    src: "{{ tmp_dir }}/ref-{{ depfile }}-rpmdeplist.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    user: "{{ user.stdout }}"
+    group: "{{ user.stdout }}"
+    flat: yes
+  run_once: yes

@@ -1,13 +1,13 @@
 ---
 
 - import_tasks: config-bash-umask.yml
-  tags: [ 'never', 'config-bash-umask', 'config-session-login']
+  tags: [ 'never', 'config-bash-umask', 'config-session-login', 'config-security']
 
 - import_tasks: config-csh-umask.yml
-  tags: [ 'never', 'config-csh-umask', 'config-session-login']
+  tags: [ 'never', 'config-csh-umask', 'config-session-login', 'config-security']
 
 - import_tasks: config-umask-profile.yml
-  tags: [ 'never', 'config-umask-profile', 'config-session-login']
+  tags: [ 'never', 'config-umask-profile', 'config-session-login', 'config-security']
 
 - import_tasks: config-limit-session.yml
-  tags: [ 'never', 'config-limit-session', 'config-session-login']
+  tags: [ 'never', 'config-limit-session', 'config-session-login', 'config-security']

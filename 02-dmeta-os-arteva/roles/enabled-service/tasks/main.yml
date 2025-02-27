@@ -1,7 +1,16 @@
 ---
 
 - import_tasks: enabled-file-access-policy.yml
-  tags: [ 'never', 'enabled-file-access-policy', 'enabled-service'] #, 'config-security']
+  tags: [ 'never', 'enabled-file-access-policy', 'enabled-service', 'config-security']
 
-- import_tasks: enable-usbguard.yml
-  tags: [ 'never', 'enable-usbguard', 'enabled-service'] #, 'config-security']
+- import_tasks: config-usbguard-log.yml
+  tags: [ 'never', 'config-usbguard-log', 'enabled-service', 'config-security']
+
+- import_tasks: allow-auth-usbguard.yml
+  tags: [ 'never', 'allow-auth-usbguard', 'enabled-service', 'config-security']
+
+- import_tasks: enabled-usbguard.yml
+  tags: [ 'never', 'enabled-usbguard', 'enabled-service', 'config-security']
+
+- import_tasks: disabled-kdump.yml
+  tags: [ 'never', 'disabled-kdump', 'enabled-service' , 'config-security']

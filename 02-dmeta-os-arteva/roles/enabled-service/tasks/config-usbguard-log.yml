@@ -1,0 +1,43 @@
+---
+
+- name: Log USBGuard daemon audit events using Linux Audit
+  block:
+
+  - name: Check for duplicate values
+    lineinfile:
+      path: /etc/usbguard/usbguard-daemon.conf
+      create: true
+      regexp: (?i)^\s*AuditBackend=
+      state: absent
+    check_mode: true
+    changed_when: false
+    register: dupes
+
+  - name: Deduplicate values from /etc/usbguard/usbguard-daemon.conf
+    lineinfile:
+      path: /etc/usbguard/usbguard-daemon.conf
+      create: true
+      regexp: (?i)^\s*AuditBackend=
+      state: absent
+    when: dupes.found is defined and dupes.found > 1
+
+  - name: Insert correct line to /etc/usbguard/usbguard-daemon.conf
+    lineinfile:
+      path: /etc/usbguard/usbguard-daemon.conf
+      create: true
+      regexp: (?i)^\s*AuditBackend=
+      line: AuditBackend=LinuxAudit
+      state: present
+  when:
+  - ansible_architecture != "s390x" 
+  tags:
+  - DISA-STIG-RHEL-08-030603
+  - NIST-800-53-AU-2
+  - NIST-800-53-CM-8(3)
+  - NIST-800-53-IA-3
+  - configure_usbguard_auditbackend
+  - low_complexity
+  - low_disruption
+  - low_severity
+  - no_reboot_needed
+  - restrict_strategy

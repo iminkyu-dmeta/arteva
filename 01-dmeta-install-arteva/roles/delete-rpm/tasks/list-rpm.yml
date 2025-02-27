@@ -1,0 +1,37 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+
+- name: Check rpm update file list 
+  shell: dnf list '{{ item.split("-")[:-2] | join("-") }}'
+  register: list
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"    
+  when: ck == "1"
+
+
+- name: Check rpm update file list
+  shell: dnf list '{{ item }}'
+  register: list
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "0"
+
+- name: display repository file list
+  debug:
+    msg: "{{ list.results | map(attribute='stdout_lines') | list }}"
