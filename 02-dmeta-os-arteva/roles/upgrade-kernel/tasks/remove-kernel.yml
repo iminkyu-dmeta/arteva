@@ -1,0 +1,69 @@
+---
+
+- name: remove kernel version
+  vars:
+    version: "{{ kernel_version }}"
+  shell: dnf remove -y kernel-{{ version }} kernel-tools-{{ version }} kernel-modules-{{ version }} kernel-modules-extra-{{ version }} kernel-devel-{{ version }} bpftool-{{ version }} python3-perf-{{ version }} kernel-headers-{{ version }} kernel-core-{{ version }}
+  when: kernel_version is defined
+  register: upgrade
+
+- name: Read rpm update list file
+  vars:
+    rpm_file: "{{ input }}"
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+  when: input is defined
+
+- name: display csv files
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ csvfile.split('\r\n') }}"
+  when: input is defined
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+  when: input is defined
+
+- name: default ck
+  set_fact:
+    ck: "3"
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+  when: input is defined
+
+- name: remove kernel
+  dnf:
+    name: '{{ item.split("-")[:-2] | join("-") }}'
+    state: absent
+  with_items: 
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "1" and input is defined
+  register: upgradefile
+
+- name: remove kernel
+  dnf:
+    name: '{{ item }}'
+    state: absent
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "0" and input is defined
+  register: upgradefile
+
+- name: display remove kernel
+  debug:
+    msg: "{{ upgrade.stdout_lines }}" 
+  when: kernel_version is defined
+
+- name: display remove kernel
+  debug:
+    msg: "{{ upgradefile.stdout_lines }}"
+  when: input is defined
+  

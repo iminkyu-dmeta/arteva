@@ -1,0 +1,26 @@
+---
+
+- name: confirm kernel version
+  vars:
+    kernel_version: "{{ ansible_kernel.split('-') | first }}"
+    ansible_python_interpreter: /usr/bin/python3
+  debug: 
+    msg: "{{ ansible_kernel }}"
+
+- name: Gather the rpm package facts
+  package_facts:
+    manager: rpm
+
+- name: display kernel
+  debug:
+    msg: "{{ ansible_facts.packages['kernel'] }}"
+  when: "'kernel' in ansible_facts.packages"
+
+- name: confirm kernel version
+  shell: |
+      rpm -qa | grep kernel
+  register: kernel_version
+
+- name: display current kernel version
+  debug:
+    msg: "{{ kernel_version.stdout_lines }}"

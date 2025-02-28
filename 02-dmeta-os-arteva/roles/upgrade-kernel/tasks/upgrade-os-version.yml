@@ -1,0 +1,21 @@
+---
+
+- name: upgrade os version
+  shell: dnf install -y centos-linux-release-{{ os_version }}
+  register: update
+  when: os_version is defined
+
+- name: display install os version
+  debug:
+    msg: "{{ update.stdout_lines }}"
+  when: os_version is defined
+
+- name: upgrade os version
+  shell: dnf install -y {{ pkg }}
+  register: pkgupdate
+  when: pkg is defined
+
+- name: display install  os version
+  debug:
+    msg: "{{ pkgupdate.stdout_lines }}"
+  when: pkg is defined

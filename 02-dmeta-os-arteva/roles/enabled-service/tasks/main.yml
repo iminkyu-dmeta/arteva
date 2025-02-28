@@ -1,8 +1,5 @@
 ---
 
-- import_tasks: enabled-file-access-policy.yml
-  tags: [ 'never', 'enabled-file-access-policy', 'enabled-service', 'config-security']
-
 - import_tasks: config-usbguard-log.yml
   tags: [ 'never', 'config-usbguard-log', 'enabled-service', 'config-security']
 

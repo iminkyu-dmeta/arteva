@@ -4599,3 +4599,28 @@ desired, use '^' to match every line in the file and avoid this warning.
 2025-02-27 07:02:34,176 p=40272 u=dmeta n=ansible | changed: [arteva1]
 2025-02-27 07:02:34,187 p=40272 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
 2025-02-27 07:02:34,187 p=40272 u=dmeta n=ansible | arteva1                    : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-27 09:11:20,529 p=41097 u=dmeta n=ansible | PLAY [Configure OS manual hardning] *********************************************************************************
+2025-02-27 09:11:22,770 p=41097 u=dmeta n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2025-02-27 09:11:22,772 p=41097 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 09:11:22,812 p=41097 u=dmeta n=ansible | TASK [upgrade-kernel : remove kernel args] **************************************************************************
+2025-02-27 09:11:22,813 p=41097 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"msg": "The conditional check 'kernel_path == \"ALL\"' failed. The error was: error while evaluating conditional (kernel_path == \"ALL\"): 'kernel_path' is undefined\n\nThe error appears to be in '/home/dmeta/ANSIBLE/arteva/02-dmeta-os-arteva/roles/upgrade-kernel/tasks/remove-kernel-args.yml': line 3, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: remove kernel args\n  ^ here\n"}
+2025-02-27 09:11:22,815 p=41097 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-27 09:11:22,815 p=41097 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-27 09:12:50,306 p=41143 u=dmeta n=ansible | PLAY [Configure OS manual hardning] *********************************************************************************
+2025-02-27 09:12:52,685 p=41143 u=dmeta n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2025-02-27 09:12:52,686 p=41143 u=dmeta n=ansible | ok: [arteva1]
+2025-02-27 09:12:53,668 p=41143 u=dmeta n=ansible | TASK [upgrade-kernel : remove kernel args] **************************************************************************
+2025-02-27 09:12:53,670 p=41143 u=dmeta n=ansible | changed: [arteva1] => (item=modprobe.blacklist=nouveau)
+2025-02-27 09:12:58,195 p=41143 u=dmeta n=ansible | TASK [upgrade-kernel : Reflection of changes to the system] *********************************************************
+2025-02-27 09:12:58,196 p=41143 u=dmeta n=ansible | changed: [arteva1]
+2025-02-27 09:12:58,208 p=41143 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-27 09:12:58,208 p=41143 u=dmeta n=ansible | arteva1                    : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-28 00:00:42,009 p=42249 u=dmeta n=ansible | PLAY [Configure OS manual hardning] *********************************************************************************
+2025-02-28 00:00:44,002 p=42249 u=dmeta n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2025-02-28 00:00:44,002 p=42249 u=dmeta n=ansible | ok: [arteva1]
+2025-02-28 00:00:45,135 p=42249 u=dmeta n=ansible | TASK [upgrade-kernel : remove kernel args] **************************************************************************
+2025-02-28 00:00:45,135 p=42249 u=dmeta n=ansible | changed: [arteva1] => (item=rd.driver.blacklist=nouveau)
+2025-02-28 00:00:49,569 p=42249 u=dmeta n=ansible | TASK [upgrade-kernel : Reflection of changes to the system] *********************************************************
+2025-02-28 00:00:49,570 p=42249 u=dmeta n=ansible | changed: [arteva1]
+2025-02-28 00:00:49,581 p=42249 u=dmeta n=ansible | PLAY RECAP **********************************************************************************************************
+2025-02-28 00:00:49,581 p=42249 u=dmeta n=ansible | arteva1                    : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

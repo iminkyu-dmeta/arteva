@@ -14,3 +14,4 @@
     - role: config-crypto
     - role: config-dnf
     - role: config-selinux
+    - role: upgrade-kernel

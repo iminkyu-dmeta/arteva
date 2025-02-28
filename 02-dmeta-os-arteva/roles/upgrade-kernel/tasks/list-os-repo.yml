@@ -1,0 +1,21 @@
+---
+
+- name: Check rpm update file list
+  shell: dnf list centos-linux-release
+  register: os_version
+  when: pkg is not defined
+
+- name: Check rpm update file list
+  shell: dnf list {{ pkg }}
+  register: os_list
+  when: pkg is defined
+
+- name: display repository file list
+  debug:
+    msg: "{{ os_version.stdout_lines }}"
+  when: pkg is not defined
+
+- name: display repository file list
+  debug:
+    msg: "{{ os_list.stdout_lines }}"
+  when: pkg is defined

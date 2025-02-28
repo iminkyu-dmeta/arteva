@@ -1,0 +1,25 @@
+---
+
+- name: show grub
+  shell: ls -ltr /boot/vmlinuz-*
+  register: grubby
+
+- name: display grub
+  debug:
+    msg: "{{ grubby.stdout_lines }}"
+
+- name: show default kernel
+  shell: grubby  --default-kernel
+  register: default
+
+- name: display default kernel
+  debug:
+    msg: "{{ default.stdout_lines }}"
+
+- name: show default kernel info
+  shell: grubby --info={{ default.stdout }}
+  register: info
+
+- name: display default kernel info
+  debug:
+    msg: "{{ info.stdout_lines }}"

@@ -1,0 +1,57 @@
+---
+
+- name: Read rpm update list file
+  vars:
+    rpm_file: "{{ input }}"
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ csvfile.split('\r\n') }}"
+  run_once: True
+   
+- name: Create update file
+  shell: dnf repoquery {{ item }} | grep {{ item }} | tail -1
+  loop: "{{ csvfile.split('\r\n') }}"
+  register: filelist
+  run_once: True
+
+- name: display
+  debug:
+    msg: "{{ filelist.results | map(attribute='stdout_lines') | list }}"
+  run_once: True
+
+- name: file state
+  become: False
+  connection: local
+  stat:
+    path: "{{ def_dir }}/{{ item }}"
+  with_items:
+    - "{{ create_file }}"
+  register: check_file
+  run_once: True
+
+- name: Delete empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: absent
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+
+- name: Create empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: touch
+
+- name: Creat rpm list
+  become: False
+  connection: local
+  shell: echo {{ item | join('') }}  >> {{ def_dir }}/{{ create_file }}
+  loop: "{{ filelist.results | map(attribute='stdout_lines') | list }}"
+  run_once: True

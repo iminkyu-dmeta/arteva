@@ -1,0 +1,27 @@
+---
+
+#- name: Gather the rpm package facts
+#  package_facts:
+#    manager: rpm
+
+#- name: remove tuned
+#  dnf:
+#    name: tuned
+#    state: absent
+#  when: "'tuned' in ansible_facts.packages"
+
+- name: dnf history
+  shell: dnf history
+  register: history
+
+- name: display dnf history
+  debug:
+    msg: "{{ history.stdout_lines }}"
+
+- name: rollback kernel
+  shell: dnf history -y undo kernel
+  register: rollback
+  
+- name: display rollback kernel
+  debug:
+    msg: "{{ rollback.stdout_lines }}"

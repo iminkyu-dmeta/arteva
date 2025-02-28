@@ -1,0 +1,12 @@
+---
+
+- name: confirm kernel version
+  shell: |
+      uname -r
+      rpm -qa | grep kernel
+  register: kernel_version
+
+- name: display current kernel version
+  debug:
+    msg: "{{ kernel_version.stdout_lines }}"
+
