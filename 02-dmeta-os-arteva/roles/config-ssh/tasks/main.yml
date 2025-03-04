@@ -42,5 +42,8 @@
 - import_tasks: config-strong-entropy.yml
   tags: [ 'never', 'config-strong-entropy', 'config-ssh', 'config-security']
 
+- import_tasks: config-issue.yml
+  tags: [ 'never', 'config-issue', 'config-ssh', 'config-security']
+
 - import_tasks: config-sshd-config.yml
   tags: [ 'never', 'config-sshd-config', 'config-ssh', 'config-security']
