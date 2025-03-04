@@ -3,7 +3,7 @@
 - name: Set sshd issue
   template:
     src: issue.net.j2
-    dest: /etc/issue.net
+    dest: /etc/issue
     owner: root
     group: root
     mode: '0644'
