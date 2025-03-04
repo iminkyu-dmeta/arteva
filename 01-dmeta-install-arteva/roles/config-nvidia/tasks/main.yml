@@ -9,6 +9,10 @@
 - import_tasks: grub-mkconfig.yml
   tags: [ 'never', 'config-nvidia', 'grub-mkconfig' ]
 
+- import_tasks: remove-nvidia-conf.yml
+  tags: [ 'never', 'config-nvidia', 'remove-nvidia-conf' ]
+
 - import_tasks: os-reboot.yml
   tags: [ 'never', 'config-nvidia', 'os-reboot' ]
+
 

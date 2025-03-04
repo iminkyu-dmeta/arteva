@@ -6,5 +6,8 @@
 - import_tasks: update-bashrc.yml
   tags: [ 'never', 'update-bashrc', 'install-cudnn' ]
 
+- import_tasks: remove-nvidia-conf.yml
+  tags: [ 'never', 'remove-nvidia-conf', 'install-cudnn' ]
+
 - import_tasks: verify.yml
   tags: [ 'never', 'config-nvidia', 'verify' ]
