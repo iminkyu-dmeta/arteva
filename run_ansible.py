@@ -42,7 +42,7 @@ def main():
     ### ###
     try:
         rfile = sys.argv[1]
-        site = sys.argv[2]
+        #site = sys.argv[2]
     except IndexError :
         print("./run_ansible.py arteva-install.txt")
         sys.exit(0)
@@ -57,8 +57,8 @@ def main():
     for cmd in readlines:
         cmd = cmd.strip()
 
-        if "${site-name}" in cmd:
-            cmd = cmd.replace("${site-name}", site)
+        #if "${site-name}" in cmd:
+        #    cmd = cmd.replace("${site-name}", site)
         if "${gtac-id}" in cmd:
             cmd = cmd.replace("${gtac-id}", gtacid)
 

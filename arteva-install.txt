@@ -44,7 +44,7 @@ cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 07-arteva-config-pm2.yml --tags "install-pm2" 
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
-ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-arteva" --extra-vars "ipaddress=${ipaddr}"
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-arteva"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-ai" 
