@@ -1,3 +1,0 @@
-nfs-utils
-gssproxy
-iprutils
