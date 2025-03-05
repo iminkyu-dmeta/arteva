@@ -32,6 +32,9 @@ cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=java-rpmlist.txt"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "config-alternatives"
+
+cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 06-arteva-config-rabbitmq.yml --tags " config-rabbit" 
 
 cd ~/arteva/01-dmeta-install-arteva/playbook

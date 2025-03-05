@@ -1,0 +1,15 @@
+---
+
+- name: Correct java version selected
+  become: True
+  shell: |
+    echo "{{ item.split(',')[0] }}" | update-alternatives --config "{{ item.split(',')[1] }}"
+  with_items:
+    - "{{ alter_selection }}"
+
+#- name: Correct javac version selected
+#  become: True
+#  community.general.alternatives:
+#    name: javac
+#    path: "{{ javac_alternatives }}"
+#    family: "{{ java_family }}"

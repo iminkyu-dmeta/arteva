@@ -1,0 +1,4 @@
+---
+
+- import_tasks: config-alternatives.yml
+  tags: [ 'never', 'config-alternatives', 'update-alternatives' ]

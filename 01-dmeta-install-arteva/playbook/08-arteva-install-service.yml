@@ -9,5 +9,6 @@
   become: True 
 
   roles:
+    - role: config-alternatives
     - role: install-service
     - role: install-ai-engine

@@ -1,0 +1,35 @@
+2025-03-05 09:34:39,150 p=53081 u=dmeta n=ansible | PLAY [install arteva service] ***********************************************************************************
+2025-03-05 09:34:41,166 p=53081 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-05 09:34:41,167 p=53081 u=dmeta n=ansible | ok: [arteva1]
+2025-03-05 09:34:41,930 p=53081 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] ******************************************************
+2025-03-05 09:34:41,930 p=53081 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Needed to install the alternative, but unable to do so as we are missing the link"}
+2025-03-05 09:34:41,931 p=53081 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-05 09:34:41,931 p=53081 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-05 09:38:51,556 p=53144 u=dmeta n=ansible | PLAY [install arteva service] ***********************************************************************************
+2025-03-05 09:38:53,429 p=53144 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-05 09:38:53,430 p=53144 u=dmeta n=ansible | ok: [arteva1]
+2025-03-05 09:38:54,297 p=53144 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] ******************************************************
+2025-03-05 09:38:54,297 p=53144 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Specified path java-11-openjdk.x86_64 does not exist"}
+2025-03-05 09:38:54,298 p=53144 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-05 09:38:54,299 p=53144 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-05 10:36:50,958 p=53212 u=dmeta n=ansible | PLAY [install arteva service] ***********************************************************************************
+2025-03-05 10:36:52,705 p=53212 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-05 10:36:52,705 p=53212 u=dmeta n=ansible | ok: [arteva1]
+2025-03-05 10:36:53,517 p=53212 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] ******************************************************
+2025-03-05 10:36:53,518 p=53212 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (community.general.alternatives) module: family Supported parameters include: link, name, path, priority"}
+2025-03-05 10:36:53,519 p=53212 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-05 10:36:53,519 p=53212 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-05 10:42:14,899 p=53264 u=dmeta n=ansible | PLAY [install arteva service] ***********************************************************************************
+2025-03-05 10:42:16,617 p=53264 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-05 10:42:16,618 p=53264 u=dmeta n=ansible | ok: [arteva1]
+2025-03-05 10:42:17,309 p=53264 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] ******************************************************
+2025-03-05 10:42:17,310 p=53264 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Needed to install the alternative, but unable to do so as we are missing the link"}
+2025-03-05 10:42:17,311 p=53264 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-05 10:42:17,311 p=53264 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-05 11:11:11,116 p=53608 u=dmeta n=ansible | PLAY [install arteva service] ***********************************************************************************
+2025-03-05 11:11:12,892 p=53608 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-05 11:11:12,892 p=53608 u=dmeta n=ansible | ok: [arteva1]
+2025-03-05 11:11:13,596 p=53608 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] ******************************************************
+2025-03-05 11:11:13,596 p=53608 u=dmeta n=ansible | changed: [arteva1] => (item=2,java)
+2025-03-05 11:11:13,606 p=53608 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-05 11:11:13,607 p=53608 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

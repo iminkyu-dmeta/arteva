@@ -1,0 +1,15 @@
+[Unit]
+Description=tomcat 9
+After=network.target syslog.target
+
+[Service]
+Type=forking
+Environment="CATALINA_HOME={{ apps_dir }}/tomcat"
+User={{ tomcat_user }}
+Group={{ dmeta_group }}
+ExecStart={{ apps_dir }}/tomcat/bin/startup.sh
+ExecStop={{ apps_dir }}/tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+
