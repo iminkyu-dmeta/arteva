@@ -4,6 +4,7 @@
   user: "dmeta"
   group: "dmeta"
   password: 'dmeta!@34'
+  db_password: 'dmeta!@34'
   tomcat_user: "tomcat"
   dmeta_group: "dmeta-users"
 
