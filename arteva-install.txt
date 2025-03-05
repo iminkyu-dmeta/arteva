@@ -8,12 +8,6 @@ cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "update-rpm-local" --extra-vars "rpm_file=kernel-rpmlist.txt"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
-ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=openscap.txt"
-
-cd ~/arteva/01-dmeta-install-arteva/playbook
-ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "delete-rpm" --extra-vars "rpm_file=erase-rpmlist.txt"
-
-cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 03-arteva-set-nvidia.yml --tags "config-nvidia"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
@@ -48,6 +42,12 @@ ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-servic
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-ai" 
+
+cd ~/arteva/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=openscap.txt"
+
+cd ~/arteva/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "delete-rpm" --extra-vars "rpm_file=erase-rpmlist.txt"
 
 cd ~/arteva/02-dmeta-os-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 01-arteva-os-security.yml --tags "config-security"
