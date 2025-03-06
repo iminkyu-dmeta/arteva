@@ -57,8 +57,8 @@
 - import_tasks: disable-send-icmp-redirect-default-ipv4.yml
   tags: [ 'never', 'disable-send-icmp-redirect-default-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
 
-#- import_tasks: disable-ip-forwarding-ipv4.yml
-#  tags: [ 'never', 'disable-ip-forwarding-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
+- import_tasks: disable-ip-forwarding-ipv4.yml
+  tags: [ 'never', 'disable-ip-forwarding-ipv4', 'config-ipv4', 'config-kernel-param', 'config-security']
 
 - import_tasks: disable-storing-dump.yml
   tags: [ 'never', 'disable-storing-dump', 'config-restrict-program', 'config-kernel-param', 'config-security']
