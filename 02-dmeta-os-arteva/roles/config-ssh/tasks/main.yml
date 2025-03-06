@@ -4,10 +4,10 @@
   tags: [ 'never', 'config-session-renegotiation', 'config-ssh', 'config-security']
 
 - import_tasks: config-strong-entropy-csh.yml
-  tags: [ 'never', 'config-strong-entropy-csh', 'config-ssh', 'config-security']
+  tags: [ 'never', 'config-strong-entropy-csh', 'config-ssh']
 
 - import_tasks: config-strong-entropy-bash.yml
-  tags: [ 'never', 'config-strong-entropy-bash', 'config-ssh', 'config-security']
+  tags: [ 'never', 'config-strong-entropy-bash', 'config-ssh']
 
 #- import_tasks: disable-host-based-auth.yml
 #  tags: [ 'never', 'disable-host-based-auth', 'config-ssh', 'config-security']
