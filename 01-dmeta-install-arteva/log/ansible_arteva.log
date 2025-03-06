@@ -33,3 +33,10 @@
 2025-03-05 11:11:13,596 p=53608 u=dmeta n=ansible | changed: [arteva1] => (item=2,java)
 2025-03-05 11:11:13,606 p=53608 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
 2025-03-05 11:11:13,607 p=53608 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-06 01:43:24,008 p=54289 u=dmeta n=ansible | PLAY [Configure timcedate] **************************************************************************************
+2025-03-06 01:43:26,187 p=54289 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-06 01:43:26,187 p=54289 u=dmeta n=ansible | ok: [arteva1]
+2025-03-06 01:43:26,952 p=54289 u=dmeta n=ansible | TASK [config-selinux : change selinux] **************************************************************************
+2025-03-06 01:43:26,952 p=54289 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^SELINUX=', 'line': 'SELINUX=enforcing'})
+2025-03-06 01:43:26,962 p=54289 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-06 01:43:26,963 p=54289 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

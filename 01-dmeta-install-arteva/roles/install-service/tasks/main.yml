@@ -21,5 +21,8 @@
 - import_tasks: change-config.yml
   tags: [ 'never', 'change-config', 'install-arteva' ]
 
+- import_tasks: fcontext-tomcat.yml
+  tags: [ 'never', 'fcontext-tomcat', 'install-arteva' ]
+
 - import_tasks: verify.yml
   tags: [ 'never', 'verify' ]

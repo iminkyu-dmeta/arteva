@@ -2,3 +2,6 @@
 
 - import_tasks: config-selinux.yml
   tags: [ 'never', 'default', 'config-selinux' ]
+
+- import_tasks: update-selinux.yml
+  tags: [ 'never', 'update-selinux' ]
