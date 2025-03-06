@@ -2,6 +2,6 @@
 
 - name: Allow tomcat directory
   become:
-    shell: |
-      semanage fcontext -a -t bin_t "{{ apps_dir }}/tomcat(/.*)?"
-      restorecon -Rv {{ apps_dir }}/tomcat
+  shell: |
+    semanage fcontext -a -t bin_t "{{ apps_dir }}/tomcat(/.*)?"
+    restorecon -Rv {{ apps_dir }}/tomcat
