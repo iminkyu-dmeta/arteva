@@ -1,0 +1,4 @@
+﻿번호,역사,카메라 이름,NVR IP,채널번호,용도,RTSP URL,ID,PW,TYPE
+1,디메타,CCTV101,192.168.132.141,101,"엘리베이터 교통약자(휠체어, 유모차) 이용 감시",rtsp://admin:dmeta1234@192.168.132.141:554/Streaming/Channels/101,admin,dmeta1234,"WC,ST"
+2,디메타,TESTNOTEBOOK,192.168.133.37,,"엘리베이터 교통약자(휠체어, 유모차) 이용 감시",rtsp://192.168.133.37:8554/mystream,,,"WC,ST"
+3,디메타,CCTV201,192.168.132.141,201,"엘리베이터 교통약자(휠체어, 유모차) 이용 감시",rtsp://admin:dmeta1234@192.168.132.141:554/Streaming/Channels/201,admin,dmeta1234,"WC,ST"
