@@ -1,0 +1,29 @@
+---
+
+  arteva_version: "1.0.15"
+  user: "dmeta"
+  group: "dmeta"
+  password: 'dmeta!@34'
+  database: 'dmeta_arteva'
+  db_user: 'dmeta'
+  db_password: 'dmeta!@34'
+  tomcat_user: "tomcat"
+  dmeta_group: "dmeta-users"
+
+  def_dir: "../file"
+  tmp_dir: "/tmp"
+  sql_dir: "db-script"
+  rpm_dir: "rpm"
+  apps_dir: "/apps"
+  data_dir: "/data/mariadb/mysql"
+
+  db_service: "mariadb"
+  db_port: "3306/tcp"
+
+  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.15.war"
+  old_backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.12.war"
+
+  update_sql: "arteva-1012-1015.sql"
+  rollback_sql: "arteva-1015-1012.sql"
+
+  was_port: "8000/tcp"

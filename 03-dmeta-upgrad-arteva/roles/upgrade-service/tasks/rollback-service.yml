@@ -1,0 +1,13 @@
+---
+
+- name: Changes soft link to old files
+  become: True
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: '{{ apps_dir }}/arteva/wars/{{ old_backend }}', dest: '{{ apps_dir }}/arteva/webapps/arteva.war' }

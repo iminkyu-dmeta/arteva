@@ -1,0 +1,31 @@
+---
+
+- import_tasks: check-service.yml
+  tags: [ 'never', 'check-service']
+
+- import_tasks: stop-tomcat.yml
+  tags: [ 'never', 'stop-tomcat', 'upgrade-arteva', 'rollback-arteva']
+
+- import_tasks: update-column.yml
+  tags: [ 'never', 'update-column', 'upgrade-arteva']
+
+- import_tasks: upgrade-service.yml
+  tags: [ 'never', 'upgrade-service', 'upgrade-arteva']
+
+- import_tasks: rollback-column.yml
+  tags: [ 'never', 'rollback-column', 'rollback-arteva']
+
+- import_tasks: rollback-service.yml
+  tags: [ 'never', 'rollback-service', 'rollback-arteva']
+
+- import_tasks: start-tomcat.yml
+  tags: [ 'never', 'start-tomcat', 'upgrade-arteva', 'rollback-arteva']
+
+- import_tasks: change-config.yml
+  tags: [ 'never', 'change-config', 'upgrade-arteva', 'rollback-arteva']
+
+- import_tasks: restart-tomcat.yml
+  tags: [ 'never', 'restart-tomcat']
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify']

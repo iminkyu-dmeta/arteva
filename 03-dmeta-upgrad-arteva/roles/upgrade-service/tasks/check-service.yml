@@ -1,0 +1,61 @@
+---
+
+- name: find backend wars
+  become: True
+  find:
+    paths: "{{ apps_dir }}/arteva/wars"
+    patterns: "*.war"
+  register: wars_result
+
+- name: display files
+  debug:
+    msg: "{{ wars_result.files | map(attribute='path') | list }}"
+
+- name: find backend wars
+  become: True
+  find:
+    paths: "{{ apps_dir }}/arteva/webapps"
+    patterns: "*.war"
+    file_type: link
+    follow: yes
+  register: result
+
+- name: display files
+  debug:
+    msg: "{{ result.files | map(attribute='path') | list }}"
+#  with_items:
+#    - "{{ result.files | map(attribute='path') | list }}"
+
+
+#- name: upload arteva backend files
+#  become: True
+#  copy:
+#    src: "{{ def_dir }}/{{ item }}"
+#    dest: "{{ apps_dir }}/arteva/wars"
+#    owner: "{{ tomcat_user }}"
+#    group: "{{ tomcat_user }}"
+#  when: upload_file is not defined
+#  with_items:
+#    - "{{ backend }}"
+#
+#- name: upload src rpm files
+#  become: True
+#  copy:
+#    src: "{{ def_dir }}/{{ item }}"
+#    dest: "{{ apps_dir }}/arteva/wars"
+#    owner: "{{ tomcat_user }}"
+#    group: "{{ tomcat_user }}"
+#  when: upload_file is defined
+#  with_items:
+#    - "{{ upload_file }}"
+#
+#- name: soft link
+#  become: True
+#  file:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: "{{ tomcat_user }}"
+#    group: "{{ tomcat_user }}"
+#    state: link
+#  with_items:
+#    - { src: '{{ apps_dir }}/arteva/wars/{{ backend }}', dest: '{{ apps_dir }}/arteva/webapps/arteva.war' }

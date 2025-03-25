@@ -1,0 +1,35 @@
+---
+
+- name: upload arteva backend files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/wars"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is not defined
+  with_items:
+    - "{{ backend }}"
+
+- name: upload src rpm files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/wars"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"
+
+- name: soft link
+  become: True
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: '{{ apps_dir }}/arteva/wars/{{ backend }}', dest: '{{ apps_dir }}/arteva/webapps/arteva.war' }

@@ -1,0 +1,66 @@
+---
+
+- name: upload sql files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  when: sql_file is defined
+  with_items:
+    - "{{ sql_file }}"
+
+- name: alter table
+  become: True
+  mysql_db:
+    name: "{{ database }}"
+    state: import
+    login_user: "{{ db_user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ tmp_dir }}/{{ sql_file }}"
+  when: sql_file is defined
+
+- name: upload sql files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  when: sql_file is not defined
+  with_items:
+    - "{{ rollback_sql }}"
+
+- name: alter table
+  become: True
+  mysql_db:
+    name: "{{ database }}"
+    state: import
+    login_user: "{{ db_user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ tmp_dir }}/{{ rollback_sql }}"
+  when: sql_file is not defined
+
+#- name: create db
+#  become: True
+#  shell: |
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/1.database.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/2.tables.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/3.archive-trigger.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/4.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/1.code.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/2.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/3.menu.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/4.bbs.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/5.ai.sql
+
+- name: delete upload file
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ sql_file }}"
+    state: absent
+  when: sql_file is defined
+
+- name: delete upload file
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ rollback_sql }}"
+    state: absent
+  when: sql_file is not defined
