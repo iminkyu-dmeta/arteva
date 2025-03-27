@@ -1,0 +1,7 @@
+---
+
+- name: stopped tomcat service 
+  become: True
+  systemd:
+    name: tomcat
+    state: stopped

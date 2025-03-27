@@ -1,0 +1,19 @@
+---
+
+- import_tasks: stop-tomcat.yml
+  tags: [ 'never', 'start-tomcat']
+
+- import_tasks: update-cert.yml
+  tags: [ 'never', 'update-cert']
+
+- import_tasks: rollback-cert.yml
+  tags: [ 'never', 'rollback-cert']
+
+- import_tasks: start-tomcat.yml
+  tags: [ 'never', 'start-tomcat', ]
+
+- import_tasks: restart-tomcat.yml
+  tags: [ 'never', 'restart-tomcat']
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify']

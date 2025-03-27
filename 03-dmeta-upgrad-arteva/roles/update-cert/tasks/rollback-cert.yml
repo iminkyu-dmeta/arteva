@@ -1,0 +1,24 @@
+---
+
+- name: Backup old certificate
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/cert/{{ item }}.orig"
+    dest: "{{ apps_dir }}/arteva/cert/{{ item }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - 'cacert.crt'
+    - 'client.crt'
+    - 'client.key'
+
+- name: Delete backup file
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/cert/{{ item }}.orig"
+    state: absent 
+  with_items:
+    - 'cacert.crt'
+    - 'client.crt'
+    - 'client.key'

@@ -820,3 +820,55 @@
 2025-03-24 11:42:15,529 p=7413 u=dmeta n=ansible | changed: [arteva1]
 2025-03-24 11:42:15,541 p=7413 u=dmeta n=ansible | PLAY RECAP *********************************************************************************************************************************************
 2025-03-24 11:42:15,541 p=7413 u=dmeta n=ansible | arteva1                    : ok=11   changed=10   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-03-27 07:57:51,988 p=5815 u=dmeta n=ansible | PLAY [install arteva service] **************************************************
+2025-03-27 07:57:54,455 p=5815 u=dmeta n=ansible | TASK [Gathering Facts] *********************************************************
+2025-03-27 07:57:54,456 p=5815 u=dmeta n=ansible | ok: [arteva1]
+2025-03-27 07:57:55,445 p=5815 u=dmeta n=ansible | TASK [update-cert : Backup old certificate] ************************************
+2025-03-27 07:57:55,446 p=5815 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 07:57:56,425 p=5815 u=dmeta n=ansible | changed: [arteva1] => (item=client.crt)
+2025-03-27 07:57:57,373 p=5815 u=dmeta n=ansible | changed: [arteva1] => (item=client.key)
+2025-03-27 07:58:00,065 p=5815 u=dmeta n=ansible | TASK [update-cert : upload src rpm files] **************************************
+2025-03-27 07:58:00,066 p=5815 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 07:58:02,461 p=5815 u=dmeta n=ansible | ok: [arteva1] => (item=client.crt)
+2025-03-27 07:58:04,561 p=5815 u=dmeta n=ansible | ok: [arteva1] => (item=client.key)
+2025-03-27 07:58:04,573 p=5815 u=dmeta n=ansible | PLAY RECAP *********************************************************************
+2025-03-27 07:58:04,573 p=5815 u=dmeta n=ansible | arteva1                    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-27 07:58:22,645 p=5979 u=dmeta n=ansible | PLAY [install arteva service] **************************************************
+2025-03-27 07:58:24,613 p=5979 u=dmeta n=ansible | TASK [Gathering Facts] *********************************************************
+2025-03-27 07:58:24,614 p=5979 u=dmeta n=ansible | ok: [arteva1]
+2025-03-27 07:58:26,494 p=5979 u=dmeta n=ansible | TASK [update-cert : restart tomcat service] ************************************
+2025-03-27 07:58:26,495 p=5979 u=dmeta n=ansible | changed: [arteva1]
+2025-03-27 07:58:26,504 p=5979 u=dmeta n=ansible | PLAY RECAP *********************************************************************
+2025-03-27 07:58:26,504 p=5979 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-27 08:01:30,929 p=6020 u=dmeta n=ansible | PLAY [install arteva service] **************************************************
+2025-03-27 08:01:33,491 p=6020 u=dmeta n=ansible | TASK [Gathering Facts] *********************************************************
+2025-03-27 08:01:33,491 p=6020 u=dmeta n=ansible | ok: [arteva1]
+2025-03-27 08:01:34,497 p=6020 u=dmeta n=ansible | TASK [update-cert : Backup old certificate] ************************************
+2025-03-27 08:01:34,498 p=6020 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 08:01:35,535 p=6020 u=dmeta n=ansible | ok: [arteva1] => (item=client.crt)
+2025-03-27 08:01:36,578 p=6020 u=dmeta n=ansible | ok: [arteva1] => (item=client.key)
+2025-03-27 08:01:37,612 p=6020 u=dmeta n=ansible | TASK [update-cert : Delete backup file] ****************************************
+2025-03-27 08:01:37,612 p=6020 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 08:01:38,638 p=6020 u=dmeta n=ansible | changed: [arteva1] => (item=client.crt)
+2025-03-27 08:01:39,641 p=6020 u=dmeta n=ansible | changed: [arteva1] => (item=client.key)
+2025-03-27 08:01:41,525 p=6020 u=dmeta n=ansible | TASK [update-cert : restart tomcat service] ************************************
+2025-03-27 08:01:41,525 p=6020 u=dmeta n=ansible | changed: [arteva1]
+2025-03-27 08:01:41,535 p=6020 u=dmeta n=ansible | PLAY RECAP *********************************************************************
+2025-03-27 08:01:41,536 p=6020 u=dmeta n=ansible | arteva1                    : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-27 08:05:26,585 p=6148 u=dmeta n=ansible |  [ERROR]: User interrupted execution
+
+2025-03-27 08:05:33,630 p=6149 u=dmeta n=ansible | PLAY [install arteva service] **************************************************
+2025-03-27 08:05:36,064 p=6149 u=dmeta n=ansible | TASK [Gathering Facts] *********************************************************
+2025-03-27 08:05:36,065 p=6149 u=dmeta n=ansible | ok: [arteva1]
+2025-03-27 08:05:37,093 p=6149 u=dmeta n=ansible | TASK [update-cert : Backup old certificate] ************************************
+2025-03-27 08:05:37,093 p=6149 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 08:05:38,038 p=6149 u=dmeta n=ansible | changed: [arteva1] => (item=client.crt)
+2025-03-27 08:05:39,090 p=6149 u=dmeta n=ansible | changed: [arteva1] => (item=client.key)
+2025-03-27 08:05:41,720 p=6149 u=dmeta n=ansible | TASK [update-cert : upload src rpm files] **************************************
+2025-03-27 08:05:41,720 p=6149 u=dmeta n=ansible | changed: [arteva1] => (item=cacert.crt)
+2025-03-27 08:05:44,179 p=6149 u=dmeta n=ansible | ok: [arteva1] => (item=client.crt)
+2025-03-27 08:05:46,457 p=6149 u=dmeta n=ansible | ok: [arteva1] => (item=client.key)
+2025-03-27 08:05:48,362 p=6149 u=dmeta n=ansible | TASK [update-cert : restart tomcat service] ************************************
+2025-03-27 08:05:48,362 p=6149 u=dmeta n=ansible | changed: [arteva1]
+2025-03-27 08:05:48,372 p=6149 u=dmeta n=ansible | PLAY RECAP *********************************************************************
+2025-03-27 08:05:48,372 p=6149 u=dmeta n=ansible | arteva1                    : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

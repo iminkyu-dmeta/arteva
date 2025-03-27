@@ -30,6 +30,7 @@ select_camera_evnet_conf_sql = 'select camera_id, event_type, accuracy, active, 
 
 ## Extern
 insert_extern_info_sql = "insert t_arteva_extern_info (name, active, type, address, port, login_id, password, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}')"
+insert_extern_info_to_sql = "insert t_arteva_extern_info (name, active, type, request_url, address, port, login_id, password, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}')"
 
 select_full_extern_sql = 'select * from t_arteva_extern_info;'
 
@@ -137,6 +138,7 @@ def read_extern_csv(filename, conf):
                     row[2], # NAME
                     row[9], # ACTIVE
                     row[3], # Type
+                    row[4], # URL
                     row[5], # Address
                     row[6], # Port
                     row[7], # login ID
@@ -290,7 +292,7 @@ def select_camera_info(db):
     else:
         print("Empty")
 
-def add_extern_info(db, conf):
+def add_extern_info(db, conf, tags):
     user = conf["adminuser"]
 
     index_sql = 'select count(*) from t_arteva_extern_info;'
@@ -308,14 +310,17 @@ def add_extern_info(db, conf):
         '''
         alter table t_arteva_extern_info auto_increment =1;
         insert t_arteva_extern_info 
-        (name, active, type, address, port, login_id, password, comment, 
+        (name, active, type, request_url, address, port, login_id, password, comment, 
             create_time, update_time, create_user, update_user) 
         values 
-        (%s, %s, %s, %s, %s, %s, %s, %s, now(), now(), %s, %s)
+        (%s, %s, %s, %s, %s, %s, %s, %s, %s, now(), now(), %s, %s)
 
         '''
         print("Extern System Add : {}".format(row[0]))
-        db.insert_args_sql(insert_extern_info_sql.format(now, user), tuple(row))
+        if tags == "add":
+            db.insert_args_sql(insert_extern_info_to_sql.format(now, user), tuple(row))
+        elif tags == "add2":
+            db.insert_args_sql(insert_extern_info_sql.format(now, user), tuple(row))
     
     print()
     select_extern_info(db)
@@ -348,7 +353,7 @@ def update_extern_info(db, status):
             db.insert_args_sql(update_sql.format(status, row[0]))
 
 def select_extern_info(db):
-    desc, rows = db.select_sql(select_extern_info_sql, fetchall=True)
+    desc, rows = db.select_sql(select_full_extern_sql, fetchall=True)
     display_select(desc, rows)
 
 def add_broadcast_info(db, conf):
@@ -499,11 +504,11 @@ def main():
     elif info == 'extern':
         read_extern_csv(filename, conf)
 
-        if tags == "add":
-            add_extern_info(db, conf)
+        if tags == "add" or tags == "add2":
+            add_extern_info(db, conf, tags)
 
         if tags == "sel":
-            select_extern_info(db)
+            select_extern_info(db, tags)
 
         if tags == "del":
             delete_extern_info(db)
