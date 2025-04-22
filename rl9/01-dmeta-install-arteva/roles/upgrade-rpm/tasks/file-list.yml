@@ -1,0 +1,13 @@
+---
+
+- name: Read rpm update list file
+  vars:
+    rpm_file: "{{ input }}"
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+  run_once: yes
+
+- name: display file list
+  debug: 
+    msg: "{{ csvfile.split('\n') }}"
+  run_once: yes

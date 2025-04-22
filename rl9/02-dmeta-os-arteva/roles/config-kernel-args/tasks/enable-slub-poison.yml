@@ -1,0 +1,13 @@
+---
+
+- name: Update grub defaults and the bootloader menu
+  command: /sbin/grubby --update-kernel=ALL --args="slub_debug={{ var_slub_debug_options }}"
+  tags:
+  - DISA-STIG-RHEL-08-010423
+  - NIST-800-53-CM-6(a)
+  - grub2_slub_debug_argument
+  - low_disruption
+  - medium_complexity
+  - medium_severity
+  - reboot_required
+  - restrict_strategy

@@ -1,0 +1,10 @@
+---
+
+- import_tasks: enforce-selinux.yml
+  tags: [ 'never', 'enforce-selinux', 'config-selinux']
+
+- import_tasks: permissive-selinux.yml
+  tags: [ 'never', 'permissive-selinux', 'config-selinux']
+
+- import_tasks: disabled-selinux.yml
+  tags: [ 'never', 'disabled-selinux', 'config-selinux']

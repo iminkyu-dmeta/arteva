@@ -1,0 +1,126 @@
+---
+
+- name: upgrade kernel last
+  dnf:
+    name: ['kernel', 'kernel-tools', 'kernel-modules-extra', 'kernel-devel', 'kernel-headers', 'bpftool', 'python3-perf']
+    state: latest
+  when: kernel_version is not defined and input is not defined
+  register: upgradelast
+
+- name: upgrade kernel version
+  vars:
+    version: "{{ kernel_version }}"
+  dnf:
+    name: ['kernel-{{ version }}', 'kernel-tools-{{ version }}', 'kernel-modules-extra-{{ version }}', 'kernel-devel-{{ version }}', 'kernel-headers-{{ version }}', 'bpftool-{{ version }}', 'python3-perf-{{ version }}']
+    state: latest
+  when: kernel_version is defined
+  register: upgradeversion
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ input }}') }}"
+  when: input is defined
+
+- name: display csv files
+  debug:
+    msg: "{{ csvfile.split('\r\n') }}"
+  when: input is defined
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+  when: input is defined
+
+- name: default ck
+  set_fact:
+    ck: "3"
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+  when: input is defined
+
+- name: create list var
+  set_fact:
+    rpm_list: []
+  when: input is defined
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item.split("-")[:-2] | join("-") ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "1" and input is defined
+
+- name: put the rpm name in list
+  set_fact:
+    rpm_list: '{{ rpm_list + [ item ] }}'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "0" and input is defined
+
+- name: upgrade kernel 
+  dnf:
+    name: "{{ rpm_list }}"
+    state: latest
+  when: input is defined
+  register: upgradefile
+
+- name: save upgrade kernel packages results(file)
+  copy:
+    content: "{{ upgradefile.results }}"
+    dest: "{{ tpm_dir }}/{{ input.split('.')[:-1] | join('-')  }}-{{ ansible_host }}.txt"
+  when: input is defined
+
+- name: fetch upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/{{ input.split('.')[:-1] | join('-')   }}-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    flat: yes
+  when: input is defined
+
+- name: save upgrade kernel packages result(latest)
+  copy:
+    content: "{{ upgradelast.results }}"
+    dest: "{{ tmp_dir }}/kernel-update-latest-{{ ansible_host }}.txt"
+  when: kernel_version is not defined and input is not defined
+
+- name: fetch upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/kernel-update-latest-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    flat: yes
+  when: kernel_version is not defined and input is not defined
+
+- name: save upgrade kernel packages(version)
+  copy:
+    content: "{{ upgradeversion.results }}"
+    dest: "{{ tmp_dir }}/kernel-update-{{ kernel_version }}-{{ ansible_host }}.txt"
+  when: kernel_version is defined and input is not defined
+
+- name: fetch upgrade-result
+  fetch:
+    src: "{{ tmp_dir }}/kernel-update-{{ kernel_version }}-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    flat: yes
+  when: kernel_version is defined and input is not defined
+
+- name: display upgrade last
+  debug:
+    msg: "{{ upgradelast.results }}" 
+  when: kernel_version is not defined and input is not defined
+
+- name: display uprade version
+  debug:
+    msg: "{{ upgradeversion.results }}"
+  when: kernel_version is defined
+
+- name: display upgrade file
+  debug:
+    msg: "{{ upgradefile.results }}"
+  when: input is defined

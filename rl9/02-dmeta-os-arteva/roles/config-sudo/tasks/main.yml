@@ -1,0 +1,13 @@
+---
+
+- import_tasks: config-sudo-nopasswd.yml
+  tags: [ 'never', 'config-sudo-nopasswd', 'config-sudo']
+
+- import_tasks: config-auth-sudo.yml
+  tags: [ 'never', 'config-auth-sudo', 'config-sudo']
+
+- import_tasks: ensure-privilege-sudo.yml
+  tags: [ 'never', 'ensure-privilege-sudo', 'config-sudo']
+
+#- import_tasks: verify.yml
+#  tags: [ 'never', 'verify-sshd']

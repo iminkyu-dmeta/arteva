@@ -1,0 +1,22 @@
+---
+
+- name: create user
+  become: True
+  shell: |
+    rabbitmqctl list_users
+    rabbitmqctl add_user dmeta 'dmeta!@34'
+    rabbitmqctl set_user_tags dmeta administrator
+    rabbitmqctl set_permissions -p / dmeta ".*" ".*" ".*"
+    rabbitmqctl add_user ai_engine_svc 'dmeta!@34'
+    rabbitmqctl set_user_tags ai_engine_svc administrator
+    rabbitmqctl set_permissions -p / ai_engine_svc ".*" ".*" ".*"
+
+- name: verify user
+  become: True
+  shell: |
+    rabbitmqctl list_users
+  register: result
+
+- name: rabbitmq user
+  debug:
+    msg: "{{ result.stdout_lines }}"

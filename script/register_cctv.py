@@ -226,7 +226,7 @@ def add_camera_info(db, conf):
 
         time.sleep(2)
         
-    sel_camera_info(db)
+    select_camera_info(db)
 
 def delete_camera_info(db):
     '''
@@ -242,7 +242,7 @@ def delete_camera_info(db):
 
     db.delete_sql('alter table t_arteva_camera_info auto_increment =1;')
 
-    sel_camera_info(db)
+    select_camera_info(db)
     
 def update_camera_info(db, status):
     if status == 'A':

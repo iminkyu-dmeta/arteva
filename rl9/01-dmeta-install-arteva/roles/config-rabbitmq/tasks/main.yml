@@ -1,0 +1,13 @@
+---
+
+- import_tasks: config-rabbitmq.yml
+  tags: [ 'never', 'config-rabbitmq', 'config-rabbit' ]
+
+- import_tasks: create-rabbitmq-user.yml
+  tags: [ 'never', 'create-rabbitmq-user', 'config-rabbit' ]
+
+- import_tasks: create-queue-exchange.yml
+  tags: [ 'never', 'create-queue-exchange', 'config-rabbit' ]
+
+- import_tasks: config-java.yml
+  tags: [ 'never', 'config-java' ]

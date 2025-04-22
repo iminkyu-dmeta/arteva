@@ -1,0 +1,33 @@
+---
+
+- name: confirm kernel version
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  debug: 
+    msg: "{{ ansible_distribution }}-{{ansible_distribution_version }}"
+
+- name: Gather the rpm package facts
+  package_facts:
+    manager: rpm
+
+- name: confirm os version
+  shell: |
+      rpm --query centos-release 
+  when: "'centos-release' in ansible_facts.packages"
+  register: centos_version
+
+- name: display current os version
+  debug:
+    msg: "{{ centos_version.stdout_lines }}"
+  when: "'centos-release' in ansible_facts.packages"
+
+- name: confirm os version
+  shell: |
+      rpm --query centos-linux-release 
+  when: "'centos-linux-release' in ansible_facts.packages"
+  register: centos_linux_version
+
+- name: display current os version
+  debug:
+    msg: "{{ centos_linux_version.stdout_lines }}"
+  when: "'centos-linux-release' in ansible_facts.packages"

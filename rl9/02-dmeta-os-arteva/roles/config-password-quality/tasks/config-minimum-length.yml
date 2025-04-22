@@ -1,0 +1,24 @@
+---
+
+- name: Ensure PAM Enforces Password Requirements - Minimum Length - Ensure PAM variable minlen is set accordingly
+  ansible.builtin.lineinfile:
+    create: true
+    dest: /etc/security/pwquality.conf
+    regexp: ^#?\s*minlen
+    line: minlen = {{ var_password_pam_minlen }}
+  tags:
+  - CJIS-5.6.2.1.1
+  - DISA-STIG-RHEL-08-020230
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-IA-5(1)(a)
+  - NIST-800-53-IA-5(4)
+  - NIST-800-53-IA-5(c)
+  - PCI-DSS-Req-8.2.3
+  - PCI-DSSv4-8.3
+  - PCI-DSSv4-8.3.6
+  - accounts_password_pam_minlen
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy

@@ -1,0 +1,28 @@
+---
+
+- import_tasks: create-rpm-list.yml
+  tags: ['never', 'create-local-list']
+
+- import_tasks: upload-rpm-files.yml
+  tags: ['never', 'upload-rpm-files', 'update-rpm-local']
+
+- import_tasks: upgrade-rpm.yml
+  tags: ['never', 'upgrade-local-rpm', 'update-rpm-local']
+
+- import_tasks: upgrade-rpm-nobest.yml
+  tags: ['never', 'upgrade-rpm-nobest']
+
+- import_tasks: list-rpm.yml
+  tags: ['never', 'list-rpm']
+
+- import_tasks: show-rpm.yml
+  tags: ['never', 'show-rpm']
+
+- import_tasks: file-list.yml
+  tags: ['never', 'file-list']
+
+- import_tasks: delete-dir.yml
+  tags: ['never', 'delete-dir']
+
+- import_tasks: os-reboot.yml
+  tags: ['never', 'os-reboot']

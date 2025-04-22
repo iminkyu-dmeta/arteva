@@ -1,0 +1,12 @@
+---
+
+- name: install pm2 node
+  gather_facts: True
+  vars:
+    hostname: "arteva1"
+    host: arteva
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: install-pm

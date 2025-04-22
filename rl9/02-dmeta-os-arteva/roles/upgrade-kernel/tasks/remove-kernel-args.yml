@@ -1,0 +1,13 @@
+---
+
+- name: remove kernel args
+  shell: grubby --update-kernel=ALL --remove-args={{ item }}
+  with_items:
+    - "{{ argu.split(',') }}"
+  when: kernel_path is not defined
+
+- name: remove grubby args
+  shell: grubby --update-kernel={{ kernel_path }} --remove-args={{ item }}
+  with_items:
+    - "{{ argu.split(',') }}"
+  when: kernel_path is defined 

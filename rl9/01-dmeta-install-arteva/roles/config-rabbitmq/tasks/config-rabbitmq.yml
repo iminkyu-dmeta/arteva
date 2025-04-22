@@ -1,0 +1,27 @@
+---
+
+- name: UI enable
+  become: True
+  shell: |
+    rabbitmq-plugins enable rabbitmq_management
+    rabbitmq-plugins list
+  register: result
+
+- name: rabbitmq list
+  debug: 
+    msg: "{{ result.stdout_lines }}"
+
+- name: start rabbitmq
+  become: True
+  systemd:
+    name: rabbitmq-server
+    state: started
+    enabled: yes
+
+- name: Download rabbitmqadmin tool
+  become: True
+  shell: |
+    cd {{ apps_dir }}
+    wget http://localhost:15672/cli/rabbitmqadmin
+    chmod +x {{ apps_dir }}/rabbitmqadmin
+    mv {{ apps_dir }}/rabbitmqadmin /usr/sbin/

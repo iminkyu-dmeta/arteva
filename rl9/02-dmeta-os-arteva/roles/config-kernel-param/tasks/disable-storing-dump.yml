@@ -1,0 +1,63 @@
+---
+
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    contains: ^[\s]*kernel.core_pattern.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+#  tags:
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_pattern_empty_string
+#
+#- name: Comment out any occurrences of kernel.core_pattern from /etc/sysctl.d/*.conf
+#    files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*kernel.core_pattern
+#    replace: '#kernel.core_pattern'
+#  loop: '{{ find_sysctl_d.files }}'
+#  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+#  tags:
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_pattern_empty_string
+
+- name: Comment out any occurrences of kernel.core_pattern with value from /etc/sysctl.conf
+    files
+  replace:
+    path: /etc/sysctl.conf
+    regexp: ^[\s]*kernel.core_pattern([ \t]*=[ \t]*\S+)
+    replace: '#kernel.core_pattern\1'
+  tags:
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_kernel_core_pattern_empty_string
+
+- name: Ensure sysctl kernel.core_pattern is set to empty
+  sysctl:
+    name: kernel.core_pattern
+    value: ' '
+    state: present
+    reload: true
+  tags:
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_kernel_core_pattern_empty_string

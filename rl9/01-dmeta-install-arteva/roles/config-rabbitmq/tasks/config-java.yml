@@ -1,0 +1,20 @@
+---
+
+- name: update profile
+  become: True
+  lineinfile:
+    path: /etc/profile
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^JAVA_HOME=', line: 'export JAVA_HOME=/usr/lib/jvm/java' }
+
+- name: apply config
+  become: True
+  shell: source /etc/profile
+
+#- name: Correct java version selected
+#  become: True
+#  alternatives:
+#    name: java
+#    path: /usr/lib/jvm/java-11-openjdk-11.0.25.0.9-2.el8.x86_64/bin/java

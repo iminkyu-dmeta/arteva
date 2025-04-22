@@ -1,0 +1,12 @@
+---
+
+- name: confg grubby default kernel
+  shell: grubby --set-default={{ default }}
+
+- name: show default kernel
+  shell: grubby  --default-kernel
+  register: kernel
+
+- name: display default kernel
+  debug:
+    msg: "{{ kernel.stdout_lines }}"

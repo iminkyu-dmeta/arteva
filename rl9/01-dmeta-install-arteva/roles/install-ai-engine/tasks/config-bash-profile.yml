@@ -1,0 +1,19 @@
+---
+
+- name: update profile
+  become: True
+  lineinfile:
+    path: /home/{{ user }}/.bash_profile
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^alias ar=', line: "alias ar='tail -f /apps/arteva/log/arteva_service.log'" }
+    - { regexp: '^alias ai=', line: "alias ai='tail -f /apps/arteva/ai_engine/log/ai_engine/ai_process.log'" }
+    - { regexp: '^alias pm=', line: "alias pm='tail -f /apps/arteva/ai_engine/log/process_manager/process_manager.log'" }
+    - { regexp: '^alias rt=', line: "alias rt='tail -f /apps/arteva/ai_engine/log/rtsp_process/rtsp_process.log'" }
+    - { regexp: '^alias db=', line: "alias db='mariadb -u dmeta -p dmeta_arteva'" }
+
+- name: apply config
+  become: True
+  shell: source /home/{{ user }}/.bash_profile
+

@@ -1,0 +1,29 @@
+---
+
+- name: check vars
+  set_fact:
+    opt: "update"
+
+- name: compare files
+  become: False
+  connection: local
+  shell: python3 ../script/filediff.py -r {{ ref }}-{{ ansible_host }}.txt -e {{ exp }}-{{ ansible_host }}.txt -n {{ ansible_host }} -i {{ input }} -o {{ opt }}
+  register: inputresult
+  when: input is defined 
+
+- name: compare files
+  become: False
+  connection: local
+  shell: python3 ../script/filediff.py -r {{ ref }}-{{ ansible_host }}.txt -e {{ exp }}-{{ ansible_host }}.txt -n {{ ansible_host }} -o {{ opt }}
+  register: result
+  when: input is not defined
+
+- name: display diff
+  debug:
+    msg: "{{ inputresult.stdout_lines }}"
+  when: input is defined 
+
+- name: display diff
+  debug:
+    msg: "{{ result.stdout_lines }}"
+  when: input is not defined

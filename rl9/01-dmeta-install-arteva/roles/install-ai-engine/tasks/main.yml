@@ -1,0 +1,13 @@
+---
+
+- import_tasks: install-ai-engine.yml
+  tags: [ 'never', 'install-ai-engine', 'install-ai' ]
+
+- import_tasks: install-activate.yml
+  tags: [ 'never', 'install-activate', 'install-ai' ]
+
+- import_tasks: config-bash-profile.yml
+  tags: [ 'never', 'config-bash-profile', 'install-ai' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

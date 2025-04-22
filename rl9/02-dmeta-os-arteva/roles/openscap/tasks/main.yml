@@ -1,0 +1,4 @@
+---
+
+- import_tasks: scan-oscap.yml
+  tags: ['never', 'scan-oscap']

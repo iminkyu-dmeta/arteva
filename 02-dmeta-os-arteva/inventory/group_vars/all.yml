@@ -47,4 +47,4 @@
 
   var_accounts_passwords_pam_faillock_deny: !!str 3
   var_accounts_passwords_pam_faillock_fail_interval: !!str 900
-  var_accounts_passwords_pam_faillock_unlock_time: !!str 0
+  var_accounts_passwords_pam_faillock_unlock_time: !!str 600

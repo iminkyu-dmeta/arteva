@@ -1,0 +1,37 @@
+---
+
+- name: Find /etc/sudoers.d/ files
+  ansible.builtin.find:
+    paths:
+    - /etc/sudoers.d/
+  register: sudoers
+  tags:
+  - DISA-STIG-RHEL-08-010380
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-IA-11
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+  - sudo_remove_nopasswd
+
+- name: Remove lines containing NOPASSWD from sudoers files
+  ansible.builtin.replace:
+    regexp: (^(?!#).*[\s]+NOPASSWD[\s]*\:.*$)
+    replace: '# \g<1>'
+    path: '{{ item.path }}'
+    validate: /usr/sbin/visudo -cf %s
+  with_items:
+  - path: /etc/sudoers
+  - '{{ sudoers.files }}'
+  tags:
+  - DISA-STIG-RHEL-08-010380
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-IA-11
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+  - restrict_strategy
+  - sudo_remove_nopasswd

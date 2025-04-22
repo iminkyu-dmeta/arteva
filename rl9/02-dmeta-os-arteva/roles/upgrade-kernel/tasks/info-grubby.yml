@@ -1,0 +1,22 @@
+---
+
+- name: show grubby info
+  shell: grubby --info=ALL
+  register: grubbyall
+  when: kernel_path == "ALL"
+
+- name: show grubby info
+  shell: grubby --info={{ kernel_path }}
+  register: grubbypath
+  when: kernel_path != "ALL"
+
+- name: display grub
+  debug:
+    msg: "{{ grubbyall.stdout_lines }}"
+  when: kernel_path == "ALL"
+
+- name: display grub
+  debug:
+    msg: "{{ grubbypath.stdout_lines }}"
+  when: kernel_path != "ALL"
+

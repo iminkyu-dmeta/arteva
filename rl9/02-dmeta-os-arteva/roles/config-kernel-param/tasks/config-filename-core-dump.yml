@@ -1,0 +1,50 @@
+---
+
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*kernel.core_uses_pid.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+#  tags:
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_uses_pid
+#
+#- name: Comment out any occurrences of kernel.core_uses_pid from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*kernel.core_uses_pid
+#    replace: '#kernel.core_uses_pid'
+#  loop: '{{ find_sysctl_d.files }}'
+#  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+#  tags:
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_kernel_core_uses_pid
+
+- name: Ensure sysctl kernel.core_uses_pid is set to 0
+  sysctl:
+    name: kernel.core_uses_pid
+    value: '0'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  tags:
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_kernel_core_uses_pid

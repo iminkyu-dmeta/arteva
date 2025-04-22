@@ -1,0 +1,117 @@
+---
+
+#- name: create ai_engine directory
+#  become: True
+#  file:
+#    path: "{{ apps_dir }}/arteva/ai_engine"
+#    state: directory
+#    owner: "{{ tomcat_user }}"
+#    group: "{{ tomcat_user }}"
+
+- name: upload ai engine files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  with_items:
+    - "{{ ai_files }}"
+
+- name: copy ai engine 
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/{{ ai_ver }}/"
+    dest: "{{ apps_dir }}/arteva/ai_engine"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+
+- name: delete upload file
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/{{ ai_ver }}/"
+    state: absent
+
+#- name: move directory 
+#  become: True
+#  shell: |
+#    mv {{ apps_dir }}/arteva/{{ ai_ver }} {{ apps_dir }}/arteva/ai_engine
+
+- name: create ai directory
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/ai_engine/ai"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  
+- name: upload arteva backend files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/ai"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  with_items:
+    - "{{ ai_env_files }}"
+
+- name: untar dotenvx_file
+  unarchive:
+    src: "{{ apps_dir }}/arteva/ai_engine/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - "{{ dotenvx_file }}"
+
+- name: move dotenvx
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/ai_engine/{{ item }}"
+    dest: "/usr/local/bin"
+    mode: '0755'
+    remote_src: yes
+  with_items:
+    - "dotenvx"
+
+#- name: create ai directory
+#  become: True
+#  file:
+#    path: "{{ apps_dir }}/arteva/ai_engine"
+#    state: directory
+#    owner: "{{ tomcat_user }}"
+#    group: "{{ tomcat_user }}"
+#
+- name: update run arteva script 
+  become: True
+  lineinfile:
+    path: '{{ apps_dir }}/arteva/ai_engine/run_arteva.sh'
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^source ', line: 'source /home/{{ tomcat_user }}/.bashrc' }
+
+- name: update run arteva script 
+  become: True
+  replace:
+    path: "{{ item }}"
+    regexp: '/home/dmeta'
+    replace: '{{ apps_dir }}'
+  with_items:
+    - '{{ apps_dir }}/arteva/ai_engine/run_arteva.sh'
+
+- name: create nvidia-mps directory
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  with_items:
+    - "nvidia-mps"
+    - "nvidia-log"
+
+- name: source profile
+  become: True
+  shell: |
+    source /etc/profile

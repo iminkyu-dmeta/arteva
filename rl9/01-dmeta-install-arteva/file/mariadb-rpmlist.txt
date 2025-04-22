@@ -1,0 +1,9 @@
+MariaDB-client-11.4.5-1.el9.x86_64.rpm
+MariaDB-client-compat-11.4.5-1.el9.noarch.rpm
+MariaDB-common-11.4.5-1.el9.x86_64.rpm
+MariaDB-server-11.4.5-1.el9.x86_64.rpm
+MariaDB-shared-11.4.5-1.el9.x86_64.rpm
+perl-File-Copy-2.34-481.el9.noarch.rpm
+perl-Sys-Hostname-1.23-481.el9.x86_64.rpm
+galera-4-26.4.21-1.el9.x86_64.rpm
+boost-program-options-1.75.0-8.el9.x86_64.rpm

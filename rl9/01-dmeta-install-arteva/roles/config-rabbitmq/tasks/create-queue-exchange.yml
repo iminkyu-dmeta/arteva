@@ -1,0 +1,68 @@
+---
+
+- name: create queue
+  become: True
+  shell: |
+    rabbitmqadmin declare queue name=config durable=true
+    rabbitmqadmin declare queue name=event durable=true
+    rabbitmqadmin declare queue name=geofence durable=true
+    rabbitmqadmin declare queue name=monitor durable=true
+
+- name: verify queue
+  become: True
+  shell: |
+    rabbitmqadmin list queues
+  register: q_result
+
+- name: queue list
+  debug:
+    msg: "{{ q_result.stdout_lines }}"
+
+- name: create exchange
+  become: True
+  shell: |
+    rabbitmqadmin declare exchange name=config_exc type=direct
+    rabbitmqadmin declare exchange name=event_exc type=direct
+    rabbitmqadmin declare exchange name=geofence_exc type=direct
+    rabbitmqadmin declare exchange name=monitor_exc type=direct
+
+- name: verify exchange
+  become: True
+  shell: |
+    rabbitmqctl list_exchanges
+  register: ex_result
+
+- name: exchange list
+  debug:
+    msg: "{{ ex_result.stdout_lines }}"
+
+- name: bind exchange and queue
+  become: True
+  shell: |
+    rabbitmqadmin declare binding source="config_exc" destination_type="queue" destination="config"
+    rabbitmqadmin declare binding source="event_exc" destination_type="queue" destination="event"
+    rabbitmqadmin declare binding source="geofence_exc" destination_type="queue" destination="geofence"
+    rabbitmqadmin declare binding source="monitor_exc" destination_type="queue" destination="monitor"
+
+- name: verify bind
+  become: True
+  shell: |
+    rabbitmqctl list_bindings
+  register: li_result
+
+- name: bind list
+  debug:
+    msg: "{{ li_result.stdout_lines }}"
+
+- name: config firewall port
+  become: True
+  firewalld:
+    port: "{{ item }}"
+    permanent: True
+    state: enabled
+  with_items:
+    - '{{ rabbit_port }}'
+
+- name: reload firewalld
+  become: True
+  command: firewall-cmd --reload

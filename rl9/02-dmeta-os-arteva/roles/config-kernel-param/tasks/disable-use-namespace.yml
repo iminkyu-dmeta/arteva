@@ -1,0 +1,57 @@
+---
+
+#- name: List /etc/sysctl.d/*.conf files
+#  find:
+#    paths:
+#    - /etc/sysctl.d/
+#    - /run/sysctl.d/
+#    - /usr/local/lib/sysctl.d/
+#    contains: ^[\s]*user.max_user_namespaces.*$
+#    patterns: '*.conf'
+#    file_type: any
+#  register: find_sysctl_d
+#  tags:
+#  - DISA-STIG-RHEL-09-213105
+#  - NIST-800-53-CM-6(a)
+#  - NIST-800-53-SC-39
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_user_max_user_namespaces
+#
+#- name: Comment out any occurrences of user.max_user_namespaces from config files
+#  replace:
+#    path: '{{ item.path }}'
+#    regexp: ^[\s]*user.max_user_namespaces
+#    replace: '#user.max_user_namespaces'
+#  loop: '{{ find_sysctl_d.files }}'
+#  tags:
+#  - DISA-STIG-RHEL-09-213105
+#  - NIST-800-53-CM-6(a)
+#  - NIST-800-53-SC-39
+#  - disable_strategy
+#  - low_complexity
+#  - medium_disruption
+#  - medium_severity
+#  - reboot_required
+#  - sysctl_user_max_user_namespaces
+
+- name: Ensure sysctl user.max_user_namespaces is set to 0
+  sysctl:
+    name: user.max_user_namespaces
+    value: '0'
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: true
+  tags:
+  - DISA-STIG-RHEL-09-213105
+  - NIST-800-53-CM-6(a)
+  - NIST-800-53-SC-39
+  - disable_strategy
+  - low_complexity
+  - medium_disruption
+  - medium_severity
+  - reboot_required
+  - sysctl_user_max_user_namespaces

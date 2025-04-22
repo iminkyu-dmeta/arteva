@@ -1,0 +1,7 @@
+---
+
+- import_tasks: install-pm2.yml
+  tags: [ 'never', 'install-pm2' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

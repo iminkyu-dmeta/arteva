@@ -1,0 +1,58 @@
+---
+
+- import_tasks: show-kernel.yml
+  tags: ['never', 'show-kernel']
+
+- import_tasks: show-os-version.yml
+  tags: ['never', 'show-os-version']
+
+- import_tasks: list-os-repo.yml
+  tags: ['never', 'show-os-repo']
+
+- import_tasks: upgrade-kernel.yml
+  tags: ['never', 'upgrade-kernel', 'update-kernel']
+
+- import_tasks: upgrade-kernel-name.yml
+  tags: ['never', 'upgrade-kernel-name', 'update-kernel-name']
+
+- import_tasks: rollback-kernel.yml
+  tags: ['never', 'rollback-kernel']
+
+- import_tasks: rollback-kernel-undo.yml
+  tags: ['never', 'rollback-kernel-undo']
+
+- import_tasks: list-kernel-repo.yml
+  tags: ['never', 'list-kernel-repo']
+
+- import_tasks: current-kernel.yml
+  tags: ['never', 'current-kernel']
+
+- import_tasks: remove-kernel.yml
+  tags: ['never', 'remove-kernel']
+
+- import_tasks: create-rpm-list.yml
+  tags: ['never', 'create-list']
+
+- import_tasks: show-grubby.yml
+  tags: ['never', 'show-grubby']
+
+- import_tasks: info-grubby.yml
+  tags: ['never', 'info-grubby']
+
+- import_tasks: update-kernel-args.yml
+  tags: ['never', 'update-kernel-args']
+
+- import_tasks: remove-kernel-args.yml
+  tags: ['never', 'remove-kernel-args']
+
+- import_tasks: grub-mkconfig.yml
+  tags: ['never', 'grub-mkconfig']
+
+- import_tasks: config-grubby.yml
+  tags: ['never', 'config-grubby']
+
+- import_tasks: upgrade-os-version.yml
+  tags: ['never', 'upgrade-os-version', 'update-os-version']
+
+- import_tasks: config-dad.yml
+  tags: ['never', 'config-dad']

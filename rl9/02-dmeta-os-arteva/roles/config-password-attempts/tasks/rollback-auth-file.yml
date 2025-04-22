@@ -1,0 +1,121 @@
+---
+
+- name: Check that original file exist
+  stat:
+    path: /etc/authselect/{{ item }}.orig
+  with_items:
+    - "system-auth"
+  no_log: True
+  register: system-auth
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/authselect/{{ item.item }}.orig
+    dest: /etc/authselect/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ system-auth.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/authselect/{{ item }}.orig
+    state: absent
+  with_items:
+    - "system-auth"
+
+- name: Check that original file exist
+  stat:
+    path: /etc/authselect/{{ item }}.orig
+  with_items:
+    - "password-auth"
+  no_log: True
+  register: password-auth
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/authselect/{{ item.item }}.orig
+    dest: /etc/authselect/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ password-auth.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/authselect/{{ item }}.orig
+    state: absent
+  with_items:
+    - "password-auth"
+
+- name: Check that original file exist
+  stat:
+    path: /etc/authselect/{{ item }}.orig
+  with_items:
+    - "postlogin"
+  no_log: True
+  register: postlogin
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/authselect/{{ item.item }}.orig
+    dest: /etc/authselect/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ postlogin.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/authselect/{{ item }}.orig
+    state: absent
+  with_items:
+    - "postlogin"
+
+- name: Check that original file exist
+  stat:
+    path: /etc/security/{{ item }}.orig
+  with_items:
+    - "faillock.conf"
+  no_log: True
+  register: faillock
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}.orig
+    dest: /etc/security/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ faillock.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/security/{{ item }}.orig
+    state: absent
+  with_items:
+    - "faillock.conf"
+
+- name: Check that original file exist
+  stat:
+    path: /etc/security/{{ item }}.orig
+  with_items:
+    - "pwhistory.conf"
+  no_log: True
+  register: pwhistory
+
+- name: restore original file if it exist
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}.orig
+    dest: /etc/security/{{ item.item }}
+    remote_src: yes
+  with_items: "{{ pwhistory.results }}"
+  when: item.stat.exists
+
+- name: orig delete
+  file:
+    path: /etc/security/{{ item }}.orig
+    state: absent
+  with_items:
+    - "pwhistory.conf"

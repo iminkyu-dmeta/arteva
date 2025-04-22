@@ -1,0 +1,109 @@
+---
+
+- name: Read rpm update list file
+  vars:
+    dir: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    rpm_file: "{{ input }}"
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: check file
+  become: False
+  connection: local
+  shell: python ../roles/upgrade-rpm/files/input-check.py {{ item }}
+  with_items:
+    - "{{ csvfile.split('\r\n')[0] }}"
+  run_once: True
+  register: check
+
+- name: Check vars fact
+  set_fact:
+    ck: "{{ check.results | map(attribute='stdout') | list | join('') }}"
+
+- name: Check rpm update file list
+  shell: |
+    echo 'RPM : {{ item.split("-")[:-2] | join("-") }} , Update-VER : {{ item.split("-")[-2:] | join("-") }}' ; echo "Current RPM => " ; rpm -qa --queryformat '(%{INSTALLTIME:date}): %{NAME}-%{VERSION}-%{RELEASE}.%{arch}\n' | grep '{{ item.split("-")[:-2] | join("-") }}'
+  register: list1
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "1"
+
+- name: Check rpm update file list
+  shell: |
+    echo 'RPM : {{ item }}' ; echo "Current RPM => " ; rpm -qa --queryformat '(%{INSTALLTIME:date}): %{NAME}-%{VERSION}-%{RELEASE}.%{arch}\n' | grep '{{ item }}'
+  register: list2
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+  when: ck == "0"
+
+- name: Check rpm file list        
+  shell: | 
+    rpm -qa --queryformat '(%{INSTALLTIME:date}): %{NAME}-%{VERSION}-%{RELEASE}.%{arch}\n' | sort 
+  register: list1
+  when: output is not defined
+  tags:
+    - show-rpm-all
+
+- name: Check rpm file list
+  shell: |
+    rpm -qa --queryformat '%{NAME}-%{VERSION}-%{RELEASE}.%{arch}\n' | sort > {{ tmp_dir }}/{{ output }}-{{ ansible_host }}.txt
+  register: list1
+  when: output is defined
+  tags:
+    - show-rpm-all
+
+- name: local user
+  become: False
+  local_action: shell whoami
+  register: user
+  when: output is defined
+  tags:
+    - show-rpm-all
+
+- name: get output file
+  fetch:
+    src: "{{ tmp_dir }}/{{ output }}-{{ ansible_host }}.txt"
+    dest: "{{ def_dir }}/{{ rpmlist_dir }}/"
+    user: "{{ user.stdout }}"
+    group: "{{ user.stdout }}"
+    flat: yes
+  when: output is defined
+  tags:
+    - show-rpm-all
+
+- name: display current rpm list
+  debug:
+    msg: "{{ list1.results | map(attribute='stdout_lines') | list  }}"
+  when: ck == "1"
+
+- name: display current rpm list
+  debug:
+    msg: "{{ list2.results | map(attribute='stdout_lines') | list  }}"
+  when: ck == "0"
+
+- name: display current rpm list
+  debug:
+    msg: "{{ list1.results | map(attribute='stdout_lines') | list  }}"
+  when: output is not defined
+  tags:
+    - show-rpm-all
+
+- name: Check repo file
+  become: False
+  connection: local
+  shell: |
+    echo {{ def_dir }}/{{ rpmlist_dir }}/
+    ls -ltr {{ def_dir }}/{{ rpmlist_dir }}/
+  register: filelist
+  tags:
+    - show-rpm-all
+
+- name: Display ref file list
+  become: False
+  connection: local
+  debug:
+    msg: "{{ filelist.stdout_lines }}"
+  run_once: yes
+  when: output is defined
+  tags:
+    - show-rpm-all

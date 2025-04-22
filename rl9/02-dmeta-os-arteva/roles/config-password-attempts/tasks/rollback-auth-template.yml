@@ -1,0 +1,45 @@
+---
+
+- name: Rollback the system-auth origin file
+  become: True
+  template:
+    src: system-auth.j2
+    dest: /etc/authselect/{{ item }}
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "system-auth"
+
+- name: Rollback the password-auth origin file
+  become: True
+  template:
+    src: password-auth.j2
+    dest: /etc/authselect/{{ item }}
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "password-auth"
+
+- name: Rollback the faillock.conf origin file
+  become: True
+  template:
+    src: faillock.conf.j2
+    dest: /etc/security/{{ item }}
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "faillock.conf"
+
+- name: Rollback the pwhistory.conf origin file
+  become: True
+  template:
+    src: pwhistory.conf.j2
+    dest: /etc/security/{{ item }}
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "pwhistory.conf"

@@ -1,0 +1,45 @@
+---
+
+- name: upload arteva backend files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is not defined
+  with_items:
+    - "{{ tomcat_file }}"
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"
+
+- name: create tomcat directory
+  become: True
+  file:
+    path: "{{ apps_dir }}/tomcat"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: directory
+      
+- name: move tomcat 
+  become: True
+  copy:
+    src: "{{ apps_dir }}/{{ tomcat_ver }}/"
+    dest: "{{ apps_dir }}/tomcat"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+
+- name: delete 
+  become: True
+  file:
+    path: "{{ apps_dir }}/{{ tomcat_ver }}"
+    state: absent

@@ -1,0 +1,41 @@
+---
+
+- name: Check repo file
+  find:
+    paths: /etc/yum.repos.d
+    patterns: '*.repo'
+  register: filelist
+  tags:
+    - "delete-repo-all"
+
+- name: delete repo files
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ filelist.files }}"
+  tags:
+    - "delete-repo-all"
+
+- name: find delete repo 
+  shell: grep "\[{{ item }}\]" /etc/yum.repos.d/*.repo | awk -F ':' '{print $1}'
+  register: deletefile
+  with_items:
+    - "{{ repo.split(',') }}"
+  when: repo is defined
+  tags:
+    - "delete-repo-specific"
+ 
+- name: fact
+  set_fact:
+    filelist: "{{ deletefile.results | map(attribute='stdout') | list }}"
+  when: repo is defined
+  tags:
+    - "delete-repo-specific"
+
+- name: delete repo files
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items: "{{ filelist }}"
+  tags:
+    - "delete-repo-specific"

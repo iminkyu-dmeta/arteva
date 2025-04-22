@@ -1,0 +1,26 @@
+---
+
+- name: check that file exist
+  stat:
+    path: /etc/X11/xorg.conf.d/{{ item }}
+  with_items:
+    - "10-nvidia.conf"
+  no_log: True
+  register: check_file
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/X11/xorg.conf.d/{{ item.item }}
+    dest: /etc/X11/xorg.conf.d/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+
+- name: Copy file original config
+  become: True
+  file:
+    path: /etc/X11/xorg.conf.d/{{ item.item }}
+    state: absent
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists

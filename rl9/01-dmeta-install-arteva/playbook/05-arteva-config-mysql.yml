@@ -1,0 +1,12 @@
+---
+
+- name: configure mysql
+  gather_facts: True
+  vars:
+    hostname: "arteva1"
+    host: arteva
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: config-mysql

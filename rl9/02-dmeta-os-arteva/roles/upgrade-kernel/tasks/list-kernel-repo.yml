@@ -1,0 +1,9 @@
+---
+
+- name: Check rpm update file list
+  shell: dnf list kernel
+  register: kernel_list
+
+- name: display repository file list
+  debug:
+    msg: "{{ kernel_list.stdout_lines }}"

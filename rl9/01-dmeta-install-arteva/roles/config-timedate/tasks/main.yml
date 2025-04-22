@@ -1,0 +1,4 @@
+---
+
+- import_tasks: config-timedatactl.yml
+  tags: [ 'never', 'default', 'config-timedatectl' ]

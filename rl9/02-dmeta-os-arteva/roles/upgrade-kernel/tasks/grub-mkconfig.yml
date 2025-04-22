@@ -1,0 +1,6 @@
+---
+
+- name: Reflection of changes to the system
+  become: True
+  shell: |
+    grub2-mkconfig -o /boot/grub2/grub.cfg

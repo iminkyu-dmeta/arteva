@@ -1,0 +1,530 @@
+2025-03-06 02:22:32,735 p=54530 u=dmeta n=ansible | PLAY [Configure OS hardning] ************************************************************************************
+2025-03-06 02:22:35,028 p=54530 u=dmeta n=ansible | TASK [Gathering Facts] ******************************************************************************************
+2025-03-06 02:22:35,028 p=54530 u=dmeta n=ansible | ok: [arteva1]
+2025-03-06 02:22:35,051 p=54530 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] ***********************************************
+2025-03-06 02:22:35,051 p=54530 u=dmeta n=ansible | ok: [arteva1]
+2025-03-06 02:23:02,717 p=54530 u=dmeta n=ansible | TASK [openscap : Scan oscap xccdf] ******************************************************************************
+2025-03-06 02:23:02,718 p=54530 u=dmeta n=ansible | changed: [arteva1]
+2025-03-06 02:23:07,165 p=54530 u=dmeta n=ansible | TASK [openscap : get arf file] **********************************************************************************
+2025-03-06 02:23:07,165 p=54530 u=dmeta n=ansible | changed: [arteva1]
+2025-03-06 02:23:08,258 p=54530 u=dmeta n=ansible | TASK [openscap : get report file] *******************************************************************************
+2025-03-06 02:23:08,258 p=54530 u=dmeta n=ansible | changed: [arteva1]
+2025-03-06 02:23:08,270 p=54530 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
+2025-03-06 02:23:08,271 p=54530 u=dmeta n=ansible | arteva1                    : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-17 08:00:43,330 p=17812 u=dmeta n=ansible | PLAY [Configure OS hardning] ********************************************************
+2025-04-17 08:00:45,485 p=17812 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************
+2025-04-17 08:00:45,486 p=17812 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter
+at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference
+_appendices/interpreter_discovery.html for more information.
+
+2025-04-17 08:00:45,486 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:46,738 p=17812 u=dmeta n=ansible | TASK [config-screen-lock : Disable debug-shell SystemD Service - Collect systemd Services Present in the System] ***
+2025-04-17 08:00:46,738 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:47,886 p=17812 u=dmeta n=ansible | TASK [config-screen-lock : Disable debug-shell SystemD Service - Ensure debug-shell.service is Masked] ***
+2025-04-17 08:00:47,886 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:48,519 p=17812 u=dmeta n=ansible | TASK [config-screen-lock : Unit Socket Exists - debug-shell.socket] *****************
+2025-04-17 08:00:48,519 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:49,193 p=17812 u=dmeta n=ansible | TASK [config-screen-lock : Disable Ctrl-Alt-Del Burst Action] ***********************
+2025-04-17 08:00:49,193 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:50,160 p=17812 u=dmeta n=ansible | TASK [config-screen-lock : Disable Ctrl-Alt-Del Reboot Activation] ******************
+2025-04-17 08:00:50,160 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:50,780 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'can' is disabled] *************
+2025-04-17 08:00:50,780 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:51,401 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'can' is blacklisted] **********
+2025-04-17 08:00:51,401 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:51,996 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'sctp' is disabled] ************
+2025-04-17 08:00:51,996 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:52,613 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'sctp' is blacklisted] *********
+2025-04-17 08:00:52,613 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:53,251 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'tipc' is disabled] ************
+2025-04-17 08:00:53,251 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:53,932 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'tipc' is blacklisted] *********
+2025-04-17 08:00:53,933 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:54,780 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'bluetooth' is disabled] *******
+2025-04-17 08:00:54,780 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:55,613 p=17812 u=dmeta n=ansible | TASK [config-network-protocol : Ensure kernel module 'bluetooth' is blacklisted] ****
+2025-04-17 08:00:55,614 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:56,386 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nodev Option to /var/log/audit: Check information associated to mountpoint] ***
+2025-04-17 08:00:56,386 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:56,420 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nodev Option to /var/log/audit: Create mount_info dictionary variable] ***
+2025-04-17 08:00:56,420 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['target', '/var/log/audit'])
+2025-04-17 08:00:56,433 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['source', '/dev/mapper/rl-var_log_audit'])
+2025-04-17 08:00:56,435 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['fstype', 'ext4'])
+2025-04-17 08:00:56,442 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['options', 'defaults'])
+2025-04-17 08:00:56,505 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nodev Option to /var/log/audit: Make sure nodev option is part of the to /var/log/audit options] ***
+2025-04-17 08:00:56,505 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:57,346 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nodev Option to /var/log/audit: Ensure /var/log/audit is mounted with nodev option] ***
+2025-04-17 08:00:57,347 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:58,090 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add noexec Option to /var/log/audit: Check information associated to mountpoint] ***
+2025-04-17 08:00:58,090 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:58,124 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add noexec Option to /var/log/audit: Create mount_info dictionary variable] ***
+2025-04-17 08:00:58,125 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['target', '/var/log/audit'])
+2025-04-17 08:00:58,133 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['source', '/dev/mapper/rl-var_log_audit'])
+2025-04-17 08:00:58,140 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['fstype', 'ext4'])
+2025-04-17 08:00:58,148 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['options', 'defaults,nodev'])
+2025-04-17 08:00:58,208 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add noexec Option to /var/log/audit: Make sure noexec option is part of the to /var/log/audit options] ***
+2025-04-17 08:00:58,208 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:58,953 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add noexec Option to /var/log/audit: Ensure /var/log/audit is mounted with noexec option] ***
+2025-04-17 08:00:58,953 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:00:59,704 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nosuid Option to /var/log/audit: Check information associated to mountpoint] ***
+2025-04-17 08:00:59,704 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:00:59,737 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nosuid Option to /var/log/audit: Create mount_info dictionary variable] ***
+2025-04-17 08:00:59,737 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['target', '/var/log/audit'])
+2025-04-17 08:00:59,748 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['source', '/dev/mapper/rl-var_log_audit'])
+2025-04-17 08:00:59,755 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['fstype', 'ext4'])
+2025-04-17 08:00:59,757 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=['options', 'defaults,nodev,noexec'])
+2025-04-17 08:00:59,819 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nosuid Option to /var/log/audit: Make sure nosuid option is part of the to /var/log/audit options] ***
+2025-04-17 08:00:59,819 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:00,457 p=17812 u=dmeta n=ansible | TASK [config-file-permission : Add nosuid Option to /var/log/audit: Ensure /var/log/audit is mounted with nosuid option] ***
+2025-04-17 08:01:00,457 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:01,482 p=17812 u=dmeta n=ansible | TASK [config-core-dump : Disable acquiring, saving, and processing core dumps - Collect systemd Socket Units Present in the System] ***
+2025-04-17 08:01:01,482 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:02,672 p=17812 u=dmeta n=ansible | TASK [config-core-dump : Disable acquiring, saving, and processing core dumps - Ensure systemd-coredump.socket is Masked] ***
+2025-04-17 08:01:02,673 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:02,692 p=17812 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] *******************
+2025-04-17 08:01:02,692 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:02,712 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Set type of computer node name logging in audit logs - Define Value to Be Used in the Remediation] ***
+2025-04-17 08:01:02,713 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:03,506 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Check for duplicate values] ***************************
+2025-04-17 08:01:03,507 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:04,394 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Insert correct line to /etc/audit/auditd.conf] ********
+2025-04-17 08:01:04,394 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:05,852 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-3-access-failed.rules according to policy] ***
+2025-04-17 08:01:05,852 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:07,081 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/10-base-config.rules according to policy] ***
+2025-04-17 08:01:07,082 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:08,365 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-1-create-failed.rules according to policy] ***
+2025-04-17 08:01:08,365 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:09,855 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-1-create-success.rules according to policy] ***
+2025-04-17 08:01:09,855 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:11,287 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-4-delete-failed.rules according to policy] ***
+2025-04-17 08:01:11,287 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:12,703 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-4-delete-success.rules according to policy] ***
+2025-04-17 08:01:12,703 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:14,257 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/11-loginuid.rules according to policy] ***
+2025-04-17 08:01:14,257 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:15,820 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-2-modify-failed.rules according to policy] ***
+2025-04-17 08:01:15,821 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:17,117 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/43-module-load.rules according to policy] ***
+2025-04-17 08:01:17,117 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:18,499 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42.rules according to policy] ***
+2025-04-17 08:01:18,499 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:20,092 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-6-owner-change-failed.rules according to policy] ***
+2025-04-17 08:01:20,092 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:21,633 p=17812 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-5-perm-change-failed.rules according to policy] ***
+2025-04-17 08:01:21,633 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:22,338 p=17812 u=dmeta n=ansible | TASK [config-session-login : Replace user umask in /etc/bashrc] *********************
+2025-04-17 08:01:22,338 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:23,072 p=17812 u=dmeta n=ansible | TASK [config-session-login : Replace user umask in /etc/csh.cshrc] ******************
+2025-04-17 08:01:23,072 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:23,847 p=17812 u=dmeta n=ansible | TASK [config-session-login : Ensure the Default Umask is Set Correctly in /etc/profile - Ensure umask Value For All Existing umask Definition in /etc/profile] ***
+2025-04-17 08:01:23,847 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:24,579 p=17812 u=dmeta n=ansible | TASK [config-session-login : Find /etc/security/limits.d files containing maxlogins configuration] ***
+2025-04-17 08:01:24,579 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:25,449 p=17812 u=dmeta n=ansible | TASK [config-session-login : Limit the Number of Concurrent Login Sessions Allowed Per User] ***
+2025-04-17 08:01:25,450 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:26,115 p=17812 u=dmeta n=ansible | TASK [config-kernel-args : Update grub defaults and the bootloader menu] ************
+2025-04-17 08:01:26,116 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:26,859 p=17812 u=dmeta n=ansible | TASK [config-kernel-args : Update grub defaults and the bootloader menu] ************
+2025-04-17 08:01:26,860 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:27,759 p=17812 u=dmeta n=ansible | TASK [config-kernel-args : Update grub defaults and the bootloader menu] ************
+2025-04-17 08:01:27,760 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:28,479 p=17812 u=dmeta n=ansible | TASK [config-kernel-args : Update grub defaults and the bootloader menu] ************
+2025-04-17 08:01:28,480 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:29,394 p=17812 u=dmeta n=ansible | TASK [config-kernel-args : Update grub defaults and the bootloader menu] ************
+2025-04-17 08:01:29,394 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:30,082 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Comment out any occurrences of kernel.core_pattern with value from /etc/sysctl.conf files] ***
+2025-04-17 08:01:30,083 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:30,819 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.core_pattern is set to empty] ******
+2025-04-17 08:01:30,820 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:31,427 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.core_uses_pid is set to 0] *********
+2025-04-17 08:01:31,430 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:32,065 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.dmesg_restrict is set to 1] ********
+2025-04-17 08:01:32,065 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:32,724 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.kexec_load_disabled is set to 1] ***
+2025-04-17 08:01:32,724 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:33,437 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.perf_event_paranoid is set to 2] ***
+2025-04-17 08:01:33,437 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:34,046 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl kernel.yama.ptrace_scope is set to 1] *****
+2025-04-17 08:01:34,046 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:34,659 p=17812 u=dmeta n=ansible | TASK [config-kernel-param : Ensure sysctl user.max_user_namespaces is set to 0] *****
+2025-04-17 08:01:34,659 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:35,353 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : check that file exist] *****************************
+2025-04-17 08:01:35,354 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2025-04-17 08:01:35,354 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:36,098 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Copy file original config] *************************
+2025-04-17 08:01:36,099 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/pam.d/system-auth', 'mode': '0777', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': False, 'isfifo': False, 'islnk': True, 'issock': False, 'uid': 0, 'gid': 0, 'size': 27, 'inode': 656205, 'dev': 64768, 'nlink': 1, 'atime': 1744876796.9635746, 'mtime': 1744264993.7079413, 'ctime': 1744264993.7079413, 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': True, 'rgrp': True, 'xgrp': True, 'woth': True, 'roth': True, 'xoth': True, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'lnk_source': '/etc/authselect/system-auth', 'lnk_target': '/etc/authselect/system-auth', 'pw_name': 'root', 'gr_name': 'root', 'mimetype': 'inode/symlink', 'charset': 'binary', 'version': None, 'attributes': [], 'attr_flags': ''}, 'invocation': {'module_args': {'path': '/etc/pam.d/system-auth', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'system-auth', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:37,002 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : backup file] ***************************************
+2025-04-17 08:01:37,003 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/pam.d/system-auth', 'mode': '0777', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': False, 'isfifo': False, 'islnk': True, 'issock': False, 'uid': 0, 'gid': 0, 'size': 27, 'inode': 656205, 'dev': 64768, 'nlink': 1, 'atime': 1744876796.9635746, 'mtime': 1744264993.7079413, 'ctime': 1744264993.7079413, 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': True, 'rgrp': True, 'xgrp': True, 'woth': True, 'roth': True, 'xoth': True, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'lnk_source': '/etc/authselect/system-auth', 'lnk_target': '/etc/authselect/system-auth', 'pw_name': 'root', 'gr_name': 'root', 'mimetype': 'inode/symlink', 'charset': 'binary', 'version': None, 'attributes': [], 'attr_flags': ''}, 'invocation': {'module_args': {'path': '/etc/pam.d/system-auth', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'system-auth', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:37,814 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : check that file exist] *****************************
+2025-04-17 08:01:37,815 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2025-04-17 08:01:37,816 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:38,631 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Copy file original config] *************************
+2025-04-17 08:01:38,632 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/pam.d/password-auth', 'mode': '0777', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': False, 'isfifo': False, 'islnk': True, 'issock': False, 'uid': 0, 'gid': 0, 'size': 29, 'inode': 656202, 'dev': 64768, 'nlink': 1, 'atime': 1744876795.7565746, 'mtime': 1744264993.7079413, 'ctime': 1744264993.7079413, 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': True, 'rgrp': True, 'xgrp': True, 'woth': True, 'roth': True, 'xoth': True, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'lnk_source': '/etc/authselect/password-auth', 'lnk_target': '/etc/authselect/password-auth', 'pw_name': 'root', 'gr_name': 'root', 'mimetype': 'inode/symlink', 'charset': 'binary', 'version': None, 'attributes': [], 'attr_flags': ''}, 'invocation': {'module_args': {'path': '/etc/pam.d/password-auth', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'password-auth', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:39,526 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : backup file] ***************************************
+2025-04-17 08:01:39,527 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/pam.d/password-auth', 'mode': '0777', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': False, 'isfifo': False, 'islnk': True, 'issock': False, 'uid': 0, 'gid': 0, 'size': 29, 'inode': 656202, 'dev': 64768, 'nlink': 1, 'atime': 1744876795.7565746, 'mtime': 1744264993.7079413, 'ctime': 1744264993.7079413, 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': True, 'rgrp': True, 'xgrp': True, 'woth': True, 'roth': True, 'xoth': True, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'lnk_source': '/etc/authselect/password-auth', 'lnk_target': '/etc/authselect/password-auth', 'pw_name': 'root', 'gr_name': 'root', 'mimetype': 'inode/symlink', 'charset': 'binary', 'version': None, 'attributes': [], 'attr_flags': ''}, 'invocation': {'module_args': {'path': '/etc/pam.d/password-auth', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'password-auth', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:40,192 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : check that file exist] *****************************
+2025-04-17 08:01:40,193 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2025-04-17 08:01:40,194 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:41,113 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Copy file original config] *************************
+2025-04-17 08:01:41,113 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/faillock.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 2234, 'inode': 656212, 'dev': 64768, 'nlink': 1, 'atime': 1744851977.400054, 'mtime': 1730651927.0, 'ctime': 1744264732.7049568, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': '78c155e364c7075c29f973ef1177982468e2a27b', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '989316309', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/faillock.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'faillock.conf', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:41,841 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : backup file] ***************************************
+2025-04-17 08:01:41,842 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/faillock.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 2234, 'inode': 656212, 'dev': 64768, 'nlink': 1, 'atime': 1744851977.400054, 'mtime': 1730651927.0, 'ctime': 1744264732.7049568, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': '78c155e364c7075c29f973ef1177982468e2a27b', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '989316309', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/faillock.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'faillock.conf', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:42,496 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : check that file exist] *****************************
+2025-04-17 08:01:42,497 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2025-04-17 08:01:42,497 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:43,288 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Copy file original config] *************************
+2025-04-17 08:01:43,288 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/pwhistory.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 517, 'inode': 656221, 'dev': 64768, 'nlink': 1, 'atime': 1730651933.0, 'mtime': 1730651933.0, 'ctime': 1744264732.7049568, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'b80aac1b3b70a0d6cb2371ecf12c9835496965ff', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '22610694', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/pwhistory.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'pwhistory.conf', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:44,065 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : backup file] ***************************************
+2025-04-17 08:01:44,065 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/pwhistory.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 517, 'inode': 656221, 'dev': 64768, 'nlink': 1, 'atime': 1730651933.0, 'mtime': 1730651933.0, 'ctime': 1744264732.7049568, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'b80aac1b3b70a0d6cb2371ecf12c9835496965ff', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '22610694', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/pwhistory.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'pwhistory.conf', 'ansible_loop_var': 'item'})
+2025-04-17 08:01:44,880 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:01:44,880 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:45,617 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:01:45,617 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:45,643 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:01:45,643 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:01:46,361 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Get authselect current features] ***
+2025-04-17 08:01:46,361 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:47,251 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure "with-faillock" feature is enabled using authselect tool] ***
+2025-04-17 08:01:47,251 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:47,900 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure authselect changes are applied] ***
+2025-04-17 08:01:47,900 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:48,782 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check the presence of /etc/security/faillock.conf file] ***
+2025-04-17 08:01:48,783 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:49,584 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure the pam_faillock.so deny parameter in /etc/security/faillock.conf] ***
+2025-04-17 08:01:49,584 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:50,190 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if /etc/pam.d/system-auth file is present] ***
+2025-04-17 08:01:50,190 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:50,214 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:01:50,214 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:51,006 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:01:51,006 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:51,925 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:01:51,925 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:51,952 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:01:51,953 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:01:52,820 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:01:52,820 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:52,872 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define the new authselect custom profile as a local fact] ***
+2025-04-17 08:01:52,873 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:53,549 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Get authselect current features to also enable them in the custom profile] ***
+2025-04-17 08:01:53,550 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:54,156 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if any custom profile with the same name was already created] ***
+2025-04-17 08:01:54,157 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:54,911 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Create an authselect custom profile based on the current profile] ***
+2025-04-17 08:01:54,911 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:55,838 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure authselect changes are applied] ***
+2025-04-17 08:01:55,839 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:56,654 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure the authselect custom profile is selected] ***
+2025-04-17 08:01:56,654 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:57,518 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Restore the authselect features in the custom profile] ***
+2025-04-17 08:01:57,519 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item=with-fingerprint)
+2025-04-17 08:01:58,159 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item=with-silent-lastlog)
+2025-04-17 08:01:58,859 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item=with-faillock)
+2025-04-17 08:01:59,485 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure authselect changes are applied] ***
+2025-04-17 08:01:59,485 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:01:59,511 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:01:59,512 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:01:59,539 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:01:59,539 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:00,165 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure the "deny" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/system-auth] ***
+2025-04-17 08:02:00,165 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:01,036 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if /etc/pam.d/password-auth file is present] ***
+2025-04-17 08:02:01,037 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:01,061 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:02:01,061 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:01,748 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:01,748 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:02,556 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:02,556 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:02,584 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:02,585 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:03,306 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:02:03,306 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:03,336 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define the current authselect profile as a local fact] ***
+2025-04-17 08:02:03,337 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:03,555 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:02:03,555 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:03,581 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:02:03,582 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:04,390 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Lock Accounts After Failed Password Attempts - Ensure the "deny" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/password-auth] ***
+2025-04-17 08:02:04,390 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:05,353 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:05,353 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:06,039 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:06,039 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:06,063 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:06,063 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:06,720 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Get authselect current features] ***
+2025-04-17 08:02:06,720 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:07,655 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check the presence of /etc/security/faillock.conf file] ***
+2025-04-17 08:02:07,656 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:08,424 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Ensure the pam_faillock.so fail_interval parameter in /etc/security/faillock.conf] ***
+2025-04-17 08:02:08,424 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:09,205 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check if /etc/pam.d/system-auth file is present] ***
+2025-04-17 08:02:09,205 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:09,229 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:02:09,229 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:10,072 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:10,073 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:10,817 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:10,817 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:10,844 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:10,844 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:11,659 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:02:11,660 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:11,689 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define the current authselect profile as a local fact] ***
+2025-04-17 08:02:11,689 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:11,904 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:02:11,904 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:11,929 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:02:11,930 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:12,568 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Ensure the "fail_interval" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/system-auth] ***
+2025-04-17 08:02:12,568 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:13,402 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check if /etc/pam.d/password-auth file is present] ***
+2025-04-17 08:02:13,403 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:13,427 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:02:13,427 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:14,032 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:14,032 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:14,665 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:14,665 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:14,692 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:14,693 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:15,296 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:02:15,297 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:15,326 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define the current authselect profile as a local fact] ***
+2025-04-17 08:02:15,326 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:15,546 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:02:15,547 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:15,569 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:02:15,570 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:16,170 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Interval For Counting Failed Password Attempts - Ensure the "fail_interval" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/password-auth] ***
+2025-04-17 08:02:16,170 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:16,910 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:16,911 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:17,517 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:17,517 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:17,542 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:17,542 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:18,135 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Get authselect current features] ***
+2025-04-17 08:02:18,135 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:18,865 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check the presence of /etc/security/faillock.conf file] ***
+2025-04-17 08:02:18,865 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:19,508 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Ensure the pam_faillock.so unlock_time parameter in /etc/security/faillock.conf] ***
+2025-04-17 08:02:19,508 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:20,110 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check if /etc/pam.d/system-auth file is present] ***
+2025-04-17 08:02:20,111 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:20,135 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:02:20,136 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:20,763 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:20,764 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:21,382 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:21,382 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:21,410 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:21,411 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:22,008 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:02:22,008 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:22,039 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define the current authselect profile as a local fact] ***
+2025-04-17 08:02:22,040 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:22,263 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:02:22,264 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:22,287 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:02:22,287 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:22,893 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Ensure the "unlock_time" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/system-auth] ***
+2025-04-17 08:02:22,894 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:23,536 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check if /etc/pam.d/password-auth file is present] ***
+2025-04-17 08:02:23,537 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:23,560 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define the PAM file to be edited as a local fact] ***
+2025-04-17 08:02:23,560 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:24,164 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check if system relies on authselect tool] ***
+2025-04-17 08:02:24,165 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:24,808 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Check integrity of authselect current profile] ***
+2025-04-17 08:02:24,809 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:24,838 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:24,839 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:25,475 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Get authselect current profile] ***
+2025-04-17 08:02:25,476 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:25,505 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define the current authselect profile as a local fact] ***
+2025-04-17 08:02:25,505 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:25,728 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Change the PAM file to be edited according to the custom authselect profile] ***
+2025-04-17 08:02:25,728 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:25,751 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Define a fact for control already filtered in case filters are used] ***
+2025-04-17 08:02:25,751 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:26,508 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Set Lockout Time for Failed Password Attempts - Ensure the "unlock_time" option from "pam_faillock.so" is not present in /etc/authselect/custom/hardening/password-auth] ***
+2025-04-17 08:02:26,508 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:27,462 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Check if system relies on authselect] ***
+2025-04-17 08:02:27,463 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:28,130 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Check integrity of authselect current profile] ***
+2025-04-17 08:02:28,130 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:28,157 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Informative message based on the authselect integrity check result] ***
+2025-04-17 08:02:28,158 p=17812 u=dmeta n=ansible | ok: [arteva1] => {
+    "changed": false,
+    "msg": [
+        "authselect integrity check passed"
+    ]
+}
+2025-04-17 08:02:28,927 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Get authselect current features] ***
+2025-04-17 08:02:28,928 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:29,711 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Ensure "without-nullok" feature is enabled using authselect tool] ***
+2025-04-17 08:02:29,711 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:30,551 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Prevent Login to Accounts With Empty Password - Ensure authselect changes are applied] ***
+2025-04-17 08:02:30,551 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:31,412 p=17812 u=dmeta n=ansible | TASK [config-password-attempts : Restrict usage of su command only to members of wheel group] ***
+2025-04-17 08:02:31,412 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:32,157 p=17812 u=dmeta n=ansible | TASK [config-password-quality : check that file exist] ******************************
+2025-04-17 08:02:32,157 p=17812 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2025-04-17 08:02:32,159 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:33,136 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Copy file original config] **************************
+2025-04-17 08:02:33,136 p=17812 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/pwquality.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 2674, 'inode': 656196, 'dev': 64768, 'nlink': 1, 'atime': 1744851977.404054, 'mtime': 1596450648.0, 'ctime': 1744264732.6249568, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'cad6399944f0f5459270952d971fa2dbec80e5d4', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '3045754871', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/pwquality.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'pwquality.conf', 'ansible_loop_var': 'item'})
+2025-04-17 08:02:34,990 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Ensure PAM Enforces Password Requirements - Minimum Digit Characters - Ensure PAM variable dcredit is set accordingly] ***
+2025-04-17 08:02:34,990 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:36,217 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Ensure PAM Enforces Password Requirements - Minimum Lowercase Characters - Ensure PAM variable lcredit is set accordingly] ***
+2025-04-17 08:02:36,217 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:37,139 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Ensure PAM Enforces Password Requirements - Minimum Length - Ensure PAM variable minlen is set accordingly] ***
+2025-04-17 08:02:37,139 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:37,784 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Ensure PAM Enforces Password Requirements - Minimum Special Characters - Ensure PAM variable ocredit is set accordingly] ***
+2025-04-17 08:02:37,784 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:38,405 p=17812 u=dmeta n=ansible | TASK [config-password-quality : Ensure PAM Enforces Password Requirements - Minimum Uppercase Characters - Ensure PAM variable ucredit is set accordingly] ***
+2025-04-17 08:02:38,405 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:39,720 p=17812 u=dmeta n=ansible | TASK [enabled-service : Disable KDump Kernel Crash Analyzer (kdump) - Collect systemd Services Present in the System] ***
+2025-04-17 08:02:39,721 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:40,625 p=17812 u=dmeta n=ansible | TASK [enabled-service : Disable KDump Kernel Crash Analyzer (kdump) - Ensure kdump.service is Masked] ***
+2025-04-17 08:02:40,626 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:41,267 p=17812 u=dmeta n=ansible | TASK [enabled-service : Unit Socket Exists - kdump.socket] **************************
+2025-04-17 08:02:41,267 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:42,210 p=17812 u=dmeta n=ansible | TASK [config-ssh : Ensure RekeyLimit is not configured in /etc/ssh/ssh_config] ******
+2025-04-17 08:02:42,211 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:43,094 p=17812 u=dmeta n=ansible | TASK [config-ssh : Collect all include config files for ssh client which configure RekeyLimit] ***
+2025-04-17 08:02:43,094 p=17812 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:02:43,814 p=17812 u=dmeta n=ansible | TASK [config-ssh : Ensure that rekey limit is set to 1G 1h in /etc/ssh/ssh_config.d/02-rekey-limit.conf] ***
+2025-04-17 08:02:43,815 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:45,497 p=17812 u=dmeta n=ansible | TASK [config-ssh : Set sshd issue] **************************************************
+2025-04-17 08:02:45,497 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:47,054 p=17812 u=dmeta n=ansible | TASK [config-ssh : Set sshd Config] *************************************************
+2025-04-17 08:02:47,054 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:47,942 p=17812 u=dmeta n=ansible | TASK [config-ssh : Restart sshd] ****************************************************
+2025-04-17 08:02:47,943 p=17812 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:02:47,956 p=17812 u=dmeta n=ansible | PLAY RECAP **************************************************************************
+2025-04-17 08:02:47,956 p=17812 u=dmeta n=ansible | arteva1                    : ok=184  changed=73   unreachable=0    failed=0    skipped=89   rescued=0    ignored=0   
+2025-04-17 08:17:30,500 p=20858 u=dmeta n=ansible | PLAY [Configure OS hardning] ******************************************************************************************************************
+2025-04-17 08:17:32,781 p=20858 u=dmeta n=ansible | TASK [Gathering Facts] ************************************************************************************************************************
+2025-04-17 08:17:32,782 p=20858 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter at /usr/bin/python, but future installation of another
+Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+
+2025-04-17 08:17:32,782 p=20858 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:17:32,808 p=20858 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] *****************************************************************************
+2025-04-17 08:17:32,808 p=20858 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:17:34,382 p=20858 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42.rules according to policy] *************************************
+2025-04-17 08:17:34,383 p=20858 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:17:34,425 p=20858 u=dmeta n=ansible | PLAY RECAP ************************************************************************************************************************************
+2025-04-17 08:17:34,425 p=20858 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-17 08:23:55,311 p=21132 u=dmeta n=ansible | PLAY [Configure OS hardning] ******************************************************************************************************************
+2025-04-17 08:23:57,304 p=21132 u=dmeta n=ansible | TASK [Gathering Facts] ************************************************************************************************************************
+2025-04-17 08:23:57,305 p=21132 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter at /usr/bin/python, but future installation of another
+Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+
+2025-04-17 08:23:57,305 p=21132 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:23:57,332 p=21132 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] *****************************************************************************
+2025-04-17 08:23:57,332 p=21132 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:23:58,890 p=21132 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-2-modify-success.rules according to policy] ********************
+2025-04-17 08:23:58,890 p=21132 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:24:00,276 p=21132 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-6-owner-change-success.rules according to policy] **************
+2025-04-17 08:24:00,277 p=21132 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:24:01,765 p=21132 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-5-perm-change-success.rules according to policy] ***************
+2025-04-17 08:24:01,765 p=21132 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:24:01,781 p=21132 u=dmeta n=ansible | PLAY RECAP ************************************************************************************************************************************
+2025-04-17 08:24:01,781 p=21132 u=dmeta n=ansible | arteva1                    : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-17 08:38:44,663 p=21295 u=dmeta n=ansible | PLAY [Configure OS hardning] ******************************************************************************************************************
+2025-04-17 08:38:46,953 p=21295 u=dmeta n=ansible | TASK [Gathering Facts] ************************************************************************************************************************
+2025-04-17 08:38:46,954 p=21295 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter at /usr/bin/python, but future installation of another
+Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+
+2025-04-17 08:38:46,954 p=21295 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:38:46,979 p=21295 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] *****************************************************************************
+2025-04-17 08:38:46,979 p=21295 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:38:48,669 p=21295 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42.rules according to policy] *************************************
+2025-04-17 08:38:48,669 p=21295 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:38:48,680 p=21295 u=dmeta n=ansible | PLAY RECAP ************************************************************************************************************************************
+2025-04-17 08:38:48,680 p=21295 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-17 08:41:13,905 p=21389 u=dmeta n=ansible | PLAY [Configure OS hardning] ******************************************************************************************************************
+2025-04-17 08:41:15,952 p=21389 u=dmeta n=ansible | TASK [Gathering Facts] ************************************************************************************************************************
+2025-04-17 08:41:15,952 p=21389 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter at /usr/bin/python, but future installation of another
+Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+
+2025-04-17 08:41:15,952 p=21389 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:41:15,977 p=21389 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] *****************************************************************************
+2025-04-17 08:41:15,978 p=21389 u=dmeta n=ansible | ok: [arteva1]
+2025-04-17 08:41:17,731 p=21389 u=dmeta n=ansible | TASK [config-audit-template : Put contents into /etc/audit/rules.d/30-ospp-v42-3-access-success.rules according to policy] ********************
+2025-04-17 08:41:17,732 p=21389 u=dmeta n=ansible | changed: [arteva1]
+2025-04-17 08:41:17,744 p=21389 u=dmeta n=ansible | PLAY RECAP ************************************************************************************************************************************
+2025-04-17 08:41:17,744 p=21389 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-18 01:29:46,898 p=22279 u=dmeta n=ansible | PLAY [Configure OS hardning] *************************************************************************
+2025-04-18 01:29:49,025 p=22279 u=dmeta n=ansible | TASK [Gathering Facts] *******************************************************************************
+2025-04-18 01:29:49,025 p=22279 u=dmeta n=ansible | [WARNING]: Platform linux on host arteva1 is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html
+for more information.
+
+2025-04-18 01:29:49,025 p=22279 u=dmeta n=ansible | ok: [arteva1]
+2025-04-18 01:29:49,051 p=22279 u=dmeta n=ansible | TASK [config-audit-template : XCCDF Value var_auditd_name_format] ************************************
+2025-04-18 01:29:49,051 p=22279 u=dmeta n=ansible | ok: [arteva1]
+2025-04-18 01:30:05,641 p=22279 u=dmeta n=ansible | TASK [openscap : Scan oscap xccdf] *******************************************************************
+2025-04-18 01:30:05,641 p=22279 u=dmeta n=ansible | changed: [arteva1]
+2025-04-18 01:30:08,953 p=22279 u=dmeta n=ansible | TASK [openscap : get arf file] ***********************************************************************
+2025-04-18 01:30:08,953 p=22279 u=dmeta n=ansible | changed: [arteva1]
+2025-04-18 01:30:10,007 p=22279 u=dmeta n=ansible | TASK [openscap : get report file] ********************************************************************
+2025-04-18 01:30:10,008 p=22279 u=dmeta n=ansible | changed: [arteva1]
+2025-04-18 01:30:10,020 p=22279 u=dmeta n=ansible | PLAY RECAP *******************************************************************************************
+2025-04-18 01:30:10,020 p=22279 u=dmeta n=ansible | arteva1                    : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-18 08:45:10,441 p=29360 u=dmeta n=ansible | ERROR! the playbook: 02-arteva-upgrade-rpm.yml could not be found

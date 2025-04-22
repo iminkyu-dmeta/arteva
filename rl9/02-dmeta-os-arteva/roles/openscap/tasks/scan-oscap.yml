@@ -1,0 +1,21 @@
+---
+
+- name: Scan oscap xccdf
+  become: True
+  command: oscap xccdf eval --profile {{ profile }} --results-arf {{ arf_file }} --report {{ report_file }} {{ scap_file }}
+  register: result
+  failed_when: result.rc not in [ 0, 1, 2 ]
+
+- name: get arf file
+  become: True
+  fetch:
+    src: "{{ arf_file }}"
+    dest: "{{ def_dir }}/"
+    flat: yes
+
+- name: get report file
+  become: True
+  fetch:
+    src: "{{ report_file }}"
+    dest: "{{ def_dir }}/"
+    flat: yes

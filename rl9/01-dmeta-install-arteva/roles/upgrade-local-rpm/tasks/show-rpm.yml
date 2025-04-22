@@ -1,0 +1,17 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: Check rpm update file list 
+  shell: | 
+    echo 'RPM : {{ item.split("-")[:-2] | join("-") }} , Update-VER : {{ item.split("-")[-2:] | join("-") }}' ; echo "Current RPM => " ; rpm -qa --queryformat '(%{INSTALLTIME:date}): %{NAME}-%{VERSION}-%{RELEASE}.%{arch}\n' | grep '{{ item.split("-")[:-2] | join("-") }}' 
+  register: list
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"    
+  when: 
+
+- name: display current rpm list
+  debug:
+    msg: "{{ list.results | map(attribute='stdout_lines') | list  }}"

@@ -1,0 +1,11 @@
+---
+
+- name: Update grub defaults and the bootloader menu
+  command: /sbin/grubby --update-kernel=ALL --args="page_alloc.shuffle=1"
+  tags:
+  - grub2_init_on_alloc_argument
+  - low_disruption
+  - medium_complexity
+  - medium_severity
+  - reboot_required
+  - restrict_strategy

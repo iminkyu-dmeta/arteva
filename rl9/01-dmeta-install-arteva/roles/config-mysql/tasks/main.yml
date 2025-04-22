@@ -1,0 +1,16 @@
+---
+
+- import_tasks: config-mysql.yml
+  tags: [ 'never', 'config-mysql', 'config-db' ]
+
+- import_tasks: create-db.yml
+  tags: [ 'never', 'create-db', 'config-db' ]
+
+- import_tasks: initail-root-password.yml
+  tags: [ 'never', 'initail-root-password', 'config-db' ]
+
+- import_tasks: create-db-password.yml
+  tags: [ 'never', 'create-db-password' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

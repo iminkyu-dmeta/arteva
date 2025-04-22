@@ -1,0 +1,57 @@
+---
+
+- name: file name vars
+  set_fact: 
+    create_file: "{{ rpm_file }}"
+  when: rpm_file is defined
+
+- name: Create update file
+  become: False
+  connection: local
+  find: 
+    path: "{{ def_dir }}"
+    patterns: '*.rpm'
+    file_type: file
+  register: filelist
+  run_once: True
+
+- name: display
+  debug:
+    msg: "{{ filelist.files | map(attribute='path') | list }}"
+  run_once: True
+
+- name: file state
+  become: False
+  connection: local
+  stat:
+    path: "{{ def_dir }}/{{ item }}"
+  with_items:
+    - "{{ create_file }}"
+  register: check_file
+  run_once: True
+
+- name: Delete empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: absent
+  with_items: "{{ check_file.results }}"
+  when: item.stat.exists
+  run_once: True
+
+- name: Create empty file
+  become: False
+  connection: local
+  file:
+    path: "{{ def_dir }}/{{ create_file }}"
+    state: touch
+  run_once: True
+
+- name: Create rpm list
+  become: False
+  connection: local
+  shell: echo {{ item | basename }}  >> {{ def_dir }}/{{ create_file }}
+  with_items:
+    - "{{ filelist.files | map(attribute='path') | list }}"
+  run_once: True

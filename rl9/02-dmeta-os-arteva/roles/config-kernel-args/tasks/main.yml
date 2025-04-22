@@ -1,0 +1,25 @@
+---
+
+- import_tasks: config-init-on-alloc.yml
+  tags: [ 'never', 'config-init-on-alloc', 'config-kernel-args', 'config-security']
+
+- import_tasks: config-page-alloc.yml
+  tags: [ 'never', 'config-page-alloc', 'config-kernel-args', 'config-security']
+
+- import_tasks: config-vsyscall-none.yml
+  tags: [ 'never', 'config-vsyscall-none', 'config-kernel-args', 'config-security']
+
+- import_tasks: enable-start-prior-audit.yml
+  tags: [ 'never', 'enable-start-prior-audit', 'config-kernel-args', 'config-security']
+
+- import_tasks: extend-backlog-limit.yml
+  tags: [ 'never', 'extend-backlog-limit', 'config-kernel-args', 'config-security']
+
+#- import_tasks: enable-page-poison.yml
+#  tags: [ 'never', 'enable-page-poison', 'config-kernel-args', 'config-security']
+#
+#- import_tasks: enable-slub-poison.yml
+#  tags: [ 'never', 'enable-slub-poison', 'config-kernel-args', 'config-security']
+#
+#- import_tasks: enable-page-table-isolation.yml
+#  tags: [ 'never', 'enable-page-table-isolation', 'config-kernel-args', 'config-security']

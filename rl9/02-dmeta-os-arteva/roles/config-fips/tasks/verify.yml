@@ -1,0 +1,10 @@
+---
+
+- name: Verify sshd ClientAliveInterval
+  become: True
+  shell: /usr/bin/cat /etc/ssh/sshd_config | grep '^ClientAliveInterval'
+  register: result
+
+- name: display sshd ClientAliveInterval
+  debug:
+    msg: "{{ result.stdout }}"

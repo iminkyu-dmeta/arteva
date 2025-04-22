@@ -1,0 +1,65 @@
+---
+
+  arteva_version: "1.0.12"
+  user: "dmeta"
+  group: "dmeta"
+  password: 'dmeta!@34'
+  db_password: 'dmeta!@34'
+  tomcat_user: "tomcat"
+  dmeta_group: "dmeta-users"
+
+  def_dir: "../file"
+  tmp_dir: "/tmp"
+  sql_dir: "db-script"
+  rpm_dir: "rpm"
+  apps_dir: "/apps"
+  data_dir: "/data/mariadb/mysql"
+
+  args: "modprobe.blacklist=nouveau"
+  kernel_path: "ALL"
+  disable_gpg: "yes"
+
+  db_service: "mariadb"
+  db_port: "3306/tcp"
+
+  pm_files:
+    - "pm2.tar.gz"
+    - "node-v10.24.0-linux-x64.tar.gz"
+  arteva_files:
+    - "arteva.tar"
+
+  ai_files:
+    - "Intelligent-AI-Video-Analytics-AI-Enginge-1.0.12.tar.gz"
+  ai_ver: "Intelligent-AI-Video-Analytics-AI-Enginge-1.0.12"
+  ai_env_files:
+    - "ai_env.tar.gz"
+
+  dotenvx_file:
+    - "dotenvx.tar.gz"
+
+  tomcat_file: "apache-tomcat-9.0.97.tar.gz"
+  tomcat_ver: "apache-tomcat-9.0.97"
+
+  node_ver: "node-v10.24.0-linux-x64"
+  pm_ver: "pm2-5.4.2"
+  rabbit_port:
+    - "5672/tcp"
+    - "15672/tcp"
+
+  cuda_dir: "cuda-12.8"
+  nvidia_driver: "NVIDIA-Linux-x86_64-570.124.06.run"
+  cuda_driver: "cuda_12.8.1_570.124.06_linux.run"
+  cudnn_file: "cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz"
+  cudnn_dir: "cudnn-linux-x86_64-8.9.7.29_cuda12-archive"
+  cudnn_link_dir: "/usr/local/cuda/lib64"
+  cudnn_version: "8.9.7"
+
+  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.12.war"
+
+  was_port: "8000/tcp"
+
+  java_family: "java-11-openjdk.x86_64"
+  alter_selection: 
+    - "2,java"
+
+  selinux: disabled

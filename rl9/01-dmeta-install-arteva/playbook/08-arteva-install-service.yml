@@ -1,0 +1,14 @@
+---
+
+- name: install arteva service
+  gather_facts: True
+  vars:
+    hostname: "arteva1"
+    host: arteva
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: config-alternatives
+    - role: install-service
+    - role: install-ai-engine

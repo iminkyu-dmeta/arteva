@@ -1,0 +1,10 @@
+---
+
+- name: source profile
+  become: True
+  become_user: "{{ tomcat_user }}"
+  shell: source {{ apps_dir }}/arteva/ai_engine/ai/bin/activate && {{ item }}
+  args:
+    chdir: "{{ apps_dir }}/arteva/ai_engine"
+  with_items:
+    - "conda-unpack && pip3 install -e ."

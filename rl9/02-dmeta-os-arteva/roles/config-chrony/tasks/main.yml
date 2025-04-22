@@ -1,0 +1,10 @@
+---
+
+- import_tasks: chrony.yml
+  tags: [ 'never', 'config-chrony']
+
+- import_tasks: disable-chrony-daemon-server.yml
+  tags: [ 'never', 'disable-chrony-daemon-server', 'disable-chrony']
+
+- import_tasks: disable-network-management.yml
+  tags: [ 'never', 'disable-network-management', 'disable-chrony']

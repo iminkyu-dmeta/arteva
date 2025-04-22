@@ -1,0 +1,56 @@
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "disable-repo-all,list-repo"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 01-arteva-set-default.yml --tags default 
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "update-rpm-local" --extra-vars "rpm_file=kernel-rpmlist.txt"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 03-arteva-set-nvidia.yml --tags "config-nvidia"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm,delete-dir,os-reboot" --extra-vars "rpm_file=nvidia-driver-rpmlist.txt rpm_dir=nvidia-driver"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "update-rpm-local,delete-dir" --extra-vars "upload_file=cuda-12-8.tar.gz rpm_file=cuda-12-8-rpmlist.txt rpm_dir=cuda-12-8"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 04-arteva-install-nvidia.yml --tags "install-cudnn" 
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags " upgrade-local-rpm" --extra-vars "rpm_file=mariadb-rpmlist.txt"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 05-arteva-config-mysql.yml --tags "config-db"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=rabbitmq-rpmlist.txt"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=java-rpmlist.txt"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "config-alternatives"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 06-arteva-config-rabbitmq.yml --tags " config-rabbit" 
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 07-arteva-config-pm2.yml --tags "install-pm2" 
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-arteva"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "install-ai" 
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "upgrade-local-rpm" --extra-vars "rpm_file=os-security-rpmlist.txt"
+
+cd ~/arteva/rl9/02-dmeta-os-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 01-arteva-os-security.yml --tags "config-security"
+
+cd ~/arteva/rl9/01-dmeta-install-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "delete-dir,os-reboot" --extra-vars "rpm_dir=rpm"

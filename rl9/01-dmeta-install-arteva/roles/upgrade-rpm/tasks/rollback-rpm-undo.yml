@@ -1,0 +1,17 @@
+---
+
+- name: dnf history undo Transaction_ID
+  shell: dnf history -y undo {{ Transaction_ID }} --releasever={{ releasever }}
+  when: releasever is defined 
+
+- name: dnf history undo Transaction_ID
+  shell: dnf history -y undo {{ Transaction_ID }} 
+  when: releasever is not defined 
+
+- name: dnf history
+  shell: dnf history
+  register: result
+
+- name: display dnf history
+  debug:
+    msg: "{{ result.stdout_lines }}"

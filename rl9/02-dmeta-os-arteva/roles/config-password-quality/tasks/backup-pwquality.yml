@@ -1,0 +1,18 @@
+---
+
+- name: check that file exist
+  stat:
+    path: /etc/security/{{ item }}
+  with_items:
+    - "pwquality.conf"
+  no_log: True
+  register: pwquality
+
+- name: Copy file original config
+  become: True
+  copy:
+    src: /etc/security/{{ item.item }}
+    dest: /etc/security/{{ item.item }}.orig
+    remote_src: yes
+  with_items: "{{ pwquality.results }}"
+  when: item.stat.exists

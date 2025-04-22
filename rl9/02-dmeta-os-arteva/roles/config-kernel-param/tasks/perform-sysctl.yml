@@ -1,0 +1,5 @@
+---
+
+- name: load read values from sysctl.conf file
+  become: True
+  command: /sbin/sysctl -p

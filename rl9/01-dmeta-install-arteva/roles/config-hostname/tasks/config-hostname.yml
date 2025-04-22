@@ -1,0 +1,10 @@
+---
+
+- name: set a hostname
+  become: true
+  command: hostnamectl set-hostname --static "{{ hostname }}"
+  register: values
+
+- name: display hostname
+  debug:
+    msg: "{{ values.stdout }}"

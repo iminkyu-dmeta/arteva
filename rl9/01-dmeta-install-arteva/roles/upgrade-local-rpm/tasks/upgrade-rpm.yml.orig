@@ -1,0 +1,34 @@
+---
+
+- name: Read rpm update list file
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/{{ rpm_file }}') }}"
+
+- name: display csv files
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ csvfile.split('\r\n') }}"
+
+- name: copy rpm file to VM
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: /tmp
+  with_items:
+    "{{ csvfile.split('\r\n') }}"
+
+- name: upgrade rpm 
+  dnf:
+    name: '{{ tmp_dir }}/{{ item }}'
+    state: present
+    disable_gpg_check: "{{ disable_gpg }}"
+  with_items: 
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: delete rpm file to VM
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    "{{ csvfile.split('\r\n') }}"
