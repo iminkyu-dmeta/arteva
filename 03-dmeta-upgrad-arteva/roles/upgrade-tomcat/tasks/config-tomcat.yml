@@ -26,15 +26,6 @@
   with_items:
     - "web.xml"
 
-- name: upload tomcat.service
-  become: True
-  template:
-    src: tomcat.service.j2
-    dest: "/lib/systemd/system/{{ item }}"
-    mode: '0644'
-  with_items:
-    - "tomcat.service"
-
 - name: chown tomcat
   become: True
   file:

@@ -1,0 +1,15 @@
+---
+
+- name: Check tomcat version
+  become: True
+  shell: |
+    {{ tomcat_home }}/bin/version.sh 
+  register: result
+
+- name: Display tomcat version
+  debug: 
+    msg: "{{ result.stdout_lines }}"
+
+- name: Display tomcat version
+  debug: 
+    msg: "{{ ansible_host }}"

@@ -1,0 +1,13 @@
+---
+
+- name: upgrade tomcat 
+  gather_facts: True
+  vars:
+    hostname: "arteva1"
+    host: arteva
+    tomcat_home: "/apps/tomcat"
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: upgrade-tomcat

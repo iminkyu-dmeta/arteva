@@ -1,0 +1,25 @@
+---
+
+- import_tasks: stop-tomcat.yml
+  tags: [ 'never', 'stop-tomcat', 'update-tomcat', 'rollback-tomcat' ]
+
+- import_tasks: backup-tomcat.yml
+  tags: [ 'never', 'backup-tomcat', 'update-tomcat' ]
+
+- import_tasks: upgrade-tomcat.yml
+  tags: [ 'never', 'upgrade-tomcat', 'update-tomcat' ]
+
+- import_tasks: config-tomcat.yml
+  tags: [ 'never', 'config-tomcat', 'update-tomcat' ]
+
+- import_tasks: fcontext-tomcat.yml
+  tags: [ 'never', 'fcontext-tomcat', 'update-tomcat' ]
+
+- import_tasks: rollback-tomcat.yml
+  tags: [ 'never', 'rollback-tomcat', 'rollback-tomcat' ]
+
+- import_tasks: start-tomcat.yml
+  tags: [ 'never', 'start-tomcat', 'update-tomcat', 'rollback-tomcat' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

@@ -1,0 +1,47 @@
+---
+
+#- name: check tomcat version
+#  shell: |
+#    {{ tomcat_home }}/bin/version.sh | grep '^Server number'
+#  register: result
+
+- name: check tomcat version
+  shell: |
+    {{ tomcat_home }}/bin/version.sh 
+  register: result
+
+- name: dict set_fact
+  set_fact:
+    tomcat_env: {}
+
+- name: tomcat env
+  vars:
+    key: "{{ item.split(':')[0] | regex_replace('Using ', '') | regex_replace(' ', '_') }}"
+    val: "{{ item.split(':')[1] }}"
+  set_fact:
+    tomcat_env: "{{ tomcat_env | combine({ key.strip() : val.strip() }) }}"
+  with_items:
+    - "{{ result.stdout_lines }}"
+
+- name: set fact server version
+  set_fact:
+    version: "{{ tomcat_env.Server_version.split('/')[1]  }}"
+
+- name: display
+  debug: 
+    msg: "{{ version }}"
+
+- name: backup current tomcat
+  become: true
+  copy:
+    src: "{{ tomcat_home }}/tomcat/"
+    dest: "{{ apps_dir }}/apache-tomcat-{{ serverion }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+
+- name: remove tomcat dir
+  become: true
+  file:
+    path: "{{ tomcat_home }}"
+    state: absent
