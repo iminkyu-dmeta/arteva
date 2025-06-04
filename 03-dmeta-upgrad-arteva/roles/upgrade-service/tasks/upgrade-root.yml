@@ -22,16 +22,17 @@
   with_items:
     - "{{ upload_file }}"
 
-- name: Change ROOT.WAR
-  beome: True
+- name: backup root
+  become: True
   copy:
     src: "{{ apps_dir }}/arteva/webapps/ROOT.war"
     dest: "{{ apps_dir }}/arteva/wars/ROOT.war.orig"
     owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
     remote_src: yes
 
 - name: remove ROOT.war
-  beome: True
+  become: True
   file: 
     path: "{{ apps_dir }}/arteva/webapps/{{ item }}"
     state: absent
@@ -40,9 +41,10 @@
     - 'ROOT'
 
 - name: Change ROOT.WAR
-  beome: True
+  become: True
   copy:
     src: "{{ apps_dir }}/arteva/wars/ROOT.war"
     dest: "{{ apps_dir }}/arteva/webapps"
     owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
     remote_src: yes
