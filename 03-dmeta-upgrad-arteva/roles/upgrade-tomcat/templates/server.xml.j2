@@ -173,7 +173,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="{{ ipaddress }}"  appBase="{{ apps_dir }}/arteva/webapps"
+      <Host name="localhost"  appBase="{{ apps_dir }}/arteva/webapps"
             unpackWARs="true" autoDeploy="true">
 
         <!-- SingleSignOn valve, share authentication between web applications
@@ -188,6 +188,10 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+	<Valve className="org.apache.catalina.valves.ErrorReportValve"
+		showReport="false"
+		showServerInfo="false"/>
 
 	<Context docBase="{{ apps_dir }}/arteva/web" path="/static" />
       </Host>

@@ -6,11 +6,17 @@
 - import_tasks: stop-tomcat.yml
   tags: [ 'never', 'stop-tomcat', 'upgrade-arteva', 'rollback-arteva']
 
-- import_tasks: update-column.yml
-  tags: [ 'never', 'update-column', 'upgrade-arteva']
+#- import_tasks: update-column.yml
+#  tags: [ 'never', 'update-column', 'upgrade-arteva']
+
+- import_tasks: create-db.yml
+  tags: [ 'never', 'create-db', 'upgrade-arteva']
 
 - import_tasks: upgrade-service.yml
   tags: [ 'never', 'upgrade-service', 'upgrade-arteva']
+
+- import_tasks: upgrade-root.yml
+  tags: [ 'never', 'upgrade-root', 'upgrade-arteva']
 
 - import_tasks: rollback-column.yml
   tags: [ 'never', 'rollback-column', 'rollback-arteva']

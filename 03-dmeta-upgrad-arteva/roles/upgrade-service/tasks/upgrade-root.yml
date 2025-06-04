@@ -1,0 +1,48 @@
+---
+
+- name: upload arteva backend files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/wars"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is not defined
+  with_items:
+    - "ROOT.war"
+
+- name: upload src rpm files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/wars"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"
+
+- name: Change ROOT.WAR
+  beome: True
+  copy:
+    src: "{{ apps_dir }}/arteva/webapps/ROOT.war"
+    dest: "{{ apps_dir }}/arteva/wars/ROOT.war.orig"
+    owner: "{{ tomcat_user }}"
+    remote_src: yes
+
+- name: remove ROOT.war
+  beome: True
+  file: 
+    path: "{{ apps_dir }}/arteva/webapps/{{ item }}"
+    state: absent
+  with_items:
+    - 'ROOT.war'
+    - 'ROOT'
+
+- name: Change ROOT.WAR
+  beome: True
+  copy:
+    src: "{{ apps_dir }}/arteva/wars/ROOT.war"
+    dest: "{{ apps_dir }}/arteva/webapps"
+    owner: "{{ tomcat_user }}"
+    remote_src: yes

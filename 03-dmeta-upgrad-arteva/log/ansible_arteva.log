@@ -3814,3 +3814,330 @@ The offending line appears to be:
 }
 2025-05-29 02:13:17,473 p=44740 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
 2025-05-29 02:13:17,473 p=44740 u=dmeta n=ansible | arteva1                    : ok=12   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-02 07:34:59,331 p=82605 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************************************************
+2025-06-02 07:35:03,699 p=82605 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 07:35:03,700 p=82605 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 07:35:05,903 p=82605 u=dmeta n=ansible | TASK [upgrade-service : stopped tomcat service] *************************************************************************************************************
+2025-06-02 07:35:05,903 p=82605 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 07:35:12,446 p=82605 u=dmeta n=ansible | TASK [upgrade-service : upload db script] *******************************************************************************************************************
+2025-06-02 07:35:12,446 p=82605 u=dmeta n=ansible | changed: [arteva1] => (item=db-script.tar)
+2025-06-02 07:35:14,370 p=82605 u=dmeta n=ansible | TASK [upgrade-service : Drop table] *************************************************************************************************************************
+2025-06-02 07:35:14,370 p=82605 u=dmeta n=ansible | failed: [arteva1] (item=db-script/ddl/5.drop-tables.sql) => {"ansible_loop_var": "item", "changed": false, "item": "db-script/ddl/5.drop-tables.sql", "msg": "/bin/mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead\n--------------\nDROP TABLE `lettccmmnclcode`\n--------------\n\nERROR 1451 (23000) at line 4: Cannot delete or update a parent row: a foreign key constraint fails\n"}
+2025-06-02 07:35:14,372 p=82605 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 07:35:14,372 p=82605 u=dmeta n=ansible | arteva1                    : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 08:31:00,897 p=82770 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************************************************
+2025-06-02 08:31:02,673 p=82770 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 08:31:02,674 p=82770 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:31:03,670 p=82770 u=dmeta n=ansible | TASK [upgrade-service : stopped tomcat service] *************************************************************************************************************
+2025-06-02 08:31:03,670 p=82770 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:31:06,342 p=82770 u=dmeta n=ansible | TASK [upgrade-service : upload db script] *******************************************************************************************************************
+2025-06-02 08:31:06,343 p=82770 u=dmeta n=ansible | changed: [arteva1] => (item=db-script.tar)
+2025-06-02 08:31:07,223 p=82770 u=dmeta n=ansible | TASK [upgrade-service : Drop table] *************************************************************************************************************************
+2025-06-02 08:31:07,224 p=82770 u=dmeta n=ansible | failed: [arteva1] (item=db-script/ddl/5.drop-tables.sql) => {"ansible_loop_var": "item", "changed": false, "item": "db-script/ddl/5.drop-tables.sql", "msg": "/bin/mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead\n--------------\nDROP TABLE `lettccmmnclcode`\n--------------\n\nERROR 1451 (23000) at line 4: Cannot delete or update a parent row: a foreign key constraint fails\n"}
+2025-06-02 08:31:07,226 p=82770 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 08:31:07,226 p=82770 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 08:46:41,447 p=82876 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************************************************
+2025-06-02 08:46:43,157 p=82876 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 08:46:43,157 p=82876 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:46:44,087 p=82876 u=dmeta n=ansible | TASK [upgrade-service : stopped tomcat service] *************************************************************************************************************
+2025-06-02 08:46:44,087 p=82876 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:46:45,627 p=82876 u=dmeta n=ansible | TASK [upgrade-service : upload db script] *******************************************************************************************************************
+2025-06-02 08:46:45,627 p=82876 u=dmeta n=ansible | ok: [arteva1] => (item=db-script.tar)
+2025-06-02 08:46:49,779 p=82876 u=dmeta n=ansible | TASK [upgrade-service : Drop table] *************************************************************************************************************************
+2025-06-02 08:46:49,780 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/5.drop-tables.sql)
+2025-06-02 08:46:50,573 p=82876 u=dmeta n=ansible | TASK [upgrade-service : alter table] ************************************************************************************************************************
+2025-06-02 08:46:50,574 p=82876 u=dmeta n=ansible | failed: [arteva1] (item=db-script/ddl/1.database.sql) => {"ansible_loop_var": "item", "changed": false, "item": "db-script/ddl/1.database.sql", "msg": "/bin/mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead\n--------------\nCREATE DATABASE `dmeta_arteva` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */\n--------------\n\nERROR 1007 (HY000) at line 1: Can't create database 'dmeta_arteva'; database exists\n"}
+2025-06-02 08:46:54,066 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/2.tables.sql)
+2025-06-02 08:46:58,158 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/3.archive-trigger.sql)
+2025-06-02 08:46:58,943 p=82876 u=dmeta n=ansible | failed: [arteva1] (item=db-script/ddl/4.user.sql) => {"ansible_loop_var": "item", "changed": false, "item": "db-script/ddl/4.user.sql", "msg": "/bin/mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead\n--------------\ncreate user 'dmeta'@'%' identified by '********'\n--------------\n\nERROR 1227 (42000) at line 1: Access denied; you need (at least one of) the CREATE USER privilege(s) for this operation\n"}
+2025-06-02 08:47:01,082 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/1.code.sql)
+2025-06-02 08:47:02,992 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/2.user.sql)
+2025-06-02 08:47:07,214 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/3.menu.sql)
+2025-06-02 08:47:08,992 p=82876 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/4.bbs.sql)
+2025-06-02 08:47:10,578 p=82876 u=dmeta n=ansible | failed: [arteva1] (item=db-script/dml/5.ai.sql) => {"ansible_loop_var": "item", "changed": false, "item": "db-script/dml/5.ai.sql", "msg": "/bin/mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead\n--------------\nINSERT INTO t_arteva_storage_mng (NAME, `COLUMN`, EXPIRE_DAYS, SIZE_LIMIT, CREATE_TIME, UPDATE_TIME, CREATE_USER, UPDATE_USER) VALUES ('FILE_AI_LOG', null, 7, 10000, '2024-09-09 10:32:02', null, null, null)\n--------------\n\nERROR 1054 (42S22) at line 47: Unknown column 'COLUMN' in 'field list'\n"}
+2025-06-02 08:47:10,581 p=82876 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 08:47:10,581 p=82876 u=dmeta n=ansible | arteva1                    : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 08:54:58,481 p=83227 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************************************************
+2025-06-02 08:55:00,296 p=83227 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 08:55:00,296 p=83227 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:55:01,197 p=83227 u=dmeta n=ansible | TASK [upgrade-service : stopped tomcat service] *************************************************************************************************************
+2025-06-02 08:55:01,198 p=83227 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:55:02,760 p=83227 u=dmeta n=ansible | TASK [upgrade-service : upload db script] *******************************************************************************************************************
+2025-06-02 08:55:02,760 p=83227 u=dmeta n=ansible | ok: [arteva1] => (item=db-script.tar)
+2025-06-02 08:55:03,762 p=83227 u=dmeta n=ansible | TASK [upgrade-service : Drop table] *************************************************************************************************************************
+2025-06-02 08:55:03,763 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/5.drop-tables.sql)
+2025-06-02 08:55:07,161 p=83227 u=dmeta n=ansible | TASK [upgrade-service : alter table] ************************************************************************************************************************
+2025-06-02 08:55:07,161 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/2.tables.sql)
+2025-06-02 08:55:13,051 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/ddl/3.archive-trigger.sql)
+2025-06-02 08:55:14,922 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/1.code.sql)
+2025-06-02 08:55:16,467 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/2.user.sql)
+2025-06-02 08:55:21,134 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/3.menu.sql)
+2025-06-02 08:55:21,974 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/4.bbs.sql)
+2025-06-02 08:55:22,872 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=db-script/dml/5.ai.sql)
+2025-06-02 08:55:23,639 p=83227 u=dmeta n=ansible | TASK [upgrade-service : delete upload file] *****************************************************************************************************************
+2025-06-02 08:55:23,639 p=83227 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:55:34,203 p=83227 u=dmeta n=ansible | TASK [upgrade-service : upload arteva backend files] ********************************************************************************************************
+2025-06-02 08:55:34,203 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item=D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.17.war)
+2025-06-02 08:55:34,879 p=83227 u=dmeta n=ansible | TASK [upgrade-service : soft link] **************************************************************************************************************************
+2025-06-02 08:55:34,879 p=83227 u=dmeta n=ansible | changed: [arteva1] => (item={'src': '/apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.17.war', 'dest': '/apps/arteva/webapps/arteva.war'})
+2025-06-02 08:55:35,747 p=83227 u=dmeta n=ansible | TASK [upgrade-service : start tomcat service] ***************************************************************************************************************
+2025-06-02 08:55:35,747 p=83227 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:55:47,451 p=83227 u=dmeta n=ansible | TASK [upgrade-service : sleep 10] ***************************************************************************************************************************
+2025-06-02 08:55:47,452 p=83227 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:55:49,301 p=83227 u=dmeta n=ansible | TASK [upgrade-service : systemd stop tomcat] ****************************************************************************************************************
+2025-06-02 08:55:49,302 p=83227 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:55:50,136 p=83227 u=dmeta n=ansible | TASK [upgrade-service : upload arteva backend files] ********************************************************************************************************
+2025-06-02 08:55:50,136 p=83227 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/log4j2.xml)
+2025-06-02 08:55:50,805 p=83227 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/dmeta/egovProps/globals.properties)
+2025-06-02 08:55:51,504 p=83227 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/dmeta/spring/com/context-properties.xml)
+2025-06-02 08:55:52,319 p=83227 u=dmeta n=ansible | TASK [upgrade-service : systemd stop tomcat] ****************************************************************************************************************
+2025-06-02 08:55:52,320 p=83227 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:55:52,329 p=83227 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 08:55:52,329 p=83227 u=dmeta n=ansible | arteva1                    : ok=13   changed=9    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-06-02 08:58:29,609 p=83583 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 08:58:32,140 p=83583 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 08:58:32,141 p=83583 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:58:33,107 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : check tomcat version] ****************************************************************************************************************
+2025-06-02 08:58:33,108 p=83583 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:58:33,122 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : dict set_fact] ***********************************************************************************************************************
+2025-06-02 08:58:33,123 p=83583 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:58:33,156 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : tomcat env] **************************************************************************************************************************
+2025-06-02 08:58:33,157 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_BASE:   /apps/tomcat)
+2025-06-02 08:58:33,161 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_HOME:   /apps/tomcat)
+2025-06-02 08:58:33,167 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_TMPDIR: /apps/tomcat/temp)
+2025-06-02 08:58:33,173 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using JRE_HOME:        /)
+2025-06-02 08:58:33,179 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar)
+2025-06-02 08:58:33,184 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_OPTS:   )
+2025-06-02 08:58:33,189 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Server version: Apache Tomcat/9.0.97)
+2025-06-02 08:58:33,197 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Server built:   Nov 6 2024 19:55:19 UTC)
+2025-06-02 08:58:33,201 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Server number:  9.0.97.0)
+2025-06-02 08:58:33,211 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=OS Name:        Linux)
+2025-06-02 08:58:33,220 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=OS Version:     4.18.0-553.27.1.el8_10.x86_64)
+2025-06-02 08:58:33,228 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=Architecture:   amd64)
+2025-06-02 08:58:33,238 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Version:    11.0.25+9-LTS)
+2025-06-02 08:58:33,245 p=83583 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Vendor:     Red Hat, Inc.)
+2025-06-02 08:58:33,270 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : set fact server version] *************************************************************************************************************
+2025-06-02 08:58:33,270 p=83583 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:58:33,296 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : display] *****************************************************************************************************************************
+2025-06-02 08:58:33,297 p=83583 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "9.0.97"
+}
+2025-06-02 08:58:33,322 p=83583 u=dmeta n=ansible | TASK [upgrade-tomcat : backup current tomcat] ***************************************************************************************************************
+2025-06-02 08:58:33,323 p=83583 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'serverion' is undefined\n\nThe error appears to be in '/home/dmeta/ANSIBLE/arteva/03-dmeta-upgrad-arteva/roles/upgrade-tomcat/tasks/backup-tomcat.yml': line 34, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: backup current tomcat\n  ^ here\n"}
+2025-06-02 08:58:33,324 p=83583 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 08:58:33,324 p=83583 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 08:59:37,881 p=83709 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 08:59:39,876 p=83709 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 08:59:39,877 p=83709 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:59:40,681 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : check tomcat version] ****************************************************************************************************************
+2025-06-02 08:59:40,682 p=83709 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 08:59:40,698 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : dict set_fact] ***********************************************************************************************************************
+2025-06-02 08:59:40,698 p=83709 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:59:40,731 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : tomcat env] **************************************************************************************************************************
+2025-06-02 08:59:40,732 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_BASE:   /apps/tomcat)
+2025-06-02 08:59:40,740 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_HOME:   /apps/tomcat)
+2025-06-02 08:59:40,750 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_TMPDIR: /apps/tomcat/temp)
+2025-06-02 08:59:40,755 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using JRE_HOME:        /)
+2025-06-02 08:59:40,759 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar)
+2025-06-02 08:59:40,764 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_OPTS:   )
+2025-06-02 08:59:40,769 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Server version: Apache Tomcat/9.0.97)
+2025-06-02 08:59:40,775 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Server built:   Nov 6 2024 19:55:19 UTC)
+2025-06-02 08:59:40,780 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Server number:  9.0.97.0)
+2025-06-02 08:59:40,785 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=OS Name:        Linux)
+2025-06-02 08:59:40,792 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=OS Version:     4.18.0-553.27.1.el8_10.x86_64)
+2025-06-02 08:59:40,797 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=Architecture:   amd64)
+2025-06-02 08:59:40,802 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Version:    11.0.25+9-LTS)
+2025-06-02 08:59:40,808 p=83709 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Vendor:     Red Hat, Inc.)
+2025-06-02 08:59:40,825 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : set fact server version] *************************************************************************************************************
+2025-06-02 08:59:40,826 p=83709 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 08:59:40,852 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : display] *****************************************************************************************************************************
+2025-06-02 08:59:40,852 p=83709 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "9.0.97"
+}
+2025-06-02 08:59:41,831 p=83709 u=dmeta n=ansible | TASK [upgrade-tomcat : backup current tomcat] ***************************************************************************************************************
+2025-06-02 08:59:41,832 p=83709 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Source /apps/tomcat/tomcat/ not found"}
+2025-06-02 08:59:41,833 p=83709 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 08:59:41,833 p=83709 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 09:00:31,720 p=83777 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 09:00:33,793 p=83777 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 09:00:33,794 p=83777 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:00:34,828 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : check tomcat version] ****************************************************************************************************************
+2025-06-02 09:00:34,829 p=83777 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:00:34,844 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : dict set_fact] ***********************************************************************************************************************
+2025-06-02 09:00:34,845 p=83777 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:00:34,872 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : tomcat env] **************************************************************************************************************************
+2025-06-02 09:00:34,872 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_BASE:   /apps/tomcat)
+2025-06-02 09:00:34,876 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_HOME:   /apps/tomcat)
+2025-06-02 09:00:34,883 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_TMPDIR: /apps/tomcat/temp)
+2025-06-02 09:00:34,893 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using JRE_HOME:        /)
+2025-06-02 09:00:34,902 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar)
+2025-06-02 09:00:34,907 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_OPTS:   )
+2025-06-02 09:00:34,915 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Server version: Apache Tomcat/9.0.97)
+2025-06-02 09:00:34,917 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Server built:   Nov 6 2024 19:55:19 UTC)
+2025-06-02 09:00:34,922 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Server number:  9.0.97.0)
+2025-06-02 09:00:34,928 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=OS Name:        Linux)
+2025-06-02 09:00:34,937 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=OS Version:     4.18.0-553.27.1.el8_10.x86_64)
+2025-06-02 09:00:34,944 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=Architecture:   amd64)
+2025-06-02 09:00:34,948 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Version:    11.0.25+9-LTS)
+2025-06-02 09:00:34,953 p=83777 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Vendor:     Red Hat, Inc.)
+2025-06-02 09:00:34,971 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : set fact server version] *************************************************************************************************************
+2025-06-02 09:00:34,971 p=83777 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:00:34,990 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : display] *****************************************************************************************************************************
+2025-06-02 09:00:34,990 p=83777 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "9.0.97"
+}
+2025-06-02 09:00:37,471 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : backup current tomcat] ***************************************************************************************************************
+2025-06-02 09:00:37,471 p=83777 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:00:38,760 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : remove tomcat dir] *******************************************************************************************************************
+2025-06-02 09:00:38,760 p=83777 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:00:39,509 p=83777 u=dmeta n=ansible | TASK [upgrade-tomcat : Check tomcat version] ****************************************************************************************************************
+2025-06-02 09:00:39,509 p=83777 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": true, "cmd": "/apps/tomcat/bin/version.sh \n", "delta": "0:00:00.002241", "end": "2025-06-02 18:04:16.693495", "msg": "non-zero return code", "rc": 127, "start": "2025-06-02 18:04:16.691254", "stderr": "/bin/sh: /apps/tomcat/bin/version.sh: No such file or directory", "stderr_lines": ["/bin/sh: /apps/tomcat/bin/version.sh: No such file or directory"], "stdout": "", "stdout_lines": []}
+2025-06-02 09:00:39,511 p=83777 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 09:00:39,512 p=83777 u=dmeta n=ansible | arteva1                    : ok=8    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-02 09:04:46,193 p=83875 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 09:04:47,495 p=83875 u=dmeta n=ansible |  [ERROR]: User interrupted execution
+
+2025-06-02 09:06:04,211 p=83955 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 09:06:06,197 p=83955 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 09:06:06,198 p=83955 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:06:07,004 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : check tomcat version] ****************************************************************************************************************
+2025-06-02 09:06:07,005 p=83955 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:06:07,026 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : dict set_fact] ***********************************************************************************************************************
+2025-06-02 09:06:07,027 p=83955 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:06:07,060 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : tomcat env] **************************************************************************************************************************
+2025-06-02 09:06:07,061 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_BASE:   /apps/tomcat)
+2025-06-02 09:06:07,065 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_HOME:   /apps/tomcat)
+2025-06-02 09:06:07,069 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_TMPDIR: /apps/tomcat/temp)
+2025-06-02 09:06:07,073 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using JRE_HOME:        /)
+2025-06-02 09:06:07,078 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar)
+2025-06-02 09:06:07,084 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_OPTS:   )
+2025-06-02 09:06:07,093 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Server version: Apache Tomcat/9.0.97)
+2025-06-02 09:06:07,101 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Server built:   Nov 6 2024 19:55:19 UTC)
+2025-06-02 09:06:07,109 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Server number:  9.0.97.0)
+2025-06-02 09:06:07,120 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=OS Name:        Linux)
+2025-06-02 09:06:07,129 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=OS Version:     4.18.0-553.27.1.el8_10.x86_64)
+2025-06-02 09:06:07,138 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=Architecture:   amd64)
+2025-06-02 09:06:07,143 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Version:    11.0.25+9-LTS)
+2025-06-02 09:06:07,149 p=83955 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Vendor:     Red Hat, Inc.)
+2025-06-02 09:06:07,168 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : set fact server version] *************************************************************************************************************
+2025-06-02 09:06:07,169 p=83955 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:06:07,187 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : display] *****************************************************************************************************************************
+2025-06-02 09:06:07,187 p=83955 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "9.0.97"
+}
+2025-06-02 09:06:08,724 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : backup current tomcat] ***************************************************************************************************************
+2025-06-02 09:06:08,725 p=83955 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:06:09,544 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : Check tomcat version] ****************************************************************************************************************
+2025-06-02 09:06:09,544 p=83955 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:06:09,564 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : Display tomcat version] **************************************************************************************************************
+2025-06-02 09:06:09,564 p=83955 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Using CATALINA_BASE:   /apps/tomcat",
+        "Using CATALINA_HOME:   /apps/tomcat",
+        "Using CATALINA_TMPDIR: /apps/tomcat/temp",
+        "Using JRE_HOME:        /",
+        "Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar",
+        "Using CATALINA_OPTS:   ",
+        "Server version: Apache Tomcat/9.0.97",
+        "Server built:   Nov 6 2024 19:55:19 UTC",
+        "Server number:  9.0.97.0",
+        "OS Name:        Linux",
+        "OS Version:     4.18.0-553.27.1.el8_10.x86_64",
+        "Architecture:   amd64",
+        "JVM Version:    11.0.25+9-LTS",
+        "JVM Vendor:     Red Hat, Inc."
+    ]
+}
+2025-06-02 09:06:09,590 p=83955 u=dmeta n=ansible | TASK [upgrade-tomcat : Display tomcat version] **************************************************************************************************************
+2025-06-02 09:06:09,590 p=83955 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "192.168.132.197"
+}
+2025-06-02 09:06:09,599 p=83955 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 09:06:09,600 p=83955 u=dmeta n=ansible | arteva1                    : ok=10   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-02 09:07:55,862 p=84045 u=dmeta n=ansible | PLAY [upgrade tomcat] ***************************************************************************************************************************************
+2025-06-02 09:07:57,601 p=84045 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2025-06-02 09:07:57,601 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:07:59,319 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : stop tomcat service] *****************************************************************************************************************
+2025-06-02 09:07:59,320 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:00,812 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : check tomcat version] ****************************************************************************************************************
+2025-06-02 09:08:00,812 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:00,828 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : dict set_fact] ***********************************************************************************************************************
+2025-06-02 09:08:00,828 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:00,853 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : tomcat env] **************************************************************************************************************************
+2025-06-02 09:08:00,854 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_BASE:   /apps/tomcat)
+2025-06-02 09:08:00,859 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_HOME:   /apps/tomcat)
+2025-06-02 09:08:00,865 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_TMPDIR: /apps/tomcat/temp)
+2025-06-02 09:08:00,870 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using JRE_HOME:        /)
+2025-06-02 09:08:00,878 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar)
+2025-06-02 09:08:00,883 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Using CATALINA_OPTS:   )
+2025-06-02 09:08:00,887 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Server version: Apache Tomcat/9.0.97)
+2025-06-02 09:08:00,892 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Server built:   Nov 6 2024 19:55:19 UTC)
+2025-06-02 09:08:00,898 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Server number:  9.0.97.0)
+2025-06-02 09:08:00,903 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=OS Name:        Linux)
+2025-06-02 09:08:00,911 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=OS Version:     4.18.0-553.27.1.el8_10.x86_64)
+2025-06-02 09:08:00,917 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=Architecture:   amd64)
+2025-06-02 09:08:00,924 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Version:    11.0.25+9-LTS)
+2025-06-02 09:08:00,929 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=JVM Vendor:     Red Hat, Inc.)
+2025-06-02 09:08:00,947 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : set fact server version] *************************************************************************************************************
+2025-06-02 09:08:00,948 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:00,967 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : display] *****************************************************************************************************************************
+2025-06-02 09:08:00,968 p=84045 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "9.0.97"
+}
+2025-06-02 09:08:02,762 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : backup current tomcat] ***************************************************************************************************************
+2025-06-02 09:08:02,763 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:05,895 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : upload arteva backend files] *********************************************************************************************************
+2025-06-02 09:08:05,896 p=84045 u=dmeta n=ansible | changed: [arteva1] => (item=apache-tomcat-9.0.105.tar.gz)
+2025-06-02 09:08:06,619 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : create tomcat directory] *************************************************************************************************************
+2025-06-02 09:08:06,619 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:07,704 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : move tomcat] *************************************************************************************************************************
+2025-06-02 09:08:07,704 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:08,557 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : delete] ******************************************************************************************************************************
+2025-06-02 09:08:08,557 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:11,643 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : upload server.xml] *******************************************************************************************************************
+2025-06-02 09:08:11,644 p=84045 u=dmeta n=ansible | changed: [arteva1] => (item=server.xml)
+2025-06-02 09:08:13,090 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : upload context.xml] ******************************************************************************************************************
+2025-06-02 09:08:13,091 p=84045 u=dmeta n=ansible | changed: [arteva1] => (item=context.xml)
+2025-06-02 09:08:14,544 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : upload web.xml] **********************************************************************************************************************
+2025-06-02 09:08:14,545 p=84045 u=dmeta n=ansible | changed: [arteva1] => (item=web.xml)
+2025-06-02 09:08:15,829 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : chown tomcat] ************************************************************************************************************************
+2025-06-02 09:08:15,829 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:16,855 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : systemd reread] **********************************************************************************************************************
+2025-06-02 09:08:16,855 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:17,699 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : systemd enable tomcat] ***************************************************************************************************************
+2025-06-02 09:08:17,699 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:19,001 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : config firewall port] ****************************************************************************************************************
+2025-06-02 09:08:19,001 p=84045 u=dmeta n=ansible | ok: [arteva1] => (item=8443/tcp)
+2025-06-02 09:08:20,838 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : reload firewalld] ********************************************************************************************************************
+2025-06-02 09:08:20,839 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:23,066 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : Allow tomcat directory] **************************************************************************************************************
+2025-06-02 09:08:23,067 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:24,569 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : start tomcat service] ****************************************************************************************************************
+2025-06-02 09:08:24,570 p=84045 u=dmeta n=ansible | ok: [arteva1]
+2025-06-02 09:08:25,938 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : Check tomcat version] ****************************************************************************************************************
+2025-06-02 09:08:25,938 p=84045 u=dmeta n=ansible | changed: [arteva1]
+2025-06-02 09:08:25,957 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : Display tomcat version] **************************************************************************************************************
+2025-06-02 09:08:25,957 p=84045 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Using CATALINA_BASE:   /apps/tomcat",
+        "Using CATALINA_HOME:   /apps/tomcat",
+        "Using CATALINA_TMPDIR: /apps/tomcat/temp",
+        "Using JRE_HOME:        /",
+        "Using CLASSPATH:       /apps/tomcat/bin/bootstrap.jar:/apps/tomcat/bin/tomcat-juli.jar",
+        "Using CATALINA_OPTS:   ",
+        "Server version: Apache Tomcat/9.0.105",
+        "Server built:   May 7 2025 18:36:02 UTC",
+        "Server number:  9.0.105.0",
+        "OS Name:        Linux",
+        "OS Version:     4.18.0-553.27.1.el8_10.x86_64",
+        "Architecture:   amd64",
+        "JVM Version:    11.0.25+9-LTS",
+        "JVM Vendor:     Red Hat, Inc."
+    ]
+}
+2025-06-02 09:08:25,976 p=84045 u=dmeta n=ansible | TASK [upgrade-tomcat : Display tomcat version] **************************************************************************************************************
+2025-06-02 09:08:25,976 p=84045 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": "192.168.132.197"
+}
+2025-06-02 09:08:25,986 p=84045 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2025-06-02 09:08:25,986 p=84045 u=dmeta n=ansible | arteva1                    : ok=25   changed=13   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

@@ -34,14 +34,14 @@
 - name: backup current tomcat
   become: true
   copy:
-    src: "{{ tomcat_home }}/tomcat/"
-    dest: "{{ apps_dir }}/apache-tomcat-{{ serverion }}"
+    src: "{{ tomcat_home }}/"
+    dest: "{{ apps_dir }}/apache-tomcat-{{ version }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_user }}"
     remote_src: yes
 
-- name: remove tomcat dir
-  become: true
-  file:
-    path: "{{ tomcat_home }}"
-    state: absent
+#- name: remove tomcat dir
+#  become: true
+#  file:
+#    path: "{{ tomcat_home }}"
+#    state: absent

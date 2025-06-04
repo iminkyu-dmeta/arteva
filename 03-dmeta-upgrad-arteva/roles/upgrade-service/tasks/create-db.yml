@@ -1,0 +1,56 @@
+---
+
+- name: upload db script
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  with_items:
+    - "db-script.tar"
+
+#- name: create db
+#  become: True
+#  shell: |
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/5.drop-tables.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/1.database.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/2.tables.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/3.archive-trigger.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/ddl/4.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/1.code.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/2.user.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/3.menu.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/4.bbs.sql
+#    mariadb -u root < {{ tmp_dir }}/{{ sql_dir }}/dml/5.ai.sql
+
+- name: Drop table
+  become: True
+  mysql_db:
+    name: "{{ database }}"
+    state: import
+    login_user: "{{ db_user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ tmp_dir }}/{{ item }}"
+  with_items:
+    - '{{ sql_dir }}/ddl/5.drop-tables.sql'
+
+- name: alter table
+  become: True
+  mysql_db:
+    name: "{{ database }}"
+    state: import
+    login_user: "{{ db_user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ tmp_dir }}/{{ item }}"
+  with_items:
+    - '{{ sql_dir }}/ddl/2.tables.sql'
+    - '{{ sql_dir }}/ddl/3.archive-trigger.sql'
+    - '{{ sql_dir }}/dml/1.code.sql'
+    - '{{ sql_dir }}/dml/2.user.sql'
+    - '{{ sql_dir }}/dml/3.menu.sql'
+    - '{{ sql_dir }}/dml/4.bbs.sql'
+    - '{{ sql_dir }}/dml/5.ai.sql'
+
+- name: delete upload file
+  become: True
+  file:
+    path: "{{ tmp_dir }}/{{ sql_dir }}"
+    state: absent

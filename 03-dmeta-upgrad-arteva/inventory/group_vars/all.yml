@@ -1,6 +1,6 @@
 ---
 
-  arteva_version: "1.0.15"
+  arteva_version: "1.0.17"
   user: "dmeta"
   group: "dmeta"
   password: 'dmeta!@34'
@@ -20,7 +20,7 @@
   db_service: "mariadb"
   db_port: "3306/tcp"
 
-  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.15.war"
+  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.17.war"
   old_backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.12.war"
 
   update_sql: "arteva-1012-1015.sql"
