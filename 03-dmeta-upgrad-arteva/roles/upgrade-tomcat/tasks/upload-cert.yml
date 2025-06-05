@@ -1,7 +1,7 @@
 ---
 
 - name: upload arteva backend files
-  unarchive:
+  copy:
     src: "{{ def_dir }}/{{ item }}"
     dest: "{{ apps_dir }}/arteva/cert"
     owner: "{{ tomcat_user }}"
@@ -12,7 +12,7 @@
 
 - name: upload src rpm files
   become: True
-  unarchive:
+  copy:
     src: "{{ def_dir }}/{{ item }}"
     dest: "{{ apps_dir }}/arteva/cert"
     owner: "{{ tomcat_user }}"
