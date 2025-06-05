@@ -24,6 +24,9 @@
 - import_tasks: rollback-service.yml
   tags: [ 'never', 'rollback-service', 'rollback-arteva']
 
+- import_tasks: rollback-root.yml
+  tags: [ 'never', 'rollback-root', 'rollback-arteva']
+
 - import_tasks: start-tomcat.yml
   tags: [ 'never', 'start-tomcat', 'upgrade-arteva', 'rollback-arteva']
 

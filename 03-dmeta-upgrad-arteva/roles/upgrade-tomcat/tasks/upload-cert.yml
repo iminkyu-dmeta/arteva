@@ -1,0 +1,22 @@
+---
+
+- name: upload arteva backend files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/cert"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is not defined
+  with_items:
+    - "{{ jks_file }}"
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/cert"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"

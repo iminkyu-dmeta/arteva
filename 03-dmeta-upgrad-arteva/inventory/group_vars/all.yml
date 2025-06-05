@@ -27,6 +27,7 @@
   rollback_sql: "arteva-1015-1012.sql"
 
   was_port: "8443/tcp"
+  jks_file: "arteva.jks"
   tomcat_file: "apache-tomcat-9.0.105.tar.gz"
   tomcat_ver: "apache-tomcat-9.0.105"
   old_tomcat_ver: "apache-tomcat-9.0.97"

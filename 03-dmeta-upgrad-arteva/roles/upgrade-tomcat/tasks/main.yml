@@ -9,6 +9,9 @@
 - import_tasks: upgrade-tomcat.yml
   tags: [ 'never', 'upgrade-tomcat', 'update-tomcat' ]
 
+- import_tasks: upload-cert.yml
+  tags: [ 'never', 'upload-cert', 'update-tomcat' ]
+
 - import_tasks: config-tomcat.yml
   tags: [ 'never', 'config-tomcat', 'update-tomcat' ]
 

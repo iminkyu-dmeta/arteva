@@ -1,0 +1,19 @@
+---
+
+- name: remove ROOT.war
+  become: True
+  file: 
+    path: "{{ apps_dir }}/arteva/webapps/{{ item }}"
+    state: absent
+  with_items:
+    - 'ROOT.war'
+    - 'ROOT'
+
+- name: rollback ROOT.WAR
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/wars/ROOT.war.orig"
+    dest: "{{ apps_dir }}/arteva/webapps/ROOT.war"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
