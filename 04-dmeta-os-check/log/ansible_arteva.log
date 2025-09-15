@@ -1,0 +1,214 @@
+2025-06-05 08:24:34,469 p=105232 u=dmeta n=ansible | ERROR! Unable to retrieve file contents
+Could not find or access '/home/dmeta/ANSIBLE/arteva/04-dmeta-os-check/playbook/config-session-renegotiation.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2025-06-05 08:25:35,352 p=105243 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 08:25:37,565 p=105243 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 08:25:37,576 p=105243 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 08:25:38,384 p=105243 u=dmeta n=ansible | TASK [verify-security : Run expect to wait for a root] ************************************************************************
+2025-06-05 08:25:38,385 p=105243 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "cmd": "/usr/bin/expect -c 'set timeout 10\nspawn ssh root@192.168.132.197\n\nexpect \"password:********@34\\n\" \n'", "msg": "[Errno 2] No such file or directory: b'/usr/bin/expect': b'/usr/bin/expect'", "rc": 2}
+2025-06-05 08:25:38,387 p=105243 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 08:25:38,387 p=105243 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-06-05 08:26:32,976 p=105296 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 08:26:38,210 p=105296 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 08:26:38,219 p=105296 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 08:26:40,826 p=105296 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 08:26:40,827 p=105296 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 08:26:40,904 p=105296 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 08:26:40,907 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=dcredit = -1) => {
+    "msg": "dcredit = -1"
+}
+2025-06-05 08:26:40,910 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=difok = 4) => {
+    "msg": "difok = 4"
+}
+2025-06-05 08:26:40,912 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=lcredit = -1) => {
+    "msg": "lcredit = -1"
+}
+2025-06-05 08:26:40,918 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=maxclassrepeat = 4) => {
+    "msg": "maxclassrepeat = 4"
+}
+2025-06-05 08:26:40,920 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=maxrepeat = 3) => {
+    "msg": "maxrepeat = 3"
+}
+2025-06-05 08:26:40,938 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=minlen = 12) => {
+    "msg": "minlen = 12"
+}
+2025-06-05 08:26:40,941 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=ocredit = -1) => {
+    "msg": "ocredit = -1"
+}
+2025-06-05 08:26:40,943 p=105296 u=dmeta n=ansible | ok: [arteva1] => (item=ucredit = -1) => {
+    "msg": "ucredit = -1"
+}
+2025-06-05 08:26:40,969 p=105296 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 08:26:40,971 p=105296 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-05 08:57:01,788 p=105351 u=dmeta n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/dmeta/ANSIBLE/arteva/04-dmeta-os-check/roles/verify-security/tasks/verify-password-complexity.yml': line 30, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    msg: "{{ item }}"
+    - "4.1.2 패스워드 복잡성 설정"
+    ^ here
+
+2025-06-05 08:57:18,820 p=105353 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 08:57:20,486 p=105353 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 08:57:20,486 p=105353 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 08:57:21,205 p=105353 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 08:57:21,206 p=105353 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 08:57:21,222 p=105353 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 08:57:21,222 p=105353 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "4.1.2 패스워드 복잡성 설정"
+    ]
+}
+2025-06-05 08:57:21,244 p=105353 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 08:57:21,245 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=dcredit = -1) => {
+    "msg": "dcredit = -1"
+}
+2025-06-05 08:57:21,248 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=difok = 4) => {
+    "msg": "difok = 4"
+}
+2025-06-05 08:57:21,250 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=lcredit = -1) => {
+    "msg": "lcredit = -1"
+}
+2025-06-05 08:57:21,253 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=maxclassrepeat = 4) => {
+    "msg": "maxclassrepeat = 4"
+}
+2025-06-05 08:57:21,256 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=maxrepeat = 3) => {
+    "msg": "maxrepeat = 3"
+}
+2025-06-05 08:57:21,258 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=minlen = 12) => {
+    "msg": "minlen = 12"
+}
+2025-06-05 08:57:21,263 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=ocredit = -1) => {
+    "msg": "ocredit = -1"
+}
+2025-06-05 08:57:21,263 p=105353 u=dmeta n=ansible | ok: [arteva1] => (item=ucredit = -1) => {
+    "msg": "ucredit = -1"
+}
+2025-06-05 08:57:21,272 p=105353 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 08:57:21,272 p=105353 u=dmeta n=ansible | arteva1                    : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-05 09:03:49,634 p=105685 u=dmeta n=ansible | ERROR! couldn't resolve module/action 'set_fatc'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/home/dmeta/ANSIBLE/arteva/04-dmeta-os-check/roles/verify-security/tasks/verify-password-complexity.yml': line 17, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: entry
+  ^ here
+
+2025-06-05 09:04:12,866 p=105688 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 09:04:14,532 p=105688 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 09:04:14,532 p=105688 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:14,551 p=105688 u=dmeta n=ansible | TASK [verify-security : initail set fact] *************************************************************************************
+2025-06-05 09:04:14,551 p=105688 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:14,603 p=105688 u=dmeta n=ansible | TASK [verify-security : entry] ************************************************************************************************
+2025-06-05 09:04:14,603 p=105688 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:15,241 p=105688 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 09:04:15,241 p=105688 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 09:04:15,261 p=105688 u=dmeta n=ansible | TASK [verify-security : add result] *******************************************************************************************
+2025-06-05 09:04:15,261 p=105688 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:15,270 p=105688 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 09:04:15,270 p=105688 u=dmeta n=ansible | arteva1                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-05 09:04:47,705 p=105737 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 09:04:49,008 p=105737 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 09:04:49,009 p=105737 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:49,029 p=105737 u=dmeta n=ansible | TASK [verify-security : initail set fact] *************************************************************************************
+2025-06-05 09:04:49,029 p=105737 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:49,046 p=105737 u=dmeta n=ansible | TASK [verify-security : entry] ************************************************************************************************
+2025-06-05 09:04:49,047 p=105737 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:49,816 p=105737 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 09:04:49,816 p=105737 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 09:04:49,836 p=105737 u=dmeta n=ansible | TASK [verify-security : add result] *******************************************************************************************
+2025-06-05 09:04:49,836 p=105737 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:04:49,861 p=105737 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 09:04:49,862 p=105737 u=dmeta n=ansible | ok: [arteva1] => (item= 4.1.2 패스워드 복잡성 설정) => {
+    "msg": " 4.1.2 패스워드 복잡성 설정"
+}
+2025-06-05 09:04:49,864 p=105737 u=dmeta n=ansible | ok: [arteva1] => (item=['dcredit = -1', 'difok = 4', 'lcredit = -1', 'maxclassrepeat = 4', 'maxrepeat = 3', 'minlen = 12', 'ocredit = -1', 'ucredit = -1']) => {
+    "msg": [
+        "dcredit = -1",
+        "difok = 4",
+        "lcredit = -1",
+        "maxclassrepeat = 4",
+        "maxrepeat = 3",
+        "minlen = 12",
+        "ocredit = -1",
+        "ucredit = -1"
+    ]
+}
+2025-06-05 09:04:49,873 p=105737 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 09:04:49,873 p=105737 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-05 09:05:23,664 p=105785 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 09:05:25,057 p=105785 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 09:05:25,057 p=105785 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:05:25,076 p=105785 u=dmeta n=ansible | TASK [verify-security : initail set fact] *************************************************************************************
+2025-06-05 09:05:25,077 p=105785 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:05:25,095 p=105785 u=dmeta n=ansible | TASK [verify-security : entry] ************************************************************************************************
+2025-06-05 09:05:25,095 p=105785 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:05:25,780 p=105785 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 09:05:25,780 p=105785 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 09:05:25,798 p=105785 u=dmeta n=ansible | TASK [verify-security : add result] *******************************************************************************************
+2025-06-05 09:05:25,799 p=105785 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:05:25,817 p=105785 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 09:05:25,818 p=105785 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        " 4.1.2 패스워드 복잡성 설정",
+        [
+            "dcredit = -1",
+            "difok = 4",
+            "lcredit = -1",
+            "maxclassrepeat = 4",
+            "maxrepeat = 3",
+            "minlen = 12",
+            "ocredit = -1",
+            "ucredit = -1"
+        ]
+    ]
+}
+2025-06-05 09:05:25,827 p=105785 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 09:05:25,827 p=105785 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-06-05 09:13:40,311 p=105834 u=dmeta n=ansible | PLAY [install arteva service] *************************************************************************************************
+2025-06-05 09:13:42,929 p=105834 u=dmeta n=ansible | TASK [Gathering Facts] ********************************************************************************************************
+2025-06-05 09:13:42,929 p=105834 u=dmeta n=ansible | ok: [arteva1]
+2025-06-05 09:13:43,642 p=105834 u=dmeta n=ansible | TASK [verify-security : check password complexity] ****************************************************************************
+2025-06-05 09:13:43,643 p=105834 u=dmeta n=ansible | changed: [arteva1]
+2025-06-05 09:13:43,662 p=105834 u=dmeta n=ansible | TASK [verify-security : display result] ***************************************************************************************
+2025-06-05 09:13:43,662 p=105834 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "4.1.2 패스워드 복잡성 설",
+        "# 숫자 최소 사용 수 설정 (dcredit = -1)",
+        "cat /etc/security/pwquality.conf | grep dcredit",
+        "dcredit = -1",
+        "# 이전에 사용하던 패스워드에서 사용한 문자 허용 금지 수 설정(difok = 4)",
+        "cat /etc/security/pwquality.conf | grep difok",
+        "difok = 4",
+        "# 소문자 최소 사용 수 설정(lcredit = -1)",
+        "cat /etc/security/pwquality.conf | grep lcredit",
+        "lcredit = -1",
+        "# 동일한 타입(대소문자, 숫자, 특수문자)의 최대 허용 연속 문자 수 설정(maxclassrepeat = 4)",
+        "cat /etc/security/pwquality.conf | grep maxclassrepeat",
+        "maxclassrepeat = 4",
+        "# 동일 문자 사용 최대 허용 문자 수 설정(maxrepeat = 3)",
+        "cat /etc/security/pwquality.conf | grep maxrepeat",
+        "maxrepeat = 3",
+        "# 패스워드 최소 길이 설정(minlen = 12)",
+        "cat /etc/security/pwquality.conf | grep minlen",
+        "minlen = 12",
+        "# 특수문자 최소 사용 수 설정(ocredit = -1)",
+        "cat /etc/security/pwquality.conf | grep ocredit",
+        "ocredit = -1",
+        "# 대문자 최소 사용 수 설정(ucredit = -1)",
+        "cat /etc/security/pwquality.conf | grep ucredit",
+        "ucredit = -1"
+    ]
+}
+2025-06-05 09:13:43,671 p=105834 u=dmeta n=ansible | PLAY RECAP ********************************************************************************************************************
+2025-06-05 09:13:43,671 p=105834 u=dmeta n=ansible | arteva1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

@@ -24,5 +24,11 @@
 - import_tasks: start-tomcat.yml
   tags: [ 'never', 'start-tomcat', 'update-tomcat', 'rollback-tomcat' ]
 
+- import_tasks: config-http-tomcat.yml
+  tags: [ 'never', 'config-http-tomcat']
+
+- import_tasks: config-https-tomcat.yml
+  tags: [ 'never', 'config-https-tomcat']
+
 - import_tasks: verify.yml
   tags: [ 'never', 'verify' ]

@@ -1,0 +1,318 @@
+4.1 지능형영상분석서버
+4.1.1 root 계정 원격 접속 제한
+# Permission denied 
+ssh root@ipaddress
+
+4.1.2 패스워드 복잡성 설정
+# 숫자 최소 사용 수 설정 (dcredit = -1)
+cat /etc/security/pwquality.conf | grep dcredit
+
+# 이전에 사용하던 패스워드에서 사용한 문자 허용 금지 수 설정(difok = 4)"
+cat /etc/security/pwquality.conf | grep difok
+
+# 소문자 최소 사용 수 설정(lcredit = -1)
+cat /etc/security/pwquality.conf | grep lcredit
+
+# 동일한 타입(대소문자, 숫자, 특수문자)의 최대 허용 연속 문자 수 설정(maxclassrepeat = 4)
+cat /etc/security/pwquality.conf | grep maxclassrepeat
+
+# 동일 문자 사용 최대 허용 문자 수 설정(maxrepeat = 3)
+cat /etc/security/pwquality.conf | grep maxrepeat
+ 
+# 패스워드 최소 길이 설정(minlen = 12)
+cat /etc/security/pwquality.conf | grep minlen
+
+# 특수문자 최소 사용 수 설정(ocredit = -1)
+cat /etc/security/pwquality.conf | grep ocredit
+ 
+# 대문자 최소 사용 수 설정(ucredit = -1)
+cat /etc/security/pwquality.conf | grep ucredit
+
+
+4.1.3 계정 잠금 임계값 설정
+# 패스워드 입력 실패시 잠금 (deny =3)
+cat /etc/security/faillock.conf | grep '^deny'
+
+# 900 초 동안 연속 인증 실패시 계정 잠김(fail_interval = 900)
+cat /etc/security/faillock.conf | grep '^fail_interval'
+
+# 600 초 후 계정 해제 (unlock_time = 600)
+cat /etc/security/faillock.conf | grep '^unlock_time'
+
+
+4.1.4 패스워드 파일 보호
+# shadow 파일이 존재 확인
+ls -ltr /etc/shadow
+
+# passwd 파일 password를 x로 표시
+cat /etc/passwd | grep dmeta
+
+
+4.1.5 root 이외의 UID가 ‘0’금지
+# UID 확인한다. 
+cat /etc/passwd | grep 'x:0:'
+
+
+4.1.6  root 계정 su 제한
+# su 로 root 접속 되는지 확인한다.
+su - root 
+
+
+4.1.7 패스워드 최대 사용기간 설정,패스워드 최소 사용기간 설정
+# 패스워드 최소 길이, 패스워드 최대 사용기간 설정, 패스워드 최소 사용기간 설정
+# - PASS_MIN_LEN    12
+# - PASS_MAX_DAYS   90
+# - PASS_MIN_DAYS   1
+cat /etc/login.defs | grep '^PASS_M'
+
+
+4.1.8 root 계정 원격 접속 제한
+# bash 사용 계정 확인
+cat /etc/passwd | grep bash
+
+
+4.1.9 관리자 그룹에 최소한의 계정 포함
+# root 그룹에 최소한의 계정 포함
+sudo cat /etc/gshadow | grep root
+
+
+4.1.10 동일한 UID 금지
+# uid 가 같은 것이 있는지 확인
+cat /etc/passwd | awk -F: '{print $3,$1}' | sort -n
+
+
+4.1.11 사용자 shell 점검
+# 사용자 shell 확인
+cat /etc/passwd | awk -F: '{print $1, $7}' | egrep 'bin/bash|bin/ksh'
+
+
+4.1.12 Session Timeout 설정
+# ssh session timeout 설정값이 300 설정 확인
+sudo cat /etc/ssh/sshd_config | grep ClientAliveInterval
+
+
+4.1.13 root 홈, 패스 디렉터리 권한 및 패스 설정
+# path 환경변수
+echo $PATH | grep "\.:" | wc -l
+
+
+4.1.14 파일 및 디렉터리 소유자 설정
+# user 없는 파일 및 디렉토리 
+sudo find / -nouser -print
+# group 없는 파일 및 디렉토리 
+sudo find / -nogroup -print
+
+
+4.1.15 파일 및 디렉터리 소유자 설정
+# /etc/passwd 파일 소유자  및  권한 설정(644)
+ls -l /etc/passwd
+# /etc/shadow 파일 소유자 및 권한 설정(400)
+ls -l /etc/shadow
+# /etc/hosts 파일 소유자 및 권한 설정(644)
+ls -l /etc/hosts
+# /etc/(x)inetd.conf 파일 소유자 및 권한 설정 (미사용) 
+ls -al /etc/xinetd.d/
+# /etc/syslog.conf 파일 소유자  및 권한 설정 (미사용)
+ls –al /etc/syslog.conf
+# /etc/services 파일 소유자 및 권한 설정(644)
+ls -al /etc/services
+
+
+4.1.16 SUID, SGID, Sticky bit 설정 파일 점검
+# /apps 파일 존재여부
+sudo find / -xdev -user root -type f \( -perm -04000 -o -perm -02000 \) -exec ls -al {} \;
+
+
+4.1.17 사용자, 시스템 시작파일 및 환경파일 소유자 및 권한 설정
+# file 권한 설정 664
+ls -al /home/dmeta/ | grep bash
+# file 권한 설정 664
+sudo ls -al /home/tomcat/ | grep bash
+# file 권한 설정 664
+ls -al /etc/profile
+
+
+4.1.18 world writable 파일 점검
+# file 권한 (777)
+sudo find /apps -type f -perm -2 -exec ls -l {} \;
+
+
+4.1.19 /dev에 존재하지 않는 device 파일 점검
+# device 파일 X 
+sudo find /dev -type f -exec ls -l {} \;
+
+
+4.1.20 $HOME/.rhosts, hosts.equiv 사용 금지
+# 미사용
+ls -al /home/dmeta/.rhosts
+# 미사용
+ls -al /etc/hosts.equiv
+
+4.1.21 접속 IP 및 포트 제한
+# - mysql :3306
+# - Admin Web:8000, 8443
+# - RabbiMQ :5672, 15672
+sudo firewall-cmd --list-all
+
+4.1.22 hosts.lpd 파일 소유자 및 권한 설정
+# 미사용
+ls -al /etc/hosts.lpd
+
+
+4.1.23 UMASK 설정 관리
+# 022
+cat /etc/profile | grep umask
+# 022
+cat /etc/bashrc | grep umask
+
+
+4.1.24 홈디렉토리 소유자 및 권한 설정
+# bash user(dmeta, tomcat)
+cat /etc/passwd | grep bash
+# home directory  
+ls -al /home/ 
+
+
+4.1.25 숨겨진 파일 및 디렉토리 검색 및 제거
+# .env
+sudo find /apps/arteva -type f -name ".*"
+# .env
+sudo find /apps/arteva -type d -name ".*"
+
+
+4.1.26 finger 서비스 비활성화
+# finger 서비스 비활성화 (미설치 service)
+sudo systemctl status finger
+# Anonymous FTP 비활성화 (ftp 계정 nologin 상태 확인)
+cat /etc/passwd | grep ftp
+# r 계열 서비스 비활성화 (rsh 등등 실행 process 없음)
+ls -alL /etc/xinetd.d/* | egrep "rsh|rlogin|rexec" | egrep –v "grep|klogin|kshell|kexec"
+# cron 파일 소유자 및 권한설정 (미사용 /etc/cron.deny)
+ls -al /etc/cron.deny
+# Dos 공격에 취약한 서비스 비활성화 (실행 Process 없음)
+sudo ls -alL /etc/xinetd.d/* | egrep '(echo|discard|daytime|charge)‘
+# NFS 서비스 비활성화, NFS 접근 통제 (실행 데몬 없음)
+ps -ef | egrep "nfsd|statd|mountd"
+
+
+4.1.27 finger 서비스 비활성화
+# automountd 제거
+ps -ef | grep autofs
+# RPC 서비스 확인
+sudo systemctl status rpcbind
+# NIS, NIS+ 점검
+sudo systemctl status ypserv ypbind ypxfrd rpc.yppasswdd rpc.ypupdated
+# tftp, talk 서비스 비활성화
+sudo systemctl status tftp.service
+sudo systemctl status talkd.service
+# Sendmail 버전 점검 (미설치)
+rpm -q sendmail
+
+
+4.1.28 finger 서비스 비활성화
+# DNS 미사용
+rpm -q bind
+# 웹서비스 미사용
+sudo systemctl status httpd
+
+
+4.1.29 ssh 원격접속 허용
+# ssh status
+sudo systemctl status sshd
+# check listen port
+netstat -anp |grep -E '22.*sshd'
+
+
+4.1.30 ftp 서비스 확인
+# ftp 서비스 확인 (미사용)
+netstat -an | grep LISTEN | grep  21
+# ftp 계정 shell 제한 (미사용)
+cat /etc/passwd | grep ftp
+# Ftpusers 파일 소유자 및 권한 설정 (미설치) 
+ls -al /etc/ftpusers
+# Ftpusers 파일 설정 (미설치)
+ls -al /etc/ftpf/ftpusers
+
+
+4.1.31 at 파일 소유자 및 권한 설정
+# at file (미사용) 
+ls -l /etc/at.allow
+
+
+4.1.32 SNMP 서비스 구동 점검
+# SNMP 서비스 구동 점검 (미설치)
+rpm -q net-snmp
+
+
+4.1.33 로그온 시 경고 메시지 제공
+# issue 제공
+ssh dmeta@ipaddress
+      
+
+4.1.34 서비스 관리
+# NFS 설정파일 접근 제한 미사용
+ps -ef | egrep "nfsd|statd|mountd"
+# expn, vrfy 명령어 제한
+expn
+vrfy
+# Apache 웹 서비스 정보 숨김(미설치)
+sudo systemctl status httpd
+
+
+4.2 DB 취약점 
+4.2.1 정책에 따른 시스템 로깅 설정
+# 로깅 설정 deamon 상태 확인
+sudo systemctl status syslog.service
+sudo systemctl status auditd.service
+
+
+4.2.2 기본 계정의 패스워드, 권한 등을 변경하여 사용
+# root password
+sudo mariadb -u root -p mysql -t -e "select User, Password from user where User = 'root';"
+
+
+4.2.3 데이터베이스의 불필요 계정을 제거하거나, 잠금설정 후 사용
+# dmeta, dmeta-ai
+sudo mariadb -u root -p mysql -t -e "select Host, User, password_expired from user where Host = 'localhost';"
+
+
+4.2.4 패스워드의 사용기간 및 복잡도를 기관 정책에 맞도록 설정
+# password 정책 확인
+sudo mariadb -u root -p mysql -t -e "select Host, User, password_expired, plugin from user where Host = 'localhost';"
+# password  정책 상태
+sudo mariadb -u root -p mysql -t -e "show variables like 'strict_password_validation';"
+
+
+4.2.5 데이터베이스 관리자 권한
+# Grant 설정 확인
+sudo mariadb -u root -p mysql -t -e "select Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Grant_priv from user;"
+
+
+4.2.6 DB 사용자 계정을 개별적으로 부여하여 사용
+# dmeta, dmeta-ai 
+sudo mariadb -u root -p mysql -t -e "select Host, User from user;"
+
+
+4.2.7 원격에서 DB 서버로의 접속 제한
+# root 원격 접속 제한
+sudo mariadb -u root -p mysql -t -e "select Host, User from user;"
+
+
+4.2.8 데이터베이스의 주요 파일 보호
+# 022
+cat /etc/profile | grep umask
+
+
+4.2.9 데이터베이스의 주요 설정
+# config file 644
+ls -al /etc/my.cnf
+
+
+4.2.10 인가되지 않은 GRANT OPTION 사용 제한
+# user 권한 확인
+sudo mariadb -u root -p mysql -t -e "select Host, User, Grant_priv from user;"
+
+
+4.2.11 데이터베이스에 대해 최신 보안패치
+# 11.4.3 
+mariadb --version

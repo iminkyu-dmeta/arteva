@@ -1,0 +1,75 @@
+## Select last insert id 
+LAST_INSERT_SQL="SELECT LAST_INSERT_ID()"
+
+
+### CCTV
+## Insert CCTV infomation
+INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resolution, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
+## Insert Camera event 
+INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) "
+
+## Select Camera envent type 
+SELECT_EVENT_CONF_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_start_time, b.detect_end_time, ifnull(b.accuracy, 0), ifnull(b.duration, 0), b.broadcast_id, b.param, b.expire_duration, '{}', '{}', '{}', '{}' from lettccmmndetailcode a left outer join t_arteva_event_conf b on a.code = b.EVENT_TYPE where a.code_id = 'EVENT'"
+
+SELECT_FULL_CAMERA_INFO_SQL="select * from t_arteva_camera_info;"
+SELECT_CAMERA_INFO_SQL="select id, name, url, active, resolution from t_arteva_camera_info;"
+SELECT_FULL_CAMERA_EVENT_CONF_SQL="select * from t_arteva_camera_event_conf;"
+SELECT_CAMERA_EVENT_CONF_SQL="select camera_id, event_type, accuracy, active, duration, broadcast_area_code, broadcast_id from t_arteva_camera_event_conf;"
+
+COUNT_CAMERA_INFO_SQL="select count(*) from t_arteva_camera_info;"
+
+DEL_CAMERA_INFO_SQL="delete from t_arteva_camera_info where id = {};"
+DEL_CAMERA_EVENT_CONF= "delete from t_arteva_camera_event_conf where camera_id = {};"
+
+ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_camera_info auto_increment =1;"
+
+SELECT_CAMERA_STATUS="select ID, ACTIVE from t_arteva_camera_info where ACTIVE = '{}';"
+
+UPDATE_CAMERA_ACTIVE="update t_arteva_camera_info set active = '{}' where id = {};"
+
+UPDATE_CAMERA_INFO_BROADCAST="update t_arteva_camera_info set broadcast_area_code = '{}', broadcast_id = '{}' where event_type = '{}' and camera_id = {};"
+
+
+### EXTERN
+## Insert Extern server 
+INSERT_EXTERN_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url,address, port, login_id, password, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}')"
+
+SELECT_FULL_EXTERN_SQL="select * from t_arteva_extern_info;"
+
+SELECT_EXTERN_INFO_SQL="select a.id as extSystemId, a.name as extSystemName, DATE_FORMAT(IFNULL(a.update_time, a.create_time), '%Y-%m-%d') as createTime, b.CODE_NM as systemTypeName, c.code_nm as activeName from t_arteva_extern_info a inner join lettccmmndetailcode b on a.type = b.code and b.code_id ='EXTSYS' inner join lettccmmndetailcode c on a.active = c.code and c.code_id ='STATUS' order by systemTypeName, extSystemName;"
+
+COUNT_EXTERN_INFO_SQL="select count(*) from t_arteva_extern_info;"
+
+DEL_EXTERN_INFO_SQL="delete from t_arteva_extern_info where id = {};"
+
+ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_extern_info auto_increment =1;"
+
+SELECT_EXTERN_STATUS="select ID, ACTIVE from t_arteva_extern_info where ACTIVE = '{}';"
+
+UPDATE_EXTERN_ACTIVE="update t_arteva_extern_info set active = '{}' where id = {};"
+
+SELECT_EXTERN_INFO_BC="select id, type from t_arteva_extern_info where type = 'BC';"
+
+
+### BROADCAST 
+## Broadcat
+INSERT_BROADCAST_INFO_SQL="insert t_arteva_broadcast_info ( extern_id, ext_broadcast_id, broadcast_title, broadcast_text, start_time, end_time, active, create_time, update_time, create_user, update_user) values ( '{2}', %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}' )"
+
+SELECT_FULL_BROADCAST_SQL="select * from t_arteva_broadcast_info;"
+
+SELECT_BROADCAST_INFO_SQL="select a.id as brdContentId, a.broadcast_title as brdContentTitle, a.extern_id as brdSystemId, a.active, a.ext_broadcast_id as extBroadcastId, DATE_FORMAT(IFNULL(a.update_time, a.create_time), '%Y-%m-%d') as createTime, b.name as brdSystemName,c.code_nm as activeName from t_arteva_broadcast_info a inner join t_arteva_extern_info b on a.extern_id = b.id and b.active = 'A' inner join lettccmmndetailcode c on a.active = c.code and c.code_id ='STATUS' order by brdContentTitle;"
+
+COUNT_BROADCAST_INFO_SQL="select count(*) from t_arteva_broadcast_info;"
+
+DEL_BROADCAST_INFO_SQL="delete from t_arteva_broadcast_info where id = {};"
+
+ALTER_BROADCAST_INFO_AUTO_INCREMENT="alter table t_arteva_broadcast_info auto_increment =1;"
+
+SELECT_BROADCAST_STATUS="select ID, ACTIVE from t_arteva_broadcast_info where ACTIVE = '{}';"
+
+UPDATE_BROADCAST_ACTIVE="update t_arteva_broadcast_info set active = '{}' where id = {};"
+
+EVENT_SQL= "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'EVENT' AND USE_AT = 'Y' ORDER BY CODE_NM"
+BRAREA_SQL= "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'BRAREA' AND USE_AT = 'Y' ORDER BY CODE_NM"
+

@@ -16,38 +16,8 @@ broadcast_sql_rows = []
 now = datetime.datetime.now()
 now = now.strftime('%Y-%m-%d %H:%M:%S')
 
-## CAMERA
-insert_camera_info_sql = 'insert t_arteva_camera_info (name, url, active, resolution, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
-
-insert_camera_event_sql = 'insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) '
-
-insert_select_camera_sql = "select {}, a.code, case when code in {} then '1' else '0' end, b.detect_start_time, b.detect_end_time, ifnull(b.accuracy, 0), ifnull(b.duration, 0), b.broadcast_id, b.param, b.expire_duration, '{}', '{}', '{}', '{}' from lettccmmndetailcode a left outer join t_arteva_event_conf b on a.code = b.EVENT_TYPE where a.code_id = 'EVENT'"
-
-select_full_camera_info_sql = 'select * from t_arteva_camera_info;'
-select_camera_info_sql = 'select id, name, url, active, resolution from t_arteva_camera_info;'
-select_full_camera_evnet_conf_sql = 'select * from t_arteva_camera_event_conf;'
-select_camera_evnet_conf_sql = 'select camera_id, event_type, accuracy, active, duration, broadcast_area_code, broadcast_id from t_arteva_camera_event_conf;'
-
-## Extern
-insert_extern_info_sql = "insert t_arteva_extern_info (name, active, type, address, port, login_id, password, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}')"
-insert_extern_info_to_sql = "insert t_arteva_extern_info (name, active, type, request_url, address, port, login_id, password, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}')"
-
-select_full_extern_sql = 'select * from t_arteva_extern_info;'
-
-select_extern_info_sql = "select a.id as extSystemId, a.name as extSystemName, DATE_FORMAT(IFNULL(a.update_time, a.create_time), '%Y-%m-%d') as createTime, b.CODE_NM as systemTypeName, c.code_nm as activeName from t_arteva_extern_info a inner join lettccmmndetailcode b on a.type = b.code and b.code_id ='EXTSYS' inner join lettccmmndetailcode c on a.active = c.code and c.code_id ='STATUS' order by systemTypeName, extSystemName;"
-
-## Broadcat
-
-#insert_broadcast_info_sql = "insert t_arteva_broadcast_info ( extern_id, ext_broadcast_id, broadcast_title, broadcast_text, active, create_time, update_time, create_user, update_user) values ( '{2}', %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}' )"
-insert_broadcast_info_sql = "insert t_arteva_broadcast_info ( extern_id, ext_broadcast_id, broadcast_title, broadcast_text, start_time, end_time, active, create_time, update_time, create_user, update_user) values ( '{2}', %s, %s, %s, %s, %s, %s, '{0}', '{0}', '{1}', '{1}' )"
-
-select_full_broadcast_sql = 'select * from t_arteva_broadcast_info;'
-
-select_broadcast_info_sql = "select a.id as brdContentId, a.broadcast_title as brdContentTitle, a.extern_id as brdSystemId, a.active, a.ext_broadcast_id as extBroadcastId, DATE_FORMAT(IFNULL(a.update_time, a.create_time), '%Y-%m-%d') as createTime, b.name as brdSystemName,c.code_nm as activeName from t_arteva_broadcast_info a inner join t_arteva_extern_info b on a.extern_id = b.id and b.active = 'A' inner join lettccmmndetailcode c on a.active = c.code and c.code_id ='STATUS' order by brdContentTitle;"
-
-event_sql = "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'EVENT' AND USE_AT = 'Y' ORDER BY CODE_NM"
-
-brarea_sql = "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'BRAREA' AND USE_AT = 'Y' ORDER BY CODE_NM"
+## dmeta_arteva sql 
+import arsql
 
 class MysqlDBAcc:
     def __init__(self, config):
@@ -171,21 +141,18 @@ def read_broadcast_csv(filename, conf):
                 ]
             broadcast_sql_rows.append(sql_row)
 
-SQL = 'SELECT LAST_INSERT_ID()'
 def select_db(db):
-    desc, rows = db.select_sql(SQL)
+    desc, rows = db.select_sql(arsql.LAST_INSERT_SQL)
 
     return rows 
 
 def add_camera_info(db, conf):
     ## Check CCTV INFO
-    index_sql = 'select count(*) from t_arteva_camera_info;'
-    desc, rows = db.select_sql(index_sql)
-    camera_sql = 'select * from t_arteva_camera_info;'
+    desc, rows = db.select_sql(arsql.COUNT_CAMERA_INFO_SQL)
     user = conf["adminuser"]
 
     if int(rows[0]) > 0:
-        des, res = db.select_sql(camera_sql, fetchall=True)
+        des, res = db.select_sql(arsql.SELECT_FULL_CAMERA_INFO_SQL, fetchall=True)
         print("Exist CCTV ")
         for row in res:
             print(row)
@@ -209,7 +176,7 @@ def add_camera_info(db, conf):
         print(row)
         print("EVENT : {}".format(event_type))
         print()
-        db.insert_args_sql(insert_camera_info_sql, tuple(row))
+        db.insert_args_sql(arsql.INSERT_CAMERA_INFO_SQL, tuple(row))
 
         '''
         CAMERA_ID
@@ -220,7 +187,7 @@ def add_camera_info(db, conf):
         ### Insert t_arteva_camera_info
         cctv_id = int(re.sub(r'[^0-9]', '', row[0]))
         print("CCTV ID: %s" % cctv_id)
-        SQL = insert_camera_event_sql + insert_select_camera_sql.format(cctv_id, event_type, now, now, user, user)
+        SQL = arsql.INSERT_CAMERA_EVENT_SQL + arsql.SELECT_EVENT_CONF_SQL.format(cctv_id, event_type, now, now, user, user)
         print(SQL)
         db.insert_args_sql(SQL)
 
@@ -231,16 +198,14 @@ def add_camera_info(db, conf):
 def delete_camera_info(db):
     '''
     '''
-    desc, rows = db.select_sql(select_camera_info_sql, fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_CAMERA_INFO_SQL, fetchall=True)
 
     for row in rows:
-        del_camera_info_sql = 'delete from t_arteva_camera_info where id = {};'
-        del_camera_event_conf = 'delete from t_arteva_camera_event_conf where camera_id = {};'
         print("Delete CCTV : %s" % row[0])
-        db.delete_sql(del_camera_info_sql.format(row[0]))
-        db.delete_sql(del_camera_event_conf.format(row[0]))
+        db.delete_sql(arsql.DEL_CAMERA_INFO_SQL.format(row[0]))
+        db.delete_sql(arsql.DEL_CAMERA_EVENT_CONF.format(row[0]))
 
-    db.delete_sql('alter table t_arteva_camera_info auto_increment =1;')
+    db.delete_sql(arsql.ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT)
 
     select_camera_info(db)
     
@@ -250,16 +215,13 @@ def update_camera_info(db, status):
     elif status == 'S':
         srh = 'A'
 
-    status_cctv = "select ID, ACTIVE from t_arteva_camera_info where ACTIVE = '{}';"
-    desc, rows = db.select_sql(status_cctv.format(srh), fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_CAMERA_STATUS.format(srh), fetchall=True)
     if rows:
-        update_sql = 'update t_arteva_camera_info set active = "{}" where id = {};'
         for row in rows:
-            db.insert_args_sql(update_sql.format(status, row[0]))
+            db.insert_args_sql(arsql.UPDATE_CAMERA_ACTIVE.format(status, row[0]))
 
 def update_broadcast_camera_info(db):
-    br_area = "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'BRAREA' AND USE_AT = 'Y' ORDER BY CODE_NM;"
-    
+    ## arsql.BRAREA_SQL
 
     '''
     BROADCAST_ID
@@ -270,15 +232,13 @@ def update_broadcast_camera_info(db):
 
         cctv_id = int(re.sub(r'[^0-9]', '', row[0]))
         for etype in event_type:
-            update_sql = 'update t_arteva_camera_info set broadcast_area_code = "{}", broadcast_id = "{}" where event_type = "{}" and camera_id = {};'
-
-            db.insert_sql(update_sql.format(,,etype,cctv_id))
+            db.insert_sql(arsql.UPDATE_CAMERA_INFO_BROADCAST.format(,,etype,cctv_id))
 
     '''
 
 def select_camera_info(db):
-    info_desc, info_rows = db.select_sql(select_full_camera_info_sql, fetchall=True)
-    conf_desc, conf_rows = db.select_sql(select_full_camera_evnet_conf_sql, fetchall=True)
+    info_desc, info_rows = db.select_sql(arsql.SELECT_FULL_CAMERA_INFO_SQL, fetchall=True)
+    conf_desc, conf_rows = db.select_sql(arsql.SELECT_FULL_CAMERA_EVENT_CONF_SQL, fetchall=True)
     print("Select camera_info LIST")
     if info_rows:
         display_select(info_desc, info_rows)
@@ -295,11 +255,10 @@ def select_camera_info(db):
 def add_extern_info(db, conf, tags):
     user = conf["adminuser"]
 
-    index_sql = 'select count(*) from t_arteva_extern_info;'
-    desc, rows = db.select_sql(index_sql)
+    desc, rows = db.select_sql(arsql.COUNT_EXTERN_INFO_SQL)
 
     if int(rows[0]) > 0:
-        desc, rows = db.select_sql(select_full_extern_sql, fetchall=True)
+        desc, rows = db.select_sql(arsql.SELECT_FULL_EXTERN_SQL, fetchall=True)
         display_select(desc, rows)
         exit(1)
 
@@ -318,9 +277,7 @@ def add_extern_info(db, conf, tags):
         '''
         print("Extern System Add : {}".format(row[0]))
         if tags == "add":
-            db.insert_args_sql(insert_extern_info_to_sql.format(now, user), tuple(row))
-        elif tags == "add2":
-            db.insert_args_sql(insert_extern_info_sql.format(now, user), tuple(row))
+            db.insert_args_sql(arsql.INSERT_EXTERN_INFO_SQL.format(now, user), tuple(row))
     
     print()
     select_extern_info(db)
@@ -328,14 +285,13 @@ def add_extern_info(db, conf, tags):
 def delete_extern_info(db):
     '''
     '''
-    desc, rows = db.select_sql(select_full_extern_sql, fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_FULL_EXTERN_SQL, fetchall=True)
 
     for row in rows:
-        del_extern_info_sql = 'delete from t_arteva_extern_info where id = {};'
         print("Delete Extern System: %s" % row[1])
-        db.delete_sql(del_extern_info_sql.format(row[0]))
+        db.delete_sql(arsql.DEL_EXTERN_INFO_SQL.format(row[0]))
 
-    db.delete_sql('alter table t_arteva_extern_info auto_increment =1;')
+    db.delete_sql(arsql.ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT)
 
     select_extern_info(db)
 
@@ -345,66 +301,65 @@ def update_extern_info(db, status):
     elif status == 'S':
         srh = 'A'
 
-    status_extern = "select ID, ACTIVE from t_arteva_extern_info where ACTIVE = '{}';"
-    desc, rows = db.select_sql(status_extern.format(srh), fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_EXTERN_STATUS.format(srh), fetchall=True)
     if rows:
-        update_sql = 'update t_arteva_extern_info set active = "{}" where id = {};'
         for row in rows:
-            db.insert_args_sql(update_sql.format(status, row[0]))
+            db.insert_args_sql(arsql.UPDATE_EXTERN_ACTIVE.format(status, row[0]))
 
 def select_extern_info(db):
-    desc, rows = db.select_sql(select_full_extern_sql, fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_FULL_EXTERN_SQL, fetchall=True)
     display_select(desc, rows)
 
 def add_broadcast_info(db, conf):
     user = conf["adminuser"]
 
-    index_sql = 'select count(*) from t_arteva_broadcast_info;'
-    desc, rows = db.select_sql(index_sql)
+    desc, rows = db.select_sql(arsql.COUNT_BROADCAST_INFO_SQL)
 
     if int(rows[0]) > 0:
-        desc, rows = db.select_sql(select_full_broadcast_sql, fetchall=True)
+        desc, rows = db.select_sql(arsql.SELECT_FULL_BROADCAST_SQL, fetchall=True)
         display_select(desc, rows)
         exit(1)
 
-    print("Broadcast System Registration Start ")
-    extern_id_sql = "select id, type from t_arteva_extern_info where type = 'BC';"
-    desc, extern_id = db.select_sql(extern_id_sql)
-    e_id = extern_id[0]
-    print(e_id)
-    for row in broadcast_sql_rows:
+    desc, extern_id = db.select_sql(arsql.SELECT_EXTERN_INFO_BC)
+    if extern_id:
+        print("Broadcast System Registration Start ")
+        e_id = extern_id[0]
+        print(e_id)
+        for row in broadcast_sql_rows:
 
-        '''
-        alter table t_arteva_broadcast_info auto_increment =1;
-        insert t_arteva_broadcast_info
-        ( extern_id, ext_broadcast_id, broadcast_title, broadcast_text, 
-        start_time, end_time, active, create_time, update_time, create_user, update_user)
-        values
-	    ( '{2}', %s, %s, %s, 
-        case when '06:00' = '' then null else '06:00' end, 
-        case when '12:00' = '' then null else '12:00' end, 
-        %s, '{0}', '{0}', '{1}', '{1}' )
+            '''
+            alter table t_arteva_broadcast_info auto_increment =1;
+            insert t_arteva_broadcast_info
+            ( extern_id, ext_broadcast_id, broadcast_title, broadcast_text, 
+            start_time, end_time, active, create_time, update_time, create_user, update_user)
+            values
+	        ( '{2}', %s, %s, %s, 
+            case when '06:00' = '' then null else '06:00' end, 
+            case when '12:00' = '' then null else '12:00' end, 
+            %s, '{0}', '{0}', '{1}', '{1}' )
 
-        '''
-        print("Extern System Add : {}".format(row[0]))
-        print()
-        print(insert_broadcast_info_sql.format(now, user, e_id))
-        print(row)
-        db.insert_args_sql(insert_broadcast_info_sql.format(now, user, e_id), tuple(row))
+            '''
+            print("Extern System Add : {}".format(row[0]))
+            print()
+            print(arsql.INSERT_BROADCAST_INFO_SQL.format(now, user, e_id))
+            print(row)
+            db.insert_args_sql(arsql.INSERT_BROADCAST_INFO_SQL.format(now, user, e_id), tuple(row))
+    else:
+        print("register broadcast server(extern)")
+        sys.exit(0)
 
     select_broadcast_info(db)
 
 def delete_broadcast_info(db):
     '''
     '''
-    desc, rows = db.select_sql(select_full_broadcast_sql, fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_FULL_BROADCAST_SQL, fetchall=True)
 
     for row in rows:
-        delete_broadcast_info_sql = 'delete from t_arteva_broadcast_info where id = {};'
         print("Delete Broadcast Text: %s" % row[1])
-        db.delete_sql(delete_broadcast_info_sql.format(row[0]))
+        db.delete_sql(arsql.DEL_BROADCAST_INFO_SQL.format(row[0]))
 
-    db.delete_sql('alter table t_arteva_broadcast_info auto_increment =1;')
+    db.delete_sql(arsql.ALTER_BROADCAST_INFO_AUTO_INCREMENT)
 
     select_broadcast_info(db)
 
@@ -414,53 +369,51 @@ def update_broadcast_info(db, status):
     elif status == 'S':
         srh = 'A'
 
-    status_broadcast = "select ID, ACTIVE from t_arteva_broadcast_info where ACTIVE = '{}';"
-    desc, rows = db.select_sql(status_broadcast.format(srh), fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_BROADCAST_STATUS.format(srh), fetchall=True)
     if rows:
-        update_sql = 'update t_arteva_broadcast_info set active = "{}" where id = {};'
         for row in rows:
-            db.insert_args_sql(update_sql.format(status, row[0]))
+            db.insert_args_sql(arsql.UPDATE_BROADCAST_ACTIVE.format(status, row[0]))
 
 def select_broadcast_info(db):
-    desc, rows = db.select_sql(select_full_broadcast_sql, fetchall=True)
+    desc, rows = db.select_sql(arsql.SELECT_FULL_BROADCAST_SQL, fetchall=True)
     display_select(desc, rows)
 
 def display_select(desc, rows):
-    header = []
-    colsize = [] 
-    rcolsize = [] 
-    for des in desc:
-        header.append(des[0].upper())
-        colsize.append(len(des[0]))
-
-    for row in rows:
-        for i, r in enumerate(row):
-            check_korean(str(r))
-            sz = len(str(r))
-            if colsize[i] < sz:
-                colsize[i] = sz
-
+    ## read description and print Field name, size
+    kv = {}
     lines = []
-    pstr = ""
+    pstr = []
     lows = ""
-    for c in colsize:
-        pstr += '+'
-        for i in range(int(c+2)):
-            pstr += "-"
-        lows += "| %-" + str(c+1) + "s"
-    pstr += "+"
-    lows += "|"
 
-    lines.append(pstr)
-    lines.append(lows % tuple(header))
-    lines.append(pstr)
+    for dc in desc:
+        print(dc)
+        kv[dc[0].upper()] = len(dc[0])
+
+    for rw in rows:
+        for i, k in enumerate(kv.keys()) :
+            if len(str(rw[i])) > kv[k] :
+                kv[k] = len(str(rw[i]))
+
+    for k, v in kv.items():
+        pstr.append('+')
+        s = '-'.rjust(v+2, '-')
+        pstr.append(s)
+
+        lows += "| %-" + str(v+1) + "s"
+
+    pst = ''.join(pstr) + '+'
+    low = lows + '|'
+
+    lines.append(pst)
+    lines.append(low % tuple(kv.keys()))
+    lines.append(pst)
 
     for r in rows:
-        lines.append(lows % tuple(r))
-    lines.append(pstr)
-        
-    for line in lines:
-        print(line)
+        lines.append(low % tuple(r))
+    lines.append(pst)
+
+    for l in lines:
+        print(l)
 
 def check_korean(kstr):
     p = re.compile('[ㄱ-힣]')
@@ -504,11 +457,11 @@ def main():
     elif info == 'extern':
         read_extern_csv(filename, conf)
 
-        if tags == "add" or tags == "add2":
+        if tags == "add" :
             add_extern_info(db, conf, tags)
 
         if tags == "sel":
-            select_extern_info(db, tags)
+            select_extern_info(db)
 
         if tags == "del":
             delete_extern_info(db)
