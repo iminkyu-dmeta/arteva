@@ -1,6 +1,6 @@
 ---
 
-  arteva_version: "1.0.12"
+  arteva_version: "1.0.17"
   user: "dmeta"
   group: "dmeta"
   password: 'dmeta!@34'
@@ -37,8 +37,8 @@
   dotenvx_file:
     - "dotenvx.tar.gz"
 
-  tomcat_file: "apache-tomcat-9.0.97.tar.gz"
-  tomcat_ver: "apache-tomcat-9.0.97"
+  tomcat_file: "apache-tomcat-9.0.105.tar.gz"
+  tomcat_ver: "apache-tomcat-9.0.105"
 
   node_ver: "node-v10.24.0-linux-x64"
   pm_ver: "pm2-5.4.2"
@@ -52,9 +52,9 @@
   cudnn_dir: "cudnn-linux-x86_64-8.6.0.163_cuda11-archive"
   cudnn_link_dir: "/usr/local/cuda/lib64"
 
-  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.12.war"
+  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.17.war"
 
-  was_port: "8000/tcp"
+  was_port: "8443/tcp"
 
   java_family: "java-11-openjdk.x86_64"
   alter_selection: 

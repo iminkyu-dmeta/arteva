@@ -83,20 +83,29 @@ def read_camera_csv(filename, conf):
         reader = csv.reader(csvfile)
         next(reader)
 
+        num = 1
         for row in reader:
-            sql_row = [
-                    'CCTV' + row[0].zfill(2), 
-                    row[6], 
-                    conf["ACTIVE"], 
-                    conf["RESOLUTION"], 
-                    row[2] + ", 채널 번호: " + row[4] + ", 용도: " + row[5], 
-                    now, 
-                    now, 
-                    conf["adminuser"], 
-                    conf["adminuser"], 
-                    row[9]
-                ]
-            camera_sql_rows.append(sql_row)
+            if row[11]: 
+                sql_row = [
+                        'CCTV' + str(num).zfill(3),         # CCTV name
+                        row[8],                             # URL
+                        conf["ACTIVE"],                     # Active
+                        conf["RESOLUTION"],                 # Resolution(FHD)
+                        row[2] + " 역사, \n카메라 이름: " + row[3] + ", \n용도: " + row[12],    # comment
+                        now,                                # create_time 
+                        now,                                # update_time
+                        conf["adminuser"],                  # create_user
+                        conf["adminuser"],                  # update_user
+                        row[11]                             # event_type
+                    ]
+                camera_sql_rows.append(sql_row)
+
+                num+=1
+
+    for l in camera_sql_rows:
+        print(l)
+
+    sys.exit(0)
 
 def read_extern_csv(filename, conf):
     with open(filename, "r") as csvfile:
@@ -424,6 +433,10 @@ def check_korean(kstr):
         return True
 
 def main():
+    if len(sys.argv) < 4 :
+        print("./register_cctv.py filename [camera|extern|broadcast] [sel|add|del|act|sby]")
+        sys.exit(1)
+
     try:
         filename = sys.argv[1]
         info = sys.argv[2]
@@ -434,6 +447,8 @@ def main():
     properties = configparser.ConfigParser()
     properties.read('cctv_config.ini')
     conf = properties["default"]
+
+    read_camera_csv(filename, conf)
 
     db = connect_db(conf)
     if info == 'camera': 

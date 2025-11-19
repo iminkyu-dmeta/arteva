@@ -1,0 +1,87 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/dmeta/ANSIBLE/arteva/script/CCTV/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ACTIVE	cctv_config.ini	/^ACTIVE=A$/;"	k	section:default
+ALTER_BROADCAST_INFO_AUTO_INCREMENT	arsql.py	/^ALTER_BROADCAST_INFO_AUTO_INCREMENT="alter table t_arteva_broadcast_info auto_increment =1;"$/;"	v
+ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT	arsql.py	/^ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_camera_info auto_increment =1;"$/;"	v
+ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT	arsql.py	/^ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_extern_info auto_increment =1;"$/;"	v
+BRAREA_SQL	arsql.py	/^BRAREA_SQL= "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'BR/;"	v
+COUNT_BROADCAST_INFO_SQL	arsql.py	/^COUNT_BROADCAST_INFO_SQL="select count(*) from t_arteva_broadcast_info;"$/;"	v
+COUNT_CAMERA_INFO_SQL	arsql.py	/^COUNT_CAMERA_INFO_SQL="select count(*) from t_arteva_camera_info;"$/;"	v
+COUNT_EXTERN_INFO_SQL	arsql.py	/^COUNT_EXTERN_INFO_SQL="select count(*) from t_arteva_extern_info;"$/;"	v
+DEL_BROADCAST_INFO_SQL	arsql.py	/^DEL_BROADCAST_INFO_SQL="delete from t_arteva_broadcast_info where id = {};"$/;"	v
+DEL_CAMERA_EVENT_CONF	arsql.py	/^DEL_CAMERA_EVENT_CONF= "delete from t_arteva_camera_event_conf where camera_id = {};"$/;"	v
+DEL_CAMERA_INFO_SQL	arsql.py	/^DEL_CAMERA_INFO_SQL="delete from t_arteva_camera_info where id = {};"$/;"	v
+DEL_EXTERN_INFO_SQL	arsql.py	/^DEL_EXTERN_INFO_SQL="delete from t_arteva_extern_info where id = {};"$/;"	v
+EVENT_SQL	arsql.py	/^EVENT_SQL= "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'EVE/;"	v
+INSERT_BROADCAST_INFO_SQL	arsql.py	/^INSERT_BROADCAST_INFO_SQL="insert t_arteva_broadcast_info ( extern_id, ext_broadcast_id, broadca/;"	v
+INSERT_CAMERA_EVENT_SQL	arsql.py	/^INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detec/;"	v
+INSERT_CAMERA_INFO_SQL	arsql.py	/^INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resolution, comment, cre/;"	v
+INSERT_EXTERN_INFO_SQL	arsql.py	/^INSERT_EXTERN_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url,address, po/;"	v
+LAST_INSERT_SQL	arsql.py	/^LAST_INSERT_SQL="SELECT LAST_INSERT_ID()"$/;"	v
+MysqlDBAcc	register_cctv.py	/^class MysqlDBAcc:$/;"	c
+RESOLUTION	cctv_config.ini	/^RESOLUTION=FHD$/;"	k	section:default
+SELECT_BROADCAST_INFO_SQL	arsql.py	/^SELECT_BROADCAST_INFO_SQL="select a.id as brdContentId, a.broadcast_title as brdContentTitle, a./;"	v
+SELECT_BROADCAST_STATUS	arsql.py	/^SELECT_BROADCAST_STATUS="select ID, ACTIVE from t_arteva_broadcast_info where ACTIVE = '{}';"$/;"	v
+SELECT_CAMERA_EVENT_CONF_SQL	arsql.py	/^SELECT_CAMERA_EVENT_CONF_SQL="select camera_id, event_type, accuracy, active, duration, broadcas/;"	v
+SELECT_CAMERA_INFO_SQL	arsql.py	/^SELECT_CAMERA_INFO_SQL="select id, name, url, active, resolution from t_arteva_camera_info;"$/;"	v
+SELECT_CAMERA_STATUS	arsql.py	/^SELECT_CAMERA_STATUS="select ID, ACTIVE from t_arteva_camera_info where ACTIVE = '{}';"$/;"	v
+SELECT_EVENT_CONF_SQL	arsql.py	/^SELECT_EVENT_CONF_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_s/;"	v
+SELECT_EXTERN_INFO_BC	arsql.py	/^SELECT_EXTERN_INFO_BC="select id, type from t_arteva_extern_info where type = 'BC';"$/;"	v
+SELECT_EXTERN_INFO_SQL	arsql.py	/^SELECT_EXTERN_INFO_SQL="select a.id as extSystemId, a.name as extSystemName, DATE_FORMAT(IFNULL(/;"	v
+SELECT_EXTERN_STATUS	arsql.py	/^SELECT_EXTERN_STATUS="select ID, ACTIVE from t_arteva_extern_info where ACTIVE = '{}';"$/;"	v
+SELECT_FULL_BROADCAST_SQL	arsql.py	/^SELECT_FULL_BROADCAST_SQL="select * from t_arteva_broadcast_info;"$/;"	v
+SELECT_FULL_CAMERA_EVENT_CONF_SQL	arsql.py	/^SELECT_FULL_CAMERA_EVENT_CONF_SQL="select * from t_arteva_camera_event_conf;"$/;"	v
+SELECT_FULL_CAMERA_INFO_SQL	arsql.py	/^SELECT_FULL_CAMERA_INFO_SQL="select * from t_arteva_camera_info;"$/;"	v
+SELECT_FULL_EXTERN_SQL	arsql.py	/^SELECT_FULL_EXTERN_SQL="select * from t_arteva_extern_info;"$/;"	v
+UPDATE_BROADCAST_ACTIVE	arsql.py	/^UPDATE_BROADCAST_ACTIVE="update t_arteva_broadcast_info set active = '{}' where id = {};"$/;"	v
+UPDATE_CAMERA_ACTIVE	arsql.py	/^UPDATE_CAMERA_ACTIVE="update t_arteva_camera_info set active = '{}' where id = {};"$/;"	v
+UPDATE_CAMERA_INFO_BROADCAST	arsql.py	/^UPDATE_CAMERA_INFO_BROADCAST="update t_arteva_camera_info set broadcast_area_code = '{}', broadc/;"	v
+UPDATE_EXTERN_ACTIVE	arsql.py	/^UPDATE_EXTERN_ACTIVE="update t_arteva_extern_info set active = '{}' where id = {};"$/;"	v
+__init__	register_cctv.py	/^    def __init__(self, config):$/;"	m	class:MysqlDBAcc
+add_broadcast_info	register_cctv.py	/^def add_broadcast_info(db, conf):$/;"	f
+add_camera_info	register_cctv.py	/^def add_camera_info(db, conf):$/;"	f
+add_extern_info	register_cctv.py	/^def add_extern_info(db, conf, tags):$/;"	f
+adminuser	cctv_config.ini	/^adminuser=admin$/;"	k	section:default
+broadcast_sql_rows	register_cctv.py	/^broadcast_sql_rows = []$/;"	v
+camera_sql_rows	register_cctv.py	/^camera_sql_rows = []$/;"	v
+check_korean	register_cctv.py	/^def check_korean(kstr):$/;"	f
+close_conn	register_cctv.py	/^    def close_conn(self):$/;"	m	class:MysqlDBAcc
+connect_db	register_cctv.py	/^def connect_db(conf):$/;"	f
+database	cctv_config.ini	/^database=dmeta_arteva$/;"	k	section:default
+default	cctv_config.ini	/^[default]$/;"	s
+delete_broadcast_info	register_cctv.py	/^def delete_broadcast_info(db):$/;"	f
+delete_camera_info	register_cctv.py	/^def delete_camera_info(db):$/;"	f
+delete_extern_info	register_cctv.py	/^def delete_extern_info(db):$/;"	f
+delete_sql	register_cctv.py	/^    def delete_sql(self, sql=None, param=None):$/;"	m	class:MysqlDBAcc
+display_select	register_cctv.py	/^def display_select(desc, rows):$/;"	f
+extern_sql_rows	register_cctv.py	/^extern_sql_rows = []$/;"	v
+hostip	cctv_config.ini	/^hostip=192.168.132.183$/;"	k	section:default
+insert_args_sql	register_cctv.py	/^    def insert_args_sql(self, sql=None, args=None):$/;"	m	class:MysqlDBAcc
+insert_many_sql	register_cctv.py	/^    def insert_many_sql(self, sql=None, many=None):$/;"	m	class:MysqlDBAcc
+main	register_cctv.py	/^def main():$/;"	f
+now	register_cctv.py	/^now = datetime.datetime.now()$/;"	v
+now	register_cctv.py	/^now = now.strftime('%Y-%m-%d %H:%M:%S')$/;"	v
+passwd	cctv_config.ini	/^passwd=dmeta!@34$/;"	k	section:default
+port	cctv_config.ini	/^port=3306$/;"	k	section:default
+read_broadcast_csv	register_cctv.py	/^def read_broadcast_csv(filename, conf):$/;"	f
+read_camera_csv	register_cctv.py	/^def read_camera_csv(filename, conf):$/;"	f
+read_extern_csv	register_cctv.py	/^def read_extern_csv(filename, conf):$/;"	f
+select_broadcast_info	register_cctv.py	/^def select_broadcast_info(db):$/;"	f
+select_camera_info	register_cctv.py	/^def select_camera_info(db):$/;"	f
+select_db	register_cctv.py	/^def select_db(db):$/;"	f
+select_extern_info	register_cctv.py	/^def select_extern_info(db):$/;"	f
+select_sql	register_cctv.py	/^    def select_sql(self, sql=None, fetchall=False, size=None):$/;"	m	class:MysqlDBAcc
+update_broadcast_camera_info	register_cctv.py	/^def update_broadcast_camera_info(db):$/;"	f
+update_broadcast_info	register_cctv.py	/^def update_broadcast_info(db, status):$/;"	f
+update_camera_info	register_cctv.py	/^def update_camera_info(db, status):$/;"	f
+update_extern_info	register_cctv.py	/^def update_extern_info(db, status):$/;"	f
+user	cctv_config.ini	/^user=dmeta$/;"	k	section:default

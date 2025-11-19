@@ -1,0 +1,126 @@
+﻿유무,번호,역사,카메라 이름,NVR IP,Port,UUID,채널번호,RTSP URL,ID,PW,TYPE,용도
+0,1,101,PSD-U1-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,2,101,PSD-U1-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,3,101,PSD-U2-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,4,101,PSD-U2-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,5,101,PSD-D1-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,6,101,PSD-D1-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,7,101,PSD-D2-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,8,101,PSD-D2-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,9,101,PSD-M1-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,10,101,PSD-M1-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,11,101,PSD-M2-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,12,101,P-U1,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,13,101,P-U2,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,14,101,P-U3,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,15,101,P-U4,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,16,101,P-D1,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,17,101,P-D2,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,18,101,P-D3,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,19,101,P-D4,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+,20,101,상선 출입구(상행),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,21,101,상선 출입구(하행),7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시"
+,22,101,하선 출입구(상행),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,23,101,하선 출입구(하행),7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시"
+,24,101,출구-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,25,101,출구-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,26,101,G-1,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시
+0,27,101,G-2,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시
+0,28,101,G-3,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시
+,29,101,G-4,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,30,101,환승통로-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,31,101,환승통로-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,32,101,비상탈출통로-1(101역 0K960Km),7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,TP,침입 감시
+0,33,101,"비상탈출통로-2(101역 0K960Km)""",7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,TP,침입 감시
+,34,101,"비상탈출통로-3(102역 1K690Km)""",7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,35,101,비상계단-대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,36,101,비상계단-승강장,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,37,101,비상계단-중간,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,38,101,변전실-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,39,101,변전실-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,40,101,변전실-3,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,41,101,변전실-4,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,42,101,전기실-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,43,101,전기실-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,44,101,통신기기실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,45,101,신호기기실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,46,101,발매기,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,47,101,발매기실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,48,101,화장실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,49,101,여자 화장실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,50,101,장애인 화장실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,51,101,수유실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,52,101,이용객쉼터,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+0,53,101,비상안내 카메라-1(101역 0K50Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,54,101,비상안내 카메라-2(101역 0K360Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,55,101,비상안내 카메라-3(101역 0K600Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,56,101,비상안내 카메라-4,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,57,101,비상안내 카메라-5(101역 1K384Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,58,101,비상안내 카메라-6,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,59,101,비상안내 카메라-7(102역 2K274Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,60,101,비상안내 카메라-8(103역 5K485Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,61,101,비상안내 카메라-9(103역 5K885Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,62,101,비상안내 카메라-10(103역 6K313Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,63,101,비상안내 카메라-11(차량기지 6K465Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,64,101,E/L-1 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,65,101,E/L-1 대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,66,101,E/L-1 대합실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,67,101,E/L-1 승강장,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,68,101,E/L-2 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,69,101,E/L-2 대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,70,101,E/L-2 대합실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,71,101,E/L-3 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,72,101,E/L-3 환승,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,73,101,E/L-3 대합,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시"
+,74,101,E/L-3 대합실,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,75,101,E/L-3 승강장,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시"
+0,76,101,E/L-4 대합,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시"
+0,77,101,E/L-4 승강장,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시"
+,78,101,E/S-1 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,79,101,E/S-1 대합,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+,80,101,E/S-1 환승,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,81,101,E/S-1 중간,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,82,101,E/S-1 승강장,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+,83,101,E/S-2 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,84,101,E/S-2 대합,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+,85,101,E/S-2 중간,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,86,101,E/S-2 승강,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,87,101,E/S-2 승강장,7.101.3.22,4515,test-uuid,2,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시"
+,88,101,E/S-3 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,89,101,E/S-3 대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,90,101,E/S-3 중간,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,91,101,E/S-3 승강장,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,92,101,E/S-4 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,93,101,E/S-4 대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,94,101,E/S-4 중간,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,95,101,E/S-4 승강장,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,96,101,E/S-5 지상,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+,97,101,E/S-5 대합,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,98,101,선로전환기 카메라-1(101역 0K113Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,99,101,선로전환기 카메라-2(101역 1신호장 0K960Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,100,101,선로전환기 카메라-3,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,101,101,선로전환기 카메라-4,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,102,101,선로전환기 카메라-5,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,103,101,선로전환기 카메라-6(102역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,104,101,선로전환기 카메라-7(102역 상행2),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,105,101,선로전환기 카메라-8(102역 하행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,106,101,선로전환기 카메라-9(102역 하행2),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,107,101,선로전환기 카메라-10(103역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,108,101,선로전환기 카메라-11(103역 하행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,109,101,선로전환기 카메라-12(103역 2신호장 6K072Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,110,101,선로전환기 카메라-13(차량기지 2신호장 6K072Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,111,101,선로전환기 카메라-14,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,112,101,선로전환기 카메라-15,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,113,101,선로전환기 카메라-16(104역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,114,101,선로전환기 카메라-17(104역 하행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,115,101,선로전환기 카메라-18(105역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,116,101,선로전환기 카메라-19(105역 상행2),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,117,101,선로전환기 카메라-20(105역 하행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,118,101,선로전환기 카메라-21(105역 하행2),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,119,101,선로전환기 카메라-22(106역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,120,101,선로전환기 카메라-23(106역 하행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,121,101,선로전환기 카메라-24(107역 상행1),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,122,101,집수정 카메라-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,123,101,집수정 카메라-2,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,124,101,집수정 카메라-3(차량기지 2신호장 6K050Km),7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
+0,125,101,본선환기 카메라-1,7.101.3.22,4515,test-uuid,,rtsp://admin:asdQWE12!@@7.101.3.22:4515/test-uuid/2/media.smp,admin,asdQWE12!@,,
