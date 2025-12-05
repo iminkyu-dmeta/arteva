@@ -16,7 +16,7 @@
 - name: delete new files
   become: True
   file:
-    path: "{{ apps_dir }}/arteva/ai_engine/lib_dir/{{ item }}"
+    path: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item }}"
     state: absent
   with_items:
     - 'libavcodec.so.59.37.100'
