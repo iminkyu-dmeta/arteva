@@ -1,0 +1,76 @@
+---
+
+- name: upload arteva backend files
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is not defined
+  with_items:
+    - "{{ ai_file }}"
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"
+
+- name: create detect model directory
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/ai_engine/ai_process/model/weights/v3/detect"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: directory
+      
+- name: copy ai_process
+  become: True
+  copy:
+    src: "{{ apps_dir }}/{{ ai_dir }}/{{ item.src }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - { src: 'httpauth.c', dest: 'ai_process/httpauth.c' }
+    - { src: 'normal_event_set.py', dest: 'ai_process/event_sets/normal_event_set.py' }
+    - { src: 'normal_event.py', dest: 'ai_process/events/normal_event.py' }
+    - { src: 'yolov8_nano_l4_fp16_train18_8522_v3.engine', dest: 'ai_process/model/weights/v3/detect/yolov8_nano_l4_fp16_train18_8522_v3.engine' }
+    - { src: 'camera_thread.py', dest: 'ai_process/camera_thread.py' }
+    - { src: 'rtsp_capture.py', dest: 'common/utils/rtsp_capture.py' }
+
+- name: copy sha256 lib
+  become: True
+  copy:
+    src: "{{ apps_dir }}/{{ ai_dir }}/{{ item.src }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - { src: 'libavcodec.so.59.37.100', dest: 'libavcodec-9aae324f.so.59.37.100' }
+    - { src: 'libavformat.so.59.27.100', dest: 'libavformat-3ff1be5b.so.59.27.100' }
+    - { src: 'libavutil.so.57.28.100', dest: 'libavutil-a0a0531e.so.57.28.100' }
+    - { src: 'libswscale.so.6.7.100', dest: 'libswscale-2c3c8be7.so.6.7.100' }
+    - { src: 'libswresample.so.4.7.100', dest: 'libswresample-2ec4394e.so.4.7.100' }
+
+- name: soft link sha256 lib
+  become: True
+  file:
+    src: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item.src }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: link
+  with_items:
+    - { src: 'libavcodec-9aae324f.so.59.37.100', dest: 'libavcodec.so.59.37.100' }
+    - { src: 'libavformat-3ff1be5b.so.59.27.100', dest: 'libavformat.so.59.27.100' }
+    - { src: 'libavutil-a0a0531e.so.57.28.100', dest: 'libavutil.so.57.28.100' }
+    - { src: 'libswscale-2c3c8be7.so.6.7.100', dest: 'libswscale.so.6.7.100' }
+    - { src: 'libswresample-2ec4394e.so.4.7.100', dest: 'libswresample.so.4.7.100' }

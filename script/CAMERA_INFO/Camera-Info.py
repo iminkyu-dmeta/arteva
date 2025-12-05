@@ -10,6 +10,7 @@ import time
 import configparser
 import argparse
 import socket
+import subprocess
 
 ## CCTV.csv
 # 역별 이벤트 CCTV
@@ -113,7 +114,7 @@ def connect_db(conf, host=None):
         }
     else:
         config = {
-                'host':conf["host"],
+                'host':'localhost',
                 'user':conf["user"],
                 'passwd':conf["passwd"],
                 'database':conf["database"],
@@ -125,6 +126,7 @@ def connect_db(conf, host=None):
 
 class CameraInfo:
     # 역별 이벤트 CCTV Dict
+    #STATIONID = ['100', '101', '102', '103', '104', '105', '106', '107']
 
     def __init__(self, conf, args):
         self.conf = conf
@@ -138,7 +140,7 @@ class CameraInfo:
         ## 화상Interface Camera Information (mariadb)
         ## Daatabase: ims_v2
         ## Table : v_camera_info_ex
-        ## (카메라고유번호, 역사명, 역사아이디, 카메라명, 카메라아이피, NVR RTSP주소, 제조사명, 모델명, 장애상태코드)
+        ## (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
 
@@ -155,7 +157,7 @@ class CameraInfo:
         ## 화상Interface Camera Information (mariadb)
         ## Daatabase: ims_v2
         ## Table : v_camera_info_ex
-        ## (카메라고유번호, 역사명, 역사아이디, 카메라명, 카메라아이피, NVR RTSP주소, 제조사명, 모델명, 장애상태코드)
+        ## (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         ## ======================
         ## 역사별 저장
         ## hostname = "YS-VDOAN-1", "YS-TNMS-VDOAN-101" - "YS-TNMS-VDOAN-107"
@@ -177,7 +179,7 @@ class CameraInfo:
         ## 화상Interface Camera Information (mariadb)
         ## Daatabase: ims_v2
         ## Table : v_camera_info_ex
-        ## (카메라고유번호, 역사명, 역사아이디, 카메라명, 카메라아이피, NVR RTSP주소, 제조사명, 모델명, 장애상태코드)
+        ## (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         ## ======================
         ## 역사 저장
         ## hostname = "YS-VDOAN-1"
@@ -195,15 +197,15 @@ class CameraInfo:
         write_csv_file(de, data, filepath)
 
     def read_cctv_csv_data(self, filename):
-        ## 0.카메라교유번호, 1.역사명, 2.역사아이디, 3.카메라명, 4.카메라아이피, 5. NVR RTSP주소, 6.Port, 7.UUID,
-        ## 8.채널번호, 9.ID, 10.PW, 11.TYPE, 12.용도,
+        ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
     
         hd = read_csv_header(filename)
-        fd = hd.index('TYPE')
-        column_name = hd.index('역사아이디')
+        fd = hd.index('type')
+        column_name = hd.index('station_id')
     
         with open(filename, "r") as cf:
             reader = csv.DictReader(cf, fieldnames=hd)
@@ -241,6 +243,9 @@ class CameraInfo:
         # stationid = conf[hostname]
         # arteva_camera_info_sql_rows
         # de, data : description, ims_v2 v_camera_info_ex
+        ## csv column name
+        ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -253,17 +258,19 @@ class CameraInfo:
             hd.append(k)
     
         ## index
-        hd_nu_idx = hd.index('카메라고유번호')
-        hd_na_idx = hd.index('역사명')
-        hd_si_idx = hd.index('역사아이디')
-        hd_ip_idx = hd.index('카메라아이피')
-        hd_ca_idx = hd.index('카메라명')
-        hd_id_idx = hd.index('ID')
-        hd_pw_idx = hd.index('PW')
-        hd_ty_idx = hd.index('TYPE')
-        hd_us_idx = hd.index('용도')
-        de_nu_idx = de.index('카메라고유번호')
-        de_cc_idx = de.index('NVR RTSP주소')
+        hd_nu_idx = hd.index('idx')
+        hd_na_idx = hd.index('station_name')
+        hd_si_idx = hd.index('station_id')
+        hd_ca_idx = hd.index('camera_name')
+        hd_ip_idx = hd.index('camera_ipaddr')
+        hd_id_idx = hd.index('id')
+        hd_pw_idx = hd.index('pw')
+        hd_ty_idx = hd.index('type')
+        hd_us_idx = hd.index('use')
+        hd_ba_idx = hd.index('broadcast_area')
+        hd_bi_idx = hd.index('broadcast_id')
+        de_nu_idx = de.index('idx')
+        de_cc_idx = de.index('nvr_rtsp_url')
     
         # 역별 이벤트 CCTV Dict
         for key, val in self.by_data.items():
@@ -281,29 +288,43 @@ class CameraInfo:
                         # change to tuple
                         event = v[hd[hd_ty_idx]].split(',')
                         event_type = v[hd[hd_ty_idx]]
+                        # broadcast area id
                         if len(event) == 1:
                             event.append("NE")
                             event_type = ','.join(event)
-    
+
+                        if v[hd[hd_ba_idx]]:
+                            broad_area = v[hd[hd_ba_idx]]
+                        else:
+                            broad_area = None
+
+                        if v[hd[hd_bi_idx]]:
+                            broad_id = v[hd[hd_bi_idx]]
+                        else:
+                            broad_id = None
+
                         sql_row = [
-                            NAME,                   # 1. name(CCTV name)
-                            URL,                    # 2. url(rtsp url)
-                            self.conf["ACTIVE"],         # 3. active(Active)
-                            self.conf["RESOLUTION"],     # 4. resolution(FHD)
-                            COMMENT,                # 5. comment
-                            now,                    # 6. create_time
-                            now,                    # 7. update_time
-                            self.conf["adminuser"],      # 8. create_user
-                            self.conf["adminuser"],      # 9. update_user
-                            event_type              # 10. event_type
+                            NAME,                       # 1. name(CCTV name)
+                            URL,                        # 2. url(rtsp url)
+                            self.conf["ACTIVE"],        # 3. active(Active)
+                            self.conf["RESOLUTION"],    # 4. resolution(FHD)
+                            COMMENT,                    # 5. comment
+                            now,                        # 6. create_time
+                            now,                        # 7. update_time
+                            self.conf["adminuser"],     # 8. create_user
+                            self.conf["adminuser"],     # 9. update_user
+                            event_type,                 # 10. event_type
+                            broad_area,                 # 11. broadcast area
+                            broad_id                    # 12. broadcast id 
                             ]
     
                         num+=1
-    
+
+                        
                         by_row.append(sql_row)
-    
+
             arteva_camera_info_rows[key] = by_row
-    
+
         return arteva_camera_info_rows
 
     def insert_t_arteva_camera_info(self, db, rows):
@@ -325,10 +346,55 @@ class CameraInfo:
     
         WLOG("{}  ARTEVA CCTV Registration start : {} STATION".format(FNC, self.sid))
         param = rows[self.sid]
-    
+
+        '''
+        |--------|-----|--------|--------|
+        |code_id |code |code_nm |code_dc |
+        |--------|-----|--------|--------|
+        |EVENT   |WD   |배회    |배회    |
+        |EVENT   |PS   |사람    |사람    |
+        |EVENT   |FT   |싸움    |싸움    |
+        |EVENT   |DR   |쓰러짐  |쓰러짐  |
+        |EVENT   |ST   |유모차  |유모차  |
+        |EVENT   |BC   |자전거  |자전거  |
+        |EVENT   |TP   |침입    |침입    |
+        |EVENT   |WC   |휠체어  |휠체어  |
+        |--------|-----|--------|--------|
+        |--------|-----|------------|---------------------|
+        |code_id |code |code_nm     |code_dc              |
+        |--------|-----|------------|---------------------|
+        |BRAREA  |WR   |대합실      |역내대합실           |
+        |BRAREA  |UF   |상행선플랫폼|상행선플랫폼         |
+        |BRAREA  |AA   |전역사      |전역사 방송 구역 코드|
+        |BRAREA  |DP   |하행선플랫폼|하행선플랫폼         |
+        |--------|-----|------------|---------------------|
+        +----+-----------+------------------+-----------------+
+        | ID | EXTERN_ID | EXT_BROADCAST_ID | BROADCAST_TITLE |
+        +----+-----------+------------------+-----------------+
+        |  1 |         2 | 1                | 쓰러짐(DR)      |
+        |  2 |         2 | 2                | 침입  (TP)      |
+        |  3 |         2 | 3                | 훨체어(WC)      |
+        |  4 |         2 | 4                | 훨체어(WC)      |
+        |  5 |         2 | 5                | 유모차(ST)      |
+        |  6 |         2 | 6                | 자전거(BC)      |
+        +----+-----------+------------------+-----------------+
+
+        '''
+        #broadcast = {}
         for row in param:
+            broadcast = {}
             cctv_id = row[0]
+            broadcast['bid'] = row.pop()
+            broadcast['barea'] = row.pop()
             event = tuple(row.pop().split(','))
+            event_list = list(event)
+            if 'FT' in event_list:
+                event_list.remove('FT')
+            if 'NE' in event_list:
+                event_list.remove('NE')
+            broadcast['event'] = event_list
+
+            #update_broad[cctv_id] = 
     
             '''
             alter table t_arteva_camera_info auto_increment =1;
@@ -337,6 +403,7 @@ class CameraInfo:
             create_time, update_time, create_user, update_user
     
             '''
+            
             WLOG("{} CCTV Camara 추가: {} EVENT : {}".format(FNC, row[0], event))
             WLOG(tuple(row))
             db.insert_args_sql(arsql.INSERT_CAMERA_INFO_SQL, tuple(row))
@@ -353,16 +420,27 @@ class CameraInfo:
             ### Insert t_arteva_camera_event
             #cctv_id = int(re.sub(r'[^0-9]', '', row[0]))
             WLOG("{}  camera_id : {}".format(FNC, camera_id[0]))
+            #SQL = arsql.INSERT_CAMERA_EVENT_BID_SQL + arsql.SELECT_EVENT_CONF_BID_SQL.format(camera_id[0], event, now, now, user, user)
             SQL = arsql.INSERT_CAMERA_EVENT_SQL + arsql.SELECT_EVENT_CONF_SQL.format(camera_id[0], event, now, now, user, user)
-            #print(SQL)
-    
             db.insert_args_sql(SQL)
+
+            # update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}';
+            if broadcast['bid']:
+                broad_id = broadcast['bid'].split(',')
+                broad_ar = broadcast['barea'].split(',')
+                broad_et = broadcast['event']
+                for bd, ba, et in zip(broad_id, broad_ar, broad_et):
+                    print(bd, ba, et)
+                    SQL = arsql.UPDATE_CAMERA_EVENT_BID_SQL.format(ba, bd, camera_id[0], et)
+
+                    db.insert_args_sql(SQL)
     
         self.select_camera_info(db)
 
     def write_cctv_csv_data(self, filename, update_rows):
-        ## 0.번호, 1.역사명, 2.역사아이디, 3.카메라명, 4.카메라아이피, 5. 'NVR RTSP주소', 6.Port, 7.UUID,
-        ## 8.채널번호, 9.ID, 10.PW, 11.TYPE, 12.용도,
+        ## csv column name
+        ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -380,13 +458,13 @@ class CameraInfo:
             next(reader)
     
             for r in reader:
-                num = r['카메라고유번호']
+                num = r['idx']
                 match_n = [n for n in update_num if n == num ]
                 if match_n:
                     for value in update_rows.values():
                         for v in value :
                             if v[0] == num:
-                                r['NVR RTSP주소'] = v[1]
+                                r['nvr_rtsp_url'] = v[1]
                                 update_data.append(r)
                 else:
                     update_data.append(r)
@@ -408,16 +486,17 @@ class CameraInfo:
         for k in cctv_csv_data[0]:
             hd.append(k)
     
-        ## 0.카메라고유번호, 1.역사명, 2.역사아이디, 3.카메라명, 4.카메라아이피, 5. NVR RTSP주소, 6.Port,
-        ## 7.UUID, 8.채널번호, 9.ID, 10.PW, 11.TYPE, 12.용도,
+        ## csv column name
+        ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
         ## index
-        hd_nu_idx = hd.index('카메라고유번호')
-        de_nu_idx = de.index('카메라고유번호')
-        hd_ip_idx = hd.index('카메라아이피')
-        hd_id_idx = hd.index('ID')
-        hd_pw_idx = hd.index('PW')
-        hd_cc_idx = hd.index('NVR RTSP주소')
-        de_cc_idx = de.index('NVR RTSP주소')
+        hd_nu_idx = hd.index('idx')
+        de_nu_idx = de.index('idx')
+        hd_ip_idx = hd.index('camera_ipaddr')
+        hd_id_idx = hd.index('id')
+        hd_pw_idx = hd.index('pw')
+        hd_cc_idx = hd.index('nvr_rtsp_url')
+        de_cc_idx = de.index('nvr_rtsp_url')
     
         update_camera_info_url = {}
         for key, val in self.by_data.items():
@@ -487,6 +566,10 @@ class CameraInfo:
             db.delete_sql(arsql.DEL_CAMERA_EVENT_CONF.format(row[0]))
     
         db.delete_sql(arsql.ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT)
+        if self.args.job == 'adel':
+            WLOG(FNC + " " + self.args.job)
+            db.delete_sql(arsql.TRUNCATE_CAMERA_INFO_ARCHIVE)
+            db.delete_sql(arsql.TRUNCATE_CAMERA_EVENT_CONF_ARCHIVE)
     
         self.select_camera_info(db)
     
@@ -782,6 +865,9 @@ class BroadCastInfo:
             db.delete_sql(arsql.DEL_BROADCAST_INFO_SQL.format(row[0]))
     
         db.delete_sql(arsql.ALTER_BROADCAST_INFO_AUTO_INCREMENT)
+        if self.args.job == 'adel':
+            WLOG(FNC + " " + self.args.job)
+            db.delete_sql(arsql.TRUNCATE_BROADCAST_INFO_ARCHIVE)
     
         self.select_broadcast_info(db)
     
@@ -810,6 +896,69 @@ class BroadCastInfo:
         desc, rows = db.select_sql(arsql.SELECT_FULL_BROADCAST_SQL, fetchall=True)
         display_select(desc, rows)
 
+class BackupData():
+    def __init__(self, conf, args):
+        self.conf = conf
+        self.args = args
+        self.hostname = socket.gethostname()
+        self.sid = conf[self.hostname]
+        self.classname = __class__.__name__
+        self.db_host = self.conf["host"]
+        self.db_user = self.conf["user"]
+        self.db_pass = self.conf["passwd"]
+        self.db_name = self.conf["database"]
+        self.BACKUP_FILE = f"bakup_{self.db_name}_{self.hostname}.sql"
+
+    def backup(self):
+        # Construct the mariadb-dump command
+        # -h: host -u: user -p: password
+        #-A, --all-databases Dump all the databases. This will be same as --databases
+        #              with all databases selected.
+        #-T, --tab=name      Create tab-separated textfile for each table to given
+        #              path. (Create .sql and .txt files.) NOTE: This only works
+        #              if mysqldump is run on the same machine as the mysqld
+        #              server.
+        command = [
+                "mariadb-dump",
+                f"-h {self.db_host}",
+                f"-u {self.db_user}",
+                f"-p'{self.db_pass}'",
+                "--single-transaction",
+                "--routines",
+                "--triggers",
+                "--events",
+                self.db_name,
+                f"> {self.BACKUP_FILE}"
+        ]
+        try:
+            # Execute the mysqldump command
+            subprocess.run(" ".join(command), shell=True, check=True)
+            WLOG(f"Database '{self.db_name}' backed up successfully to '{self.BACKUP_FILE}'")
+        except subprocess.CalledProcessError as e:
+            WLOG(f"Error during backup: {e}")
+        except FileNoFoundError:
+            WLOG("Error mysqldump command not found. Ensure mysql client tools are installed and in your system's PATH.")
+
+    def restore(self):
+        # Construct the mariadb command            
+        command = [
+                "mariadb",
+                f"-h {self.db_host}",
+                f"-u root",
+                #f"-u {self.db_user}",
+                f"-p'{self.db_pass}'",
+                self.db_name,
+                f"< {self.BACKUP_FILE}"
+        ]
+        try:
+            # Execute the mysqldump command
+            subprocess.run(" ".join(command), shell=True, check=True)
+            WLOG(f"Database '{self.db_name}' restored up successfully to '{self.BACKUP_FILE}'")
+        except subprocess.CalledProcessError as e:
+            WLOG(f"Error during backup: {e}")
+        except FileNoFoundError:
+            WLOG("Error mariadb command not found. Ensure mysql client tools are installed and in your system's PATH.")
+
 
 ## ============================================================
 ## for Test 
@@ -832,16 +981,16 @@ def insert_ims_v_camera_info_ex(db, hd):
     for row in cctv_csv_all_data:
         '''
         insert v_camera_info_ex  
-        (카메라고유번호, 역사명, 역사아이디, 카메라명, 카메라아이피, NVR RTSP주소, 제조사명, 모델명, 장애상태코드)
+        (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         '''
-        start = row['NVR RTSP주소'].find(row['ID'])
-        end = row['NVR RTSP주소'].find(row['카메라아이피'])
+        start = row['nvr_rtsp_url'].find(row['id'])
+        end = row['nvr_rtsp_url'].find(row['camera_ipaddr'])
 
         if start > 0 and end > 0:
-            nvr_url = row['NVR RTSP주소'][:start] + row['NVR RTSP주소'][end:]
-            row['NVR RTSP주소'] = nvr_url
+            nvr_url = row['nvr_rtsp_url'][:start] + row['nvr_rtsp_url'][end:]
+            row['nvr_rtsp_url'] = nvr_url
 
-        WLOG("CCTV 추가: {} {}".format(row['카메라고유번호'], row['NVR RTSP주소']))
+        WLOG("CCTV 추가: {} {}".format(row['idx'], row['nvr_rtsp_url']))
         column = []
         for de in desc:
             try:
@@ -864,8 +1013,13 @@ def insert_ims_v_camera_info_ex(db, hd):
 ## UTIL
 
 def WLOG(S):
+    import inspect
+    ### line number
+    cf = inspect.currentframe()
+    linenu = cf.f_back.f_lineno
+
     wnow = datetime.datetime.now()
-    TS = "{} {}".format(wnow, S)
+    TS = "{} {} {}".format(wnow, S, linenu)
     print(TS)
 
 def write_csv_file(de, data, filename):
@@ -905,9 +1059,10 @@ def display_select(desc, rows):
     for dc in desc:
         kv[dc[0].upper()] = len(dc[0])
 
-    for rw in rows:
-        for i, k in enumerate(kv.keys()) :
+    for i, k in enumerate(kv.keys()) :
+        for rw in rows:
             if len(str(rw[i])) > kv[k] :
+                #    if check_korean(str(rw[i])):
                 kv[k] = len(str(rw[i]))
 
     for k, v in kv.items():
@@ -931,6 +1086,12 @@ def display_select(desc, rows):
     for l in lines:
         print(l)
 
+
+def print_csv(data):
+    print(data)
+
+    for d in cctv_csv_all_data:
+        print(d)
 
 def tupletodict(desc, rows):
     data = []
@@ -982,18 +1143,35 @@ def getIPAddress(name):
         return False
 
 
+def line_info():
+    import inspect
+
+    info = {}
+    # line number, Call to Function name
+    cf = inspect.currentframe()
+    info['line_num'] = cf.f_back.f_lineno
+    info['fun_name'] = cf.f_back.f_code.co_name
+
+    # The filename name that called this
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    info['file_name'] = module.__file__
+
+    return info
+
 def CameraInfoWork(conf, args):
     FNC = "[{}::{}] ".format(args.eqpt[0].upper() ,sys._getframe().f_code.co_name)
     WLOG(FNC)
-    WLOG("{}  RUN : {} -- {} ".format(FNC, args.eqpt, args.job))
+    WLOG("{} RUN : {} -- {} ".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
     sid = conf[hostname]
     ims_db = ims_connect_db(conf)
 
     Camera = CameraInfo(conf, args)
-    if getIPAddress(hostname):
-        db = connect_db(conf, hostname)
+
+    if conf[sid]:
+        db = connect_db(conf, conf[sid])
     else:
         db = connect_db(conf)
     
@@ -1031,7 +1209,12 @@ def CameraInfoWork(conf, args):
         else:
             WLOG("{}  Same".format(FNC))
 
-    if args.job == 'del':
+    if args.job == 'read':
+        filename = os.path.join('.', conf['cctvdir'], conf['cctvfile'])
+        hd = Camera.read_cctv_csv_data(filename)
+        print_csv(hd)
+
+    if args.job == 'del' or args.job == 'adel' :
         Camera.delete_camera_info(db)
 
     if args.job == 'sel':
@@ -1043,19 +1226,26 @@ def CameraInfoWork(conf, args):
     if args.job == 'sby':
         Camera.act_camera_info(db, 'S')
 
+    if args.job == 'hid':
+        filename = os.path.join('.', conf['cctvdir'], conf['cctvfile'])
+        hd = Camera.read_cctv_csv_data(filename)
+        insert_ims_v_camera_info_ex(ims_db, hd)
+        select_ims_v_camera_info_ex(ims_db)
+
     #select_db(db)
 
 def ExternInfoWork(conf, args):
     FNC = "[{}::{}]".format(args.eqpt ,sys._getframe().f_code.co_name)
     WLOG(FNC)
-    WLOG("{}  RUN : {} -- {}".format(FNC, args.eqpt, args.job))
+    WLOG("{} RUN : {} -- {}".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
     sid = conf[hostname]
+
     Extern = ExternInfo(conf, args)
 
-    if getIPAddress(hostname):
-        db = connect_db(conf, hostname)
+    if conf[sid]:
+        db = connect_db(conf, conf[sid])
     else:
         db = connect_db(conf)
 
@@ -1072,17 +1262,19 @@ def ExternInfoWork(conf, args):
     if args.job == 'sby':
         Extern.update_extern_info(db, 'S')
 
+
 def BroadCastInfoWork(conf, args):
     FNC = "[{}::{}]".format(args.eqpt ,sys._getframe().f_code.co_name)
     WLOG(FNC)
-    WLOG("{}  RUN : {} -- {}".format(FNC, args.eqpt, args.job))
+    WLOG("{} RUN : {} -- {}".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
     sid = conf[hostname]
+
     Broad = BroadCastInfo(conf, args)
 
-    if getIPAddress(hostname):
-        db = connect_db(conf, hostname)
+    if conf[sid]:
+        db = connect_db(conf, conf[sid])
     else:
         db = connect_db(conf)
 
@@ -1092,23 +1284,37 @@ def BroadCastInfoWork(conf, args):
         filename = os.path.join('.', args.eqpt[0].upper() + '.csv')
         Broad.read_broadcast_csv(filename)
         Broad.add_broadcast_info(db)
-    if args.job == 'del':
+    if args.job == 'del' or args.job == 'adel' :
         Broad.delete_broadcast_info(db)
     if args.job == 'act':
         Broad.update_broadcast_info(db, 'A')
     if args.job == 'sby':
         Broad.update_broadcast_info(db, 'S')
 
+def BackupDB(conf, args):
+    FNC = "[{}::{}]".format(args.eqpt ,sys._getframe().f_code.co_name)
+    WLOG(FNC)
+    WLOG("{} RUN : {} -- {}".format(FNC, args.eqpt, args.job))
+
+    hostname = socket.gethostname()
+    sid = conf[hostname]
+
+    Back = BackupData(conf, args)
+    if args.job == 'back':
+        Back.backup()
+    if args.job == 'restore':
+        Back.restore()
 
 def do_arteva(conf, args):
     equip = args.eqpt[0]
-    print(equip)
     if 'cctv' in equip:
         CameraInfoWork(conf, args)
     elif 'extern' in equip:
         ExternInfoWork(conf, args)
     elif 'broadcast' in equip :
         BroadCastInfoWork(conf, args)
+    elif 'backup' in equip :
+        BackupDB(conf, args)
 
 
 def main():
@@ -1125,12 +1331,6 @@ def main():
 
     do_arteva(conf, args)
 
-    #if args.eqpt[0] == 'hid':
-    #    hd = read_cctv_csv_data(filename, conf)
-    #    #select_ims_v_camera_info_ex(db)
-    #    insert_ims_v_camera_info_ex(ims_db, hd)
-
-    #select_db(db)
 
 if __name__=='__main__':
     main()

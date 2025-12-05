@@ -1,0 +1,25 @@
+---
+
+- import_tasks: stop-tomcat.yml
+  tags: [ 'never', 'stop-tomcat', 'update-ai', 'rollback-ai' ]
+
+- import_tasks: backup-files.yml
+  tags: [ 'never', 'backup-files', 'update-ai' ]
+
+- import_tasks: upload-files.yml
+  tags: [ 'never', 'upload-fils', 'update-ai' ]
+
+- import_tasks: insert-model.yml
+  tags: [ 'never', 'insert-model', 'update-ai' ]
+
+- import_tasks: rollback-files.yml
+  tags: [ 'never', 'rollback-files', 'rollback-ai' ]
+
+- import_tasks: delete-model.yml
+  tags: [ 'never', 'delete-model', 'rollback-ai' ]
+
+- import_tasks: start-tomcat.yml
+  tags: [ 'never', 'start-tomcat', 'update-ai', 'rollback-ai' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

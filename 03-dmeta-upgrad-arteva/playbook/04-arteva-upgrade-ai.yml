@@ -1,0 +1,16 @@
+---
+
+- name: upgrade ai
+  #gather_facts: True
+  vars:
+    hostname: "arteva1"
+    host: arteva
+    tomcat_home: "/apps/tomcat"
+    ai_file: "AI-Engine-1.0.15.tar.gz"
+    ai_dir: "AI-Engine-1.0.15"
+    lib_dir: "ai/lib/python3.9/site-packages/opencv_python.libs"
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: upgrade-ai

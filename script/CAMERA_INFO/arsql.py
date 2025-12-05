@@ -3,7 +3,7 @@ LAST_INSERT_SQL="SELECT LAST_INSERT_ID()"
 
 ## Select 화상 v_camera_info_ex tale
 SELECT_CAMERA_INFO_EX_SQL="select * from v_camera_info_ex;"
-SELECT_CAMERA_INFO_EX_STATION_SQL="select * from v_camera_info_ex where 역사아이디 = '{}';"
+SELECT_CAMERA_INFO_EX_STATION_SQL="select * from v_camera_info_ex where station_id = '{}';"
 
 ## row['카메라고유번호'],          # camera number
 ## row['역사명'],                  # Station name
@@ -16,8 +16,8 @@ SELECT_CAMERA_INFO_EX_STATION_SQL="select * from v_camera_info_ex where 역사�
 ## row['장애상태코드']             # error
 
 ## Insert NVR URL
-INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`카메라고유번호`, `역사명`, `역사아이디`, `카메라명`, `카메라아이피`, `NVR RTSP주소`) values (%s, %s, %s, %s, %s, %s)"
-#INSERT_CCTV_INFO_EX_SQL="insert v_camera_info_ex (번호, 역사명, 역사아이디, 카메라명, 카메라아이피, RTSPURL주소, 제조사명, 모델명, 장애상태코드) values (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`idx`, `station_name`, `station_id`, `camera_name`, `camera_ipaddr`, `nvr_rtsp_url`) values (%s, %s, %s, %s, %s, %s)"
+#INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`카메라고유번호`, `역사명`, `역사아이디`, `카메라명`, `카메라아이피`, `NVR RTSP주소`) values (%s, %s, %s, %s, %s, %s)"
 
 ### CCTV
 ## Insert CCTV infomation
@@ -29,9 +29,12 @@ SELECT_ID_CAMERA_INFO_SQL="select name, url from t_arteva_camera_info where url 
 UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}' where name = '{}';" 
 
 ## Insert Camera event 
+INSERT_CAMERA_EVENT_BID_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_area_code, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) "
 INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) "
+UPDATE_CAMERA_EVENT_BID_SQL="update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}'"
 
 ## Select Camera envent type 
+SELECT_EVENT_CONF_BID_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_start_time, b.detect_end_time, ifnull(b.accuracy, 0), ifnull(b.duration, 0), {}, {}, b.param, b.expire_duration, '{}', '{}', '{}', '{}' from lettccmmndetailcode a left outer join t_arteva_event_conf b on a.code = b.EVENT_TYPE where a.code_id = 'EVENT'"
 SELECT_EVENT_CONF_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_start_time, b.detect_end_time, ifnull(b.accuracy, 0), ifnull(b.duration, 0), b.broadcast_id, b.param, b.expire_duration, '{}', '{}', '{}', '{}' from lettccmmndetailcode a left outer join t_arteva_event_conf b on a.code = b.EVENT_TYPE where a.code_id = 'EVENT'"
 
 SELECT_FULL_CAMERA_INFO_SQL="select * from t_arteva_camera_info;"
@@ -47,12 +50,20 @@ DEL_CAMERA_EVENT_CONF= "delete from t_arteva_camera_event_conf where camera_id =
 
 ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_camera_info auto_increment =1;"
 
+TRUNCATE_CAMERA_INFO_ARCHIVE="truncate table t_arteva_camera_info_archive;"
+TRUNCATE_CAMERA_EVENT_CONF_ARCHIVE="truncate table t_arteva_camera_event_conf_archive;"
+
 SELECT_CAMERA_STATUS="select ID, ACTIVE from t_arteva_camera_info where ACTIVE = '{}';"
 
 UPDATE_CAMERA_ACTIVE="update t_arteva_camera_info set active = '{}' where id = {};"
 
 UPDATE_CAMERA_INFO_BROADCAST="update t_arteva_camera_info set broadcast_area_code = '{}', broadcast_id = '{}' where event_type = '{}' and camera_id = {};"
 
+CAMERA_EVENT_CODE="SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'EVENT' AND USE_AT = 'Y' ORDER BY CODE_NM;"
+
+CAMERA_BROADCAST_AREA="SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'BRAREA' AND USE_AT = 'Y' ORDER BY CODE_NM;"
+
+BROADCAST_INFO_CODE="SELECT a.id , a.broadcast_title FROM t_arteva_broadcast_info a inner join t_arteva_extern_info b on a.extern_id = b.id and b.active = 'A' WHERE a.active ='A';"
 
 ### EXTERN
 ## Insert Extern server 
@@ -88,6 +99,7 @@ COUNT_BROADCAST_INFO_SQL="select count(*) from t_arteva_broadcast_info;"
 DEL_BROADCAST_INFO_SQL="delete from t_arteva_broadcast_info where id = {};"
 
 ALTER_BROADCAST_INFO_AUTO_INCREMENT="alter table t_arteva_broadcast_info auto_increment =1;"
+TRUNCATE_BROADCAST_INFO_ARCHIVE="truncate table t_arteva_broadcast_info_archive;"
 
 SELECT_BROADCAST_STATUS="select ID, ACTIVE from t_arteva_broadcast_info where ACTIVE = '{}';"
 

@@ -1,0 +1,18 @@
+---
+
+- name: upload sql files
+  become: True
+  copy:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ apps_dir }}/{{ ai_dir }}"
+  with_items:
+    - "delete_model.sql"
+
+- name: delete table
+  become: True
+  mysql_db:
+    name: "{{ database }}"
+    state: import
+    login_user: "{{ db_user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ apps_dir }}/{{ ai_dir }}/delete_model.sql"
