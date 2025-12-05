@@ -12,6 +12,13 @@
     - 'ai_process/model/weights/v3/detect/yolov8_nano_l4_fp16_train18_8522_v3.engine'
     - 'ai_process/camera_thread.py'
     - 'common/utils/rtsp_capture.py'
+
+- name: delete new files
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/ai_engine/lib_dir/{{ item }}"
+    state: absent
+  with_items:
     - 'libavcodec.so.59.37.100'
     - 'libavformat.so.59.27.100'
     - 'libavutil.so.57.28.100'
@@ -39,7 +46,7 @@
   become: True
   copy:
     src: "{{ apps_dir }}/AI-Engine/Backup/{{ item.src }}"
-    dest: "{{ apps_dir }}/arteva/{{ lib_dir }}/{{ item.dest }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item.dest }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_user }}"
     remote_src: yes
