@@ -69,8 +69,8 @@
     group: "{{ tomcat_user }}"
     state: link
   with_items:
-    - { src: 'libavcodec-9aae324f.so.59.37.100', dest: 'libavcodec.so.59.37.100' }
-    - { src: 'libavformat-3ff1be5b.so.59.27.100', dest: 'libavformat.so.59.27.100' }
-    - { src: 'libavutil-a0a0531e.so.57.28.100', dest: 'libavutil.so.57.28.100' }
-    - { src: 'libswscale-2c3c8be7.so.6.7.100', dest: 'libswscale.so.6.7.100' }
-    - { src: 'libswresample-2ec4394e.so.4.7.100', dest: 'libswresample.so.4.7.100' }
+    - { src: 'libavcodec-9aae324f.so.59.37.100', dest: 'libavcodec.so.59' }
+    - { src: 'libavformat-3ff1be5b.so.59.27.100', dest: 'libavformat.so.59' }
+    - { src: 'libavutil-a0a0531e.so.57.28.100', dest: 'libavutil.so.57' }
+    - { src: 'libswscale-2c3c8be7.so.6.7.100', dest: 'libswscale.so.6' }
+    - { src: 'libswresample-2ec4394e.so.4.7.100', dest: 'libswresample.so.4' }

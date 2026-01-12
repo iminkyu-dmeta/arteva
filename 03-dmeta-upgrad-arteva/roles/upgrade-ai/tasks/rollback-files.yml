@@ -19,11 +19,11 @@
     path: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item }}"
     state: absent
   with_items:
-    - 'libavcodec.so.59.37.100'
-    - 'libavformat.so.59.27.100'
-    - 'libavutil.so.57.28.100'
-    - 'libswscale.so.6.7.100'
-    - 'libswresample.so.4.7.100'
+    - 'libavcodec.so.59'
+    - 'libavformat.so.59'
+    - 'libavutil.so.57'
+    - 'libswscale.so.6'
+    - 'libswresample.so.4'
     - 'libavcodec-9aae324f.so.59.37.100'
     - 'libavformat-3ff1be5b.so.59.27.100'
     - 'libavutil-a0a0531e.so.57.28.100'
@@ -49,6 +49,7 @@
     dest: "{{ apps_dir }}/arteva/ai_engine/{{ lib_dir }}/{{ item.dest }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_user }}"
+    mode: "0775"
     remote_src: yes
   with_items:
     - { src: 'libavcodec-9aae324f.so.59.37.100', dest: 'libavcodec-9aae324f.so.59.37.100' }

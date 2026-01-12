@@ -34,7 +34,15 @@ NL = '\r\n'
 ## dmeta_arteva sql 
 import arsql
 
-STATIONID = ['100', '101', '102', '103', '104', '105', '106', '107']
+#STATIONID = ['100', '101', '102', '103', '104', '105', '106', '107']
+
+URL_REGEX = re.compile(
+    r'^rtsp://'								# rtsp://
+    r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' # 도메인
+	r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|' 	# IPv4
+	r'\[?[A-F0-9]*:[A-F0-9:]+\]?)' 			# IPv6
+	r'(?::\d+)?' 							# Port
+    r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 class MysqlDBAcc:
     def __init__(self, config):
@@ -132,9 +140,11 @@ class CameraInfo:
         self.conf = conf
         self.args = args
         self.hostname = socket.gethostname()
-        self.sid = conf[self.hostname]
+        #self.sid = conf[self.hostname]
+        self.sid = args.sid
         self.classname = __class__.__name__
         self.by_data = {}
+        self.STATIONID = conf["STATIONID"].split(',')
 
     def select_camera_info_ex(self, db):
         ## 화상Interface Camera Information (mariadb)
@@ -166,7 +176,7 @@ class CameraInfo:
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
 
-        for sid in STATIONID:
+        for sid in self.STATIONID:
             desc, rows = db.select_sql(arsql.SELECT_CAMERA_INFO_EX_STATION_SQL.format(sid), fetchall=True)
     
             de, data = tupletodict(desc, rows)
@@ -198,7 +208,7 @@ class CameraInfo:
 
     def read_cctv_csv_data(self, filename):
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
-        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -228,7 +238,7 @@ class CameraInfo:
     
         WLOG("{}  Event CCTV Count : {}".format(FNC, len(cctv_csv_data)))
     
-        for sid in STATIONID:
+        for sid in self.STATIONID:
             station = []
             for r in cctv_csv_data:
                 if r[hd[column_name]] == sid:
@@ -245,7 +255,7 @@ class CameraInfo:
         # de, data : description, ims_v2 v_camera_info_ex
         ## csv column name
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
-        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -259,16 +269,19 @@ class CameraInfo:
     
         ## index
         hd_nu_idx = hd.index('idx')
+        hd_ur_idx = hd.index('nvr_rtsp_url')
         hd_na_idx = hd.index('station_name')
         hd_si_idx = hd.index('station_id')
         hd_ca_idx = hd.index('camera_name')
         hd_ip_idx = hd.index('camera_ipaddr')
+        hd_nv_idx = hd.index('nvr_ipaddr')
         hd_id_idx = hd.index('id')
         hd_pw_idx = hd.index('pw')
         hd_ty_idx = hd.index('type')
         hd_us_idx = hd.index('use')
         hd_ba_idx = hd.index('broadcast_area')
         hd_bi_idx = hd.index('broadcast_id')
+        hd_cc_idx = hd.index('cctv_id')
         de_nu_idx = de.index('idx')
         de_cc_idx = de.index('nvr_rtsp_url')
     
@@ -279,9 +292,16 @@ class CameraInfo:
             for v in val:
                 for dt in data:
                     if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]):
-                        NAME = 'CCTV' + '-' + v[hd[hd_si_idx]] + '-' + str(num).zfill(3)
-                        idx = dt[de[de_cc_idx]].find(v[hd[hd_ip_idx]])
-                        URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][idx:]
+                        NAME = ""
+                        URL =  ""
+                        ACTIVE = "S"
+                        if v[hd[hd_cc_idx]]:
+                            NAME = v[hd[hd_cc_idx]]
+                            #NAME = 'CCTV' + '-' + v[hd[hd_si_idx]] + '-' + str(num).zfill(3)
+                        if is_valid_url_regex(dt[de[de_cc_idx]]):
+                            idx = dt[de[de_cc_idx]].find(v[hd[hd_nv_idx]])
+                            URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][idx:]
+                            ACTIVE = "A"
                         COMMENT = v[hd[hd_na_idx]] + "(" + v[hd[hd_si_idx]] + ") 역사, \
                             카메라 이름: " + v[hd[hd_ca_idx]] + ", \
                             용도: " + v[hd[hd_us_idx]]
@@ -306,7 +326,7 @@ class CameraInfo:
                         sql_row = [
                             NAME,                       # 1. name(CCTV name)
                             URL,                        # 2. url(rtsp url)
-                            self.conf["ACTIVE"],        # 3. active(Active)
+                            ACTIVE,                     # 3. active(Active)
                             self.conf["RESOLUTION"],    # 4. resolution(FHD)
                             COMMENT,                    # 5. comment
                             now,                        # 6. create_time
@@ -343,7 +363,7 @@ class CameraInfo:
                 WLOG(r)
     
             exit(1)
-    
+
         WLOG("{}  ARTEVA CCTV Registration start : {} STATION".format(FNC, self.sid))
         param = rows[self.sid]
 
@@ -380,6 +400,7 @@ class CameraInfo:
         +----+-----------+------------------+-----------------+
 
         '''
+
         #broadcast = {}
         for row in param:
             broadcast = {}
@@ -425,7 +446,7 @@ class CameraInfo:
             db.insert_args_sql(SQL)
 
             # update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}';
-            if broadcast['bid']:
+            if broadcast['bid'] and broadcast['barea']:
                 broad_id = broadcast['bid'].split(',')
                 broad_ar = broadcast['barea'].split(',')
                 broad_et = broadcast['event']
@@ -440,7 +461,7 @@ class CameraInfo:
     def write_cctv_csv_data(self, filename, update_rows):
         ## csv column name
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
-        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -488,14 +509,16 @@ class CameraInfo:
     
         ## csv column name
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
-        ## 8.channel, 9.id, 10.pw, 11.type, 12.use
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
         ## index
         hd_nu_idx = hd.index('idx')
-        de_nu_idx = de.index('idx')
         hd_ip_idx = hd.index('camera_ipaddr')
+        hd_nv_idx = hd.index('nvr_ipaddr')
         hd_id_idx = hd.index('id')
         hd_pw_idx = hd.index('pw')
         hd_cc_idx = hd.index('nvr_rtsp_url')
+        hd_cd_idx = hd.index('cctv_id')
+        de_nu_idx = de.index('idx')
         de_cc_idx = de.index('nvr_rtsp_url')
     
         update_camera_info_url = {}
@@ -504,19 +527,26 @@ class CameraInfo:
             for v in val:
                 for dt in data:
                     rows = []
-                    if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]):
+                    #if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]) and dt[de[de_cc_idx]]: 
+                    if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]): 
                         url = v[hd[hd_cc_idx]]
                         start = url.find(v[hd[hd_id_idx]])
-                        end = url.find(v[hd[hd_ip_idx]])
+                        end = url.find(v[hd[hd_nv_idx]])
     
+                        nvr_url = None
                         if start > 0 and end > 0:
                             nvr_url = url[:start] + url[end:]
     
                         if dt[de[de_cc_idx]] == nvr_url:
                             continue
                         else:
-                            URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][7:]
-                            rows = [v[hd[hd_nu_idx]], URL]
+                            if dt[de[de_cc_idx]]:
+                                URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][7:]
+                                rows = [v[hd[hd_nu_idx]], URL, v[hd[hd_cd_idx]]]
+                            else:
+                                URL = dt[de[de_cc_idx]]
+                                rows = [v[hd[hd_nu_idx]], URL, v[hd[hd_cd_idx]]]
+
                     if rows:
                         by_row.append(rows)
     
@@ -540,14 +570,19 @@ class CameraInfo:
         is_update = False
         for r in update_rows:
             #"select name from t_arteva_camera_info where url = '{}';"
-            SQL = arsql.SELECT_ID_CAMERA_INFO_SQL.format(r[1])
+            print(r)
+            SQL = arsql.SELECT_ID_CAMERA_INFO_SQL.format(r[2])
             des, row = db.select_sql(SQL)
     
             WLOG(row)
             if row:
-                WLOG("{} update_camera_info : {} , {}".format(FNC, row[1], row[0]))
-                #db.insert_args_sql(arsql.UPDATE_CAMERA_INFO_SQL.format(row[1], row[0]))
-                is_update = True
+                WLOG("{} update_camera_info : {} , {}".format(FNC, r[2], r[1]))
+                if r[1]:
+                    db.insert_args_sql(arsql.UPDATE_CAMERA_INFO_SQL.format(r[1], 'A', r[2]))
+                    is_update = True
+                else:
+                    db.insert_args_sql(arsql.UPDATE_CAMERA_INFO_SQL.format(r[1], 'S', r[2]))
+                    is_update = True
     
         return is_update
 
@@ -966,13 +1001,13 @@ def select_ims_v_camera_info_ex(db):
     desc, rows = db.select_sql(arsql.SELECT_CAMERA_INFO_EX_SQL, fetchall=True)
 
     for row in rows:
-        print(row)
+        WLOG(row)
 
 
 def insert_ims_v_camera_info_ex(db, hd):
     ## cct_csv_all_data
-    ## 0.카메라교유번호, 1.역사명, 2.역사아이디, 3.카메라명, 4.카메라아이피, 5. NVR RTSP주소, 6.Port, 7.UUID,
-    ## 8.채널번호, 9.ID, 10.PW, 11.TYPE, 12.용도,
+    ## 0.idx, 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.prot, 7.guid,
+    ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
 
     desc = db.select_sql(arsql.SELECT_CAMERA_INFO_EX_SQL)
 
@@ -983,28 +1018,30 @@ def insert_ims_v_camera_info_ex(db, hd):
         insert v_camera_info_ex  
         (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         '''
-        start = row['nvr_rtsp_url'].find(row['id'])
-        end = row['nvr_rtsp_url'].find(row['camera_ipaddr'])
+        if row['guid'] :
+            start = row['nvr_rtsp_url'].find(row['id'])
+            end = row['nvr_rtsp_url'].find(row['nvr_ipaddr'])
 
-        if start > 0 and end > 0:
-            nvr_url = row['nvr_rtsp_url'][:start] + row['nvr_rtsp_url'][end:]
-            row['nvr_rtsp_url'] = nvr_url
+            if start > 0 and end > 0:
+                nvr_url = row['nvr_rtsp_url'][:start] + row['nvr_rtsp_url'][end:]
+                row['nvr_rtsp_url'] = nvr_url
 
-        WLOG("CCTV 추가: {} {}".format(row['idx'], row['nvr_rtsp_url']))
-        column = []
-        for de in desc:
-            try:
-                for d in de:
-                    match_c = [h for h in hd if h == d[0]]
-                    if match_c:
-                        column.append(row[match_c[0]])
-            except TypeError:
-                # None iterable
-                pass
+        if row['idx']:
+            WLOG("CCTV 추가: {} {}".format(row['idx'], row['nvr_rtsp_url']))
+            column = []
+            for de in desc:
+                try:
+                    for d in de:
+                        match_c = [h for h in hd if h == d[0]]
+                        if match_c :
+                            column.append(row[match_c[0]])
+                except TypeError:
+                    # None iterable
+                    pass
 
-        WLOG(arsql.INSERT_CAMERA_INFO_EX_SQL)
-        WLOG(tuple(column))
-        db.insert_args_sql(arsql.INSERT_CAMERA_INFO_EX_SQL, tuple(column))
+            WLOG(arsql.INSERT_CAMERA_INFO_EX_SQL)
+            WLOG(tuple(column))
+            db.insert_args_sql(arsql.INSERT_CAMERA_INFO_EX_SQL, tuple(column))
 
     select_ims_v_camera_info_ex(db)
 
@@ -1017,9 +1054,10 @@ def WLOG(S):
     ### line number
     cf = inspect.currentframe()
     linenu = cf.f_back.f_lineno
-
+    #pathdir =os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.basename(__file__)
     wnow = datetime.datetime.now()
-    TS = "{} {} {}".format(wnow, S, linenu)
+    TS = "{} {} ({}:{})".format(wnow, S, filename, linenu)
     print(TS)
 
 def write_csv_file(de, data, filename):
@@ -1143,6 +1181,10 @@ def getIPAddress(name):
         return False
 
 
+def is_valid_url_regex(url):
+    return bool(URL_REGEX.match(url))
+
+
 def line_info():
     import inspect
 
@@ -1165,7 +1207,12 @@ def CameraInfoWork(conf, args):
     WLOG("{} RUN : {} -- {} ".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
-    sid = conf[hostname]
+    if args.sid:
+        sid = args.sid
+    else:
+        sid = conf[hostname]
+        args.sid = sid
+
     ims_db = ims_connect_db(conf)
 
     Camera = CameraInfo(conf, args)
@@ -1240,7 +1287,12 @@ def ExternInfoWork(conf, args):
     WLOG("{} RUN : {} -- {}".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
-    sid = conf[hostname]
+    if args.sid:
+        sid = args.sid
+    else:
+        sid = conf[hostname]
+        args.sid = sid
+    #sid = conf[hostname]
 
     Extern = ExternInfo(conf, args)
 
@@ -1269,7 +1321,12 @@ def BroadCastInfoWork(conf, args):
     WLOG("{} RUN : {} -- {}".format(FNC, args.eqpt, args.job))
 
     hostname = socket.gethostname()
-    sid = conf[hostname]
+    if args.sid:
+        sid = args.sid
+    else:
+        sid = conf[hostname]
+        args.sid = sid
+    #sid = conf[hostname]
 
     Broad = BroadCastInfo(conf, args)
 
@@ -1321,6 +1378,7 @@ def main():
     parser = argparse.ArgumentParser(description="ARTEVA NVR RTSP ")
     parser.add_argument('eqpt', nargs='+')
     parser.add_argument("--job", dest='job', default='get', help="NVR RSTP Register ")
+    parser.add_argument("--sid", dest='sid', help="server ID")
     parser.parse_args(['cctv', 'extern', 'broadcast'])
 
     args = parser.parse_args()
@@ -1328,7 +1386,6 @@ def main():
     properties = configparser.ConfigParser()
     properties.read('camera-info.ini')
     conf = properties["default"]
-
     do_arteva(conf, args)
 
 

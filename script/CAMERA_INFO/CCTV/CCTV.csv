@@ -1,358 +1,359 @@
-﻿idx,station_name,station_id,camera_name,camera_ipaddr,nvr_rtsp_url,port,guid,channel,id,pw,type,use,cctvip,broadcast_area,broadcast_id
-1,차량기지,100,변전실-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114180/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114180,2,admin,asdQWE12!@,,,7.254.103.231,,
-3,차량기지,100,변전실-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114181/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114181,2,admin,asdQWE12!@,,,7.254.103.232,,
-5,차량기지,100,변전실-3,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114182/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114182,2,admin,asdQWE12!@,,,7.254.103.233,,
-7,차량기지,100,공동구-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114183/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114183,2,admin,asdQWE12!@,,,7.254.103.120,,
-9,차량기지,100,공동구-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114184/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114184,2,admin,asdQWE12!@,,,7.254.103.121,,
-11,차량기지,100,주출입구-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114185/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114185,2,admin,asdQWE12!@,,,7.254.103.131,,
-13,차량기지,100,부출입구-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114186/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114186,2,admin,asdQWE12!@,,,7.254.103.132,,
-15,차량기지,100,부출입구-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114187/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114187,2,admin,asdQWE12!@,,,7.254.103.133,,
-17,차량기지,100,부출입구-3,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114188/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114188,2,admin,asdQWE12!@,,,7.254.103.134,,
-19,차량기지,100,정문출입구,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114189/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114189,2,admin,asdQWE12!@,,,7.254.103.41,,
-21,차량기지,100,E/L-2·3호기-1층,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114190/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114190,2,admin,asdQWE12!@,,,7.254.103.201,,
-23,차량기지,100,E/L-2·3호기-5층,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114191/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114191,2,admin,asdQWE12!@,,,7.254.103.202,,
-25,차량기지,100,관제실입구-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114192/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114192,2,admin,asdQWE12!@,,,7.254.103.140,,
-27,차량기지,100,지붕-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114193/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114193,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.141,,
-29,차량기지,100,지붕-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114194/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114194,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.142,,
-31,차량기지,100,본선 비상안내-11,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114195/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114195,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.81,,
-33,차량기지,100,선로전환기-13,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114196/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114196,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.71,,
-35,차량기지,100,선로전환기-14,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114197/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114197,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.72,,
-37,차량기지,100,선로전환기-15,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114198/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114198,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.73,,
-39,차량기지,100,집수정-3,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114199/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114199,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.83,,
-41,차량기지,100,출도착(입출고선),7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114200/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114200,2,admin,asdQWE12!@,,,7.254.103.150,,
-43,차량기지,100,모터카고,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114201/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114201,2,admin,asdQWE12!@,,,7.254.103.154,,
-45,차량기지,100,유치선-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114202/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114202,2,admin,asdQWE12!@,,,7.254.103.151,,
-47,차량기지,100,유치선-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114203/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114203,2,admin,asdQWE12!@,,,7.254.103.152,,
-49,차량기지,100,유치선-3,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114204/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114204,2,admin,asdQWE12!@,,,7.254.103.153,,
-51,차량기지,100,세척기,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114205/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114205,2,admin,asdQWE12!@,,,7.254.103.155,,
-53,차량기지,100,외곽 감시-1,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114206/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114206,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.42,,
-55,차량기지,100,외곽 감시-2,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114207/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114207,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.43,,
-57,차량기지,100,외곽 감시-3,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114208/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114208,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.44,,
-59,차량기지,100,외곽 감시-4,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114209/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114209,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.45,,
-61,차량기지,100,외곽 감시-5,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114210/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114210,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.46,,
-63,차량기지,100,외곽 감시-6,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114211/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114211,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.47,,
-65,차량기지,100,외곽 감시-7,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114212/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114212,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.48,,
-67,차량기지,100,외곽 감시-8,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114213/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114213,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.49,,
-69,차량기지,100,외곽 감시-9,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114214/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114214,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.50,,
-71,차량기지,100,외곽 감시-10,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114215/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114215,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.51,,
-73,차량기지,100,외곽 감시-11,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114216/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114216,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.52,,
-75,차량기지,100,외곽 감시-12,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114217/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114217,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.53,,
-77,차량기지,100,외곽 감시-13,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114218/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114218,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.54,,
-79,차량기지,100,외곽 감시-14,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114219/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114219,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.55,,
-81,차량기지,100,외곽 감시-15,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114220/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114220,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.56,,
-83,차량기지,100,외곽 감시-16,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114221/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114221,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.57,,
-85,차량기지,100,외곽 감시-17,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114222/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114222,2,admin,asdQWE12!@,TP,침입 감시,7.254.103.58,,
-87,차량기지,100,출입구 감시,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114223/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114223,2,admin,asdQWE12!@,,,7.254.103.59,,
-89,차량기지,100,종합기계실,7.254.3.25,rtsp://admin:asdQWE12!@@7.254.3.25:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114224/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114224,2,admin,asdQWE12!@,,,7.254.3.99,,
-91,노포,101,PSD-U1-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114225/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114225,2,admin,asdQWE12!@,,,7.101.3.241,,
-93,노포,101,PSD-U1-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114226/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114226,2,admin,asdQWE12!@,,,7.101.3.242,,
-95,노포,101,PSD-U2-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114227/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114227,2,admin,asdQWE12!@,,,7.101.3.243,,
-97,노포,101,PSD-U2-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114228/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114228,2,admin,asdQWE12!@,,,7.101.3.244,,
-99,노포,101,PSD-D1-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114229/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114229,2,admin,asdQWE12!@,,,7.101.3.245,,
-101,노포,101,PSD-D1-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114230/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114230,2,admin,asdQWE12!@,,,7.101.3.246,,
-103,노포,101,PSD-D2-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114231/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114231,2,admin,asdQWE12!@,,,7.101.3.247,,
-105,노포,101,PSD-D2-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114232/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114232,2,admin,asdQWE12!@,,,7.101.3.248,,
-107,노포,101,PSD-M1-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114233/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114233,2,admin,asdQWE12!@,,,7.101.3.249,,
-109,노포,101,PSD-M1-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114234/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114234,2,admin,asdQWE12!@,,,7.101.3.250,,
-111,노포,101,PSD-M2-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114235/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114235,2,admin,asdQWE12!@,,,7.101.3.251,,
-113,노포,101,P-U1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114236/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114236,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.101,UF,1
-115,노포,101,P-U2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114237/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114237,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.102,UF,1
-117,노포,101,P-U3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114238/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114238,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.103,UF,1
-119,노포,101,P-U4,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114239/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114239,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.104,UF,1
-121,노포,101,P-D1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114240/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114240,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.111,DP,1
-123,노포,101,P-D2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114241/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114241,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.112,DP,1
-125,노포,101,P-D3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114242/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114242,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.113,DP,1
-127,노포,101,P-D4,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114243/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114243,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.114,DP,1
-129,노포,101,상선 출입구(하행),7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114244/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114244,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.131,UF,1
-131,노포,101,하선 출입구(하행),7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114245/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114245,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.132,DP,1
-133,노포,101,G-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114246/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114246,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.151,,
-135,노포,101,G-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114247/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114247,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.152,,
-137,노포,101,G-3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114248/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114248,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.153,,
-139,노포,101,환승통로-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114249/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114249,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.141,WR,1
-141,노포,101,환승통로-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114250/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114250,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.142,WR,1
-143,노포,101,비상탈출통로-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114251/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114251,2,admin,asdQWE12!@,,,7.101.3.86,,
-145,노포,101,비상탈출통로-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114252/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114252,2,admin,asdQWE12!@,,,7.101.3.87,,
-147,노포,101,변전실-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114253/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114253,2,admin,asdQWE12!@,,,7.101.3.231,,
-149,노포,101,변전실-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114254/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114254,2,admin,asdQWE12!@,,,7.101.3.232,,
-151,노포,101,변전실-3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114255/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114255,2,admin,asdQWE12!@,,,7.101.3.233,,
-153,노포,101,변전실-4,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114256/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114256,2,admin,asdQWE12!@,,,7.101.3.234,,
-155,노포,101,전기실-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114257/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114257,2,admin,asdQWE12!@,,,7.101.3.236,,
-157,노포,101,전기실-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114258/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114258,2,admin,asdQWE12!@,,,7.101.3.237,,
-159,노포,101,통신기기실,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114259/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114259,2,admin,asdQWE12!@,,,7.101.3.238,,
-161,노포,101,신호기기실,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114260/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114260,2,admin,asdQWE12!@,,,7.101.3.239,,
-163,노포,101,이용객쉼터,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114261/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114261,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.161,WR,1
-165,노포,101,본선 비상안내-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114262/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114262,2,admin,asdQWE12!@,,,7.101.3.81,,
-167,노포,101,본선 비상안내-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114263/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114263,2,admin,asdQWE12!@,,,7.101.3.82,,
-169,노포,101,본선 비상안내-3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114264/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114264,2,admin,asdQWE12!@,,,7.101.3.83,,
-171,노포,101,본선 비상안내-4,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114265/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114265,2,admin,asdQWE12!@,,,7.101.3.84,,
-173,노포,101,본선 비상안내-5,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114266/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114266,2,admin,asdQWE12!@,,,7.101.3.85,,
-175,노포,101,E/L-3 대합,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114267/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114267,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.201,,
-177,노포,101,E/L-3 승강장,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114268/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114268,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.202,,
-179,노포,101,E/L-4 대합,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114269/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114269,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.203,,
-181,노포,101,E/L-4 승강장,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114270/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114270,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.204,,
-183,노포,101,E/S-1 대합,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114271/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114271,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.171,"WR,WR,WR","1,4,5"
-185,노포,101,E/S-1 승강장,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114272/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114272,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.172,"WR,WR,WR","1,4,5"
-187,노포,101,E/S-2 대합,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114273/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114273,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.173,"WR,WR,WR","1,4,5"
-189,노포,101,E/S-2 승강장,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114274/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114274,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.174,"WR,WR,WR","1,4,5"
-191,노포,101,선로전환기-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114275/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114275,2,admin,asdQWE12!@,,,7.101.3.71,,
-193,노포,101,선로전환기-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114276/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114276,2,admin,asdQWE12!@,,,7.101.3.72,,
-195,노포,101,선로전환기-3,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114277/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114277,2,admin,asdQWE12!@,,,7.101.3.73,,
-197,노포,101,선로전환기-4,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114278/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114278,2,admin,asdQWE12!@,,,7.101.3.74,,
-199,노포,101,선로전환기-5,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114279/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114279,2,admin,asdQWE12!@,,,7.101.3.75,,
-201,노포,101,집수정-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114280/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114280,2,admin,asdQWE12!@,,,7.101.3.88,,
-203,노포,101,집수정-2,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114281/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114281,2,admin,asdQWE12!@,,,7.101.3.89,,
-205,노포,101,본선환기-1,7.101.3.22,rtsp://admin:asdQWE12!@@7.101.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114282/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114282,2,admin,asdQWE12!@,,,7.101.3.90,,
-207,사송,102,PSD-U1-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114283/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114283,2,admin,asdQWE12!@,,,7.102.3.241,,
-209,사송,102,PSD-U1-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114284/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114284,2,admin,asdQWE12!@,,,7.102.3.242,,
-211,사송,102,PSD-U2-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114285/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114285,2,admin,asdQWE12!@,,,7.102.3.243,,
-213,사송,102,PSD-U2-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114286/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114286,2,admin,asdQWE12!@,,,7.102.3.244,,
-215,사송,102,PSD-D1-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114287/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114287,2,admin,asdQWE12!@,,,7.102.3.245,,
-217,사송,102,PSD-D1-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114288/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114288,2,admin,asdQWE12!@,,,7.102.3.246,,
-219,사송,102,PSD-D2-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114289/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114289,2,admin,asdQWE12!@,,,7.102.3.247,,
-221,사송,102,PSD-D2-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114290/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114290,2,admin,asdQWE12!@,,,7.102.3.248,,
-223,사송,102,P-U1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114291/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114291,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.101,UF,1
-225,사송,102,P-U2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114292/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114292,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.102,UF,1
-227,사송,102,P-D1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114293/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114293,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.111,DP,1
-229,사송,102,P-D2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114294/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114294,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.112,DP,1
-231,사송,102,상선 출입구(하행),7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114295/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114295,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.131,UF,1
-233,사송,102,하선 출입구(상행),7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114296/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114296,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.132,DP,1
-235,사송,102,출구-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114297/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114297,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.133,,6
-237,사송,102,출구-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114298/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114298,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.134,,6
-239,사송,102,G-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114299/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114299,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.151,,6
-241,사송,102,G-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114300/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114300,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.152,,6
-243,사송,102,비상탈출통로-3,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114301/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114301,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.82,WR,1
-245,사송,102,비상계단-대합,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114302/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114302,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.126,WR,1
-247,사송,102,비상계단-승강장,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114303/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114303,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.127,WR,1
-249,사송,102,변전실-1,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114304/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114304,2,admin,asdQWE12!@,,,7.102.3.231,,
-251,사송,102,변전실-2,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114305/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114305,2,admin,asdQWE12!@,,,7.102.3.232,,
-253,사송,102,변전실-3,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114306/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114306,2,admin,asdQWE12!@,,,7.102.3.233,,
-255,사송,102,통신기기실,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114307/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114307,2,admin,asdQWE12!@,,,7.102.3.238,,
-257,사송,102,신호기기실,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114308/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114308,2,admin,asdQWE12!@,,,7.102.3.239,,
-259,사송,102,발매기,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114309/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114309,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.161,WR,1
-261,사송,102,발매기실,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114310/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114310,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.162,WR,1
-263,사송,102,화장실,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114311/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114311,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.121,WR,1
-265,사송,102,수유실,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114312/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114312,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.226,WR,1
-267,사송,102,본선 비상안내-6,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114313/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114313,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.81,WR,1
-269,사송,102,본선 비상안내-7,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114314/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114314,2,admin,asdQWE12!@,,,7.102.3.83,,
-271,사송,102,E/L-1 대합,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114315/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114315,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.201,,
-273,사송,102,E/L-1 승강장,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114316/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114316,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.202,,
-275,사송,102,E/S-1 대합,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114317/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114317,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.171,,
-277,사송,102,E/S-1 중간,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114318/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114318,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.172,"WR,WR,WR","1,4,5"
-279,사송,102,E/S-2 중간,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114319/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114319,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.173,"WR,WR,WR","1,4,5"
-281,사송,102,E/S-2 승강,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114320/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114320,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.174,"WR,WR,WR","1,4,5"
-283,사송,102,선로전환기-6,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114321/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114321,2,admin,asdQWE12!@,,,7.102.3.71,,
-285,사송,102,선로전환기-7,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114322/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114322,2,admin,asdQWE12!@,,,7.102.3.72,,
-287,사송,102,선로전환기-8,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114323/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114323,2,admin,asdQWE12!@,,,7.102.3.73,,
-289,사송,102,선로전환기-9,7.102.3.22,rtsp://admin:asdQWE12!@@7.102.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114324/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114324,2,admin,asdQWE12!@,,,7.102.3.74,,
-291,내송,103,PSD-U1-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114325/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114325,2,admin,asdQWE12!@,,,7.103.3.241,,
-293,내송,103,PSD-U1-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114326/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114326,2,admin,asdQWE12!@,,,7.103.3.242,,
-295,내송,103,PSD-U2-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114327/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114327,2,admin,asdQWE12!@,,,7.103.3.243,,
-297,내송,103,PSD-U2-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114328/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114328,2,admin,asdQWE12!@,,,7.103.3.244,,
-299,내송,103,PSD-D1-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114329/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114329,2,admin,asdQWE12!@,,,7.103.3.245,,
-301,내송,103,PSD-D1-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114330/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114330,2,admin,asdQWE12!@,,,7.103.3.246,,
-303,내송,103,PSD-D2-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114331/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114331,2,admin,asdQWE12!@,,,7.103.3.247,,
-305,내송,103,PSD-D2-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114332/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114332,2,admin,asdQWE12!@,,,7.103.3.248,,
-307,내송,103,P-U1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114333/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114333,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.101,UF,1
-309,내송,103,P-U2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114334/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114334,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.102,UF,1
-311,내송,103,P-D1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114335/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114335,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.111,DP,1
-313,내송,103,P-D2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114336/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114336,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.112,DP,1
-315,내송,103,하선 출입구(상행),7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114337/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114337,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.131,UF,1
-317,내송,103,하선 출입구(하행),7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114338/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114338,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.132,DP,1
-319,내송,103,출구-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114339/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114339,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.135,,
-321,내송,103,출구-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114340/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114340,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.136,,
-323,내송,103,G-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114341/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114341,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.151,,
-325,내송,103,G-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114342/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114342,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.152,,
-327,내송,103,비상계단-대합,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114343/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114343,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.126,WR,1
-329,내송,103,비상계단-중간,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114344/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114344,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.127,WR,1
-331,내송,103,변전실-1,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114345/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114345,2,admin,asdQWE12!@,,,7.103.3.231,,
-333,내송,103,변전실-2,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114346/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114346,2,admin,asdQWE12!@,,,7.103.3.232,,
-335,내송,103,변전실-3,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114347/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114347,2,admin,asdQWE12!@,,,7.103.3.233,,
-337,내송,103,변전실-4,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114348/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114348,2,admin,asdQWE12!@,,,7.103.3.234,,
-339,내송,103,통신기기실,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114349/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114349,2,admin,asdQWE12!@,,,7.103.3.238,,
-341,내송,103,신호기기실,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114350/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114350,2,admin,asdQWE12!@,,,7.103.3.239,,
-343,내송,103,발매기,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114351/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114351,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.161,WR,1
-345,내송,103,발매기실,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114352/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114352,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.162,WR,1
-347,내송,103,화장실,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114353/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114353,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.121,WR,1
-349,내송,103,본선 비상안내-8,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114354/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114354,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.81,WR,1
-351,내송,103,본선 비상안내-9,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114355/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114355,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.82,WR,1
-353,내송,103,본선 비상안내-10,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114356/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114356,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.83,WR,1
-355,내송,103,E/L-1 대합,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114357/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114357,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.201,,
-357,내송,103,E/L-1 승강장,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114358/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114358,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.202,,
-359,내송,103,E/S-1 대합,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114359/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114359,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.171,"WR,WR,WR","1,4,5"
-361,내송,103,E/S-1 중간,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114360/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114360,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.172,"WR,WR,WR","1,4,5"
-363,내송,103,E/S-2 중간,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114361/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114361,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.173,"WR,WR,WR","1,4,5"
-365,내송,103,E/S-2 승강,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114362/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114362,2,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.174,"WR,WR,WR","1,4,5"
-367,내송,103,선로전환기-10,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114363/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114363,2,admin,asdQWE12!@,,,7.103.3.71,,
-369,내송,103,선로전환기-11,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114364/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114364,2,admin,asdQWE12!@,,,7.103.3.72,,
-371,내송,103,선로전환기-12,7.103.3.22,rtsp://admin:asdQWE12!@@7.103.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114365/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114365,2,admin,asdQWE12!@,,,7.103.3.73,,
-373,양산시청,104,PSD-U1-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114366/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114366,2,admin,asdQWE12!@,,,7.104.3.241,,
-375,양산시청,104,PSD-U1-2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114367/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114367,2,admin,asdQWE12!@,,,7.104.3.242,,
-377,양산시청,104,PSD-U2-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114368/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114368,2,admin,asdQWE12!@,,,7.104.3.243,,
-379,양산시청,104,PSD-U2-2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114369/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114369,2,admin,asdQWE12!@,,,7.104.3.244,,
-381,양산시청,104,PSD-D1-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114370/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114370,2,admin,asdQWE12!@,,,7.104.3.245,,
-383,양산시청,104,PSD-D1-2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114371/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114371,2,admin,asdQWE12!@,,,7.104.3.246,,
-385,양산시청,104,PSD-D2-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114372/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114372,2,admin,asdQWE12!@,,,7.104.3.247,,
-387,양산시청,104,PSD-D2-2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114373/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114373,2,admin,asdQWE12!@,,,7.104.3.248,,
-389,양산시청,104,P-U1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114374/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114374,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.101,UF,1
-391,양산시청,104,P-U2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114375/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114375,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.102,UF,1
-393,양산시청,104,P-D1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114376/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114376,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.111,DP,1
-395,양산시청,104,P-D2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114377/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114377,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.112,DP,1
-397,양산시청,104,상선 출입구(하행),7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114378/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114378,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.131,UF,1
-399,양산시청,104,하선 출입구(상행),7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114379/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114379,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.132,DP,1
-401,양산시청,104,하선 출입구(하행),7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114380/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114380,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.133,DP,1
-403,양산시청,104,출구-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114381/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114381,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.104.3.134,,
-405,양산시청,104,전기실-1,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114382/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114382,2,admin,asdQWE12!@,,,7.104.3.236,,
-407,양산시청,104,전기실-2,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114383/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114383,2,admin,asdQWE12!@,,,7.104.3.237,,
-409,양산시청,104,통신기기실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114384/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114384,2,admin,asdQWE12!@,,,7.104.3.238,,
-411,양산시청,104,신호기기실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114385/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114385,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.239,WR,1
-413,양산시청,104,발매기,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114386/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114386,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.151,WR,1
-415,양산시청,104,발매기실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114387/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114387,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.161,WR,1
-417,양산시청,104,여자 화장실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114388/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114388,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.121,WR,1
-419,양산시청,104,장애인 화장실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114389/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114389,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.122,WR,1
-421,양산시청,104,수유실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114390/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114390,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.226,WR,1
-423,양산시청,104,E/L-1 지상,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114391/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114391,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.201,,
-425,양산시청,104,E/L-1 대합실,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114392/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114392,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.202,,
-427,양산시청,104,E/L-2 지상,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114393/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114393,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.203,,
-429,양산시청,104,E/L-2 대합,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114394/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114394,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.204,,
-431,양산시청,104,E/S-1 지상,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114395/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114395,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.171,"WR,WR,WR","1,4,5"
-433,양산시청,104,E/S-1 대합,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114396/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114396,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.172,"WR,WR,WR","1,4,5"
-435,양산시청,104,E/S-2 지상,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114397/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114397,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.173,"WR,WR,WR","1,4,5"
-437,양산시청,104,E/S-2 대합,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114398/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114398,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.174,"WR,WR,WR","1,4,5"
-439,양산시청,104,E/S-3 대합,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114399/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114399,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.175,"WR,WR,WR","1,4,5"
-441,양산시청,104,E/S-3 승강장,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114400/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114400,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.176,"WR,WR,WR","1,4,5"
-443,양산시청,104,선로전환기-16,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114401/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114401,2,admin,asdQWE12!@,,,7.104.3.71,,
-445,양산시청,104,선로전환기-17,7.104.3.22,rtsp://admin:asdQWE12!@@7.104.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114402/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114402,2,admin,asdQWE12!@,,,7.104.3.72,,
-447,양산중앙,105,PSD-U1-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114403/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114403,2,admin,asdQWE12!@,,,7.105.3.241,,
-449,양산중앙,105,PSD-U1-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114404/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114404,2,admin,asdQWE12!@,,,7.105.3.242,,
-451,양산중앙,105,PSD-U2-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114405/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114405,2,admin,asdQWE12!@,,,7.105.3.243,,
-453,양산중앙,105,PSD-U2-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114406/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114406,2,admin,asdQWE12!@,,,7.105.3.244,,
-455,양산중앙,105,PSD-D1-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114407/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114407,2,admin,asdQWE12!@,,,7.105.3.245,,
-457,양산중앙,105,PSD-D1-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114408/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114408,2,admin,asdQWE12!@,,,7.105.3.246,,
-459,양산중앙,105,PSD-D2-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114409/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114409,2,admin,asdQWE12!@,,,7.105.3.247,,
-461,양산중앙,105,PSD-D2-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114410/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114410,2,admin,asdQWE12!@,,,7.105.3.248,,
-463,양산중앙,105,P-U1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114411/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114411,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.101,UF,1
-465,양산중앙,105,P-U2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114412/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114412,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.102,UF,1
-467,양산중앙,105,P-D1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114413/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114413,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.111,DP,1
-469,양산중앙,105,P-D2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114414/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114414,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.112,DP,1
-471,양산중앙,105,상선 출입구(상행),7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114415/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114415,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.131,UF,1
-473,양산중앙,105,상선 출입구(하행),7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114416/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114416,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.132,DP,1
-475,양산중앙,105,하선 출입구(하행),7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114417/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114417,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.133,DP,1
-477,양산중앙,105,출구-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114418/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114418,2,admin,asdQWE12!@,,,7.105.3.134,,
-479,양산중앙,105,출구-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114419/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114419,2,admin,asdQWE12!@,,,7.105.3.135,,
-481,양산중앙,105,G-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114420/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114420,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.151,,6
-483,양산중앙,105,G-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114421/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114421,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.152,,6
-485,양산중앙,105,G-3,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114422/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114422,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.153,,6
-487,양산중앙,105,G-4,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114423/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114423,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.154,,6
-489,양산중앙,105,변전실-1,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114424/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114424,2,admin,asdQWE12!@,,,7.105.3.231,,
-491,양산중앙,105,변전실-2,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114425/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114425,2,admin,asdQWE12!@,,,7.105.3.232,,
-493,양산중앙,105,변전실-3,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114426/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114426,2,admin,asdQWE12!@,,,7.105.3.233,,
-495,양산중앙,105,통신기기실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114427/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114427,2,admin,asdQWE12!@,,,7.105.3.238,,
-497,양산중앙,105,신호기기실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114428/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114428,2,admin,asdQWE12!@,,,7.105.3.239,,
-499,양산중앙,105,발매기/Gate,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114429/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114429,2,admin,asdQWE12!@,,,7.105.3.161,,
-501,양산중앙,105,발매기실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114430/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114430,2,admin,asdQWE12!@,,,7.105.3.162,,
-503,양산중앙,105,화장실/수유실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114431/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114431,2,admin,asdQWE12!@,,,7.105.3.121,,
-505,양산중앙,105,E/L-1 지상,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114432/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114432,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.201,,
-507,양산중앙,105,E/L-1 대합실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114433/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114433,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.202,,
-509,양산중앙,105,E/L-2 지상,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114434/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114434,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.203,,
-511,양산중앙,105,E/L-2 대합실,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114435/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114435,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.204,,
-513,양산중앙,105,E/L-3 환승,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114436/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114436,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.205,,
-515,양산중앙,105,E/L-3 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114437/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114437,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.206,,
-517,양산중앙,105,E/L-4 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114438/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114438,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.207,,
-519,양산중앙,105,E/L-4 승강장,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114439/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114439,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.208,,
-521,양산중앙,105,E/S-1 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114440/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114440,2,admin,asdQWE12!@,,,7.105.3.171,,
-523,양산중앙,105,E/S-1 환승,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114441/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114441,2,admin,asdQWE12!@,,,7.105.3.172,,
-525,양산중앙,105,E/S-2 지상,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114442/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114442,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.173,"WR,WR,WR","1,4,5"
-527,양산중앙,105,E/S-2 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114443/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114443,2,admin,asdQWE12!@,,,7.105.3.174,,
-529,양산중앙,105,E/S-3 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114444/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114444,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.175,"WR,WR,WR","1,4,5"
-531,양산중앙,105,E/S-3 승강장,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114445/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114445,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.176,"WR,WR,WR","1,4,5"
-533,양산중앙,105,E/S-4 대합,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114446/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114446,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.177,"WR,WR,WR","1,4,5"
-535,양산중앙,105,E/S-4 승강장,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114447/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114447,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.178,"WR,WR,WR","1,4,5"
-537,양산중앙,105,선로전환기 카메라-18,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114448/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114448,2,admin,asdQWE12!@,,,7.105.3.71,,
-539,양산중앙,105,선로전환기 카메라-19,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114449/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114449,2,admin,asdQWE12!@,,,7.105.3.72,,
-541,양산중앙,105,선로전환기 카메라-20,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114450/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114450,2,admin,asdQWE12!@,,,7.105.3.73,,
-543,양산중앙,105,선로전환기 카메라-21,7.105.3.22,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114451/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114451,2,admin,asdQWE12!@,,,7.105.3.74,,
-545,신기,106,PSD-U1-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114452/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114452,2,admin,asdQWE12!@,,,7.106.3.241,,
-547,신기,106,PSD-U1-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114453/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114453,2,admin,asdQWE12!@,,,7.106.3.242,,
-549,신기,106,PSD-U2-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114454/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114454,2,admin,asdQWE12!@,,,7.106.3.243,,
-551,신기,106,PSD-U2-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114455/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114455,2,admin,asdQWE12!@,,,7.106.3.244,,
-553,신기,106,PSD-D1-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114456/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114456,2,admin,asdQWE12!@,,,7.106.3.245,,
-555,신기,106,PSD-D1-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114457/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114457,2,admin,asdQWE12!@,,,7.106.3.246,,
-557,신기,106,PSD-D2-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114458/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114458,2,admin,asdQWE12!@,,,7.106.3.247,,
-559,신기,106,PSD-D2-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114459/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114459,2,admin,asdQWE12!@,,,7.106.3.248,,
-561,신기,106,P-U1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114460/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114460,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.101,UF,1
-563,신기,106,P-U2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114461/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114461,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.102,UF,1
-565,신기,106,P-D1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114462/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114462,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.111,DP,1
-567,신기,106,P-D2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114463/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114463,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.112,DP,1
-569,신기,106,하선 출입구(상행),7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114464/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114464,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.131,UF,1
-571,신기,106,하선 출입구(하행),7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114465/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114465,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.132,DP,1
-573,신기,106,출구-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114466/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114466,2,admin,asdQWE12!@,,,7.106.3.133,,
-575,신기,106,출구-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114467/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114467,2,admin,asdQWE12!@,,,7.106.3.134,,
-577,신기,106,G-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114468/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114468,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.106.3.151,,
-579,신기,106,G-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114469/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114469,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.106.3.152,,
-581,신기,106,전기실-1,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114470/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114470,2,admin,asdQWE12!@,,,7.106.3.236,,
-583,신기,106,전기실-2,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114471/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114471,2,admin,asdQWE12!@,,,7.106.3.237,,
-585,신기,106,통신기기실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114472/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114472,2,admin,asdQWE12!@,,,7.106.3.238,,
-587,신기,106,신호기기실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114473/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114473,2,admin,asdQWE12!@,,,7.106.3.239,,
-589,신기,106,발매기,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114474/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114474,2,admin,asdQWE12!@,,,7.106.3.161,,
-591,신기,106,발매기실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114475/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114475,2,admin,asdQWE12!@,,,7.106.3.162,,
-593,신기,106,화장실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114476/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114476,2,admin,asdQWE12!@,,,7.106.3.121,,
-595,신기,106,장애인 화장실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114477/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114477,2,admin,asdQWE12!@,,,7.106.3.122,,
-597,신기,106,E/L-1 대합실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114478/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114478,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.202,,
-599,신기,106,E/L-1 승강장,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114479/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114479,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.201,,
-601,신기,106,E/L-2 지상,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114480/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114480,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.203,,
-603,신기,106,E/L-2 대합실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114481/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114481,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.204,,
-605,신기,106,E/L-3 지상,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114482/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114482,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.205,,
-607,신기,106,E/L-3 대합실,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114483/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114483,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.206,,
-609,신기,106,E/S-1 대합,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114484/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114484,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.171,"WR,WR,WR","1,4,5"
-611,신기,106,E/S-1 승강장,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114485/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114485,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.172,"WR,WR,WR","1,4,5"
-613,신기,106,E/S-2 대합,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114486/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114486,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.173,"WR,WR,WR","1,4,5"
-615,신기,106,E/S-2 중간,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114487/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114487,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.174,"WR,WR,WR","1,4,5"
-617,신기,106,E/S-3 대합,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114488/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114488,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.175,"WR,WR,WR","1,4,5"
-619,신기,106,E/S-3 중간,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114489/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114489,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.176,"WR,WR,WR","1,4,5"
-621,신기,106,E/S-4 지상,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114490/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114490,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.178,"WR,WR,WR","1,4,5"
-623,신기,106,E/S-4 대합,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114491/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114491,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.177,"WR,WR,WR","1,4,5"
-625,신기,106,E/S-5 지상,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114492/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114492,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.180,"WR,WR,WR","1,4,5"
-627,신기,106,E/S-5 대합,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114493/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114493,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.179,"WR,WR,WR","1,4,5"
-629,신기,106,선로전환기 카메라-22,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114494/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114494,2,admin,asdQWE12!@,,,7.106.3.71,,
-631,신기,106,선로전환기 카메라-23,7.106.3.22,rtsp://admin:asdQWE12!@@7.106.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114495/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114495,2,admin,asdQWE12!@,,,7.106.3.72,,
-633,북정,107,PSD-U1-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114496/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114496,2,admin,asdQWE12!@,,,7.107.3.241,,
-635,북정,107,PSD-U1-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114497/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114497,2,admin,asdQWE12!@,,,7.107.3.242,,
-637,북정,107,PSD-U2-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114498/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114498,2,admin,asdQWE12!@,,,7.107.3.243,,
-639,북정,107,PSD-U2-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114499/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114499,2,admin,asdQWE12!@,,,7.107.3.244,,
-641,북정,107,PSD-D1-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114500/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114500,2,admin,asdQWE12!@,,,7.107.3.245,,
-643,북정,107,PSD-D1-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114501/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114501,2,admin,asdQWE12!@,,,7.107.3.246,,
-645,북정,107,PSD-D2-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114502/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114502,2,admin,asdQWE12!@,,,7.107.3.247,,
-647,북정,107,PSD-D2-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114503/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114503,2,admin,asdQWE12!@,,,7.107.3.248,,
-649,북정,107,P-U1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114504/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114504,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.101,UF,1
-651,북정,107,P-U2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114505/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114505,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.102,UF,1
-653,북정,107,P-D1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114506/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114506,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.111,DP,1
-655,북정,107,P-D2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114507/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114507,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.112,DP,1
-657,북정,107,하선 출입구(상행),7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114508/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114508,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.131,UF,1
-659,북정,107,하선 출입구(하행),7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114509/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114509,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.132,DP,1
-661,북정,107,출구-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114510/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114510,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.133,,
-663,북정,107,출구-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114511/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114511,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.134,,
-665,북정,107,G-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114512/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114512,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.151,,
-667,북정,107,G-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114513/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114513,2,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.152,,
-669,북정,107,변전실-1,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114514/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114514,2,admin,asdQWE12!@,,,7.107.3.231,,
-671,북정,107,변전실-2,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114515/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114515,2,admin,asdQWE12!@,,,7.107.3.232,,
-673,북정,107,변전실-3,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114516/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114516,2,admin,asdQWE12!@,,,7.107.3.233,,
-675,북정,107,변전실-4,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114517/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114517,2,admin,asdQWE12!@,,,7.107.3.234,,
-677,북정,107,통신기기실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114518/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114518,2,admin,asdQWE12!@,,,7.107.3.238,,
-679,북정,107,신호기기실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114519/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114519,2,admin,asdQWE12!@,,,7.107.3.239,,
-681,북정,107,발매기,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114520/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114520,2,admin,asdQWE12!@,,,7.107.3.161,,
-683,북정,107,발매기실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114521/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114521,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.162,WR,1
-685,북정,107,화장실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114522/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114522,2,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.121,WR,1
-687,북정,107,장애인 화장실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114523/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114523,2,admin,asdQWE12!@,,,7.107.3.122,,
-689,북정,107,E/L-1 대합실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114524/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114524,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.202,,
-691,북정,107,E/L-1 승강장,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114525/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114525,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.201,,
-693,북정,107,E/L-2 지상,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114526/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114526,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.203,,
-695,북정,107,E/L-2 대합실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114527/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114527,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.204,,
-697,북정,107,E/L-3 지상,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114528/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114528,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.205,,
-699,북정,107,E/L-3 대합실,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114529/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114529,2,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.206,,
-701,북정,107,E/S-1 대합,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114530/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114530,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.171,"WR,WR,WR","1,4,5"
-703,북정,107,E/S-1 승강장,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114531/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114531,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.172,"WR,WR,WR","1,4,5"
-705,북정,107,E/S-2 지상,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114532/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114532,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.173,"WR,WR,WR","1,4,5"
-707,북정,107,E/S-2 대합,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114533/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114533,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.174,"WR,WR,WR","1,4,5"
-709,북정,107,E/S-3 지상,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114534/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114534,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.175,"WR,WR,WR","1,4,5"
-711,북정,107,E/S-3 대합,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114535/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114535,2,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.176,"WR,WR,WR","1,4,5"
-713,북정,107,선로전환기 카메라-24,7.107.3.22,rtsp://admin:asdQWE12!@@7.107.3.22:4515/94d0d42f-9ccc-42aa-9e59-d4ddd2114536/2/media.smp,4515,94d0d42f-9ccc-42aa-9e59-d4ddd2114536,2,admin,asdQWE12!@,,,7.107.3.71,,
+idx,station_name,station_id,camera_name,camera_ipaddr,nvr_rtsp_url,port,guid,channel,id,pw,type,use,nvr_ipaddr,broadcast_area,broadcast_id,cctv_id
+1,차량기지,100,변전실-1,7.254.103.231,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+3,차량기지,100,변전실-2,7.254.103.232,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+5,차량기지,100,변전실-3,7.254.103.233,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+7,차량기지,100,공동구-1,7.254.103.120,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+9,차량기지,100,공동구-2,7.254.103.121,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+11,차량기지,100,주출입구-1,7.254.103.131,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+13,차량기지,100,부출입구-1,7.254.103.132,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+15,차량기지,100,부출입구-2,7.254.103.133,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+17,차량기지,100,부출입구-3,7.254.103.134,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+19,차량기지,100,정문출입구,7.254.103.41,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+21,차량기지,100,E/L-2·3호기-1층,7.254.103.201,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+23,차량기지,100,E/L-2·3호기-5층,7.254.103.202,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+25,차량기지,100,관제실입구-1,7.254.103.140,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+27,차량기지,100,지붕-1,7.254.103.141,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-001
+29,차량기지,100,지붕-2,7.254.103.142,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-002
+31,차량기지,100,본선 비상안내-11,7.254.103.81,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-003
+33,차량기지,100,선로전환기-13,7.254.103.71,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-004
+35,차량기지,100,선로전환기-14,7.254.103.72,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-005
+37,차량기지,100,선로전환기-15,7.254.103.73,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-006
+39,차량기지,100,집수정-3,7.254.103.83,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-007
+41,차량기지,100,출도착(입출고선),7.254.103.150,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+43,차량기지,100,모터카고,7.254.103.154,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+45,차량기지,100,유치선-1,7.254.103.151,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+47,차량기지,100,유치선-2,7.254.103.152,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+49,차량기지,100,유치선-3,7.254.103.153,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+51,차량기지,100,세척기,7.254.103.155,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+53,차량기지,100,외곽 감시-1,7.254.103.42,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-008
+55,차량기지,100,외곽 감시-2,7.254.103.43,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-009
+57,차량기지,100,외곽 감시-3,7.254.103.44,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-010
+59,차량기지,100,외곽 감시-4,7.254.103.45,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-011
+61,차량기지,100,외곽 감시-5,7.254.103.46,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-012
+63,차량기지,100,외곽 감시-6,7.254.103.47,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-013
+65,차량기지,100,외곽 감시-7,7.254.103.48,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-014
+67,차량기지,100,외곽 감시-8,7.254.103.49,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-015
+69,차량기지,100,외곽 감시-9,7.254.103.50,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-016
+71,차량기지,100,외곽 감시-10,7.254.103.51,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-017
+73,차량기지,100,외곽 감시-11,7.254.103.52,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-018
+75,차량기지,100,외곽 감시-12,7.254.103.53,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-019
+77,차량기지,100,외곽 감시-13,7.254.103.54,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-020
+79,차량기지,100,외곽 감시-14,7.254.103.55,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-021
+81,차량기지,100,외곽 감시-15,7.254.103.56,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-022
+83,차량기지,100,외곽 감시-16,7.254.103.57,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-023
+85,차량기지,100,외곽 감시-17,7.254.103.58,,4515,,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-024
+87,차량기지,100,출입구 감시,7.254.103.59,,4515,,3,admin,asdQWE12!@,,,7.254.3.25,,,
+89,차량기지,100,종합기계실,7.254.3.99,rtsp://admin:asdQWE12!@@7.254.3.25:4515/b3b36f5e-2457-4d37-9956-2947fb1c5e52/3/media.smp,4515,b3b36f5e-2457-4d37-9956-2947fb1c5e52,3,admin,asdQWE12!@,TP,침입 감시,7.254.3.25,,,CCTV100-025
+91,노포,101,PSD-U1-1,7.101.3.241,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+93,노포,101,PSD-U1-2,7.101.3.242,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+95,노포,101,PSD-U2-1,7.101.3.243,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+97,노포,101,PSD-U2-2,7.101.3.244,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+99,노포,101,PSD-D1-1,7.101.3.245,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+101,노포,101,PSD-D1-2,7.101.3.246,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+103,노포,101,PSD-D2-1,7.101.3.247,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+105,노포,101,PSD-D2-2,7.101.3.248,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+107,노포,101,PSD-M1-1,7.101.3.249,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+109,노포,101,PSD-M1-2,7.101.3.250,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+111,노포,101,PSD-M2-2,7.101.3.251,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+113,노포,101,P-U1,7.101.3.101,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,UF,1,CCTV101-001
+115,노포,101,P-U2,7.101.3.102,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,UF,1,CCTV101-002
+117,노포,101,P-U3,7.101.3.103,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,UF,1,CCTV101-003
+119,노포,101,P-U4,7.101.3.104,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,UF,1,CCTV101-004
+121,노포,101,P-D1,7.101.3.111,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,DP,1,CCTV101-005
+123,노포,101,P-D2,7.101.3.112,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,DP,1,CCTV101-006
+125,노포,101,P-D3,7.101.3.113,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,DP,1,CCTV101-007
+127,노포,101,P-D4,7.101.3.114,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,DP,1,CCTV101-008
+129,노포,101,상선 출입구(하행),7.101.3.131,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,UF,1,CCTV101-009
+131,노포,101,하선 출입구(하행),7.101.3.132,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,DP,1,CCTV101-010
+133,노포,101,G-1,7.101.3.151,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.22,,,CCTV101-011
+135,노포,101,G-2,7.101.3.152,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.22,,,CCTV101-012
+137,노포,101,G-3,7.101.3.153,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.101.3.22,,,CCTV101-013
+139,노포,101,환승통로-1,7.101.3.141,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,WR,1,CCTV101-014
+141,노포,101,환승통로-2,7.101.3.142,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,WR,1,CCTV101-015
+143,노포,101,비상탈출통로-1,7.101.3.86,rtsp://admin:asdQWE12!@@7.101.3.22:4515/e64f9a4d-dc39-44c0-a0c8-bec215c4d799/3/media.smp,4515,e64f9a4d-dc39-44c0-a0c8-bec215c4d799,3,admin,asdQWE12!@,,,7.101.3.22,,,
+145,노포,101,비상탈출통로-2,7.101.3.87,rtsp://admin:asdQWE12!@@7.101.3.22:4515/361fc7ce-d7ea-43e8-9536-8d75aa36d4d0/3/media.smp,4515,361fc7ce-d7ea-43e8-9536-8d75aa36d4d0,3,admin,asdQWE12!@,,,7.101.3.22,,,
+147,노포,101,변전실-1,7.101.3.231,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+149,노포,101,변전실-2,7.101.3.232,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+151,노포,101,변전실-3,7.101.3.233,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+153,노포,101,변전실-4,7.101.3.234,,4515,,3,admin,asdQWE12!@,,,7.101.3.22,,,
+155,노포,101,전기실-1,7.101.3.236,rtsp://admin:asdQWE12!@@7.101.3.22:4515/335c929b-8a94-4ce9-ba9b-654da8e9d0ac/3/media.smp,4515,335c929b-8a94-4ce9-ba9b-654da8e9d0ac,3,admin,asdQWE12!@,,,7.101.3.22,,,
+157,노포,101,전기실-2,7.101.3.237,rtsp://admin:asdQWE12!@@7.101.3.22:4515/4e1df737-5957-4b02-96f0-9d3c366978c5/3/media.smp,4515,4e1df737-5957-4b02-96f0-9d3c366978c5,3,admin,asdQWE12!@,,,7.101.3.22,,,
+159,노포,101,통신기기실,7.101.3.238,rtsp://admin:asdQWE12!@@7.101.3.22:4515/c662139c-74ea-4860-976a-7e32c05fd066/3/media.smp,4515,c662139c-74ea-4860-976a-7e32c05fd066,3,admin,asdQWE12!@,,,7.101.3.22,,,
+161,노포,101,신호기기실,7.101.3.239,rtsp://admin:asdQWE12!@@7.101.3.22:4515/df3acd91-1f38-4408-b8ac-c8456a748f1f/3/media.smp,4515,df3acd91-1f38-4408-b8ac-c8456a748f1f,3,admin,asdQWE12!@,,,7.101.3.22,,,
+163,노포,101,이용객쉼터,7.101.3.161,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.101.3.22,WR,1,CCTV101-016
+165,노포,101,본선 비상안내-1,7.101.3.81,rtsp://admin:asdQWE12!@@7.101.3.22:4515/b18c95fa-4eae-4eac-9738-a7ac181fc7ce/3/media.smp,4515,b18c95fa-4eae-4eac-9738-a7ac181fc7ce,3,admin,asdQWE12!@,,,7.101.3.22,,,
+167,노포,101,본선 비상안내-2,7.101.3.82,rtsp://admin:asdQWE12!@@7.101.3.22:4515/0e6d6ce1-b6c3-4823-bb42-d78041a56cee/3/media.smp,4515,0e6d6ce1-b6c3-4823-bb42-d78041a56cee,3,admin,asdQWE12!@,,,7.101.3.22,,,
+169,노포,101,본선 비상안내-3,7.101.3.83,rtsp://admin:asdQWE12!@@7.101.3.22:4515/e85237d6-ccd6-4b09-a1db-eaf32a537b6e/3/media.smp,4515,e85237d6-ccd6-4b09-a1db-eaf32a537b6e,3,admin,asdQWE12!@,,,7.101.3.22,,,
+171,노포,101,본선 비상안내-4,7.101.3.84,rtsp://admin:asdQWE12!@@7.101.3.22:4515/b5e5c880-006e-4407-a6e1-d351a60dfdcc/3/media.smp,4515,b5e5c880-006e-4407-a6e1-d351a60dfdcc,3,admin,asdQWE12!@,,,7.101.3.22,,,
+173,노포,101,본선 비상안내-5,7.101.3.85,rtsp://admin:asdQWE12!@@7.101.3.22:4515/bcd5d5de-bc02-4038-9c9e-ace68fd74adf/3/media.smp,4515,bcd5d5de-bc02-4038-9c9e-ace68fd74adf,3,admin,asdQWE12!@,,,7.101.3.22,,,
+175,노포,101,E/L-3 대합,7.101.3.201,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,,,CCTV101-017
+177,노포,101,E/L-3 승강장,7.101.3.202,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,,,CCTV101-018
+179,노포,101,E/L-4 대합,7.101.3.203,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,,,CCTV101-019
+181,노포,101,E/L-4 승강장,7.101.3.204,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,,,CCTV101-020
+183,노포,101,E/S-1 대합,7.101.3.171,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,"WR,WR,WR","1,4,5",CCTV101-021
+185,노포,101,E/S-1 승강장,7.101.3.172,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,"WR,WR,WR","1,4,5",CCTV101-022
+187,노포,101,E/S-2 대합,7.101.3.173,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,"WR,WR,WR","1,4,5",CCTV101-023
+189,노포,101,E/S-2 승강장,7.101.3.174,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.101.3.22,"WR,WR,WR","1,4,5",CCTV101-024
+191,노포,101,선로전환기-1,7.101.3.71,rtsp://admin:asdQWE12!@@7.101.3.22:4515/9b273881-d140-4c70-8b62-90afb7ca43ac/3/media.smp,4515,9b273881-d140-4c70-8b62-90afb7ca43ac,3,admin,asdQWE12!@,,,7.101.3.22,,,
+193,노포,101,선로전환기-2,7.101.3.72,rtsp://admin:asdQWE12!@@7.101.3.22:4515/924c7f28-a3df-4956-8def-73469a83a4bd/3/media.smp,4515,924c7f28-a3df-4956-8def-73469a83a4bd,3,admin,asdQWE12!@,,,7.101.3.22,,,
+195,노포,101,선로전환기-3,7.101.3.73,rtsp://admin:asdQWE12!@@7.101.3.22:4515/c5164143-9b77-4f0e-9919-680d0641212a/3/media.smp,4515,c5164143-9b77-4f0e-9919-680d0641212a,3,admin,asdQWE12!@,,,7.101.3.22,,,
+197,노포,101,선로전환기-4,7.101.3.74,rtsp://admin:asdQWE12!@@7.101.3.22:4515/6b7acf79-0628-4e52-85e2-7a0418358a72/3/media.smp,4515,6b7acf79-0628-4e52-85e2-7a0418358a72,3,admin,asdQWE12!@,,,7.101.3.22,,,
+199,노포,101,선로전환기-5,7.101.3.75,rtsp://admin:asdQWE12!@@7.101.3.22:4515/7b2809f1-3f5b-4ea8-8f08-3a84a3d9f042/3/media.smp,4515,7b2809f1-3f5b-4ea8-8f08-3a84a3d9f042,3,admin,asdQWE12!@,,,7.101.3.22,,,
+201,노포,101,집수정-1,7.101.3.88,rtsp://admin:asdQWE12!@@7.101.3.22:4515/88b00a7d-7cef-4784-beea-47a40b6daSec/3/media.smp,4515,88b00a7d-7cef-4784-beea-47a40b6daSec,3,admin,asdQWE12!@,,,7.101.3.22,,,
+203,노포,101,집수정-2,7.101.3.89,rtsp://admin:asdQWE12!@@7.101.3.22:4515/52b4d932-fe75-4f83-9ae6-fb776c93db81/3/media.smp,4515,52b4d932-fe75-4f83-9ae6-fb776c93db81,3,admin,asdQWE12!@,,,7.101.3.22,,,
+205,노포,101,본선환기-1,7.101.3.90,rtsp://admin:asdQWE12!@@7.101.3.22:4515/769f78d9-196b-42d7-bc8c-13a18d633812/3/media.smp,4515,769f78d9-196b-42d7-bc8c-13a18d633812,3,admin,asdQWE12!@,,,7.101.3.22,,,
+207,사송,102,PSD-U1-1,7.102.3.241,rtsp://admin:asdQWE12!@@7.102.3.22:4515/b8bb547e-fa8f-4ce5-845a-380d217c69bb/3/media.smp,4515,b8bb547e-fa8f-4ce5-845a-380d217c69bb,3,admin,asdQWE12!@,,,7.102.3.22,,,
+209,사송,102,PSD-U1-2,7.102.3.242,rtsp://admin:asdQWE12!@@7.102.3.22:4515/e2f0b20b-a225-4b19-8e1b-2ae95a56afaf/3/media.smp,4515,e2f0b20b-a225-4b19-8e1b-2ae95a56afaf,3,admin,asdQWE12!@,,,7.102.3.22,,,
+211,사송,102,PSD-U2-1,7.102.3.243,rtsp://admin:asdQWE12!@@7.102.3.22:4515/6e81e40b-2b5c-4793-a298-0a794bc7b72e/3/media.smp,4515,6e81e40b-2b5c-4793-a298-0a794bc7b72e,3,admin,asdQWE12!@,,,7.102.3.22,,,
+213,사송,102,PSD-U2-2,7.102.3.244,rtsp://admin:asdQWE12!@@7.102.3.22:4515/6c9cc839-aa19-4a54-a07c-93672018156b/3/media.smp,4515,6c9cc839-aa19-4a54-a07c-93672018156b,3,admin,asdQWE12!@,,,7.102.3.22,,,
+215,사송,102,PSD-D1-1,7.102.3.245,rtsp://admin:asdQWE12!@@7.102.3.22:4515/9b840e94-d307-40da-a864-07ccef53d524/3/media.smp,4515,9b840e94-d307-40da-a864-07ccef53d524,3,admin,asdQWE12!@,,,7.102.3.22,,,
+217,사송,102,PSD-D1-2,7.102.3.246,rtsp://admin:asdQWE12!@@7.102.3.22:4515/d45d4e87-3cb2-49a2-88c6-350810462b48/3/media.smp,4515,d45d4e87-3cb2-49a2-88c6-350810462b48,3,admin,asdQWE12!@,,,7.102.3.22,,,
+219,사송,102,PSD-D2-1,7.102.3.247,,4515,,3,admin,asdQWE12!@,,,7.102.3.22,,,
+221,사송,102,PSD-D2-2,7.102.3.248,rtsp://admin:asdQWE12!@@7.102.3.22:4515/041b2ab4-ed02-48a3-8e0b-9e78b2df1f04/3/media.smp,4515,041b2ab4-ed02-48a3-8e0b-9e78b2df1f04,3,admin,asdQWE12!@,,,7.102.3.22,,,
+223,사송,102,P-U1,7.102.3.101,rtsp://admin:asdQWE12!@@7.102.3.22:4515/998ae2fd-008a-42cf-a4d1-e2016f5855cd/3/media.smp,4515,998ae2fd-008a-42cf-a4d1-e2016f5855cd,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,UF,1,CCTV102-001
+225,사송,102,P-U2,7.102.3.102,rtsp://admin:asdQWE12!@@7.102.3.22:4515/f3438d75-9fdf-41ec-9f14-9eef2997ced9/3/media.smp,4515,f3438d75-9fdf-41ec-9f14-9eef2997ced9,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,UF,1,CCTV102-002
+227,사송,102,P-D1,7.102.3.111,rtsp://admin:asdQWE12!@@7.102.3.22:4515/efb9af10-46e0-4a85-b748-5d67a6e528b1/3/media.smp,4515,efb9af10-46e0-4a85-b748-5d67a6e528b1,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,DP,1,CCTV102-003
+229,사송,102,P-D2,7.102.3.112,rtsp://admin:asdQWE12!@@7.102.3.22:4515/1a03946b-23f7-4362-bc76-87101c959ade/3/media.smp,4515,1a03946b-23f7-4362-bc76-87101c959ade,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,DP,1,CCTV102-004
+231,사송,102,상선 출입구(하행),7.102.3.131,rtsp://admin:asdQWE12!@@7.102.3.22:4515/c77e556d-e6f8-4e41-a640-177862464068/3/media.smp,4515,c77e556d-e6f8-4e41-a640-177862464068,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,UF,1,CCTV102-005
+233,사송,102,하선 출입구(상행),7.102.3.132,rtsp://admin:asdQWE12!@@7.102.3.22:4515/9c4ffdd7-2744-42b2-b69b-28da3ed6ab54/3/media.smp,4515,9c4ffdd7-2744-42b2-b69b-28da3ed6ab54,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,DP,1,CCTV102-006
+235,사송,102,출구-1,7.102.3.133,rtsp://admin:asdQWE12!@@7.102.3.22:4515/c4ea5752-520c-4fe4-9435-6ed99d085d62/3/media.smp,4515,c4ea5752-520c-4fe4-9435-6ed99d085d62,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.22,,6,CCTV102-007
+237,사송,102,출구-2,7.102.3.134,rtsp://admin:asdQWE12!@@7.102.3.22:4515/6362f7ce-69c7-4846-a709-a8b279171e81/3/media.smp,4515,6362f7ce-69c7-4846-a709-a8b279171e81,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.22,,6,CCTV102-008
+239,사송,102,G-1,7.102.3.151,rtsp://admin:asdQWE12!@@7.102.3.22:4515/744602a9-6d1f-4e2b-99b7-057bf4b6aefd/3/media.smp,4515,744602a9-6d1f-4e2b-99b7-057bf4b6aefd,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.22,,6,CCTV102-009
+241,사송,102,G-2,7.102.3.152,rtsp://admin:asdQWE12!@@7.102.3.22:4515/30a54c2d-e0f8-43c2-a79a-7ab233569766/3/media.smp,4515,30a54c2d-e0f8-43c2-a79a-7ab233569766,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.102.3.22,,6,CCTV102-010
+243,사송,102,비상탈출통로-3,7.102.3.82,rtsp://admin:asdQWE12!@@7.102.3.22:4515/45716862-25e8-4887-8f3f-3084934ff3b5/3/media.smp,4515,45716862-25e8-4887-8f3f-3084934ff3b5,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-011
+245,사송,102,비상계단-대합,7.102.3.126,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-012
+247,사송,102,비상계단-승강장,7.102.3.127,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-013
+249,사송,102,변전실-1,7.102.3.231,rtsp://admin:asdQWE12!@@7.102.3.22:4515/a8d28f40-2c2e-43fb-a890-1e40fca0f410/3/media.smp,4515,a8d28f40-2c2e-43fb-a890-1e40fca0f410,3,admin,asdQWE12!@,,,7.102.3.22,,,
+251,사송,102,변전실-2,7.102.3.232,rtsp://admin:asdQWE12!@@7.102.3.22:4515/95f8da0f-f1b7-44c8-9ca8-377af28f2c4a/3/media.smp,4515,95f8da0f-f1b7-44c8-9ca8-377af28f2c4a,3,admin,asdQWE12!@,,,7.102.3.22,,,
+253,사송,102,변전실-3,7.102.3.233,rtsp://admin:asdQWE12!@@7.102.3.22:4515/bf90a4d2-fb50-47c8-b0dc-2d10ee698172/3/media.smp,4515,bf90a4d2-fb50-47c8-b0dc-2d10ee698172,3,admin,asdQWE12!@,,,7.102.3.22,,,
+255,사송,102,통신기기실,7.102.3.238,rtsp://admin:asdQWE12!@@7.102.3.22:4515/fc7a6e2c-bda0-4510-88a8-d2b730e5151d/3/media.smp,4515,fc7a6e2c-bda0-4510-88a8-d2b730e5151d,3,admin,asdQWE12!@,,,7.102.3.22,,,
+257,사송,102,신호기기실,7.102.3.239,rtsp://admin:asdQWE12!@@7.102.3.22:4515/54e61dcc-3abc-4b2f-9d6c-6456bcc6daa4/3/media.smp,4515,54e61dcc-3abc-4b2f-9d6c-6456bcc6daa4,3,admin,asdQWE12!@,,,7.102.3.22,,,
+259,사송,102,발매기,7.102.3.161,rtsp://admin:asdQWE12!@@7.102.3.22:4515/4e2f53d1-2c71-4d56-9956-b764a50187cb/3/media.smp,4515,4e2f53d1-2c71-4d56-9956-b764a50187cb,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-014
+261,사송,102,발매기실,7.102.3.162,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-015
+263,사송,102,화장실,7.102.3.121,rtsp://admin:asdQWE12!@@7.102.3.22:4515/2b78d988-e19c-4657-8dca-8088a4ecc2ff/3/media.smp,4515,2b78d988-e19c-4657-8dca-8088a4ecc2ff,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-016
+265,사송,102,수유실,7.102.3.226,rtsp://admin:asdQWE12!@@7.102.3.22:4515/7382c3d2-06ad-4942-9dec-215d132ca0f1/3/media.smp,4515,7382c3d2-06ad-4942-9dec-215d132ca0f1,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-017
+267,사송,102,본선 비상안내-6,7.102.3.81,rtsp://admin:asdQWE12!@@7.102.3.22:4515/cf90830a-27b4-48c1-9fa0-8c303393c0f9/3/media.smp,4515,cf90830a-27b4-48c1-9fa0-8c303393c0f9,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.102.3.22,WR,1,CCTV102-018
+269,사송,102,본선 비상안내-7,7.102.3.83,rtsp://admin:asdQWE12!@@7.102.3.22:4515/1cb0398a-fb3b-4e73-acc4-aaedb9325f20/3/media.smp,4515,1cb0398a-fb3b-4e73-acc4-aaedb9325f20,3,admin,asdQWE12!@,,,7.102.3.22,,,
+271,사송,102,E/L-1 대합,7.102.3.201,rtsp://admin:asdQWE12!@@7.102.3.22:4515/8f05c1cd-8ba3-48d6-8995-c0e372008e32/3/media.smp,4515,8f05c1cd-8ba3-48d6-8995-c0e372008e32,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,,,CCTV102-019
+273,사송,102,E/L-1 승강장,7.102.3.202,rtsp://admin:asdQWE12!@@7.102.3.22:4515/17792643-7746-4cc9-bffd-c4475082c5b5/3/media.smp,4515,17792643-7746-4cc9-bffd-c4475082c5b5,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,,,CCTV102-020
+275,사송,102,E/S-1 대합,7.102.3.171,rtsp://admin:asdQWE12!@@7.102.3.22:4515/87030c16-2c59-4639-8ec5-1c60d045bcac/3/media.smp,4515,87030c16-2c59-4639-8ec5-1c60d045bcac,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,,,CCTV102-021
+277,사송,102,E/S-1 중간,7.102.3.172,rtsp://admin:asdQWE12!@@7.102.3.22:4515/10b20fe9-df23-4601-98dd-b0ae73ce4337/3/media.smp,4515,10b20fe9-df23-4601-98dd-b0ae73ce4337,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,"WR,WR,WR","1,4,5",CCTV102-022
+279,사송,102,E/S-2 중간,7.102.3.173,rtsp://admin:asdQWE12!@@7.102.3.22:4515/e2229e1b-2080-424c-869b-78c16fb2f406/3/media.smp,4515,e2229e1b-2080-424c-869b-78c16fb2f406,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,"WR,WR,WR","1,4,5",CCTV102-023
+281,사송,102,E/S-2 승강,7.102.3.174,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.102.3.22,"WR,WR,WR","1,4,5",CCTV102-024
+283,사송,102,선로전환기-6,7.102.3.71,rtsp://admin:asdQWE12!@@7.102.3.22:4515/4da7d38e-f6c8-4414-bde5-0765829891f5/3/media.smp,4515,4da7d38e-f6c8-4414-bde5-0765829891f5,3,admin,asdQWE12!@,,,7.102.3.22,,,
+285,사송,102,선로전환기-7,7.102.3.72,rtsp://admin:asdQWE12!@@7.102.3.22:4515/31709098-8de8-49c6-93fb-d75ab4351fbc/3/media.smp,4515,31709098-8de8-49c6-93fb-d75ab4351fbc,3,admin,asdQWE12!@,,,7.102.3.22,,,
+287,사송,102,선로전환기-8,7.102.3.73,rtsp://admin:asdQWE12!@@7.102.3.22:4515/5ee44904-9703-482c-bd16-f0bc2dc6e396/3/media.smp,4515,5ee44904-9703-482c-bd16-f0bc2dc6e396,3,admin,asdQWE12!@,,,7.102.3.22,,,
+289,사송,102,선로전환기-9,7.102.3.74,rtsp://admin:asdQWE12!@@7.102.3.22:4515/0ea7e491-afa3-4aa1-b2c7-315e6f1ae4dc/3/media.smp,4515,0ea7e491-afa3-4aa1-b2c7-315e6f1ae4dc,3,admin,asdQWE12!@,,,7.102.3.22,,,
+291,내송,103,PSD-U1-1,7.103.3.241,rtsp://admin:asdQWE12!@@7.103.3.22:4515/a01e39f6-9a29-45f5-a97b-5cf88de3367c/3/media.smp,4515,a01e39f6-9a29-45f5-a97b-5cf88de3367c,3,admin,asdQWE12!@,,,7.103.3.22,,,
+293,내송,103,PSD-U1-2,7.103.3.242,rtsp://admin:asdQWE12!@@7.103.3.22:4515/27931ab4-f5f4-4917-9b65-13baeb32dbcb/3/media.smp,4515,27931ab4-f5f4-4917-9b65-13baeb32dbcb,3,admin,asdQWE12!@,,,7.103.3.22,,,
+295,내송,103,PSD-U2-1,7.103.3.243,rtsp://admin:asdQWE12!@@7.103.3.22:4515/6815c5f3-8df7-4e90-a020-772682ea23b3/3/media.smp,4515,6815c5f3-8df7-4e90-a020-772682ea23b3,3,admin,asdQWE12!@,,,7.103.3.22,,,
+297,내송,103,PSD-U2-2,7.103.3.244,rtsp://admin:asdQWE12!@@7.103.3.22:4515/b7d4bd02-0050-4b80-99ac-b55e80a6d5b3/3/media.smp,4515,b7d4bd02-0050-4b80-99ac-b55e80a6d5b3,3,admin,asdQWE12!@,,,7.103.3.22,,,
+299,내송,103,PSD-D1-1,7.103.3.245,rtsp://admin:asdQWE12!@@7.103.3.22:4515/d21f9d45-e3a2-4fce-a441-7df02775cec6/3/media.smp,4515,d21f9d45-e3a2-4fce-a441-7df02775cec6,3,admin,asdQWE12!@,,,7.103.3.22,,,
+301,내송,103,PSD-D1-2,7.103.3.246,rtsp://admin:asdQWE12!@@7.103.3.22:4515/b59605a9-041e-4c33-b631-0f00e3a4a623/3/media.smp,4515,b59605a9-041e-4c33-b631-0f00e3a4a623,3,admin,asdQWE12!@,,,7.103.3.22,,,
+303,내송,103,PSD-D2-1,7.103.3.247,rtsp://admin:asdQWE12!@@7.103.3.22:4515/dcb099ca-a4f6-42bd-b9a1-84148e16feb2/3/media.smp,4515,dcb099ca-a4f6-42bd-b9a1-84148e16feb2,3,admin,asdQWE12!@,,,7.103.3.22,,,
+305,내송,103,PSD-D2-2,7.103.3.248,rtsp://admin:asdQWE12!@@7.103.3.22:4515/53640ede-edd7-4273-89a1-ecfe52944272/3/media.smp,4515,53640ede-edd7-4273-89a1-ecfe52944272,3,admin,asdQWE12!@,,,7.103.3.22,,,
+307,내송,103,P-U1,7.103.3.101,rtsp://admin:asdQWE12!@@7.103.3.22:4515/f0f6c164-fb2c-4a3b-8aab-0de79e87344e/3/media.smp,4515,f0f6c164-fb2c-4a3b-8aab-0de79e87344e,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,UF,1,CCTV103-001
+309,내송,103,P-U2,7.103.3.102,rtsp://admin:asdQWE12!@@7.103.3.22:4515/379bba7a-5554-4bb7-9cb0-9e2e1974649e/3/media.smp,4515,379bba7a-5554-4bb7-9cb0-9e2e1974649e,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,UF,1,CCTV103-002
+311,내송,103,P-D1,7.103.3.111,rtsp://admin:asdQWE12!@@7.103.3.22:4515/b00970fe-e004-4a3b-800d-6291eee11859/3/media.smp,4515,b00970fe-e004-4a3b-800d-6291eee11859,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,DP,1,CCTV103-003
+313,내송,103,P-D2,7.103.3.112,rtsp://admin:asdQWE12!@@7.103.3.22:4515/c40d28c4-fa6f-4194-8417-46553d0a98ff/3/media.smp,4515,c40d28c4-fa6f-4194-8417-46553d0a98ff,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,DP,1,CCTV103-004
+315,내송,103,하선 출입구(상행),7.103.3.131,rtsp://admin:asdQWE12!@@7.103.3.22:4515/6b933149-5f50-471b-a23c-50f661753830/3/media.smp,4515,6b933149-5f50-471b-a23c-50f661753830,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,UF,1,CCTV103-005
+317,내송,103,하선 출입구(하행),7.103.3.132,rtsp://admin:asdQWE12!@@7.103.3.22:4515/01f6230e-2536-45ba-b061-a6ab8d6aee45/3/media.smp,4515,01f6230e-2536-45ba-b061-a6ab8d6aee45,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,DP,1,CCTV103-006
+319,내송,103,출구-1,7.103.3.135,rtsp://admin:asdQWE12!@@7.103.3.22:4515/0235a8c0-57df-4525-8296-c50cf4cbc222/3/media.smp,4515,0235a8c0-57df-4525-8296-c50cf4cbc222,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.22,,,CCTV103-007
+321,내송,103,출구-2,7.103.3.136,rtsp://admin:asdQWE12!@@7.103.3.22:4515/c7975781-7858-455f-aacc-179b181e79f8/3/media.smp,4515,c7975781-7858-455f-aacc-179b181e79f8,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.22,,,CCTV103-008
+323,내송,103,G-1,7.103.3.151,rtsp://admin:asdQWE12!@@7.103.3.22:4515/68709aac-957d-42f2-9fcc-ca9de0d23e0b/3/media.smp,4515,68709aac-957d-42f2-9fcc-ca9de0d23e0b,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.22,,,CCTV103-009
+325,내송,103,G-2,7.103.3.152,rtsp://admin:asdQWE12!@@7.103.3.22:4515/b4d932f0-4cdc-43a5-a9a4-6e013510b164/3/media.smp,4515,b4d932f0-4cdc-43a5-a9a4-6e013510b164,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.103.3.22,,,CCTV103-010
+327,내송,103,비상계단-대합,7.103.3.126,rtsp://admin:asdQWE12!@@7.103.3.22:4515/4a751bf6-aa49-43b4-861b-9af4bf49bd3a/3/media.smp,4515,4a751bf6-aa49-43b4-861b-9af4bf49bd3a,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-011
+329,내송,103,비상계단-중간,7.103.3.127,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-012
+331,내송,103,변전실-1,7.103.3.231,rtsp://admin:asdQWE12!@@7.103.3.22:4515/a15e2f6b-05ad-4adb-9cc6-3bdee40e1631/3/media.smp,4515,a15e2f6b-05ad-4adb-9cc6-3bdee40e1631,3,admin,asdQWE12!@,,,7.103.3.22,,,
+333,내송,103,변전실-2,7.103.3.232,rtsp://admin:asdQWE12!@@7.103.3.22:4515/d60057ff-7fbd-4b9d-8aec-120d27a046f9/3/media.smp,4515,d60057ff-7fbd-4b9d-8aec-120d27a046f9,3,admin,asdQWE12!@,,,7.103.3.22,,,
+335,내송,103,변전실-3,7.103.3.233,rtsp://admin:asdQWE12!@@7.103.3.22:4515/f78a58bd-d26f-473e-8f44-6ef0c73d4adb/3/media.smp,4515,f78a58bd-d26f-473e-8f44-6ef0c73d4adb,3,admin,asdQWE12!@,,,7.103.3.22,,,
+337,내송,103,변전실-4,7.103.3.234,rtsp://admin:asdQWE12!@@7.103.3.22:4515/6fb9381a-68fe-4bc1-850d-d13ba1fff9fc/3/media.smp,4515,6fb9381a-68fe-4bc1-850d-d13ba1fff9fc,3,admin,asdQWE12!@,,,7.103.3.22,,,
+339,내송,103,통신기기실,7.103.3.238,rtsp://admin:asdQWE12!@@7.103.3.22:4515/8e1ffb9e-f9ab-4b66-9db6-6eadda44e01e/3/media.smp,4515,8e1ffb9e-f9ab-4b66-9db6-6eadda44e01e,3,admin,asdQWE12!@,,,7.103.3.22,,,
+341,내송,103,신호기기실,7.103.3.239,rtsp://admin:asdQWE12!@@7.103.3.22:4515/e39937e3-7ca4-452c-8ecc-890f5da84d17/3/media.smp,4515,e39937e3-7ca4-452c-8ecc-890f5da84d17,3,admin,asdQWE12!@,,,7.103.3.22,,,
+343,내송,103,발매기,7.103.3.161,rtsp://admin:asdQWE12!@@7.103.3.22:4515/a99a35a4-0f20-4d45-9776-157e0f7a3db6/3/media.smp,4515,a99a35a4-0f20-4d45-9776-157e0f7a3db6,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-013
+345,내송,103,발매기실,7.103.3.162,rtsp://admin:asdQWE12!@@7.103.3.22:4515/a8908553-78a2-40cd-870f-b644cc271335/3/media.smp,4515,a8908553-78a2-40cd-870f-b644cc271335,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-014
+347,내송,103,화장실,7.103.3.121,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-015
+349,내송,103,본선 비상안내-8,7.103.3.81,rtsp://admin:asdQWE12!@@7.103.3.22:4515/0e8b347d-7815-49ac-8630-197dea0f1a19/3/media.smp,4515,0e8b347d-7815-49ac-8630-197dea0f1a19,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-016
+351,내송,103,본선 비상안내-9,7.103.3.82,rtsp://admin:asdQWE12!@@7.103.3.22:4515/811f5418-106e-48f9-8e5b-8c5b0827f852/3/media.smp,4515,811f5418-106e-48f9-8e5b-8c5b0827f852,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-017
+353,내송,103,본선 비상안내-10,7.103.3.83,rtsp://admin:asdQWE12!@@7.103.3.22:4515/927c65ba-353a-440a-ab87-c01781ae63d0/3/media.smp,4515,927c65ba-353a-440a-ab87-c01781ae63d0,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.103.3.22,WR,1,CCTV103-018
+355,내송,103,E/L-1 대합,7.103.3.201,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,,,CCTV103-019
+357,내송,103,E/L-1 승강장,7.103.3.202,rtsp://admin:asdQWE12!@@7.103.3.22:4515/c1a3182d-74cf-4115-877e-020d8af06c9e/3/media.smp,4515,c1a3182d-74cf-4115-877e-020d8af06c9e,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,,,CCTV103-020
+359,내송,103,E/S-1 대합,7.103.3.171,rtsp://admin:asdQWE12!@@7.103.3.22:4515/0a0a456d-22c0-48ec-8b19-c308cd90377c/3/media.smp,4515,0a0a456d-22c0-48ec-8b19-c308cd90377c,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,"WR,WR,WR","1,4,5",CCTV103-021
+361,내송,103,E/S-1 중간,7.103.3.172,rtsp://admin:asdQWE12!@@7.103.3.22:4515/98f62b15-1abf-4dad-ae6b-d3aae3027b95/3/media.smp,4515,98f62b15-1abf-4dad-ae6b-d3aae3027b95,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,"WR,WR,WR","1,4,5",CCTV103-022
+363,내송,103,E/S-2 중간,7.103.3.173,rtsp://admin:asdQWE12!@@7.103.3.22:4515/4a463615-018d-4d1f-a0d1-76bbdac9bcc8/3/media.smp,4515,4a463615-018d-4d1f-a0d1-76bbdac9bcc8,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,"WR,WR,WR","1,4,5",CCTV103-023
+365,내송,103,E/S-2 승강,7.103.3.174,rtsp://admin:asdQWE12!@@7.103.3.22:4515/14756683-9401-4baa-bea5-1afb7e9b29a7/3/media.smp,4515,14756683-9401-4baa-bea5-1afb7e9b29a7,3,admin,asdQWE12!@,"WC,ST,DR","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.103.3.22,"WR,WR,WR","1,4,5",CCTV103-024
+367,내송,103,선로전환기-10,7.103.3.71,rtsp://admin:asdQWE12!@@7.103.3.22:4515/b54bfde6-b8a5-4a2a-940b-ba9251e5ac61/3/media.smp,4515,b54bfde6-b8a5-4a2a-940b-ba9251e5ac61,3,admin,asdQWE12!@,,,7.103.3.22,,,
+369,내송,103,선로전환기-11,7.103.3.72,rtsp://admin:asdQWE12!@@7.103.3.22:4515/2f713650-8b77-4fa9-aed4-66abe79051b9/3/media.smp,4515,2f713650-8b77-4fa9-aed4-66abe79051b9,3,admin,asdQWE12!@,,,7.103.3.22,,,
+371,내송,103,선로전환기-12,7.103.3.73,rtsp://admin:asdQWE12!@@7.103.3.22:4515/76d1da30-eb88-4d80-9867-03ed418ea1a1/3/media.smp,4515,76d1da30-eb88-4d80-9867-03ed418ea1a1,3,admin,asdQWE12!@,,,7.103.3.22,,,
+373,양산시청,104,PSD-U1-1,7.104.3.241,rtsp://admin:asdQWE12!@@7.104.3.22:4515/629e8b9f-7c89-40f3-a6db-e8f2c028313e//media.smp,4515,629e8b9f-7c89-40f3-a6db-e8f2c028313e,,admin,asdQWE12!@,,,7.104.3.22,,,
+375,양산시청,104,PSD-U1-2,7.104.3.242,rtsp://admin:asdQWE12!@@7.104.3.22:4515/c8c4d873-342d-4b8b-8f01-92b6cf7f0f72//media.smp,4515,c8c4d873-342d-4b8b-8f01-92b6cf7f0f72,,admin,asdQWE12!@,,,7.104.3.22,,,
+377,양산시청,104,PSD-U2-1,7.104.3.243,rtsp://admin:asdQWE12!@@7.104.3.22:4515/7fbf9007-c072-4e98-9517-d78f967ce2be//media.smp,4515,7fbf9007-c072-4e98-9517-d78f967ce2be,,admin,asdQWE12!@,,,7.104.3.22,,,
+379,양산시청,104,PSD-U2-2,7.104.3.244,rtsp://admin:asdQWE12!@@7.104.3.22:4515/3fe48175-8aac-4ec8-a540-36866beaabb1//media.smp,4515,3fe48175-8aac-4ec8-a540-36866beaabb1,,admin,asdQWE12!@,,,7.104.3.22,,,
+381,양산시청,104,PSD-D1-1,7.104.3.245,rtsp://admin:asdQWE12!@@7.104.3.22:4515/97d8ff1e-259d-49c8-afec-e7410a789d38//media.smp,4515,97d8ff1e-259d-49c8-afec-e7410a789d38,,admin,asdQWE12!@,,,7.104.3.22,,,
+383,양산시청,104,PSD-D1-2,7.104.3.246,rtsp://admin:asdQWE12!@@7.104.3.22:4515/b4d83529-8d5a-4838-8cbc-3c2cf45cc0a6//media.smp,4515,b4d83529-8d5a-4838-8cbc-3c2cf45cc0a6,,admin,asdQWE12!@,,,7.104.3.22,,,
+385,양산시청,104,PSD-D2-1,7.104.3.247,rtsp://admin:asdQWE12!@@7.104.3.22:4515/35f73388-5e3a-4a0a-a51f-c512af0f749f//media.smp,4515,35f73388-5e3a-4a0a-a51f-c512af0f749f,,admin,asdQWE12!@,,,7.104.3.22,,,
+387,양산시청,104,PSD-D2-2,7.104.3.248,rtsp://admin:asdQWE12!@@7.104.3.22:4515/222bb96f-1695-4fbb-be01-987c8d5a66f0//media.smp,4515,222bb96f-1695-4fbb-be01-987c8d5a66f0,,admin,asdQWE12!@,,,7.104.3.22,,,
+389,양산시청,104,P-U1,7.104.3.101,rtsp://admin:asdQWE12!@@7.104.3.22:4515/e2720597-3aa0-448f-aa52-b59ebf963cb6//media.smp,4515,e2720597-3aa0-448f-aa52-b59ebf963cb6,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,UF,1,CCTV104-001
+391,양산시청,104,P-U2,7.104.3.102,rtsp://admin:asdQWE12!@@7.104.3.22:4515/9653983d-1b86-4bda-84f9-5954c4fd0538//media.smp,4515,9653983d-1b86-4bda-84f9-5954c4fd0538,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,UF,1,CCTV104-002
+393,양산시청,104,P-D1,7.104.3.111,rtsp://admin:asdQWE12!@@7.104.3.22:4515/c42e1041-123e-4469-99fd-05bbe985a524//media.smp,4515,c42e1041-123e-4469-99fd-05bbe985a524,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,DP,1,CCTV104-003
+395,양산시청,104,P-D2,7.104.3.112,rtsp://admin:asdQWE12!@@7.104.3.22:4515/96d20472-9c59-4f1b-a1e4-b108fd1a612a//media.smp,4515,96d20472-9c59-4f1b-a1e4-b108fd1a612a,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,DP,1,CCTV104-004
+397,양산시청,104,상선 출입구(하행),7.104.3.131,rtsp://admin:asdQWE12!@@7.104.3.22:4515/09a0107c-15f9-4ccc-bd2e-ebb4775c17cb//media.smp,4515,09a0107c-15f9-4ccc-bd2e-ebb4775c17cb,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,UF,1,CCTV104-005
+399,양산시청,104,하선 출입구(상행),7.104.3.132,rtsp://admin:asdQWE12!@@7.104.3.22:4515/b12e75b2-445a-4165-9d95-5d5ade50bc3c//media.smp,4515,b12e75b2-445a-4165-9d95-5d5ade50bc3c,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,DP,1,CCTV104-006
+401,양산시청,104,하선 출입구(하행),7.104.3.133,rtsp://admin:asdQWE12!@@7.104.3.22:4515/4783f88a-510c-49ad-b99c-3618d3fcce4d//media.smp,4515,4783f88a-510c-49ad-b99c-3618d3fcce4d,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,DP,1,CCTV104-007
+403,양산시청,104,출구-1,7.104.3.134,,4515,,,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.104.3.22,,,CCTV104-008
+405,양산시청,104,전기실-1,7.104.3.236,rtsp://admin:asdQWE12!@@7.104.3.22:4515/798fc0bd-de3e-47c7-9803-673d3b4b8f25//media.smp,4515,798fc0bd-de3e-47c7-9803-673d3b4b8f25,,admin,asdQWE12!@,,,7.104.3.22,,,
+407,양산시청,104,전기실-2,7.104.3.237,rtsp://admin:asdQWE12!@@7.104.3.22:4515/0589e3be-d447-42fd-b965-a40f4e0c3a4d//media.smp,4515,0589e3be-d447-42fd-b965-a40f4e0c3a4d,,admin,asdQWE12!@,,,7.104.3.22,,,
+409,양산시청,104,통신기기실,7.104.3.238,rtsp://admin:asdQWE12!@@7.104.3.22:4515/2ac5548f-8b88-4bf9-ae47-574d590199ee//media.smp,4515,2ac5548f-8b88-4bf9-ae47-574d590199ee,,admin,asdQWE12!@,,,7.104.3.22,,,
+411,양산시청,104,신호기기실,7.104.3.239,rtsp://admin:asdQWE12!@@7.104.3.22:4515/86435126-baba-423b-bf3e-afa745b84109//media.smp,4515,86435126-baba-423b-bf3e-afa745b84109,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-009
+413,양산시청,104,발매기,7.104.3.151,,4515,,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-010
+415,양산시청,104,발매기실,7.104.3.161,,4515,,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-011
+417,양산시청,104,여자 화장실,7.104.3.121,,4515,,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-012
+419,양산시청,104,장애인 화장실,7.104.3.122,,4515,,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-013
+421,양산시청,104,수유실,7.104.3.226,,4515,,,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.104.3.22,WR,1,CCTV104-014
+423,양산시청,104,E/L-1 지상,7.104.3.201,,4515,,,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.22,,,CCTV104-015
+425,양산시청,104,E/L-1 대합실,7.104.3.202,,4515,,,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.22,,,CCTV104-016
+427,양산시청,104,E/L-2 지상,7.104.3.203,rtsp://admin:asdQWE12!@@7.104.3.22:4515/1678f473-9d22-42bc-b683-958cd2d5dafe//media.smp,4515,1678f473-9d22-42bc-b683-958cd2d5dafe,,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.22,,,CCTV104-017
+429,양산시청,104,E/L-2 대합,7.104.3.204,,4515,,,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.104.3.22,,,CCTV104-018
+431,양산시청,104,E/S-1 지상,7.104.3.171,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-019
+433,양산시청,104,E/S-1 대합,7.104.3.172,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-020
+435,양산시청,104,E/S-2 지상,7.104.3.173,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-021
+437,양산시청,104,E/S-2 대합,7.104.3.174,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-022
+439,양산시청,104,E/S-3 대합,7.104.3.175,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-023
+441,양산시청,104,E/S-3 승강장,7.104.3.176,,4515,,,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.104.3.22,"WR,WR,WR","1,4,5",CCTV104-024
+443,양산시청,104,선로전환기-16,7.104.3.71,rtsp://admin:asdQWE12!@@7.104.3.22:4515/04425de6-cb73-4132-ac82-63abb9efb44b//media.smp,4515,04425de6-cb73-4132-ac82-63abb9efb44b,,admin,asdQWE12!@,,,7.104.3.22,,,
+445,양산시청,104,선로전환기-17,7.104.3.72,rtsp://admin:asdQWE12!@@7.104.3.22:4515/d26eba54-9d24-4b18-967e-8855c7bcadba//media.smp,4515,d26eba54-9d24-4b18-967e-8855c7bcadba,,admin,asdQWE12!@,,,7.104.3.22,,,
+447,양산중앙,105,PSD-U1-1,7.105.3.241,rtsp://admin:asdQWE12!@@7.105.3.22:4515/4f26d1ae-9ac7-4532-b0d3-a447f96ff931/3/media.smp,4515,4f26d1ae-9ac7-4532-b0d3-a447f96ff931,3,admin,asdQWE12!@,,,7.105.3.22,,,
+449,양산중앙,105,PSD-U1-2,7.105.3.242,rtsp://admin:asdQWE12!@@7.105.3.22:4515/f3c2b865-5885-4ced-a2d9-2cb9825d51f1/3/media.smp,4515,f3c2b865-5885-4ced-a2d9-2cb9825d51f1,3,admin,asdQWE12!@,,,7.105.3.22,,,
+451,양산중앙,105,PSD-U2-1,7.105.3.243,rtsp://admin:asdQWE12!@@7.105.3.22:4515/d64df07d-f7f0-42d7-baa5-7b899b0d5f5d/3/media.smp,4515,d64df07d-f7f0-42d7-baa5-7b899b0d5f5d,3,admin,asdQWE12!@,,,7.105.3.22,,,
+453,양산중앙,105,PSD-U2-2,7.105.3.244,rtsp://admin:asdQWE12!@@7.105.3.22:4515/c75f9a5e-bfa6-49d7-b658-c23de39d3126/3/media.smp,4515,c75f9a5e-bfa6-49d7-b658-c23de39d3126,3,admin,asdQWE12!@,,,7.105.3.22,,,
+455,양산중앙,105,PSD-D1-1,7.105.3.245,rtsp://admin:asdQWE12!@@7.105.3.22:4515/123a45a9-083b-455a-ad64-64bf6b02e5b0/3/media.smp,4515,123a45a9-083b-455a-ad64-64bf6b02e5b0,3,admin,asdQWE12!@,,,7.105.3.22,,,
+457,양산중앙,105,PSD-D1-2,7.105.3.246,rtsp://admin:asdQWE12!@@7.105.3.22:4515/0221f47c-2eac-45cc-92af-68750e32fd73/3/media.smp,4515,0221f47c-2eac-45cc-92af-68750e32fd73,3,admin,asdQWE12!@,,,7.105.3.22,,,
+459,양산중앙,105,PSD-D2-1,7.105.3.247,rtsp://admin:asdQWE12!@@7.105.3.22:4515/4afd2fc4-3b38-4864-992f-43be424ca771/3/media.smp,4515,4afd2fc4-3b38-4864-992f-43be424ca771,3,admin,asdQWE12!@,,,7.105.3.22,,,
+461,양산중앙,105,PSD-D2-2,7.105.3.248,rtsp://admin:asdQWE12!@@7.105.3.22:4515/873a4e51-f6a0-4f85-9e5d-e133aed314f2/3/media.smp,4515,873a4e51-f6a0-4f85-9e5d-e133aed314f2,3,admin,asdQWE12!@,,,7.105.3.22,,,
+463,양산중앙,105,P-U1,7.105.3.101,rtsp://admin:asdQWE12!@@7.105.3.22:4515/c52d5769-8397-4bf0-a2f3-2a3edfe75620/3/media.smp,4515,c52d5769-8397-4bf0-a2f3-2a3edfe75620,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,UF,1,CCTV105-001
+465,양산중앙,105,P-U2,7.105.3.102,rtsp://admin:asdQWE12!@@7.105.3.22:4515/43494d06-4f9b-409b-a430-89b23f035147/3/media.smp,4515,43494d06-4f9b-409b-a430-89b23f035147,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,UF,1,CCTV105-002
+467,양산중앙,105,P-D1,7.105.3.111,rtsp://admin:asdQWE12!@@7.105.3.22:4515/94bdd11f-ccb9-4ef1-9cce-599dc3c0ade2/3/media.smp,4515,94bdd11f-ccb9-4ef1-9cce-599dc3c0ade2,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,DP,1,CCTV105-003
+469,양산중앙,105,P-D2,7.105.3.112,rtsp://admin:asdQWE12!@@7.105.3.22:4515/81d7385f-4dae-4215-8436-3ffb8cfc1c34/3/media.smp,4515,81d7385f-4dae-4215-8436-3ffb8cfc1c34,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,DP,1,CCTV105-004
+471,양산중앙,105,상선 출입구(상행),7.105.3.131,rtsp://admin:asdQWE12!@@7.105.3.22:4515/cb90130e-5266-4e19-a7e7-f48e1b57f8f8/3/media.smp,4515,cb90130e-5266-4e19-a7e7-f48e1b57f8f8,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,UF,1,CCTV105-005
+473,양산중앙,105,상선 출입구(하행),7.105.3.132,rtsp://admin:asdQWE12!@@7.105.3.22:4515/efda2cca-7dff-485b-b0f2-ae67898c5974/3/media.smp,4515,efda2cca-7dff-485b-b0f2-ae67898c5974,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,DP,1,CCTV105-006
+475,양산중앙,105,하선 출입구(하행),7.105.3.133,rtsp://admin:asdQWE12!@@7.105.3.22:4515/0aebd8e2-5c78-41bb-bdb2-42acb92dab40/3/media.smp,4515,0aebd8e2-5c78-41bb-bdb2-42acb92dab40,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움 감시",7.105.3.22,DP,1,CCTV105-007
+477,양산중앙,105,출구-1,7.105.3.134,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+479,양산중앙,105,출구-2,7.105.3.135,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+481,양산중앙,105,G-1,7.105.3.151,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.22,,6,CCTV105-008
+483,양산중앙,105,G-2,7.105.3.152,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.22,,6,CCTV105-009
+485,양산중앙,105,G-3,7.105.3.153,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.22,,6,CCTV105-010
+487,양산중앙,105,G-4,7.105.3.154,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.105.3.22,,6,CCTV105-011
+489,양산중앙,105,변전실-1,7.105.3.231,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+491,양산중앙,105,변전실-2,7.105.3.232,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+493,양산중앙,105,변전실-3,7.105.3.233,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+495,양산중앙,105,통신기기실,7.105.3.238,rtsp://admin:asdQWE12!@@7.105.3.22:4515/2020e35a-0cf3-4b43-b0f6-09edc3f9e402/3/media.smp,4515,2020e35a-0cf3-4b43-b0f6-09edc3f9e402,3,admin,asdQWE12!@,,,7.105.3.22,,,
+497,양산중앙,105,신호기기실,7.105.3.239,rtsp://admin:asdQWE12!@@7.105.3.22:4515/1e1f8fef-bc1e-4435-a801-72ca89487bc2/3/media.smp,4515,1e1f8fef-bc1e-4435-a801-72ca89487bc2,3,admin,asdQWE12!@,,,7.105.3.22,,,
+499,양산중앙,105,발매기/Gate,7.105.3.161,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+501,양산중앙,105,발매기실,7.105.3.162,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+503,양산중앙,105,화장실/수유실,7.105.3.121,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+505,양산중앙,105,E/L-1 지상,7.105.3.201,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-012
+507,양산중앙,105,E/L-1 대합실,7.105.3.202,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-013
+509,양산중앙,105,E/L-2 지상,7.105.3.203,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-014
+511,양산중앙,105,E/L-2 대합실,7.105.3.204,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-015
+513,양산중앙,105,E/L-3 환승,7.105.3.205,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-016
+515,양산중앙,105,E/L-3 대합,7.105.3.206,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-017
+517,양산중앙,105,E/L-4 대합,7.105.3.207,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-018
+519,양산중앙,105,E/L-4 승강장,7.105.3.208,rtsp://admin:asdQWE12!@@7.105.3.22:4515/d674e5a1-b3ed-4267-8d0a-1c68d4020eb4/3/media.smp,4515,d674e5a1-b3ed-4267-8d0a-1c68d4020eb4,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.105.3.22,,,CCTV105-019
+521,양산중앙,105,E/S-1 대합,7.105.3.171,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+523,양산중앙,105,E/S-1 환승,7.105.3.172,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+525,양산중앙,105,E/S-2 지상,7.105.3.173,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.22,"WR,WR,WR","1,4,5",CCTV105-020
+527,양산중앙,105,E/S-2 대합,7.105.3.174,,4515,,3,admin,asdQWE12!@,,,7.105.3.22,,,
+529,양산중앙,105,E/S-3 대합,7.105.3.175,rtsp://admin:asdQWE12!@@7.105.3.22:4515/9340e5d4-e843-4114-93e3-5aaec86e87bb/3/media.smp,4515,9340e5d4-e843-4114-93e3-5aaec86e87bb,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.22,"WR,WR,WR","1,4,5",CCTV105-021
+531,양산중앙,105,E/S-3 승강장,7.105.3.176,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.22,"WR,WR,WR","1,4,5",CCTV105-022
+533,양산중앙,105,E/S-4 대합,7.105.3.177,rtsp://admin:asdQWE12!@@7.105.3.22:4515/79dcec44-4310-4a1a-8a57-ae0eba7a66f8/3/media.smp,4515,79dcec44-4310-4a1a-8a57-ae0eba7a66f8,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.22,"WR,WR,WR","1,4,5",CCTV105-023
+535,양산중앙,105,E/S-4 승강장,7.105.3.178,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.105.3.22,"WR,WR,WR","1,4,5",CCTV105-024
+537,양산중앙,105,선로전환기 카메라-18,7.105.3.71,rtsp://admin:asdQWE12!@@7.105.3.22:4515/053d0e82-e344-4937-a81f-97a2c8eebeaf/3/media.smp,4515,053d0e82-e344-4937-a81f-97a2c8eebeaf,3,admin,asdQWE12!@,,,7.105.3.22,,,
+539,양산중앙,105,선로전환기 카메라-19,7.105.3.72,rtsp://admin:asdQWE12!@@7.105.3.22:4515/8819e43b-bd24-40d8-84ff-9ea39d0b9622/3/media.smp,4515,8819e43b-bd24-40d8-84ff-9ea39d0b9622,3,admin,asdQWE12!@,,,7.105.3.22,,,
+541,양산중앙,105,선로전환기 카메라-20,7.105.3.73,rtsp://admin:asdQWE12!@@7.105.3.22:4515/62bacf26-b390-4a09-b1d7-acd90d390a4b/3/media.smp,4515,62bacf26-b390-4a09-b1d7-acd90d390a4b,3,admin,asdQWE12!@,,,7.105.3.22,,,
+543,양산중앙,105,선로전환기 카메라-21,7.105.3.74,rtsp://admin:asdQWE12!@@7.105.3.74:4515/4cd7ccff-5278-4a5a-8129-ea186757454f/3/media.smp,4515,4cd7ccff-5278-4a5a-8129-ea186757454f,3,admin,asdQWE12!@,,,7.105.3.74,,,
+545,신기,106,PSD-U1-1,7.106.3.241,rtsp://admin:asdQWE12!@@7.106.3.22:4515/7ae1b7fa-e805-4a06-896c-d1e12455adad/3/media.smp,4515,7ae1b7fa-e805-4a06-896c-d1e12455adad,3,admin,asdQWE12!@,,,7.106.3.22,,,
+547,신기,106,PSD-U1-2,7.106.3.242,rtsp://admin:asdQWE12!@@7.106.3.22:4515/e68ff66a-a1c9-4b37-ae71-35f986ccdf45/3/media.smp,4515,e68ff66a-a1c9-4b37-ae71-35f986ccdf45,3,admin,asdQWE12!@,,,7.106.3.22,,,
+549,신기,106,PSD-U2-1,7.106.3.243,rtsp://admin:asdQWE12!@@7.106.3.22:4515/2e62f832-e719-4c24-9a73-13024946b5e2/3/media.smp,4515,2e62f832-e719-4c24-9a73-13024946b5e2,3,admin,asdQWE12!@,,,7.106.3.22,,,
+551,신기,106,PSD-U2-2,7.106.3.244,rtsp://admin:asdQWE12!@@7.106.3.22:4515/054483c7-1354-4dbf-9e39-eb3c0187b0d5/3/media.smp,4515,054483c7-1354-4dbf-9e39-eb3c0187b0d5,3,admin,asdQWE12!@,,,7.106.3.22,,,
+553,신기,106,PSD-D1-1,7.106.3.245,rtsp://admin:asdQWE12!@@7.106.3.22:4515/26adc6f5-6f72-43ef-aa7d-ddcaa5fd6c1d/3/media.smp,4515,26adc6f5-6f72-43ef-aa7d-ddcaa5fd6c1d,3,admin,asdQWE12!@,,,7.106.3.22,,,
+555,신기,106,PSD-D1-2,7.106.3.246,rtsp://admin:asdQWE12!@@7.106.3.22:4515/c8ec8d8c-40d0-4ea7-9eec-01d5a348139a/3/media.smp,4515,c8ec8d8c-40d0-4ea7-9eec-01d5a348139a,3,admin,asdQWE12!@,,,7.106.3.22,,,
+557,신기,106,PSD-D2-1,7.106.3.247,rtsp://admin:asdQWE12!@@7.106.3.22:4515/b72a08e4-3daa-4f95-8670-298cd7f18188/3/media.smp,4515,b72a08e4-3daa-4f95-8670-298cd7f18188,3,admin,asdQWE12!@,,,7.106.3.22,,,
+559,신기,106,PSD-D2-2,7.106.3.248,rtsp://admin:asdQWE12!@@7.106.3.22:4515/d71fc350-8ea8-4db9-aff9-1700153da444/3/media.smp,4515,d71fc350-8ea8-4db9-aff9-1700153da444,3,admin,asdQWE12!@,,,7.106.3.22,,,
+561,신기,106,P-U1,7.106.3.101,rtsp://admin:asdQWE12!@@7.106.3.22:4515/5b65e07b-a49f-4a43-b07b-dc8d208ebef9/3/media.smp,4515,5b65e07b-a49f-4a43-b07b-dc8d208ebef9,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,UF,1,CCTV106-001
+563,신기,106,P-U2,7.106.3.102,rtsp://admin:asdQWE12!@@7.106.3.22:4515/937a442d-063c-4281-9fe8-c41ff4544d81/3/media.smp,4515,937a442d-063c-4281-9fe8-c41ff4544d81,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,UF,1,CCTV106-002
+565,신기,106,P-D1,7.106.3.111,rtsp://admin:asdQWE12!@@7.106.3.22:4515/4815156e-bac0-4ea6-a89a-50e0edccf780/3/media.smp,4515,4815156e-bac0-4ea6-a89a-50e0edccf780,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,DP,1,CCTV106-003
+567,신기,106,P-D2,7.106.3.112,rtsp://admin:asdQWE12!@@7.106.3.22:4515/49a409cc-8f58-419d-a8ef-5ce28386e78f/3/media.smp,4515,49a409cc-8f58-419d-a8ef-5ce28386e78f,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,DP,1,CCTV106-004
+569,신기,106,하선 출입구(상행),7.106.3.131,rtsp://admin:asdQWE12!@@7.106.3.22:4515/a068c29b-d10a-4783-8827-355b5f026d1b/3/media.smp,4515,a068c29b-d10a-4783-8827-355b5f026d1b,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,UF,1,CCTV106-005
+571,신기,106,하선 출입구(하행),7.106.3.132,rtsp://admin:asdQWE12!@@7.106.3.22:4515/3f64323b-e067-4e81-aec5-ba3d066f0875/3/media.smp,4515,3f64323b-e067-4e81-aec5-ba3d066f0875,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.106.3.22,DP,1,CCTV106-006
+573,신기,106,출구-1,7.106.3.133,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+575,신기,106,출구-2,7.106.3.134,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+577,신기,106,G-1,7.106.3.151,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.106.3.22,,,CCTV106-007
+579,신기,106,G-2,7.106.3.152,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.106.3.22,,,CCTV106-008
+581,신기,106,전기실-1,7.106.3.236,rtsp://admin:asdQWE12!@@7.106.3.22:4515/865c39ce-58c2-434a-a55a-8e4e249efd73/3/media.smp,4515,865c39ce-58c2-434a-a55a-8e4e249efd73,3,admin,asdQWE12!@,,,7.106.3.22,,,
+583,신기,106,전기실-2,7.106.3.237,rtsp://admin:asdQWE12!@@7.106.3.22:4515/fc75e180-c3f4-436f-a2e4-2f9cf9331cdb/3/media.smp,4515,fc75e180-c3f4-436f-a2e4-2f9cf9331cdb,3,admin,asdQWE12!@,,,7.106.3.22,,,
+585,신기,106,통신기기실,7.106.3.238,rtsp://admin:asdQWE12!@@7.106.3.22:4515/7dd8f200-dbd2-4e97-8298-67ca91291154/3/media.smp,4515,7dd8f200-dbd2-4e97-8298-67ca91291154,3,admin,asdQWE12!@,,,7.106.3.22,,,
+587,신기,106,신호기기실,7.106.3.239,rtsp://admin:asdQWE12!@@7.106.3.22:4515/4f7b49e9-e9f1-42b4-9940-a1e1f8a5d805/3/media.smp,4515,4f7b49e9-e9f1-42b4-9940-a1e1f8a5d805,3,admin,asdQWE12!@,,,7.106.3.22,,,
+589,신기,106,발매기,7.106.3.161,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+591,신기,106,발매기실,7.106.3.162,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+593,신기,106,화장실,7.106.3.121,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+595,신기,106,장애인 화장실,7.106.3.122,,4515,,3,admin,asdQWE12!@,,,7.106.3.22,,,
+597,신기,106,E/L-1 대합실,7.106.3.202,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-009
+599,신기,106,E/L-1 승강장,7.106.3.201,rtsp://admin:asdQWE12!@@7.106.3.22:4515/ed26d98f-5d75-4b19-a083-a5b6df94dddb/3/media.smp,4515,ed26d98f-5d75-4b19-a083-a5b6df94dddb,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-010
+601,신기,106,E/L-2 지상,7.106.3.203,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-011
+603,신기,106,E/L-2 대합실,7.106.3.204,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-012
+605,신기,106,E/L-3 지상,7.106.3.205,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-013
+607,신기,106,E/L-3 대합실,7.106.3.206,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.106.3.22,,,CCTV106-014
+609,신기,106,E/S-1 대합,7.106.3.171,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-015
+611,신기,106,E/S-1 승강장,7.106.3.172,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-016
+613,신기,106,E/S-2 대합,7.106.3.173,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-017
+615,신기,106,E/S-2 중간,7.106.3.174,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-018
+617,신기,106,E/S-3 대합,7.106.3.175,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-019
+619,신기,106,E/S-3 중간,7.106.3.176,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-020
+621,신기,106,E/S-4 지상,7.106.3.178,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-021
+623,신기,106,E/S-4 대합,7.106.3.177,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-022
+625,신기,106,E/S-5 지상,7.106.3.180,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-023
+627,신기,106,E/S-5 대합,7.106.3.179,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.106.3.22,"WR,WR,WR","1,4,5",CCTV106-024
+629,신기,106,선로전환기 카메라-22,7.106.3.71,rtsp://admin:asdQWE12!@@7.106.3.22:4515/50d3aeab-156a-4047-9dc8-defe79fc3fc4/3/media.smp,4515,50d3aeab-156a-4047-9dc8-defe79fc3fc4,3,admin,asdQWE12!@,,,7.106.3.22,,,
+631,신기,106,선로전환기 카메라-23,7.106.3.72,rtsp://admin:asdQWE12!@@7.106.3.72:4515/e93badd3-d95e-4137-862b-77a35ba35e85/3/media.smp,4515,e93badd3-d95e-4137-862b-77a35ba35e85,3,admin,asdQWE12!@,,,7.106.3.72,,,
+633,북정,107,PSD-U1-1,7.107.3.241,rtsp://admin:asdQWE12!@@7.107.3.22:4515/4b05f430-7521-412a-9f60-861ad04f1a0b/3/media.smp,4515,4b05f430-7521-412a-9f60-861ad04f1a0b,3,admin,asdQWE12!@,,,7.107.3.22,,,
+635,북정,107,PSD-U1-2,7.107.3.242,rtsp://admin:asdQWE12!@@7.107.3.22:4515/c4751e1d-8010-4b2d-8f0f-69d03b27c02e/3/media.smp,4515,c4751e1d-8010-4b2d-8f0f-69d03b27c02e,3,admin,asdQWE12!@,,,7.107.3.22,,,
+637,북정,107,PSD-U2-1,7.107.3.243,rtsp://admin:asdQWE12!@@7.107.3.22:4515/558ef507-7ed1-40cb-b954-dd776833d7e4/3/media.smp,4515,558ef507-7ed1-40cb-b954-dd776833d7e4,3,admin,asdQWE12!@,,,7.107.3.22,,,
+639,북정,107,PSD-U2-2,7.107.3.244,rtsp://admin:asdQWE12!@@7.107.3.22:4515/4ac4d580-8669-44fa-aaea-6cdadc484916/3/media.smp,4515,4ac4d580-8669-44fa-aaea-6cdadc484916,3,admin,asdQWE12!@,,,7.107.3.22,,,
+641,북정,107,PSD-D1-1,7.107.3.245,rtsp://admin:asdQWE12!@@7.107.3.22:4515/edecb642-3c16-42e8-a078-70d182383b35/3/media.smp,4515,edecb642-3c16-42e8-a078-70d182383b35,3,admin,asdQWE12!@,,,7.107.3.22,,,
+643,북정,107,PSD-D1-2,7.107.3.246,rtsp://admin:asdQWE12!@@7.107.3.22:4515/bc2918af-c6cd-4119-82d9-80a9b4efb9d2/3/media.smp,4515,bc2918af-c6cd-4119-82d9-80a9b4efb9d2,3,admin,asdQWE12!@,,,7.107.3.22,,,
+645,북정,107,PSD-D2-1,7.107.3.247,rtsp://admin:asdQWE12!@@7.107.3.22:4515/ce0e7b6a-7dde-444b-8a47-1f72d546a3be/3/media.smp,4515,ce0e7b6a-7dde-444b-8a47-1f72d546a3be,3,admin,asdQWE12!@,,,7.107.3.22,,,
+647,북정,107,PSD-D2-2,7.107.3.248,rtsp://admin:asdQWE12!@@7.107.3.22:4515/63b1cda2-7bec-416e-a506-1830653b88f1/3/media.smp,4515,63b1cda2-7bec-416e-a506-1830653b88f1,3,admin,asdQWE12!@,,,7.107.3.22,,,
+649,북정,107,P-U1,7.107.3.101,rtsp://admin:asdQWE12!@@7.107.3.22:4515/f00dbcfb-9fa3-4dc3-853f-fa736d2bb8a2/3/media.smp,4515,f00dbcfb-9fa3-4dc3-853f-fa736d2bb8a2,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,UF,1,CCTV107-001
+651,북정,107,P-U2,7.107.3.102,rtsp://admin:asdQWE12!@@7.107.3.22:4515/3fa13578-a5b4-4929-8588-16c043a8b120/3/media.smp,4515,3fa13578-a5b4-4929-8588-16c043a8b120,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,UF,1,CCTV107-002
+653,북정,107,P-D1,7.107.3.111,rtsp://admin:asdQWE12!@@7.107.3.22:4515/3a2f12f7-da15-4e10-9dd7-cf86f296926f/3/media.smp,4515,3a2f12f7-da15-4e10-9dd7-cf86f296926f,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,DP,1,CCTV107-003
+655,북정,107,P-D2,7.107.3.112,rtsp://admin:asdQWE12!@@7.107.3.22:4515/fe48bda9-3139-4c7a-80d1-76bfdfadab9e/3/media.smp,4515,fe48bda9-3139-4c7a-80d1-76bfdfadab9e,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,DP,1,CCTV107-004
+657,북정,107,하선 출입구(상행),7.107.3.131,rtsp://admin:asdQWE12!@@7.107.3.22:4515/c3c6c433-a16d-4214-91c7-644b9fd7c803/3/media.smp,4515,c3c6c433-a16d-4214-91c7-644b9fd7c803,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,UF,1,CCTV107-005
+659,북정,107,하선 출입구(하행),7.107.3.132,rtsp://admin:asdQWE12!@@7.107.3.22:4515/1e2a586b-5592-4b28-8998-7349ddc04a2e/3/media.smp,4515,1e2a586b-5592-4b28-8998-7349ddc04a2e,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,DP,1,CCTV107-006
+661,북정,107,출구-1,7.107.3.133,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.22,,,CCTV107-007
+663,북정,107,출구-2,7.107.3.134,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.22,,,CCTV107-008
+665,북정,107,G-1,7.107.3.151,,4515,,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.22,,,CCTV107-009
+667,북정,107,G-2,7.107.3.152,rtsp://admin:asdQWE12!@@7.107.3.22:4515/ef10c99d-9475-42aa-8771-c49a691360c1/3/media.smp,4515,ef10c99d-9475-42aa-8771-c49a691360c1,3,admin,asdQWE12!@,BC,자전거 휴대 탑승 감시,7.107.3.22,,,CCTV107-010
+669,북정,107,변전실-1,7.107.3.231,rtsp://admin:asdQWE12!@@7.107.3.22:4515/d3ba20a3-44ab-4604-a8a8-d1d330f873b1/3/media.smp,4515,d3ba20a3-44ab-4604-a8a8-d1d330f873b1,3,admin,asdQWE12!@,,,7.107.3.22,,,
+671,북정,107,변전실-2,7.107.3.232,rtsp://admin:asdQWE12!@@7.107.3.22:4515/2d00c0d7-25ac-4c9d-b59d-d3a12e140ff1/3/media.smp,4515,2d00c0d7-25ac-4c9d-b59d-d3a12e140ff1,3,admin,asdQWE12!@,,,7.107.3.22,,,
+673,북정,107,변전실-3,7.107.3.233,rtsp://admin:asdQWE12!@@7.107.3.22:4515/7ec6b40b-3f37-470e-ac17-5a77e05f75a3/3/media.smp,4515,7ec6b40b-3f37-470e-ac17-5a77e05f75a3,3,admin,asdQWE12!@,,,7.107.3.22,,,
+675,북정,107,변전실-4,7.107.3.234,rtsp://admin:asdQWE12!@@7.107.3.22:4515/8f8c3ff9-8cf7-4b95-9c1a-5a6e66e763cb/3/media.smp,4515,8f8c3ff9-8cf7-4b95-9c1a-5a6e66e763cb,3,admin,asdQWE12!@,,,7.107.3.22,,,
+677,북정,107,통신기기실,7.107.3.238,rtsp://admin:asdQWE12!@@7.107.3.22:4515/453d6359-7977-4404-b33d-66699a652a88/3/media.smp,4515,453d6359-7977-4404-b33d-66699a652a88,3,admin,asdQWE12!@,,,7.107.3.22,,,
+679,북정,107,신호기기실,7.107.3.239,,4515,,3,admin,asdQWE12!@,,,7.107.3.22,,,
+681,북정,107,발매기,7.107.3.161,rtsp://admin:asdQWE12!@@7.107.3.22:4515/4ecb098c-e4ca-49a2-922f-9487b85183e8/3/media.smp,4515,4ecb098c-e4ca-49a2-922f-9487b85183e8,3,admin,asdQWE12!@,,,7.107.3.22,,,
+683,북정,107,발매기실,7.107.3.162,,4515,,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,WR,1,CCTV107-011
+685,북정,107,화장실,7.107.3.121,rtsp://admin:asdQWE12!@@7.107.3.22:4515/0bee2f40-b508-46e6-a25a-58ab029c83e7/3/media.smp,4515,0bee2f40-b508-46e6-a25a-58ab029c83e7,3,admin,asdQWE12!@,"DR,FT","쓰러짐, 싸움, 침입 감시",7.107.3.22,WR,1,CCTV107-012
+687,북정,107,장애인 화장실,7.107.3.122,rtsp://admin:asdQWE12!@@7.107.3.22:4515/c1855fb3-440b-4d87-b0d6-d857e629d466/3/media.smp,4515,c1855fb3-440b-4d87-b0d6-d857e629d466,3,admin,asdQWE12!@,,,7.107.3.22,,,
+689,북정,107,E/L-1 대합실,7.107.3.202,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-013
+691,북정,107,E/L-1 승강장,7.107.3.201,rtsp://admin:asdQWE12!@@7.107.3.22:4515/1c33902e-c032-4a9d-b810-fef93ee9a2be/3/media.smp,4515,1c33902e-c032-4a9d-b810-fef93ee9a2be,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-014
+693,북정,107,E/L-2 지상,7.107.3.203,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-015
+695,북정,107,E/L-2 대합실,7.107.3.204,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-016
+697,북정,107,E/L-3 지상,7.107.3.205,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-017
+699,북정,107,E/L-3 대합실,7.107.3.206,,4515,,3,admin,asdQWE12!@,"WC,ST","엘리베이터 교통약자(휠체어, 유모차) 이용 감시",7.107.3.22,,,CCTV107-018
+701,북정,107,E/S-1 대합,7.107.3.171,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-019
+703,북정,107,E/S-1 승강장,7.107.3.172,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-020
+705,북정,107,E/S-2 지상,7.107.3.173,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-021
+707,북정,107,E/S-2 대합,7.107.3.174,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-022
+709,북정,107,E/S-3 지상,7.107.3.175,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-023
+711,북정,107,E/S-3 대합,7.107.3.176,,4515,,3,admin,asdQWE12!@,"WC,ST,DR","에스컬레이터 유모차탑승, 쓰러짐 감시",7.107.3.22,"WR,WR,WR","1,4,5",CCTV107-024
+713,북정,107,선로전환기 카메라-24,7.107.3.71,rtsp://admin:asdQWE12!@@7.107.3.22:4515/22b3dfca-c0d5-4773-be57-d6070c34d2e3/3/media.smp,4515,22b3dfca-c0d5-4773-be57-d6070c34d2e3,3,admin,asdQWE12!@,,,7.107.3.22,,,
+,,,,,,357,187,,,,,,,,,

@@ -25,8 +25,10 @@ INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resoluti
 SELECT_CAMERA_INFO_ID_SQL="select id from t_arteva_camera_info where name = '{}'"
 
 ## Update CCTV infomation
-SELECT_ID_CAMERA_INFO_SQL="select name, url from t_arteva_camera_info where url = '{}';" 
-UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}' where name = '{}';" 
+SELECT_ID_CAMERA_INFO_SQL="select name, url from t_arteva_camera_info where name = '{}';" 
+#SELECT_ID_CAMERA_INFO_SQL="select name, url from t_arteva_camera_info where url = '{}';" 
+UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = '{}' where name = '{}';" 
+EMPTY_UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = 'S' where name = '{}';" 
 
 ## Insert Camera event 
 INSERT_CAMERA_EVENT_BID_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_area_code, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) "
