@@ -1,0 +1,89 @@
+2026-01-13 15:53:55 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 68320
+2026-01-13 15:53:55 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-13 15:53:55 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-13 15:53:56 | INFO     | worker_Streaming_Channels_201 | 스트림 정보 - 해상도: 1920x1080, FPS: 30.00, Backend: FFMPEG
+2026-01-13 15:53:56 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 성공
+2026-01-13 15:54:11 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-14 13:43:49 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 8929
+2026-01-14 13:43:49 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-14 13:43:49 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-14 13:43:50 | INFO     | worker_Streaming_Channels_201 | 스트림 정보 - 해상도: 1920x1080, FPS: 30.00, Backend: FFMPEG
+2026-01-14 13:43:50 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 성공
+2026-01-14 13:44:49 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 59개, 수집: 579개, 저장: 579개, 실패: 0개, 평균 FPS: 9.70, 최소 FPS: 1.96, 최대 FPS: 10.80, 저장 성공률: 100.0%
+2026-01-14 13:45:49 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 590개, 저장: 590개, 실패: 0개, 평균 FPS: 9.84, 최소 FPS: 3.60, 최대 FPS: 10.82, 저장 성공률: 100.0%
+2026-01-14 13:46:49 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 589개, 저장: 589개, 실패: 0개, 평균 FPS: 9.83, 최소 FPS: 2.72, 최대 FPS: 10.80, 저장 성공률: 100.0%
+2026-01-14 13:47:03 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 73667
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 모드 활성화
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 경로: streaming_video/Streaming_Channels_201
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 모드 활성화
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | 저장 모드: both
+2026-01-15 15:44:27 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-15 15:44:28 | INFO     | worker_Streaming_Channels_201 | 스트림 정보 - 해상도: 1920x1080, FPS: 29.97, Backend: FFMPEG
+2026-01-15 15:44:28 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 성공
+2026-01-15 15:44:28 | INFO     | worker_Streaming_Channels_201 | 새 비디오 세그먼트 시작: 20260115_154428.mp4
+2026-01-15 15:44:58 | INFO     | worker_Streaming_Channels_201 | 비디오 세그먼트 완료: 20260115_154428.mp4 (287 프레임)
+2026-01-15 15:44:58 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 75290
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 모드 활성화
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 경로: streaming_video/Streaming_Channels_201
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 모드 활성화
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | 저장 모드: both
+2026-01-15 15:45:11 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-15 15:45:13 | INFO     | worker_Streaming_Channels_201 | 스트림 정보 - 해상도: 1920x1080, FPS: 30.00, Backend: FFMPEG
+2026-01-15 15:45:13 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 성공
+2026-01-15 15:45:13 | INFO     | worker_Streaming_Channels_201 | 새 비디오 세그먼트 시작: 20260115_154513.mp4
+2026-01-15 15:46:11 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 586개, 저장: 586개, 실패: 0개, 평균 FPS: 9.78, 최소 FPS: 0.88, 최대 FPS: 10.31, 저장 성공률: 100.0%
+2026-01-15 15:47:11 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 58개, 수집: 572개, 저장: 572개, 실패: 0개, 평균 FPS: 9.71, 최소 FPS: 2.46, 최대 FPS: 10.76, 저장 성공률: 100.0%
+2026-01-15 15:48:11 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 57개, 수집: 563개, 저장: 563개, 실패: 0개, 평균 FPS: 9.67, 최소 FPS: 0.81, 최대 FPS: 10.81, 저장 성공률: 100.0%
+2026-01-15 15:49:11 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 595개, 저장: 595개, 실패: 0개, 평균 FPS: 9.92, 최소 FPS: 8.29, 최대 FPS: 10.55, 저장 성공률: 100.0%
+2026-01-15 15:50:11 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 58개, 수집: 572개, 저장: 572개, 실패: 0개, 평균 FPS: 9.71, 최소 FPS: 3.69, 최대 FPS: 10.72, 저장 성공률: 100.0%
+2026-01-15 15:50:13 | INFO     | worker_Streaming_Channels_201 | 비디오 세그먼트 완료: 20260115_154513.mp4 (2899 프레임)
+2026-01-15 15:50:13 | INFO     | worker_Streaming_Channels_201 | 새 비디오 세그먼트 시작: 20260115_155013.mp4
+2026-01-15 15:51:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 55개, 수집: 550개, 저장: 550개, 실패: 0개, 평균 FPS: 9.59, 최소 FPS: 1.90, 최대 FPS: 10.76, 저장 성공률: 100.0%
+2026-01-15 15:52:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 596개, 저장: 596개, 실패: 0개, 평균 FPS: 9.92, 최소 FPS: 8.31, 최대 FPS: 10.69, 저장 성공률: 100.0%
+2026-01-15 15:53:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 594개, 저장: 594개, 실패: 0개, 평균 FPS: 9.85, 최소 FPS: 6.12, 최대 FPS: 10.67, 저장 성공률: 100.0%
+2026-01-15 15:54:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 54개, 수집: 535개, 저장: 535개, 실패: 0개, 평균 FPS: 9.72, 최소 FPS: 0.92, 최대 FPS: 10.74, 저장 성공률: 100.0%
+2026-01-15 15:55:13 | INFO     | worker_Streaming_Channels_201 | 비디오 세그먼트 완료: 20260115_155013.mp4 (2837 프레임)
+2026-01-15 15:55:13 | INFO     | worker_Streaming_Channels_201 | 새 비디오 세그먼트 시작: 20260115_155513.mp4
+2026-01-15 15:55:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 58개, 수집: 575개, 저장: 575개, 실패: 0개, 평균 FPS: 9.75, 최소 FPS: 2.71, 최대 FPS: 10.72, 저장 성공률: 100.0%
+2026-01-15 15:56:13 | INFO     | worker_Streaming_Channels_201 | [60초 통계] 샘플 수: 60개, 수집: 586개, 저장: 586개, 실패: 0개, 평균 FPS: 9.75, 최소 FPS: 4.56, 최대 FPS: 10.65, 저장 성공률: 100.0%
+2026-01-15 15:56:17 | INFO     | worker_Streaming_Channels_201 | 비디오 세그먼트 완료: 20260115_155513.mp4 (628 프레임)
+2026-01-15 15:56:17 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 2663407
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 모드 활성화
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 경로: streaming_video/Streaming_Channels_201
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 모드 활성화
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | 저장 모드: both
+2026-01-16 14:21:16 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-16 14:21:17 | INFO     | worker_Streaming_Channels_201 | 스트림 정보 - 해상도: 1920x1080, FPS: 30.00, Backend: FFMPEG
+2026-01-16 14:21:17 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 성공
+2026-01-16 14:21:17 | INFO     | worker_Streaming_Channels_201 | 새 비디오 세그먼트 시작: 20260116_142117.mp4
+2026-01-16 14:22:03 | INFO     | worker_Streaming_Channels_201 | 비디오 세그먼트 완료: 20260116_142117.mp4 (464 프레임)
+2026-01-16 14:22:03 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 36057
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 모드 활성화
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 경로: streaming_video/Streaming_Channels_201
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 모드 활성화
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | 저장 모드: both
+2026-01-16 05:52:12 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-16 05:53:12 | WARNING  | worker_Streaming_Channels_201 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-16 05:53:15 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 시작 - Camera: Streaming_Channels_201, PID: 36107
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 경로: streaming_image/Streaming_Channels_201
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 이미지 저장 모드 활성화
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 경로: streaming_video/Streaming_Channels_201
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 비디오 저장 모드 활성화
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | 저장 모드: both
+2026-01-16 05:54:13 | INFO     | worker_Streaming_Channels_201 | RTSP 연결 시도: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201
+2026-01-16 05:55:13 | WARNING  | worker_Streaming_Channels_201 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-16 05:55:16 | INFO     | worker_Streaming_Channels_201 | 워커 프로세스 종료

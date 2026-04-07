@@ -1,0 +1,56 @@
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 워커 프로세스 시작 - Camera: Channels_101, PID: 53226
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 이미지 저장 경로: streaming_image/Channels_101
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 이미지 저장 모드 활성화
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 비디오 저장 경로: streaming_video/Channels_101
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 비디오 저장 모드 활성화
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | 저장 모드: both
+2026-01-15 15:34:00 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:34:00 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:03 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:34:03 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:06 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:34:06 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:09 | INFO     | worker_Channels_101 | 워커 프로세스 종료
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 워커 프로세스 시작 - Camera: Channels_101, PID: 57321
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 이미지 저장 경로: streaming_image/Channels_101
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 이미지 저장 모드 활성화
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 비디오 저장 경로: streaming_video/Channels_101
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 비디오 저장 모드 활성화
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | 저장 모드: both
+2026-01-15 15:36:02 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:02 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:05 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:05 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:08 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:08 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:11 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:11 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:14 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:14 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:17 | INFO     | worker_Channels_101 | 워커 프로세스 종료
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 워커 프로세스 시작 - Camera: Channels_101, PID: 58428
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 이미지 저장 경로: streaming_image/Channels_101
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 이미지 저장 모드 활성화
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 비디오 저장 경로: streaming_video/Channels_101
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 비디오 저장 모드 활성화
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | 저장 모드: both
+2026-01-15 15:36:35 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:36:35 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:38 | INFO     | worker_Channels_101 | 워커 프로세스 종료
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 워커 프로세스 시작 - Camera: Channels_101, PID: 60148
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 이미지 저장 경로: streaming_image/Channels_101
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 이미지 저장 모드 활성화
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 비디오 저장 경로: streaming_video/Channels_101
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 비디오 저장 모드 활성화
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | 저장 모드: both
+2026-01-15 15:37:19 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:37:19 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:22 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:37:22 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:25 | INFO     | worker_Channels_101 | RTSP 연결 시도: Channels/101
+2026-01-15 15:37:25 | WARNING  | worker_Channels_101 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:28 | INFO     | worker_Channels_101 | 워커 프로세스 종료

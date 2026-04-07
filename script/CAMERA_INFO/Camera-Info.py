@@ -232,7 +232,7 @@ class CameraInfo:
                     for i, h in enumerate(hd):
                         if h:
                             row[hd[i]] = r[hd[i]]
-    
+
                     cctv_csv_data.append(row)
                 cctv_csv_all_data.append(row_all)
     
@@ -301,6 +301,10 @@ class CameraInfo:
                         if is_valid_url_regex(dt[de[de_cc_idx]]):
                             idx = dt[de[de_cc_idx]].find(v[hd[hd_nv_idx]])
                             URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][idx:]
+                            # // password 분리
+                            # URL = dt[de[de_cc_idx]]
+                            # LOGIN_ID = v[hd[hd_id_idx]]
+                            # PASSWORD = v[hd[hd_pw_idx]]
                             ACTIVE = "A"
                         COMMENT = v[hd[hd_na_idx]] + "(" + v[hd[hd_si_idx]] + ") 역사, \
                             카메라 이름: " + v[hd[hd_ca_idx]] + ", \
@@ -327,6 +331,8 @@ class CameraInfo:
                             NAME,                       # 1. name(CCTV name)
                             URL,                        # 2. url(rtsp url)
                             ACTIVE,                     # 3. active(Active)
+                            # LOGIN_ID,                    Login id 
+                            # PASSWORD,                    password
                             self.conf["RESOLUTION"],    # 4. resolution(FHD)
                             COMMENT,                    # 5. comment
                             now,                        # 6. create_time

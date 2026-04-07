@@ -1,0 +1,56 @@
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 워커 프로세스 시작 - Camera: Channels_301, PID: 53234
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 이미지 저장 경로: streaming_image/Channels_301
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 이미지 저장 모드 활성화
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 비디오 저장 경로: streaming_video/Channels_301
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 비디오 저장 모드 활성화
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | 저장 모드: both
+2026-01-15 15:34:01 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:34:01 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:04 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:34:04 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:07 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:34:07 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:10 | INFO     | worker_Channels_301 | 워커 프로세스 종료
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 워커 프로세스 시작 - Camera: Channels_301, PID: 57326
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 이미지 저장 경로: streaming_image/Channels_301
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 이미지 저장 모드 활성화
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 비디오 저장 경로: streaming_video/Channels_301
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 비디오 저장 모드 활성화
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | 저장 모드: both
+2026-01-15 15:36:03 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:03 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:06 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:06 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:09 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:09 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:12 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:12 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:15 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:15 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:18 | INFO     | worker_Channels_301 | 워커 프로세스 종료
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 워커 프로세스 시작 - Camera: Channels_301, PID: 58497
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 이미지 저장 경로: streaming_image/Channels_301
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 이미지 저장 모드 활성화
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 비디오 저장 경로: streaming_video/Channels_301
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 비디오 저장 모드 활성화
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | 저장 모드: both
+2026-01-15 15:36:36 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:36:36 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:39 | INFO     | worker_Channels_301 | 워커 프로세스 종료
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 워커 프로세스 시작 - Camera: Channels_301, PID: 60204
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 이미지 저장 경로: streaming_image/Channels_301
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 이미지 저장 모드 활성화
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 비디오 저장 경로: streaming_video/Channels_301
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 비디오 저장 모드 활성화
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | 저장 모드: both
+2026-01-15 15:37:20 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:37:20 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:23 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:37:23 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:26 | INFO     | worker_Channels_301 | RTSP 연결 시도: Channels/301
+2026-01-15 15:37:26 | WARNING  | worker_Channels_301 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:29 | INFO     | worker_Channels_301 | 워커 프로세스 종료

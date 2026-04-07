@@ -1,0 +1,11 @@
+# CCTV 프레임 수집 시스템 - 필수 패키지
+
+# 영상 처리
+opencv-python>=4.10.0
+numpy>=1.24.0
+
+# 데이터베이스 (MariaDB/MySQL)
+pymysql>=1.1.0
+
+# 타입 힌트 (개발용)
+typing-extensions>=4.5.0

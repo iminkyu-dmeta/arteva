@@ -1,0 +1,56 @@
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 워커 프로세스 시작 - Camera: Channels_401, PID: 53237
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 이미지 저장 경로: streaming_image/Channels_401
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 이미지 저장 모드 활성화
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 비디오 저장 경로: streaming_video/Channels_401
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 비디오 저장 모드 활성화
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | 저장 모드: both
+2026-01-15 15:34:02 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:34:02 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:05 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:34:05 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:08 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:34:08 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:34:11 | INFO     | worker_Channels_401 | 워커 프로세스 종료
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 워커 프로세스 시작 - Camera: Channels_401, PID: 57329
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 이미지 저장 경로: streaming_image/Channels_401
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 이미지 저장 모드 활성화
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 비디오 저장 경로: streaming_video/Channels_401
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 비디오 저장 모드 활성화
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | 저장 모드: both
+2026-01-15 15:36:04 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:04 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:07 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:07 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:10 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:10 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:13 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:13 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:16 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:16 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:19 | INFO     | worker_Channels_401 | 워커 프로세스 종료
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 워커 프로세스 시작 - Camera: Channels_401, PID: 58499
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 이미지 저장 경로: streaming_image/Channels_401
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 이미지 저장 모드 활성화
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 비디오 저장 경로: streaming_video/Channels_401
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 비디오 저장 모드 활성화
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | 저장 모드: both
+2026-01-15 15:36:37 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:36:37 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:36:40 | INFO     | worker_Channels_401 | 워커 프로세스 종료
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 워커 프로세스 시작 - Camera: Channels_401, PID: 60219
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 이미지 저장 경로: streaming_image/Channels_401
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 이미지 저장 모드 활성화
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 비디오 저장 경로: streaming_video/Channels_401
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 세그먼트 길이: 300초, 코덱: mp4v
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 비디오 저장 모드 활성화
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | 저장 모드: both
+2026-01-15 15:37:21 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:37:21 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:24 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:37:24 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:27 | INFO     | worker_Channels_401 | RTSP 연결 시도: Channels/401
+2026-01-15 15:37:27 | WARNING  | worker_Channels_401 | RTSP 연결 실패 - 스트림을 열 수 없습니다
+2026-01-15 15:37:30 | INFO     | worker_Channels_401 | 워커 프로세스 종료

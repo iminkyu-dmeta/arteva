@@ -1,0 +1,367 @@
+2026-01-13 15:53:55 | INFO     | manager | ============================================================
+2026-01-13 15:53:55 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-13 15:53:55 | INFO     | manager | ============================================================
+2026-01-13 15:53:55 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-13 15:53:55 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 68319)
+2026-01-13 15:53:55 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-13 15:53:55 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 68320)
+2026-01-13 15:53:56 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-13 15:53:56 | INFO     | manager | 상태 업데이트 - Streaming_Channels_101: connected
+2026-01-13 15:53:56 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_301 (PID: 68389)
+2026-01-13 15:53:56 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-13 15:53:56 | INFO     | manager | 상태 업데이트 - Streaming_Channels_201: connected
+2026-01-13 15:53:56 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 68391)
+2026-01-13 15:53:57 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-13 15:53:57 | INFO     | manager | 상태 업데이트 - Streaming_Channels_301: connected
+2026-01-13 15:53:58 | INFO     | manager | 상태 업데이트 - Streaming_Channels_401: connected
+2026-01-13 15:54:11 | INFO     | manager | 시그널 수신: 2
+2026-01-13 15:54:11 | INFO     | manager | 시스템 종료 시작...
+2026-01-13 15:54:11 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-13 15:54:11 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-13 15:54:11 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-13 15:54:11 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-13 15:54:11 | INFO     | manager | 시스템 종료 완료
+2026-01-14 13:43:48 | INFO     | manager | ============================================================
+2026-01-14 13:43:48 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-14 13:43:48 | INFO     | manager | ============================================================
+2026-01-14 13:43:48 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-14 13:43:49 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 8927)
+2026-01-14 13:43:49 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-14 13:43:49 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 8929)
+2026-01-14 13:43:49 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-14 13:43:49 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_301 (PID: 8933)
+2026-01-14 13:43:50 | INFO     | manager | 상태 업데이트 - Streaming_Channels_101: connected
+2026-01-14 13:43:50 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-14 13:43:50 | INFO     | manager | 상태 업데이트 - Streaming_Channels_201: connected
+2026-01-14 13:43:50 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 8937)
+2026-01-14 13:43:50 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-14 13:43:51 | INFO     | manager | 상태 업데이트 - Streaming_Channels_301: connected
+2026-01-14 13:43:51 | INFO     | manager | 상태 업데이트 - Streaming_Channels_401: connected
+2026-01-14 13:47:02 | INFO     | manager | 시그널 수신: 2
+2026-01-14 13:47:03 | INFO     | manager | 시스템 종료 시작...
+2026-01-14 13:47:03 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-14 13:47:03 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-14 13:47:03 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-14 13:47:03 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-14 13:47:03 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:34:00 | INFO     | manager | ============================================================
+2026-01-15 15:34:00 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:34:00 | INFO     | manager | ============================================================
+2026-01-15 15:34:00 | INFO     | manager | 워커 생성됨: Channels_101 (URL: Channels/101)
+2026-01-15 15:34:00 | INFO     | manager | 워커 준비 완료 - Channels_101 (PID: 53226)
+2026-01-15 15:34:00 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:34:01 | INFO     | manager | 워커 생성됨: Channels_201 (URL: Channels/201)
+2026-01-15 15:34:01 | INFO     | manager | 워커 준비 완료 - Channels_201 (PID: 53230)
+2026-01-15 15:34:01 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:34:01 | INFO     | manager | 워커 생성됨: Channels_301 (URL: Channels/301)
+2026-01-15 15:34:01 | INFO     | manager | 워커 준비 완료 - Channels_301 (PID: 53234)
+2026-01-15 15:34:01 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:34:02 | INFO     | manager | 워커 생성됨: Channels_401 (URL: Channels/401)
+2026-01-15 15:34:02 | INFO     | manager | 워커 준비 완료 - Channels_401 (PID: 53237)
+2026-01-15 15:34:02 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:34:02 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:34:03 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:34:04 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:34:04 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:34:05 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:34:06 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:34:07 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:34:07 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:34:08 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:34:08 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:34:08 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:34:08 | INFO     | manager | 워커 종료 중: Channels_101
+2026-01-15 15:34:09 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:34:09 | INFO     | manager | 워커 종료 중: Channels_201
+2026-01-15 15:34:10 | INFO     | manager | 워커 종료 중: Channels_301
+2026-01-15 15:34:10 | INFO     | manager | 워커 종료 중: Channels_401
+2026-01-15 15:34:11 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:36:02 | INFO     | manager | ============================================================
+2026-01-15 15:36:02 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:36:02 | INFO     | manager | ============================================================
+2026-01-15 15:36:02 | INFO     | manager | 워커 생성됨: Channels_101 (URL: Channels/101)
+2026-01-15 15:36:02 | INFO     | manager | 워커 준비 완료 - Channels_101 (PID: 57321)
+2026-01-15 15:36:02 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:02 | INFO     | manager | 워커 생성됨: Channels_201 (URL: Channels/201)
+2026-01-15 15:36:03 | INFO     | manager | 워커 준비 완료 - Channels_201 (PID: 57324)
+2026-01-15 15:36:03 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:03 | INFO     | manager | 워커 생성됨: Channels_301 (URL: Channels/301)
+2026-01-15 15:36:03 | INFO     | manager | 워커 준비 완료 - Channels_301 (PID: 57326)
+2026-01-15 15:36:03 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:36:03 | INFO     | manager | 워커 생성됨: Channels_401 (URL: Channels/401)
+2026-01-15 15:36:04 | INFO     | manager | 워커 준비 완료 - Channels_401 (PID: 57329)
+2026-01-15 15:36:04 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:36:04 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:36:05 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:06 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:06 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:36:07 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:36:08 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:09 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:09 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:36:10 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:36:11 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:12 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:12 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:36:13 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:36:14 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:15 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:15 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:36:16 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:36:17 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:36:17 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:36:17 | INFO     | manager | 워커 종료 중: Channels_101
+2026-01-15 15:36:17 | INFO     | manager | 워커 종료 중: Channels_201
+2026-01-15 15:36:18 | INFO     | manager | 워커 종료 중: Channels_301
+2026-01-15 15:36:18 | INFO     | manager | 워커 종료 중: Channels_401
+2026-01-15 15:36:19 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:36:35 | INFO     | manager | ============================================================
+2026-01-15 15:36:35 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:36:35 | INFO     | manager | ============================================================
+2026-01-15 15:36:35 | INFO     | manager | 워커 생성됨: Channels_101 (URL: Channels/101)
+2026-01-15 15:36:35 | INFO     | manager | 워커 준비 완료 - Channels_101 (PID: 58428)
+2026-01-15 15:36:35 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:36:36 | INFO     | manager | 워커 생성됨: Channels_201 (URL: Channels/201)
+2026-01-15 15:36:36 | INFO     | manager | 워커 준비 완료 - Channels_201 (PID: 58494)
+2026-01-15 15:36:36 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:36:36 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:36:36 | INFO     | manager | 워커 생성됨: Channels_301 (URL: Channels/301)
+2026-01-15 15:36:37 | INFO     | manager | 워커 생성됨: Channels_401 (URL: Channels/401)
+2026-01-15 15:36:37 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:36:37 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:36:37 | INFO     | manager | 워커 종료 중: Channels_101
+2026-01-15 15:36:38 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:36:38 | INFO     | manager | 워커 종료 중: Channels_201
+2026-01-15 15:36:39 | INFO     | manager | 워커 종료 중: Channels_301
+2026-01-15 15:36:39 | INFO     | manager | 워커 종료 중: Channels_401
+2026-01-15 15:36:40 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:37:19 | INFO     | manager | ============================================================
+2026-01-15 15:37:19 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:37:19 | INFO     | manager | ============================================================
+2026-01-15 15:37:19 | INFO     | manager | 워커 생성됨: Channels_101 (URL: Channels/101)
+2026-01-15 15:37:19 | INFO     | manager | 워커 준비 완료 - Channels_101 (PID: 60148)
+2026-01-15 15:37:19 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:37:20 | INFO     | manager | 워커 생성됨: Channels_201 (URL: Channels/201)
+2026-01-15 15:37:20 | INFO     | manager | 워커 준비 완료 - Channels_201 (PID: 60150)
+2026-01-15 15:37:20 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:37:20 | INFO     | manager | 워커 생성됨: Channels_301 (URL: Channels/301)
+2026-01-15 15:37:20 | INFO     | manager | 워커 준비 완료 - Channels_301 (PID: 60204)
+2026-01-15 15:37:20 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:37:21 | INFO     | manager | 워커 생성됨: Channels_401 (URL: Channels/401)
+2026-01-15 15:37:21 | INFO     | manager | 워커 준비 완료 - Channels_401 (PID: 60219)
+2026-01-15 15:37:21 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:37:21 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:37:22 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:37:23 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:37:23 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:37:24 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:37:25 | INFO     | manager | 상태 업데이트 - Channels_101: reconnecting
+2026-01-15 15:37:26 | INFO     | manager | 상태 업데이트 - Channels_201: reconnecting
+2026-01-15 15:37:26 | INFO     | manager | 상태 업데이트 - Channels_301: reconnecting
+2026-01-15 15:37:27 | INFO     | manager | 상태 업데이트 - Channels_401: reconnecting
+2026-01-15 15:37:28 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:37:28 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:37:28 | INFO     | manager | 워커 종료 중: Channels_101
+2026-01-15 15:37:28 | INFO     | manager | 워커 종료 중: Channels_201
+2026-01-15 15:37:29 | INFO     | manager | 워커 종료 중: Channels_301
+2026-01-15 15:37:29 | INFO     | manager | 워커 종료 중: Channels_401
+2026-01-15 15:37:30 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:44:25 | INFO     | manager | ============================================================
+2026-01-15 15:44:25 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:44:25 | INFO     | manager | ============================================================
+2026-01-15 15:44:25 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-15 15:44:26 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 73662)
+2026-01-15 15:44:26 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-15 15:44:26 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 73663)
+2026-01-15 15:44:26 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-15 15:44:27 | INFO     | manager | 상태 업데이트 - Streaming_Channels_101: connected
+2026-01-15 15:44:27 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 73667)
+2026-01-15 15:44:27 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-15 15:44:27 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_301 (PID: 73733)
+2026-01-15 15:44:27 | INFO     | manager | 상태 업데이트 - Streaming_Channels_401: connected
+2026-01-15 15:44:27 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:44:28 | INFO     | manager | 상태 업데이트 - Streaming_Channels_201: connected
+2026-01-15 15:44:28 | INFO     | manager | 상태 업데이트 - Streaming_Channels_301: connected
+2026-01-15 15:44:58 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:44:59 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:44:59 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-15 15:44:59 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-15 15:44:59 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-15 15:44:59 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-15 15:44:59 | INFO     | manager | 시스템 종료 완료
+2026-01-15 15:45:10 | INFO     | manager | ============================================================
+2026-01-15 15:45:10 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-15 15:45:10 | INFO     | manager | ============================================================
+2026-01-15 15:45:10 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-15 15:45:11 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 75221)
+2026-01-15 15:45:11 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-15 15:45:11 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 75222)
+2026-01-15 15:45:11 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-15 15:45:11 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 75290)
+2026-01-15 15:45:12 | INFO     | manager | 상태 업데이트 - Streaming_Channels_101: connected
+2026-01-15 15:45:12 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-15 15:45:12 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_301 (PID: 75291)
+2026-01-15 15:45:12 | INFO     | manager | 상태 업데이트 - Streaming_Channels_401: connected
+2026-01-15 15:45:12 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-15 15:45:13 | INFO     | manager | 상태 업데이트 - Streaming_Channels_201: connected
+2026-01-15 15:45:13 | INFO     | manager | 상태 업데이트 - Streaming_Channels_301: connected
+2026-01-15 15:56:17 | INFO     | manager | 시그널 수신: 2
+2026-01-15 15:56:17 | INFO     | manager | 시스템 종료 시작...
+2026-01-15 15:56:17 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-15 15:56:17 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-15 15:56:17 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-15 15:56:17 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-15 15:56:17 | INFO     | manager | 시스템 종료 완료
+2026-01-16 14:21:15 | INFO     | manager | ============================================================
+2026-01-16 14:21:15 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-16 14:21:15 | INFO     | manager | ============================================================
+2026-01-16 14:21:15 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-16 14:21:15 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 2663391)
+2026-01-16 14:21:15 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-16 14:21:15 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 2663393)
+2026-01-16 14:21:16 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-16 14:21:16 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 2663407)
+2026-01-16 14:21:16 | INFO     | manager | 상태 업데이트 - Streaming_Channels_101: connected
+2026-01-16 14:21:16 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-16 14:21:16 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_301 (PID: 2663414)
+2026-01-16 14:21:16 | INFO     | manager | 상태 업데이트 - Streaming_Channels_401: connected
+2026-01-16 14:21:17 | INFO     | manager | 상태 업데이트 - Streaming_Channels_201: connected
+2026-01-16 14:21:17 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-16 14:21:17 | INFO     | manager | 상태 업데이트 - Streaming_Channels_301: connected
+2026-01-16 14:22:03 | INFO     | manager | 시그널 수신: 2
+2026-01-16 14:22:04 | INFO     | manager | 시스템 종료 시작...
+2026-01-16 14:22:04 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-16 14:22:04 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-16 14:22:04 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-16 14:22:04 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-16 14:22:04 | INFO     | manager | 시스템 종료 완료
+2026-01-16 05:52:11 | INFO     | manager | ============================================================
+2026-01-16 05:52:11 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-16 05:52:11 | INFO     | manager | ============================================================
+2026-01-16 05:52:11 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-16 05:52:11 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 36053)
+2026-01-16 05:52:11 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-16 05:52:12 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 36055)
+2026-01-16 05:52:12 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:12 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-16 05:52:12 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-16 05:52:13 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:13 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-16 05:52:13 | INFO     | manager | 시스템 종료 시작...
+2026-01-16 05:52:13 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-16 05:52:13 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:13 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:16 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:16 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:17 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:18 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:18 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:18 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:20 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:20 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-16 05:52:20 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:20 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:20 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:24 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:25 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:26 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:26 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:26 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:27 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-16 05:52:28 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:28 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:28 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:28 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:29 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:29 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:29 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:29 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:29 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:30 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:32 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:32 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:33 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:33 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:33 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:33 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:33 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:34 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:34 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:34 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-16 05:52:34 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:52:41 | INFO     | manager | 시스템 종료 완료
+2026-01-16 05:54:12 | INFO     | manager | ============================================================
+2026-01-16 05:54:12 | INFO     | manager | CCTV 프레임 수집 시스템 시작
+2026-01-16 05:54:12 | INFO     | manager | ============================================================
+2026-01-16 05:54:12 | INFO     | manager | 워커 생성됨: Streaming_Channels_101 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/101)
+2026-01-16 05:54:12 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_101 (PID: 36103)
+2026-01-16 05:54:13 | INFO     | manager | 워커 생성됨: Streaming_Channels_401 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/401)
+2026-01-16 05:54:13 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_401 (PID: 36105)
+2026-01-16 05:54:13 | INFO     | manager | 워커 생성됨: Streaming_Channels_201 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/201)
+2026-01-16 05:54:13 | INFO     | manager | 워커 준비 완료 - Streaming_Channels_201 (PID: 36107)
+2026-01-16 05:54:13 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:14 | INFO     | manager | 워커 생성됨: Streaming_Channels_301 (URL: rtsp://admin:****@192.168.132.141:554/Streaming/Channels/301)
+2026-01-16 05:54:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:14 | INFO     | manager | 총 4개 워커 시작됨
+2026-01-16 05:54:14 | INFO     | manager | 시스템 종료 시작...
+2026-01-16 05:54:14 | INFO     | manager | 워커 종료 중: Streaming_Channels_101
+2026-01-16 05:54:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:14 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:15 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:19 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:19 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:19 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:19 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:20 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:21 | INFO     | manager | 워커 종료 중: Streaming_Channels_401
+2026-01-16 05:54:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:21 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:22 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:22 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:22 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:22 | INFO     | manager | 시그널 수신: 2
+2026-01-16 05:54:28 | INFO     | manager | 워커 종료 중: Streaming_Channels_201
+2026-01-16 05:54:35 | INFO     | manager | 워커 종료 중: Streaming_Channels_301
+2026-01-16 05:54:42 | INFO     | manager | 시스템 종료 완료
