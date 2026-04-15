@@ -10,26 +10,56 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
 1	camera-info.ini	/^YS-VDOAN-1=100$/;"	k	section:default
-1	register-camera.ini	/^G-1=BC$/;"	k	section:unit
-100	camera-info.ini	/^100=7.254.3.31$/;"	k	section:default
+1	camera-info_test.ini	/^YS-VDOAN-1=100$/;"	k	section:default
+1	camera-info_yangsang.ini	/^YS-VDOAN-1=100$/;"	k	section:default
+100	camera-info.ini	/^100=192.168.64.132$/;"	k	section:default
+100	camera-info_test.ini	/^100=192.168.64.132$/;"	k	section:default
+100	camera-info_yangsang.ini	/^100=7.254.3.31$/;"	k	section:default
 101	camera-info.ini	/^101=192.168.64.132$/;"	k	section:default
 101	camera-info.ini	/^YS-TNMS-VDOAN-101=101$/;"	k	section:default
+101	camera-info_test.ini	/^101=192.168.64.132$/;"	k	section:default
+101	camera-info_test.ini	/^YS-TNMS-VDOAN-101=101$/;"	k	section:default
+101	camera-info_yangsang.ini	/^101=7.101.3.31$/;"	k	section:default
+101	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-101=101$/;"	k	section:default
 102	camera-info.ini	/^102=192.168.64.132$/;"	k	section:default
 102	camera-info.ini	/^YS-TNMS-VDOAN-102=102$/;"	k	section:default
+102	camera-info_test.ini	/^102=192.168.64.132$/;"	k	section:default
+102	camera-info_test.ini	/^YS-TNMS-VDOAN-102=102$/;"	k	section:default
+102	camera-info_yangsang.ini	/^102=7.102.3.31$/;"	k	section:default
+102	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-102=102$/;"	k	section:default
 103	camera-info.ini	/^103=192.168.64.132$/;"	k	section:default
 103	camera-info.ini	/^YS-TNMS-VDOAN-103=103$/;"	k	section:default
+103	camera-info_test.ini	/^103=192.168.64.132$/;"	k	section:default
+103	camera-info_test.ini	/^YS-TNMS-VDOAN-103=103$/;"	k	section:default
+103	camera-info_yangsang.ini	/^103=7.103.3.31$/;"	k	section:default
+103	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-103=103$/;"	k	section:default
 104	camera-info.ini	/^104=192.168.64.132$/;"	k	section:default
 104	camera-info.ini	/^YS-TNMS-VDOAN-104=104$/;"	k	section:default
+104	camera-info_test.ini	/^104=192.168.64.132$/;"	k	section:default
+104	camera-info_test.ini	/^YS-TNMS-VDOAN-104=104$/;"	k	section:default
+104	camera-info_yangsang.ini	/^104=7.104.3.31$/;"	k	section:default
+104	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-104=104$/;"	k	section:default
 105	camera-info.ini	/^105=192.168.64.132$/;"	k	section:default
 105	camera-info.ini	/^YS-TNMS-VDOAN-105=105$/;"	k	section:default
+105	camera-info_test.ini	/^105=192.168.64.132$/;"	k	section:default
+105	camera-info_test.ini	/^YS-TNMS-VDOAN-105=105$/;"	k	section:default
+105	camera-info_yangsang.ini	/^105=7.105.3.31$/;"	k	section:default
+105	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-105=105$/;"	k	section:default
 106	camera-info.ini	/^106=192.168.64.132$/;"	k	section:default
 106	camera-info.ini	/^YS-TNMS-VDOAN-106=106$/;"	k	section:default
+106	camera-info_test.ini	/^106=192.168.64.132$/;"	k	section:default
+106	camera-info_test.ini	/^YS-TNMS-VDOAN-106=106$/;"	k	section:default
+106	camera-info_yangsang.ini	/^106=7.106.3.31$/;"	k	section:default
+106	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-106=106$/;"	k	section:default
 107	camera-info.ini	/^107=192.168.64.132$/;"	k	section:default
 107	camera-info.ini	/^YS-TNMS-VDOAN-107=107$/;"	k	section:default
-2	register-camera.ini	/^G-2=BC$/;"	k	section:unit
-3	register-camera.ini	/^G-3=BC$/;"	k	section:unit
-4	register-camera.ini	/^G-4=BC$/;"	k	section:unit
+107	camera-info_test.ini	/^107=192.168.64.132$/;"	k	section:default
+107	camera-info_test.ini	/^YS-TNMS-VDOAN-107=107$/;"	k	section:default
+107	camera-info_yangsang.ini	/^107=7.107.3.31$/;"	k	section:default
+107	camera-info_yangsang.ini	/^YS-TNMS-VDOAN-107=107$/;"	k	section:default
 ACTIVE	camera-info.ini	/^ACTIVE=A$/;"	k	section:default
+ACTIVE	camera-info_test.ini	/^ACTIVE=A$/;"	k	section:default
+ACTIVE	camera-info_yangsang.ini	/^ACTIVE=A$/;"	k	section:default
 ALTER_BROADCAST_INFO_AUTO_INCREMENT	arsql.py	/^ALTER_BROADCAST_INFO_AUTO_INCREMENT="alter table t_arteva_broadcast_info auto_increment =1;"$/;"	v
 ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT	arsql.py	/^ALTER_CAMERA_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_camera_info auto_increment =1;"$/;"	v
 ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT	arsql.py	/^ALTER_EXTERN_INFO_AUTO_INCREMENT_INIT="alter table t_arteva_extern_info auto_increment =1;"$/;"	v
@@ -46,30 +76,32 @@ COUNT_CAMERA_INFO_SQL	arsql.py	/^COUNT_CAMERA_INFO_SQL="select count(*) from t_a
 COUNT_EXTERN_INFO_SQL	arsql.py	/^COUNT_EXTERN_INFO_SQL="select count(*) from t_arteva_extern_info;"$/;"	v
 CameraInfo	Camera-Info.py	/^class CameraInfo:$/;"	c
 CameraInfoWork	Camera-Info.py	/^def CameraInfoWork(conf, args):$/;"	f
-D1	register-camera.ini	/^P-D1=DR,FT$/;"	k	section:unit
-D2	register-camera.ini	/^P-D2=DR,FT$/;"	k	section:unit
-D3	register-camera.ini	/^P-D3=DR,FT$/;"	k	section:unit
-D4	register-camera.ini	/^P-D4=DR,FT$/;"	k	section:unit
 DEL_BROADCAST_INFO_SQL	arsql.py	/^DEL_BROADCAST_INFO_SQL="delete from t_arteva_broadcast_info where id = {};"$/;"	v
 DEL_CAMERA_EVENT_CONF	arsql.py	/^DEL_CAMERA_EVENT_CONF= "delete from t_arteva_camera_event_conf where camera_id = {};"$/;"	v
 DEL_CAMERA_INFO_SQL	arsql.py	/^DEL_CAMERA_INFO_SQL="delete from t_arteva_camera_info where id = {};"$/;"	v
 DEL_EXTERN_INFO_SQL	arsql.py	/^DEL_EXTERN_INFO_SQL="delete from t_arteva_extern_info where id = {};"$/;"	v
+EMPTY_UPDATE_CAMERA_INFO_SQL	arsql.py	/^EMPTY_UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = 'S' where nam/;"	v
 EVENT_SQL	arsql.py	/^EVENT_SQL= "SELECT CODE_ID, CODE, CODE_NM, CODE_DC FROM LETTCCMMNDETAILCODE WHERE CODE_ID = 'EVE/;"	v
 ExternInfo	Camera-Info.py	/^class ExternInfo:$/;"	c
 ExternInfoWork	Camera-Info.py	/^def ExternInfoWork(conf, args):$/;"	f
 ID	camera-info.ini	/^ID=admin$/;"	k	section:default
+ID	camera-info_test.ini	/^ID=admin$/;"	k	section:default
+ID	camera-info_yangsang.ini	/^ID=admin$/;"	k	section:default
 INSERT_BROADCAST_INFO_SQL	arsql.py	/^INSERT_BROADCAST_INFO_SQL="insert t_arteva_broadcast_info ( extern_id, ext_broadcast_id, broadca/;"	v
 INSERT_CAMERA_EVENT_BID_SQL	arsql.py	/^INSERT_CAMERA_EVENT_BID_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, d/;"	v
 INSERT_CAMERA_EVENT_SQL	arsql.py	/^INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detec/;"	v
 INSERT_CAMERA_INFO_EX_SQL	arsql.py	/^INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`idx`, `station_name`, `station_id`, `c/;"	v
-INSERT_CAMERA_INFO_SQL	arsql.py	/^INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resolution, comment, cre/;"	v
+INSERT_CAMERA_INFO_SQL	arsql.py	/^INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, login_id, password, reso/;"	v
 INSERT_EXTERN_INFO_SQL	arsql.py	/^INSERT_EXTERN_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url,address, po/;"	v
 LAST_INSERT_SQL	arsql.py	/^LAST_INSERT_SQL="SELECT LAST_INSERT_ID()"$/;"	v
 MysqlDBAcc	Camera-Info.py	/^class MysqlDBAcc:$/;"	c
-MysqlDBAcc	Camera-Info.py.orig	/^class MysqlDBAcc:$/;"	c
 NL	Camera-Info.py	/^NL = '\\r\\n'$/;"	v
 PW	camera-info.ini	/^PW=asdQWE12!@$/;"	k	section:default
+PW	camera-info_test.ini	/^PW=asdQWE12!@$/;"	k	section:default
+PW	camera-info_yangsang.ini	/^PW=asdQWE12!@$/;"	k	section:default
 RESOLUTION	camera-info.ini	/^RESOLUTION=FHD$/;"	k	section:default
+RESOLUTION	camera-info_test.ini	/^RESOLUTION=FHD$/;"	k	section:default
+RESOLUTION	camera-info_yangsang.ini	/^RESOLUTION=FHD$/;"	k	section:default
 SELECT_ACT_CAMERA_EVENT_CONF_SQL	arsql.py	/^SELECT_ACT_CAMERA_EVENT_CONF_SQL="select * from t_arteva_camera_event_conf where ACTIVE = 1;"$/;"	v
 SELECT_BROADCAST_INFO_SQL	arsql.py	/^SELECT_BROADCAST_INFO_SQL="select a.id as brdContentId, a.broadcast_title as brdContentTitle, a./;"	v
 SELECT_BROADCAST_STATUS	arsql.py	/^SELECT_BROADCAST_STATUS="select ID, ACTIVE from t_arteva_broadcast_info where ACTIVE = '{}';"$/;"	v
@@ -89,20 +121,17 @@ SELECT_FULL_CAMERA_EVENT_CONF_SQL	arsql.py	/^SELECT_FULL_CAMERA_EVENT_CONF_SQL="
 SELECT_FULL_CAMERA_INFO_SQL	arsql.py	/^SELECT_FULL_CAMERA_INFO_SQL="select * from t_arteva_camera_info;"$/;"	v
 SELECT_FULL_EXTERN_SQL	arsql.py	/^SELECT_FULL_EXTERN_SQL="select * from t_arteva_extern_info;"$/;"	v
 SELECT_ID_CAMERA_INFO_SQL	arsql.py	/^SELECT_ID_CAMERA_INFO_SQL="select name, url from t_arteva_camera_info where name = '{}';" $/;"	v
-STATIONID	Camera-Info.py.orig	/^STATIONID = ['100', '101', '102', '103', '104', '105', '106', '107']$/;"	v
 STATIONID	camera-info.ini	/^STATIONID=100,101,102,103,104,105,106,107$/;"	k	section:default
+STATIONID	camera-info_test.ini	/^STATIONID=100,101,102,103,104,105,106,107$/;"	k	section:default
+STATIONID	camera-info_yangsang.ini	/^STATIONID=100,101,102,103,104,105,106,107$/;"	k	section:default
 TRUNCATE_BROADCAST_INFO_ARCHIVE	arsql.py	/^TRUNCATE_BROADCAST_INFO_ARCHIVE="truncate table t_arteva_broadcast_info_archive;"$/;"	v
 TRUNCATE_CAMERA_EVENT_CONF_ARCHIVE	arsql.py	/^TRUNCATE_CAMERA_EVENT_CONF_ARCHIVE="truncate table t_arteva_camera_event_conf_archive;"$/;"	v
 TRUNCATE_CAMERA_INFO_ARCHIVE	arsql.py	/^TRUNCATE_CAMERA_INFO_ARCHIVE="truncate table t_arteva_camera_info_archive;"$/;"	v
-U1	register-camera.ini	/^P-U1=DR,FT$/;"	k	section:unit
-U2	register-camera.ini	/^P-U2=DR,FT$/;"	k	section:unit
-U3	register-camera.ini	/^P-U3=DR,FT$/;"	k	section:unit
-U4	register-camera.ini	/^P-U4=DR,FT$/;"	k	section:unit
 UPDATE_BROADCAST_ACTIVE	arsql.py	/^UPDATE_BROADCAST_ACTIVE="update t_arteva_broadcast_info set active = '{}' where id = {};"$/;"	v
 UPDATE_CAMERA_ACTIVE	arsql.py	/^UPDATE_CAMERA_ACTIVE="update t_arteva_camera_info set active = '{}' where id = {};"$/;"	v
 UPDATE_CAMERA_EVENT_BID_SQL	arsql.py	/^UPDATE_CAMERA_EVENT_BID_SQL="update t_arteva_camera_event_conf set broadcast_area_code = '{}', b/;"	v
 UPDATE_CAMERA_INFO_BROADCAST	arsql.py	/^UPDATE_CAMERA_INFO_BROADCAST="update t_arteva_camera_info set broadcast_area_code = '{}', broadc/;"	v
-UPDATE_CAMERA_INFO_SQL	arsql.py	/^UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = 'A' where name = '{/;"	v
+UPDATE_CAMERA_INFO_SQL	arsql.py	/^UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = '{}' where name = '/;"	v
 UPDATE_EXTERN_ACTIVE	arsql.py	/^UPDATE_EXTERN_ACTIVE="update t_arteva_extern_info set active = '{}' where id = {};"$/;"	v
 URL_REGEX	Camera-Info.py	/^URL_REGEX = re.compile($/;"	v
 WLOG	Camera-Info.py	/^def WLOG(S):$/;"	f
@@ -111,131 +140,111 @@ __init__	Camera-Info.py	/^    def __init__(self, conf, args):$/;"	m	class:BroadC
 __init__	Camera-Info.py	/^    def __init__(self, conf, args):$/;"	m	class:CameraInfo
 __init__	Camera-Info.py	/^    def __init__(self, conf, args):$/;"	m	class:ExternInfo
 __init__	Camera-Info.py	/^    def __init__(self, config):$/;"	m	class:MysqlDBAcc
-__init__	Camera-Info.py.orig	/^    def __init__(self, config):$/;"	m	class:MysqlDBAcc
 act_camera_info	Camera-Info.py	/^    def act_camera_info(self, db, status):$/;"	m	class:CameraInfo
-act_camera_info	Camera-Info.py.orig	/^def act_camera_info(db, status):$/;"	f
 add_broadcast_info	Camera-Info.py	/^    def add_broadcast_info(self, db):$/;"	m	class:BroadCastInfo
-add_broadcast_info	Camera-Info.py.orig	/^def add_broadcast_info(db, conf):$/;"	f
 add_extern_info	Camera-Info.py	/^    def add_extern_info(self, db):$/;"	m	class:ExternInfo
-add_extern_info	Camera-Info.py.orig	/^def add_extern_info(db, conf, tags):$/;"	f
 adminuser	camera-info.ini	/^adminuser=admin$/;"	k	section:default
+adminuser	camera-info_test.ini	/^adminuser=admin$/;"	k	section:default
+adminuser	camera-info_yangsang.ini	/^adminuser=admin$/;"	k	section:default
 arteva_camera_info_sql_rows	Camera-Info.py	/^arteva_camera_info_sql_rows = []$/;"	v
-arteva_camera_info_sql_rows	Camera-Info.py.orig	/^arteva_camera_info_sql_rows = []$/;"	v
 backup	Camera-Info.py	/^    def backup(self):$/;"	m	class:BackupData
 broadcast_sql_rows	Camera-Info.py	/^broadcast_sql_rows = []$/;"	v
-broadcast_sql_rows	Camera-Info.py.orig	/^broadcast_sql_rows = []$/;"	v
-by_data	Camera-Info.py.orig	/^by_data = {}$/;"	v
 camera_info_ex_sql_rows	Camera-Info.py	/^camera_info_ex_sql_rows = []$/;"	v
-camera_info_ex_sql_rows	Camera-Info.py.orig	/^camera_info_ex_sql_rows = []$/;"	v
 camera_sql_rows	Camera-Info.py	/^camera_sql_rows = []$/;"	v
-camera_sql_rows	Camera-Info.py.orig	/^camera_sql_rows = []$/;"	v
 cctv_csv_all_data	Camera-Info.py	/^cctv_csv_all_data = []$/;"	v
-cctv_csv_all_data	Camera-Info.py.orig	/^cctv_csv_all_data = []$/;"	v
 cctv_csv_data	Camera-Info.py	/^cctv_csv_data = []$/;"	v
-cctv_csv_data	Camera-Info.py.orig	/^cctv_csv_data = []$/;"	v
 cctvdir	camera-info.ini	/^cctvdir=CCTV$/;"	k	section:default
+cctvdir	camera-info_test.ini	/^cctvdir=CCTV$/;"	k	section:default
+cctvdir	camera-info_yangsang.ini	/^cctvdir=CCTV$/;"	k	section:default
 cctvfile	camera-info.ini	/^cctvfile=CCTV.csv$/;"	k	section:default
+cctvfile	camera-info_test.ini	/^cctvfile=CCTV.csv$/;"	k	section:default
+cctvfile	camera-info_yangsang.ini	/^cctvfile=CCTV.csv$/;"	k	section:default
 check_korean	Camera-Info.py	/^def check_korean(kstr):$/;"	f
-check_korean	Camera-Info.py.orig	/^def check_korean(kstr):$/;"	f
 check_t_arteva_camera_info	Camera-Info.py	/^    def check_t_arteva_camera_info(self, de, data):$/;"	m	class:CameraInfo
-check_t_arteva_camera_info	Camera-Info.py.orig	/^def check_t_arteva_camera_info(de, data, conf):$/;"	f
 close_conn	Camera-Info.py	/^    def close_conn(self):$/;"	m	class:MysqlDBAcc
-close_conn	Camera-Info.py.orig	/^    def close_conn(self):$/;"	m	class:MysqlDBAcc
 connect_db	Camera-Info.py	/^def connect_db(conf, host=None):$/;"	f
-connect_db	Camera-Info.py.orig	/^def connect_db(conf, host=None):$/;"	f
 csvdir	camera-info.ini	/^csvdir=CSV$/;"	k	section:default
+csvdir	camera-info_test.ini	/^csvdir=CSV$/;"	k	section:default
+csvdir	camera-info_yangsang.ini	/^csvdir=CSV$/;"	k	section:default
 database	camera-info.ini	/^database=dmeta_arteva$/;"	k	section:default
+database	camera-info_test.ini	/^database=dmeta_arteva$/;"	k	section:default
+database	camera-info_yangsang.ini	/^database=dmeta_arteva$/;"	k	section:default
 default	camera-info.ini	/^[default]$/;"	s
+default	camera-info_test.ini	/^[default]$/;"	s
+default	camera-info_yangsang.ini	/^[default]$/;"	s
 delete_broadcast_info	Camera-Info.py	/^    def delete_broadcast_info(self, db):$/;"	m	class:BroadCastInfo
-delete_broadcast_info	Camera-Info.py.orig	/^def delete_broadcast_info(db):$/;"	f
 delete_camera_info	Camera-Info.py	/^    def delete_camera_info(self, db):$/;"	m	class:CameraInfo
-delete_camera_info	Camera-Info.py.orig	/^def delete_camera_info(db):$/;"	f
 delete_extern_info	Camera-Info.py	/^    def delete_extern_info(self, db):$/;"	m	class:ExternInfo
-delete_extern_info	Camera-Info.py.orig	/^def delete_extern_info(db):$/;"	f
 delete_sql	Camera-Info.py	/^    def delete_sql(self, sql=None, param=None):$/;"	m	class:MysqlDBAcc
-delete_sql	Camera-Info.py.orig	/^    def delete_sql(self, sql=None, param=None):$/;"	m	class:MysqlDBAcc
 display_select	Camera-Info.py	/^def display_select(desc, rows):$/;"	f
-display_select	Camera-Info.py.orig	/^def display_select(desc, rows):$/;"	f
 do_arteva	Camera-Info.py	/^def do_arteva(conf, args):$/;"	f
 extern_sql_rows	Camera-Info.py	/^extern_sql_rows = []$/;"	v
-extern_sql_rows	Camera-Info.py.orig	/^extern_sql_rows = []$/;"	v
 getIPAddress	Camera-Info.py	/^def getIPAddress(name):$/;"	f
 host	camera-info.ini	/^host=192.168.64.132$/;"	k	section:default
+host	camera-info_test.ini	/^host=192.168.64.132$/;"	k	section:default
+host	camera-info_yangsang.ini	/^host=7.101.3.31$/;"	k	section:default
 ims_connect_db	Camera-Info.py	/^def ims_connect_db(conf):$/;"	f
-ims_connect_db	Camera-Info.py.orig	/^def ims_connect_db(conf):$/;"	f
 ims_database	camera-info.ini	/^ims_database=ims_v2$/;"	k	section:default
+ims_database	camera-info_test.ini	/^ims_database=ims_v2$/;"	k	section:default
+ims_database	camera-info_yangsang.ini	/^ims_database=ims_v2$/;"	k	section:default
 ims_passwd	camera-info.ini	/^ims_passwd=asdQWE12!@$/;"	k	section:default
+ims_passwd	camera-info_test.ini	/^ims_passwd=asdQWE12!@$/;"	k	section:default
+ims_passwd	camera-info_yangsang.ini	/^ims_passwd=asdQWE12!@$/;"	k	section:default
 ims_port	camera-info.ini	/^ims_port=3306$/;"	k	section:default
+ims_port	camera-info_test.ini	/^ims_port=3306$/;"	k	section:default
+ims_port	camera-info_yangsang.ini	/^ims_port=3306$/;"	k	section:default
 ims_primary	camera-info.ini	/^ims_primary=192.168.64.132$/;"	k	section:default
+ims_primary	camera-info_test.ini	/^ims_primary=192.168.64.132$/;"	k	section:default
+ims_primary	camera-info_yangsang.ini	/^ims_primary=7.254.3.21$/;"	k	section:default
 ims_secondary	camera-info.ini	/^ims_secondary=7.254.3.22$/;"	k	section:default
+ims_secondary	camera-info_test.ini	/^ims_secondary=7.254.3.22$/;"	k	section:default
+ims_secondary	camera-info_yangsang.ini	/^ims_secondary=7.254.3.22$/;"	k	section:default
 ims_user	camera-info.ini	/^ims_user=yangsan_tnms$/;"	k	section:default
+ims_user	camera-info_test.ini	/^ims_user=yangsan_tnms$/;"	k	section:default
 insert_args_sql	Camera-Info.py	/^    def insert_args_sql(self, sql=None, args=None):$/;"	m	class:MysqlDBAcc
-insert_args_sql	Camera-Info.py.orig	/^    def insert_args_sql(self, sql=None, args=None):$/;"	m	class:MysqlDBAcc
 insert_ims_v_camera_info_ex	Camera-Info.py	/^def insert_ims_v_camera_info_ex(db, hd):$/;"	f
-insert_ims_v_camera_info_ex	Camera-Info.py.orig	/^def insert_ims_v_camera_info_ex(db, hd):$/;"	f
 insert_many_sql	Camera-Info.py	/^    def insert_many_sql(self, sql=None, many=None):$/;"	m	class:MysqlDBAcc
-insert_many_sql	Camera-Info.py.orig	/^    def insert_many_sql(self, sql=None, many=None):$/;"	m	class:MysqlDBAcc
 insert_t_arteva_camera_info	Camera-Info.py	/^    def insert_t_arteva_camera_info(self, db, rows):$/;"	m	class:CameraInfo
-insert_t_arteva_camera_info	Camera-Info.py.orig	/^def insert_t_arteva_camera_info(db, rows, conf, sid):$/;"	f
 is_valid_url_regex	Camera-Info.py	/^def is_valid_url_regex(url):$/;"	f
 line_info	Camera-Info.py	/^def line_info():$/;"	f
 main	Camera-Info.py	/^def main():$/;"	f
-main	Camera-Info.py.orig	/^def main():$/;"	f
 now	Camera-Info.py	/^now = datetime.datetime.now()$/;"	v
 now	Camera-Info.py	/^now = now.strftime('%Y-%m-%d %H:%M:%S')$/;"	v
-now	Camera-Info.py.orig	/^now = datetime.datetime.now()$/;"	v
-now	Camera-Info.py.orig	/^now = now.strftime('%Y-%m-%d %H:%M:%S')$/;"	v
 passwd	camera-info.ini	/^passwd=dmeta!@34$/;"	k	section:default
+passwd	camera-info_test.ini	/^passwd=dmeta!@34$/;"	k	section:default
+passwd	camera-info_yangsang.ini	/^passwd=dmeta!@34$/;"	k	section:default
 port	camera-info.ini	/^port=3306$/;"	k	section:default
+port	camera-info_test.ini	/^port=3306$/;"	k	section:default
+port	camera-info_yangsang.ini	/^port=3306$/;"	k	section:default
 prefare_t_arteva_camera_info	Camera-Info.py	/^    def prefare_t_arteva_camera_info(self, de, data):$/;"	m	class:CameraInfo
-prefare_t_arteva_camera_info	Camera-Info.py.orig	/^def prefare_t_arteva_camera_info(de, data, conf):$/;"	f
 print_csv	Camera-Info.py	/^def print_csv(data):$/;"	f
 read_broadcast_csv	Camera-Info.py	/^    def read_broadcast_csv(self, filename):$/;"	m	class:BroadCastInfo
-read_broadcast_csv	Camera-Info.py.orig	/^def read_broadcast_csv(filename, conf):$/;"	f
 read_cctv_csv_data	Camera-Info.py	/^    def read_cctv_csv_data(self, filename):$/;"	m	class:CameraInfo
-read_cctv_csv_data	Camera-Info.py.orig	/^def read_cctv_csv_data(filename, conf):$/;"	f
-read_cctv_csv_header	Camera-Info.py.orig	/^def read_cctv_csv_header(filename):$/;"	f
 read_csv_header	Camera-Info.py	/^def read_csv_header(filename):$/;"	f
 read_extern_csv	Camera-Info.py	/^    def read_extern_csv(self, filename):$/;"	m	class:ExternInfo
-read_extern_csv	Camera-Info.py.orig	/^def read_extern_csv(filename, conf):$/;"	f
 restore	Camera-Info.py	/^    def restore(self):$/;"	m	class:BackupData
 select_broadcast_info	Camera-Info.py	/^    def select_broadcast_info(self, db):$/;"	m	class:BroadCastInfo
-select_broadcast_info	Camera-Info.py.orig	/^def select_broadcast_info(db):$/;"	f
 select_camera_info	Camera-Info.py	/^    def select_camera_info(self, db):$/;"	m	class:CameraInfo
-select_camera_info	Camera-Info.py.orig	/^def select_camera_info(db):$/;"	f
 select_camera_info_ex	Camera-Info.py	/^    def select_camera_info_ex(self, db):$/;"	m	class:CameraInfo
-select_camera_info_ex	Camera-Info.py.orig	/^def select_camera_info_ex(db, conf, job=None):$/;"	f
 select_camera_info_ex_station	Camera-Info.py	/^    def select_camera_info_ex_station(self, db):$/;"	m	class:CameraInfo
-select_camera_info_ex_station	Camera-Info.py.orig	/^def select_camera_info_ex_station(db, conf, job=None):$/;"	f
 select_camera_info_ex_stationid	Camera-Info.py	/^    def select_camera_info_ex_stationid(self, db, sid):$/;"	m	class:CameraInfo
-select_camera_info_ex_stationid	Camera-Info.py.orig	/^def select_camera_info_ex_stationid(db, conf, sid, job=None):$/;"	f
 select_db	Camera-Info.py	/^def select_db(db):$/;"	f
-select_db	Camera-Info.py.orig	/^def select_db(db):$/;"	f
 select_extern_info	Camera-Info.py	/^    def select_extern_info(self, db):$/;"	m	class:ExternInfo
-select_extern_info	Camera-Info.py.orig	/^def select_extern_info(db):$/;"	f
 select_ims_v_camera_info_ex	Camera-Info.py	/^def select_ims_v_camera_info_ex(db):$/;"	f
-select_ims_v_camera_info_ex	Camera-Info.py.orig	/^def select_ims_v_camera_info_ex(db):$/;"	f
 select_row_sql	Camera-Info.py	/^    def select_row_sql(self, sql=None):$/;"	m	class:MysqlDBAcc
-select_row_sql	Camera-Info.py.orig	/^    def select_row_sql(self, sql=None):$/;"	m	class:MysqlDBAcc
 select_sql	Camera-Info.py	/^    def select_sql(self, sql=None, fetchall=False, size=None):$/;"	m	class:MysqlDBAcc
-select_sql	Camera-Info.py.orig	/^    def select_sql(self, sql=None, fetchall=False, size=None):$/;"	m	class:MysqlDBAcc
 time	Camera-Info.py	/^        time = lambda x:x if x else None $/;"	f	member:BroadCastInfo.add_broadcast_info	file:
 tname	camera-info.ini	/^tname=v_camera_info_ex$/;"	k	section:default
+tname	camera-info_test.ini	/^tname=v_camera_info_ex$/;"	k	section:default
+tname	camera-info_yangsang.ini	/^tname=v_camera_info_ex$/;"	k	section:default
 tupletodict	Camera-Info.py	/^def tupletodict(desc, rows):$/;"	f
-tupletodict	Camera-Info.py.orig	/^def tupletodict(desc, rows):$/;"	f
 tupletolist	Camera-Info.py	/^def tupletolist(desc, rows):$/;"	f
-tupletolist	Camera-Info.py.orig	/^def tupletolist(desc, rows):$/;"	f
-unit	register-camera.ini	/^[unit]$/;"	s
 update_broadcast_camera_info	Camera-Info.py	/^    def update_broadcast_camera_info(self, db):$/;"	m	class:BroadCastInfo
-update_broadcast_camera_info	Camera-Info.py.orig	/^def update_broadcast_camera_info(db):$/;"	f
 update_broadcast_info	Camera-Info.py	/^    def update_broadcast_info(self, db, status):$/;"	m	class:BroadCastInfo
-update_broadcast_info	Camera-Info.py.orig	/^def update_broadcast_info(db, status):$/;"	f
 update_camera_info	Camera-Info.py	/^    def update_camera_info(self, db, update_rows):$/;"	m	class:CameraInfo
-update_camera_info	Camera-Info.py.orig	/^def update_camera_info(db, conf, update_rows):$/;"	f
 update_extern_info	Camera-Info.py	/^    def update_extern_info(self, db, status):$/;"	m	class:ExternInfo
-update_extern_info	Camera-Info.py.orig	/^def update_extern_info(db, status):$/;"	f
 user	camera-info.ini	/^user=dmeta$/;"	k	section:default
-write_camera_info_ex	Camera-Info.py.orig	/^def write_camera_info_ex(de, data, filename):$/;"	f
+user	camera-info_test.ini	/^user=dmeta$/;"	k	section:default
+user	camera-info_yangsang.ini	/^user=dmeta$/;"	k	section:default
 write_cctv_csv_data	Camera-Info.py	/^    def write_cctv_csv_data(self, filename, update_rows):$/;"	m	class:CameraInfo
-write_cctv_csv_data	Camera-Info.py.orig	/^def write_cctv_csv_data(filename, conf, update_rows):$/;"	f
 write_csv_file	Camera-Info.py	/^def write_csv_file(de, data, filename):$/;"	f

@@ -21,7 +21,8 @@ INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`idx`, `station_name`, 
 
 ### CCTV
 ## Insert CCTV infomation
-INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resolution, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, login_id, password, resolution, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+#INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, resolution, comment, create_time, update_time, create_user, update_user) values (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
 SELECT_CAMERA_INFO_ID_SQL="select id from t_arteva_camera_info where name = '{}'"
 
 ## Update CCTV infomation

@@ -300,11 +300,11 @@ class CameraInfo:
                             #NAME = 'CCTV' + '-' + v[hd[hd_si_idx]] + '-' + str(num).zfill(3)
                         if is_valid_url_regex(dt[de[de_cc_idx]]):
                             idx = dt[de[de_cc_idx]].find(v[hd[hd_nv_idx]])
-                            URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][idx:]
+                            #URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][idx:]
                             # // password 분리
-                            # URL = dt[de[de_cc_idx]]
-                            # LOGIN_ID = v[hd[hd_id_idx]]
-                            # PASSWORD = v[hd[hd_pw_idx]]
+                            URL = dt[de[de_cc_idx]]
+                            LOGIN_ID = v[hd[hd_id_idx]]
+                            PASSWORD = v[hd[hd_pw_idx]]
                             ACTIVE = "A"
                         COMMENT = v[hd[hd_na_idx]] + "(" + v[hd[hd_si_idx]] + ") 역사, \
                             카메라 이름: " + v[hd[hd_ca_idx]] + ", \
@@ -331,17 +331,17 @@ class CameraInfo:
                             NAME,                       # 1. name(CCTV name)
                             URL,                        # 2. url(rtsp url)
                             ACTIVE,                     # 3. active(Active)
-                            # LOGIN_ID,                    Login id 
-                            # PASSWORD,                    password
-                            self.conf["RESOLUTION"],    # 4. resolution(FHD)
-                            COMMENT,                    # 5. comment
-                            now,                        # 6. create_time
-                            now,                        # 7. update_time
-                            self.conf["adminuser"],     # 8. create_user
-                            self.conf["adminuser"],     # 9. update_user
-                            event_type,                 # 10. event_type
-                            broad_area,                 # 11. broadcast area
-                            broad_id                    # 12. broadcast id 
+                            LOGIN_ID,                   # 4. Login id 
+                            PASSWORD,                   # 5. password
+                            self.conf["RESOLUTION"],    # 6. resolution(FHD)
+                            COMMENT,                    # 7. comment
+                            now,                        # 8. create_time
+                            now,                        # 9. update_time
+                            self.conf["adminuser"],     # 10. create_user
+                            self.conf["adminuser"],     # 11. update_user
+                            event_type,                 # 12. event_type
+                            broad_area,                 # 13. broadcast area
+                            broad_id                    # 14. broadcast id 
                             ]
     
                         num+=1
@@ -415,8 +415,8 @@ class CameraInfo:
             broadcast['barea'] = row.pop()
             event = tuple(row.pop().split(','))
             event_list = list(event)
-            if 'FT' in event_list:
-                event_list.remove('FT')
+            #if 'FT' in event_list:
+            #    event_list.remove('FT')
             if 'NE' in event_list:
                 event_list.remove('NE')
             broadcast['event'] = event_list
@@ -445,9 +445,7 @@ class CameraInfo:
             USER
             '''
             ### Insert t_arteva_camera_event
-            #cctv_id = int(re.sub(r'[^0-9]', '', row[0]))
             WLOG("{}  camera_id : {}".format(FNC, camera_id[0]))
-            #SQL = arsql.INSERT_CAMERA_EVENT_BID_SQL + arsql.SELECT_EVENT_CONF_BID_SQL.format(camera_id[0], event, now, now, user, user)
             SQL = arsql.INSERT_CAMERA_EVENT_SQL + arsql.SELECT_EVENT_CONF_SQL.format(camera_id[0], event, now, now, user, user)
             db.insert_args_sql(SQL)
 
@@ -457,7 +455,7 @@ class CameraInfo:
                 broad_ar = broadcast['barea'].split(',')
                 broad_et = broadcast['event']
                 for bd, ba, et in zip(broad_id, broad_ar, broad_et):
-                    print(bd, ba, et)
+                    WLOG("{} broad_id : {}, broad_area {}, broad_event {}".format(FNC, bd, ba, et))
                     SQL = arsql.UPDATE_CAMERA_EVENT_BID_SQL.format(ba, bd, camera_id[0], et)
 
                     db.insert_args_sql(SQL)
@@ -1333,6 +1331,8 @@ def BroadCastInfoWork(conf, args):
         sid = conf[hostname]
         args.sid = sid
     #sid = conf[hostname]
+
+    WLOG("{} DB : {} -- {}".format(FNC, args.sid, args.job))
 
     Broad = BroadCastInfo(conf, args)
 
