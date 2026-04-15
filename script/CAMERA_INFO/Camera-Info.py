@@ -531,23 +531,14 @@ class CameraInfo:
             for v in val:
                 for dt in data:
                     rows = []
-                    #if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]) and dt[de[de_cc_idx]]: 
                     if dt[de[de_nu_idx]] == int(v[hd[hd_nu_idx]]): 
                         url = v[hd[hd_cc_idx]]
-                        start = url.find(v[hd[hd_id_idx]])
-                        end = url.find(v[hd[hd_nv_idx]])
     
-                        nvr_url = None
-                        if start > 0 and end > 0:
-                            nvr_url = url[:start] + url[end:]
-    
-                        if dt[de[de_cc_idx]] == nvr_url:
+                        if dt[de[de_cc_idx]] == url:
                             continue
                         else:
                             if dt[de[de_cc_idx]]:
-                                URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][7:]
-                                rows = [v[hd[hd_nu_idx]], URL, v[hd[hd_cd_idx]]]
-                            else:
+                                #URL = "rtsp://" + v[hd[hd_id_idx]] + ":" + v[hd[hd_pw_idx]] + '@' + dt[de[de_cc_idx]][7:]
                                 URL = dt[de[de_cc_idx]]
                                 rows = [v[hd[hd_nu_idx]], URL, v[hd[hd_cd_idx]]]
 
