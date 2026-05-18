@@ -37,7 +37,7 @@ INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_typ
 UPDATE_CAMERA_EVENT_TIME_SQL="UPDATE t_arteva_event_conf SET DETECT_START_TIME = '{}', DETECT_END_TIME = '{}' where EVENT_TYPE = '{}' ;"
 UPDATE_CAMERA_EVENT_BID_SQL="update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}'"
 SELECT_ELEVATOR_ID="select ID from t_arteva_extern_info where TYPE = '{}' and MODBUS_REGISTER = {};"
-UPDATE_CAMERA_EVENT_EL_SQL="update t_arteva_camera_event_conf set elevater_id = {} where camera_id = {} and event_type = '{}';"
+UPDATE_CAMERA_EVENT_EL_SQL="update t_arteva_camera_event_conf set elevater_id = {} where camera_id = '{}' and event_type = '{}';"
 
 ## Select Camera envent type 
 SELECT_EVENT_CONF_BID_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_start_time, b.detect_end_time, ifnull(b.accuracy, 0), ifnull(b.duration, 0), {}, {}, b.param, b.expire_duration, '{}', '{}', '{}', '{}' from lettccmmndetailcode a left outer join t_arteva_event_conf b on a.code = b.EVENT_TYPE where a.code_id = 'EVENT'"

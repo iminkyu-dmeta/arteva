@@ -480,14 +480,18 @@ class CameraInfo:
                 regi = floor.split(',')
 
                 print(regi)
+                print(camera_id[0])
                 SEL_SQL = arsql.SELECT_ELEVATOR_ID.format(elevator, regi[0])
                 ID = db.select_row_sql(SEL_SQL)
 
                 ## set elevator id (poor transportation) WC, ST 
-                PT = ['WC', 'ST']
-                for t in PT:
-                    SQL = arsql.UPDATE_CAMERA_EVENT_EL_SQL.format(ID[0], camera_id[0], t)
-                    db.insert_args_sql(SQL)
+                if ID:
+                    PT = ['WC', 'ST']
+                    for t in PT:
+                        print(t)
+                        SQL = arsql.UPDATE_CAMERA_EVENT_EL_SQL.format(ID[0], camera_id[0], t)
+                        print(SQL)
+                        db.insert_args_sql(SQL)
     
         self.select_camera_info(db)
 
