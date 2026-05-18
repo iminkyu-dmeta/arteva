@@ -92,7 +92,8 @@ INSERT_CAMERA_EVENT_BID_SQL	arsql.py	/^INSERT_CAMERA_EVENT_BID_SQL="insert t_art
 INSERT_CAMERA_EVENT_SQL	arsql.py	/^INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detec/;"	v
 INSERT_CAMERA_INFO_EX_SQL	arsql.py	/^INSERT_CAMERA_INFO_EX_SQL="insert into v_camera_info_ex (`idx`, `station_name`, `station_id`, `c/;"	v
 INSERT_CAMERA_INFO_SQL	arsql.py	/^INSERT_CAMERA_INFO_SQL="insert t_arteva_camera_info (name, url, active, login_id, password, reso/;"	v
-INSERT_EXTERN_INFO_SQL	arsql.py	/^INSERT_EXTERN_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url,address, po/;"	v
+INSERT_EXTERN_INFO_SQL	arsql.py	/^INSERT_EXTERN_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url, address, p/;"	v
+INSERT_EXTERN_MODBUS_INFO_SQL	arsql.py	/^INSERT_EXTERN_MODBUS_INFO_SQL="insert t_arteva_extern_info (name, active, type, request_url, add/;"	v
 LAST_INSERT_SQL	arsql.py	/^LAST_INSERT_SQL="SELECT LAST_INSERT_ID()"$/;"	v
 MysqlDBAcc	Camera-Info.py	/^class MysqlDBAcc:$/;"	c
 NL	Camera-Info.py	/^NL = '\\r\\n'$/;"	v
@@ -111,6 +112,7 @@ SELECT_CAMERA_INFO_EX_STATION_SQL	arsql.py	/^SELECT_CAMERA_INFO_EX_STATION_SQL="
 SELECT_CAMERA_INFO_ID_SQL	arsql.py	/^SELECT_CAMERA_INFO_ID_SQL="select id from t_arteva_camera_info where name = '{}'"$/;"	v
 SELECT_CAMERA_INFO_SQL	arsql.py	/^SELECT_CAMERA_INFO_SQL="select id, name, url, active, resolution from t_arteva_camera_info;"$/;"	v
 SELECT_CAMERA_STATUS	arsql.py	/^SELECT_CAMERA_STATUS="select ID, ACTIVE from t_arteva_camera_info where ACTIVE = '{}';"$/;"	v
+SELECT_ELEVATOR_ID	arsql.py	/^SELECT_ELEVATOR_ID="select ID from t_arteva_extern_info where TYPE = '{}' and MODBUS_REGISTER = /;"	v
 SELECT_EVENT_CONF_BID_SQL	arsql.py	/^SELECT_EVENT_CONF_BID_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.dete/;"	v
 SELECT_EVENT_CONF_SQL	arsql.py	/^SELECT_EVENT_CONF_SQL="select {}, a.code, case when code in {} then '1' else '0' end, b.detect_s/;"	v
 SELECT_EXTERN_INFO_BC	arsql.py	/^SELECT_EXTERN_INFO_BC="select id, type from t_arteva_extern_info where type = 'BC';"$/;"	v
@@ -130,6 +132,8 @@ TRUNCATE_CAMERA_INFO_ARCHIVE	arsql.py	/^TRUNCATE_CAMERA_INFO_ARCHIVE="truncate t
 UPDATE_BROADCAST_ACTIVE	arsql.py	/^UPDATE_BROADCAST_ACTIVE="update t_arteva_broadcast_info set active = '{}' where id = {};"$/;"	v
 UPDATE_CAMERA_ACTIVE	arsql.py	/^UPDATE_CAMERA_ACTIVE="update t_arteva_camera_info set active = '{}' where id = {};"$/;"	v
 UPDATE_CAMERA_EVENT_BID_SQL	arsql.py	/^UPDATE_CAMERA_EVENT_BID_SQL="update t_arteva_camera_event_conf set broadcast_area_code = '{}', b/;"	v
+UPDATE_CAMERA_EVENT_EL_SQL	arsql.py	/^UPDATE_CAMERA_EVENT_EL_SQL="update t_arteva_camera_event_conf set elevater_id = {} where camera_/;"	v
+UPDATE_CAMERA_EVENT_TIME_SQL	arsql.py	/^UPDATE_CAMERA_EVENT_TIME_SQL="UPDATE t_arteva_event_conf SET DETECT_START_TIME = '{}', DETECT_EN/;"	v
 UPDATE_CAMERA_INFO_BROADCAST	arsql.py	/^UPDATE_CAMERA_INFO_BROADCAST="update t_arteva_camera_info set broadcast_area_code = '{}', broadc/;"	v
 UPDATE_CAMERA_INFO_SQL	arsql.py	/^UPDATE_CAMERA_INFO_SQL="update t_arteva_camera_info set url = '{}', ACTIVE = '{}' where name = '/;"	v
 UPDATE_EXTERN_ACTIVE	arsql.py	/^UPDATE_EXTERN_ACTIVE="update t_arteva_extern_info set active = '{}' where id = {};"$/;"	v
@@ -201,10 +205,11 @@ ims_secondary	camera-info_test.ini	/^ims_secondary=7.254.3.22$/;"	k	section:defa
 ims_secondary	camera-info_yangsang.ini	/^ims_secondary=7.254.3.22$/;"	k	section:default
 ims_user	camera-info.ini	/^ims_user=yangsan_tnms$/;"	k	section:default
 ims_user	camera-info_test.ini	/^ims_user=yangsan_tnms$/;"	k	section:default
+ims_user	camera-info_yangsang.ini	/^ims_user=root$/;"	k	section:default
 insert_args_sql	Camera-Info.py	/^    def insert_args_sql(self, sql=None, args=None):$/;"	m	class:MysqlDBAcc
 insert_ims_v_camera_info_ex	Camera-Info.py	/^def insert_ims_v_camera_info_ex(db, hd):$/;"	f
 insert_many_sql	Camera-Info.py	/^    def insert_many_sql(self, sql=None, many=None):$/;"	m	class:MysqlDBAcc
-insert_t_arteva_camera_info	Camera-Info.py	/^    def insert_t_arteva_camera_info(self, db, rows):$/;"	m	class:CameraInfo
+insert_t_arteva_camera_info	Camera-Info.py	/^    def insert_t_arteva_camera_info(self, db, rows, args):$/;"	m	class:CameraInfo
 is_valid_url_regex	Camera-Info.py	/^def is_valid_url_regex(url):$/;"	f
 line_info	Camera-Info.py	/^def line_info():$/;"	f
 main	Camera-Info.py	/^def main():$/;"	f

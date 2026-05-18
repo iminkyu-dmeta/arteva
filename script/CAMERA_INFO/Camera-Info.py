@@ -208,7 +208,8 @@ class CameraInfo:
 
     def read_cctv_csv_data(self, filename):
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
-        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
+        ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id, 
+        ## 17.elevator, 18. floor
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -256,6 +257,7 @@ class CameraInfo:
         ## csv column name
         ## 0.idx , 1.station_name, 2.station_id, 3.camera_name, 4.camera_ipaddr, 5.nvr_rtsp_url, 6.port, 7.guid,
         ## 8.channel, 9.id, 10.pw, 11.type, 12.use, 13.nvr_ipaddr, 14.broadcast_area, 15.broadcast_id, 16.cctv_id
+        ## 17. elevator, 18. floor
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
         WLOG(FNC) 
@@ -279,6 +281,8 @@ class CameraInfo:
         hd_pw_idx = hd.index('pw')
         hd_ty_idx = hd.index('type')
         hd_us_idx = hd.index('use')
+        hd_el_idx = hd.index('elevator')
+        hd_fl_idx = hd.index('floor')
         hd_ba_idx = hd.index('broadcast_area')
         hd_bi_idx = hd.index('broadcast_id')
         hd_cc_idx = hd.index('cctv_id')
@@ -309,6 +313,10 @@ class CameraInfo:
                         COMMENT = v[hd[hd_na_idx]] + "(" + v[hd[hd_si_idx]] + ") 역사, \
                             카메라 이름: " + v[hd[hd_ca_idx]] + ", \
                             용도: " + v[hd[hd_us_idx]]
+
+                        # elevator call
+                        elevator = v[hd[hd_el_idx]]
+                        floor = v[hd[hd_fl_idx]]
                         # change to tuple
                         event = v[hd[hd_ty_idx]].split(',')
                         event_type = v[hd[hd_ty_idx]]
@@ -339,6 +347,8 @@ class CameraInfo:
                             now,                        # 9. update_time
                             self.conf["adminuser"],     # 10. create_user
                             self.conf["adminuser"],     # 11. update_user
+                            elevator,                   # 17. elevator
+                            floor,                      # 18. floor
                             event_type,                 # 12. event_type
                             broad_area,                 # 13. broadcast area
                             broad_id                    # 14. broadcast id 
@@ -353,7 +363,7 @@ class CameraInfo:
 
         return arteva_camera_info_rows
 
-    def insert_t_arteva_camera_info(self, db, rows):
+    def insert_t_arteva_camera_info(self, db, rows, args):
         ## Insert CCTV Registration 
 
         FNC = "[{}::{}] ".format(self.classname ,sys._getframe().f_code.co_name)
@@ -407,7 +417,7 @@ class CameraInfo:
 
         '''
 
-        #broadcast = {}
+        tp = args.evt
         for row in param:
             broadcast = {}
             cctv_id = row[0]
@@ -415,13 +425,15 @@ class CameraInfo:
             broadcast['barea'] = row.pop()
             event = tuple(row.pop().split(','))
             event_list = list(event)
-            #if 'FT' in event_list:
-            #    event_list.remove('FT')
+            if tp:
+                add_tp = list(event)
+                add_tp.append(tp.upper())
+                event = tuple(add_tp)
             if 'NE' in event_list:
                 event_list.remove('NE')
             broadcast['event'] = event_list
-
-            #update_broad[cctv_id] = 
+            floor = row.pop()
+            elevator = row.pop()
     
             '''
             alter table t_arteva_camera_info auto_increment =1;
@@ -448,6 +460,9 @@ class CameraInfo:
             WLOG("{}  camera_id : {}".format(FNC, camera_id[0]))
             SQL = arsql.INSERT_CAMERA_EVENT_SQL + arsql.SELECT_EVENT_CONF_SQL.format(camera_id[0], event, now, now, user, user)
             db.insert_args_sql(SQL)
+            if tp:
+                EVT_SQL = arsql.UPDATE_CAMERA_EVENT_TIME_SQL.format(args.sti, args.eti, tp.upper())
+                db.insert_args_sql(EVT_SQL)
 
             # update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}';
             if broadcast['bid'] and broadcast['barea']:
@@ -458,6 +473,20 @@ class CameraInfo:
                     WLOG("{} broad_id : {}, broad_area {}, broad_event {}".format(FNC, bd, ba, et))
                     SQL = arsql.UPDATE_CAMERA_EVENT_BID_SQL.format(ba, bd, camera_id[0], et)
 
+                    db.insert_args_sql(SQL)
+
+            if elevator:
+                WLOG("{} elevator call cctv_id : {}, floor : {}".format(FNC, row[0], floor))
+                regi = floor.split(',')
+
+                print(regi)
+                SEL_SQL = arsql.SELECT_ELEVATOR_ID.format(elevator, regi[0])
+                ID = db.select_row_sql(SEL_SQL)
+
+                ## set elevator id (poor transportation) WC, ST 
+                PT = ['WC', 'ST']
+                for t in PT:
+                    SQL = arsql.UPDATE_CAMERA_EVENT_EL_SQL.format(ID[0], camera_id[0], t)
                     db.insert_args_sql(SQL)
     
         self.select_camera_info(db)
@@ -648,7 +677,10 @@ class ExternInfo:
         self.conf = conf
         self.args = args
         self.hostname = socket.gethostname()
-        self.sid = conf[self.hostname]
+        if args.sid:
+            self.sid = args.sid
+        else:
+            self.sid = conf[self.hostname]
         self.classname = __class__.__name__
 
     def read_extern_csv(self, filename):
@@ -667,7 +699,8 @@ class ExternInfo:
             for r in reader:
                 row_all = {}
                 for i, h in enumerate(hd):
-                    if h:
+                    #if h and r[hd[i]]:
+                    if h :
                         row_all[hd[i]] = r[hd[i]]
     
                 extern_sql_rows.append(row_all)
@@ -695,10 +728,11 @@ class ExternInfo:
             '''
             alter table t_arteva_extern_info auto_increment =1;
             insert t_arteva_extern_info
-            (name, active, type, request_url, address, port, login_id, password, comment,
+            (name, active, type, request_url, address, port, login_id, password, 
+            modbus_unit_id, modbus_reigster, modbus_value1, modbus_on_value, modbus_off_value, comment,
                 create_time, update_time, create_user, update_user)
             values
-            (%s, %s, %s, %s, %s, %s, %s, %s, %s, now(), now(), %s, %s)
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, now(), now(), %s, %s)
     
             '''
             if row['시스템종류'] == 'TN':
@@ -716,7 +750,8 @@ class ExternInfo:
 
                 WLOG("{} Extern System Add : {}".format(FNC, sql_row[0]))
                 db.insert_args_sql(arsql.INSERT_EXTERN_INFO_SQL.format(now, user), tuple(sql_row))
-            if self.sid == row['역사'] and row['시스템종류'] != 'TN':
+
+            if self.sid == row['역사'] and row['시스템종류'] == 'BC':
                 sql_row = [
                     row['시스템명'], # NAME
                     row['ACTIVE'], # ACTIVE
@@ -730,6 +765,26 @@ class ExternInfo:
                 ]
                 WLOG("{} Extern System Add : {}".format(FNC, sql_row[0]))
                 db.insert_args_sql(arsql.INSERT_EXTERN_INFO_SQL.format(now, user), tuple(sql_row))
+
+            if self.sid == row['역사'] and row['시스템종류'] == 'EL':
+                sql_row = [
+                    row['시스템명'], # NAME
+                    row['ACTIVE'], # ACTIVE
+                    row['시스템종류'], # Type
+                    row['URL'], # URL
+                    row['IP'], # Address
+                    row['PORT'], # Port
+                    row['ID'], # login ID
+                    row['PW'], # login password
+                    row['MODBUS_UNIT_ID'], # elevator id
+                    row['MODBUS_REGISTER'], # elevatro control address
+                    row['MODBUS_VALUE'], # elevatro control high address
+                    row['MODBUS_ON_VALUE'], # elevatro control on value
+                    row['MODBUS_OFF_VALUE'], # elevatro control off value
+                    row['COMMENT'],# Comment
+                ]
+                WLOG("{} Extern System Add : {}".format(FNC, sql_row[0]))
+                db.insert_args_sql(arsql.INSERT_EXTERN_MODBUS_INFO_SQL.format(now, user), tuple(sql_row))
     
         self.select_extern_info(db)
     
@@ -1013,13 +1068,13 @@ def insert_ims_v_camera_info_ex(db, hd):
         insert v_camera_info_ex  
         (idx, station_name, station_id, camera_name, camera_ipaddr, nvr_rtsp_url, manufacturer, model, status)
         '''
-        if row['guid'] :
-            start = row['nvr_rtsp_url'].find(row['id'])
-            end = row['nvr_rtsp_url'].find(row['nvr_ipaddr'])
+        #if row['guid'] :
+        #    start = row['nvr_rtsp_url'].find(row['id'])
+        #    end = row['nvr_rtsp_url'].find(row['nvr_ipaddr'])
 
-            if start > 0 and end > 0:
-                nvr_url = row['nvr_rtsp_url'][:start] + row['nvr_rtsp_url'][end:]
-                row['nvr_rtsp_url'] = nvr_url
+        #    if start > 0 and end > 0:
+        #        nvr_url = row['nvr_rtsp_url'][:start] + row['nvr_rtsp_url'][end:]
+        #        row['nvr_rtsp_url'] = nvr_url
 
         if row['idx']:
             WLOG("CCTV 추가: {} {}".format(row['idx'], row['nvr_rtsp_url']))
@@ -1228,7 +1283,7 @@ def CameraInfoWork(conf, args):
 
         insert_rows = Camera.prefare_t_arteva_camera_info(ims_de, ims_data)
 
-        Camera.insert_t_arteva_camera_info(db, insert_rows)
+        Camera.insert_t_arteva_camera_info(db, insert_rows, args)
 
     if args.job == 'chk':
         ims_de, ims_data = Camera.select_camera_info_ex(ims_db)
@@ -1376,6 +1431,9 @@ def main():
     parser.add_argument('eqpt', nargs='+')
     parser.add_argument("--job", dest='job', default='get', help="NVR RSTP Register ")
     parser.add_argument("--sid", dest='sid', help="server ID")
+    parser.add_argument("--evt", dest='evt', default=None, help="Add event type")
+    parser.add_argument("--sti", dest='sti', default='00:30:00', help="detect start time")
+    parser.add_argument("--eti", dest='eti', default='05:30:00', help="detect end time")
     parser.parse_args(['cctv', 'extern', 'broadcast'])
 
     args = parser.parse_args()
