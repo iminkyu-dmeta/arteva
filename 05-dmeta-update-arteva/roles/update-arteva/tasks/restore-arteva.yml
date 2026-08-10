@@ -1,0 +1,95 @@
+---
+
+- name: rollback tomcat.service
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/backup/tomcat.service"
+    dest: /usr/lib/systemd/system/
+    owner: root
+    group: root
+    remote_src: yes
+    mode: 0644
+
+- name: daemon-reload
+  become: True
+  systemd:
+    daemon-reload: true
+
+- name: remove hide-menu
+  become: True
+  file:
+    path: "/etc/cockpit/{{ item }}"
+    state: absent
+  with_items:
+    - "kdump.override.json"
+    - "selinux.override.json"
+
+- name: copy rocky image update
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/backup/rocky"
+    dest: /usr/share/cockpit/branding/rocky/
+    remote_src: yes
+
+- name: link gpu-monitor
+  become: True
+  file:
+    path: /usr/share/cockpit/gpu-monitor
+    state: absent
+
+- name: link war file
+  become: True
+  file:
+    src: /apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.5.war
+    dest: /apps/arteva/webapps/arteva.war
+    owner: tomcat
+    group: tomcat
+    state: link
+
+- name: link war file
+  become: True
+  file:
+    path: /apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war
+    state: absent
+
+
+- name: rollback table dmeta_arteva
+  mysql_db:
+    name: dmeta_arteva
+    state: import
+    login_user: "{{ user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/sql/{{ rollback_db }}"
+
+- name: copy cockpit
+  become: True
+  file:
+    path: /apps/arteva/cockpit
+    state: absent
+
+- name: disable cockpit.socket
+  become: True
+  systemd:
+    name: cockpit.socket
+    state: stopped
+    enabled: false
+
+#- name: stop pmcd
+#  become: True
+#  systemd:
+#    name: pmcd
+#    state: stopped
+#    enabled: false
+
+#- name: stop pmproxy
+#  become: True
+#  systemd:
+#    name: pmproxy
+#    state: stopped
+#    enabled: false
+
+- name: remove package cockpit
+  become: True
+  file:
+    path: "{{ apps_dir }}/PKG/{{ pkg_dir }}"
+    state: absent

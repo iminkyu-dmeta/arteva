@@ -1,0 +1,10 @@
+---
+
+- name: change selinux
+  become: True
+  lineinfile:
+    path: /etc/selinux/config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^SELINUX=', line: 'SELINUX=permissive' }

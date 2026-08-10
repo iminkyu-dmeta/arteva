@@ -35,7 +35,7 @@ cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 08-arteva-install-service.yml --tags "config-alternatives"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
-ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 06-arteva-config-rabbitmq.yml --tags " config-rabbit" 
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 06-arteva-config-rabbitmq.yml --tags "config-rabbit" 
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 07-arteva-config-pm2.yml --tags "install-pm2" 
@@ -54,6 +54,9 @@ ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.ym
 
 cd ~/arteva/02-dmeta-os-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 01-arteva-os-security.yml --tags "config-security"
+
+cd ~/arteva/02-dmeta-os-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 01-arteva-os-security.yml --tags "config-kisa"
 
 cd ~/arteva/01-dmeta-install-arteva/playbook
 ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-upgrade-rpm.yml --tags "delete-dir,os-reboot" --extra-vars "rpm_dir=rpm"

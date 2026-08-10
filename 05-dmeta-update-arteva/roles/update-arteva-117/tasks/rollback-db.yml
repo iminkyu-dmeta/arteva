@@ -1,0 +1,14 @@
+---
+
+#- name: update ai model
+#  mysql_db:
+#    name: dmeta_arteva
+#    state: import
+#    login_user: "{{ user }}"
+#    login_password: "{{ db_password }}"
+#    target: "{{ apps_dir }}/PKG/{{ pkg_dir }}/ai/{{ rollback_db }}"
+
+- name: update ai model
+  become: True
+  shell: |
+    sudo mariadb -u {{ user }} -p{{ db_password}} dmeta_arteva < {{ apps_dir }}/PKG/{{ pkg_dir }}/ai/{{ rollback_db }}

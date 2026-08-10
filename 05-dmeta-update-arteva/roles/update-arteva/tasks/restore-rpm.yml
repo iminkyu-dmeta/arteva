@@ -1,0 +1,13 @@
+---
+
+- name: dnf history undo Transaction_ID
+  become: True
+  shell: dnf history -y undo {{ Transaction_ID }}
+
+- name: dnf history
+  shell: dnf history
+  register: result
+
+- name: display dnf history
+  debug:
+    msg: "{{ result.stdout_lines }}"

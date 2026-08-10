@@ -1,0 +1,19 @@
+---
+
+- name: register nvidia
+  become: True
+  become_method: sudo
+  expect:
+    command: ./Install
+    chdir: /var/lib/pcp/pmdas/nvidia
+    responses:
+      "(?i) [daemon] ": "daemon"
+
+- name: pminfo
+  become: True
+  shell: pminfo -f nvidia.gpuactive
+  register: result
+
+- name: debug
+  debug:
+    msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,30 @@
+#
+# This group is read both by the client and the server
+# use it for options that affect everything
+#
+[client-server]
+
+[mysqld]
+datadir={{ data_dir }}
+socket={{ data_dir }}/mysql.sock
+lower_case_table_names=1
+init_connect="SET collation_connection = utf8_general_ci"
+init_connect="SET NAMES utf8"
+character-set-server = utf8
+collation-server = utf8_general_ci
+wait_timeout=60
+
+[client]
+port=3306
+socket={{ data_dir }}/mysql.sock
+default-character-set = utf8
+
+[mysqldump]
+    default-character-set = utf8
+[mysql]
+    default-character-set = utf8
+
+#
+# include *.cnf from the config directory
+#
+!includedir /etc/my.cnf.d

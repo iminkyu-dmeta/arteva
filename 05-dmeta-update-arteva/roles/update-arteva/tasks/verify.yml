@@ -1,0 +1,49 @@
+---
+
+- name: verify nouveau
+  become: True
+  shell: |
+    lsmod | grep nouveau
+  failed_when: result.rc not in [ 0, 1 ]  
+  register: result
+
+- name: Display nouveau
+  debug: 
+    msg: "{{ result.stdout_lines }}"
+
+- name: hostname
+  shell: |
+    hostnamectl
+  register: hostname
+
+- name: hostname
+  debug: 
+    msg: "{{ hostname.stdout_lines }}"
+
+- name: nvidia-smi
+  shell: |
+    nvidia-smi
+  register: smi
+
+- name: nvidia-smi
+  debug:
+    msg: "{{ smi.stdout_lines }}"
+
+- name: nvcc
+  shell: |
+    source /etc/profile
+    nvcc -V
+  register: nvcc
+
+- name: nvcc
+  debug:
+    msg: "{{ nvcc.stdout_lines }}"
+
+- name: cudnn
+  shell: |
+    cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+  register: cudnn
+
+- name: cudnn
+  debug:
+    msg: "{{ cudnn.stdout_lines }}"

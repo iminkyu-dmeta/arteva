@@ -31,4 +31,5 @@
     - role: enabled-service
     - role: config-ssh
     - role: openscap
+    - role: config-kisa
 

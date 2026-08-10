@@ -1,0 +1,34 @@
+---
+
+- name: Check repo file
+  find:
+    paths: /etc/yum.repos.d
+    file_type: file
+    patterns: '*.repo'
+  register: filelist
+  tags:
+    - disable-repo-all
+
+- name: check enabled repo
+  shell: dnf repolist --enabled | grep -v repo | awk '{print $1}'
+  register: enablerepo
+  tags:
+    - disable-repo-all
+
+- name: disalbe repo all
+  vars:
+    repoid: "{{ item }}"
+  shell: dnf config-manager --disable {{ repoid }}
+  with_items:
+    - "{{ enablerepo.stdout.split('\n') }}"
+  when: repo is not defined
+  tags:
+    - disable-repo-all
+
+- name: disable repo 
+  shell: dnf config-manager --disable {{ item }}
+  when: repo is defined
+  with_items:
+    - "{{ repo.split(',') }}"
+  tags:
+    - disable-repo-specific

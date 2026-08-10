@@ -74,6 +74,21 @@
   with_items:
     - "dotenvx"
 
+- name: soft link 
+  become: True
+  file:
+    src: "{{ ai_env_path }}/{{ item.src }}"
+    dest: "{{ ai_env_path }}/{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    state: link
+  with_items:
+    - { src: 'libavcodec-9aae324f.so.59.37.100', dest: 'libavcodec.so.59' }
+    - { src: 'libavformat-3ff1be5b.so.59.27.100', dest: 'libavformat.so.59' }
+    - { src: 'libavutil-a0a0531e.so.57.28.100', dest: 'libavutil.so.57' }
+    - { src: 'libswresample-2ec4394e.so.4.7.100', dest: 'libswresample.so.4' }
+    - { src: 'libswscale-2c3c8be7.so.6.7.100', dest: 'libswscale.so.6' }
+
 #- name: create ai directory
 #  become: True
 #  file:

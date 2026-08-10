@@ -1,0 +1,35 @@
+---
+
+- import_tasks: backup-repo.yml
+  tags: ['never', 'backup-repo']
+
+- import_tasks: delete-repo.yml
+  tags: ['never', 'delete-repo']
+
+- import_tasks: set-repo.yml
+  tags: ['never', 'set-repo']
+
+- import_tasks: config-repo.yml
+  tags: ['never', 'config-repo']
+
+- import_tasks: config-repo-releasever.yml
+  tags: ['never', 'config-repo-releasever']
+
+- import_tasks: disable-repo.yml
+  tags: ['never', 'disable-repo']
+
+- import_tasks: enable-repo.yml
+  tags: ['never', 'enable-repo']
+
+- import_tasks: restore-repo.yml
+  tags: ['never', 'restore-repo']
+
+- import_tasks: list-repo.yml
+  tags: ['never', 'list-repo']
+
+- import_tasks: verify-repo.yml
+  tags: ['never', 'verify-repo']
+
+- import_tasks: config-ssh.yml
+  tags: ['never', 'config-ssh']
+

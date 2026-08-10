@@ -1,0 +1,22 @@
+---
+
+- import_tasks: delete-rpm.yml
+  tags: ['never', 'delete-rpm']
+
+#- import_tasks: delete-mysql.yml
+#  tags: ['never', 'delete-mysql']
+
+- import_tasks: list-rpm.yml
+  tags: ['never', 'list-rpm']
+
+- import_tasks: show-rpm.yml
+  tags: ['never', 'show-rpm']
+
+- import_tasks: show-rpm-deplist.yml
+  tags: ['never', 'show-rpm-deplist']
+
+- import_tasks: verify-rpm.yml
+  tags: ['never', 'verify-rpm-delete', 'verify-rpm']
+
+- import_tasks: file-list.yml
+  tags: ['never', 'file-list']

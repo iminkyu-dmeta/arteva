@@ -1,0 +1,34 @@
+---
+
+- import_tasks: upgrade-rpm.yml
+  tags: ['never', 'upgrade-rpm', 'update-rpm']
+
+- import_tasks: upgrade-rpm-name.yml
+  tags: ['never', 'upgrade-rpm-name', 'update-rpm-name']
+
+- import_tasks: upgrade-rpm-all.yml
+  tags: ['never', 'upgrade-rpm-all', 'update-rpm-all']
+
+- import_tasks: list-rpm.yml
+  tags: ['never', 'list-rpm']
+
+- import_tasks: show-rpm.yml
+  tags: ['never', 'show-rpm']
+
+- import_tasks: file-list.yml
+  tags: ['never', 'file-list']
+
+- import_tasks: create-rpm-list.yml
+  tags: ['never', 'create-list']
+
+- import_tasks: show-rpm-deplist.yml
+  tags: ['never', 'show-rpm-deplist']
+
+- import_tasks: verify-rpm.yml
+  tags: ['never', 'verify-rpm-upgrade', 'verify-rpm']
+
+- import_tasks: rollback-rpm.yml
+  tags: ['never', 'rollback-rpm']
+
+- import_tasks: rollback-rpm-undo.yml
+  tags: ['never', 'rollback-rpm-undo']

@@ -1,0 +1,11 @@
+---
+
+- name: verify repository
+  shell: dnf repolist --all
+  register: list
+
+- name: display repository list
+  debug:
+    msg: "{{ list.stdout_lines }}"
+
+

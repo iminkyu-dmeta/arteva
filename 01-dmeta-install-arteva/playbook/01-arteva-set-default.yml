@@ -3,7 +3,6 @@
 - name: Configure timcedate
   gather_facts: True
   vars:
-    hostname: "arteva01"
     host: arteva
 
   hosts: "{{ host }}"

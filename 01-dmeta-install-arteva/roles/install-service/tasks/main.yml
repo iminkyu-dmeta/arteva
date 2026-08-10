@@ -24,5 +24,8 @@
 - import_tasks: fcontext-tomcat.yml
   tags: [ 'never', 'fcontext-tomcat', 'install-arteva' ]
 
+- import_tasks: install-cockpit.yml
+  tags: [ 'never', 'install-cockpit', 'install-arteva' ]
+
 - import_tasks: verify.yml
   tags: [ 'never', 'verify' ]

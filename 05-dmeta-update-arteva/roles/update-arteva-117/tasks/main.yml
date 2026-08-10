@@ -1,0 +1,43 @@
+---
+
+- import_tasks: stop-arteva.yml
+  tags: [ 'never', 'stop-arteva', 'update-arteva', 'rollback-arteva']
+
+- import_tasks: upload-package.yml
+  tags: [ 'never', 'upload-package', 'update-arteva' ]
+
+- import_tasks: update-tomcat-service.yml
+  tags: [ 'never', 'update-tomcat-service', 'update-arteva' ]
+
+- import_tasks: backup-ai-file.yml
+  tags: [ 'never', 'backup-ai-file', 'update-arteva' ]
+
+- import_tasks: update-ai.yml
+  tags: [ 'never', 'upgrade-ai', 'update-arteva' ]
+
+- import_tasks: update-ai-lib.yml
+  tags: [ 'never', 'update-ai-lib', 'update-arteva' ]
+
+- import_tasks: update-ffmpeg.yml
+  tags: [ 'never', 'update-ffmpeg', 'update-arteva' ]
+
+- import_tasks: update-db.yml
+  tags: [ 'never', 'update-db', 'update-arteva' ]
+
+- import_tasks: rollback-ai-file.yml
+  tags: [ 'never', 'rollback-ai-file', 'rollback-arteva' ]
+
+- import_tasks: rollback-ai-lib.yml
+  tags: [ 'never', 'rollback-ai-lib', 'rollback-arteva' ]
+
+- import_tasks: rollback-ffmpeg.yml
+  tags: [ 'never', 'rollback-ffmpeg', 'rollback-arteva' ]
+
+- import_tasks: rollback-db.yml
+  tags: [ 'never', 'rollback-db', 'rollback-arteva' ]
+
+- import_tasks: start-arteva.yml
+  tags: [ 'never', 'start-arteva', 'update-arteva', 'rollback-arteva']
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

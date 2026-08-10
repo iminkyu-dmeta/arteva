@@ -1,0 +1,12 @@
+---
+
+- name: U-21 /etc/(r)syslog.conf
+  become: True
+  file:
+    path: "{{ item }}"
+    owner: root
+    group: root
+    mode: '0640'
+  with_items:
+    - '/etc/rsyslog.conf'
+

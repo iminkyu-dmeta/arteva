@@ -40,3 +40,1355 @@
 2025-03-06 01:43:26,952 p=54289 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^SELINUX=', 'line': 'SELINUX=enforcing'})
 2025-03-06 01:43:26,962 p=54289 u=dmeta n=ansible | PLAY RECAP ******************************************************************************************************
 2025-03-06 01:43:26,963 p=54289 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 16:49:19,687 p=107865 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 16:49:24,924 p=107865 u=dmeta n=ansible | TASK [config-repo : Check repo file] ************************************************************************************
+2026-08-03 16:49:24,926 p=107865 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:49:27,924 p=107865 u=dmeta n=ansible | TASK [config-repo : check enabled repo] *********************************************************************************
+2026-08-03 16:49:27,925 p=107865 u=dmeta n=ansible | [WARNING]: Consider using the dnf module rather than running 'dnf'.  If you need to use command because dnf is
+insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of
+this message.
+
+2026-08-03 16:49:27,926 p=107865 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 16:49:29,601 p=107865 u=dmeta n=ansible | TASK [config-repo : disalbe repo all] ***********************************************************************************
+2026-08-03 16:49:29,603 p=107865 u=dmeta n=ansible | changed: [arteva1] => (item=appstream)
+2026-08-03 16:49:31,265 p=107865 u=dmeta n=ansible | changed: [arteva1] => (item=baseos)
+2026-08-03 16:49:32,724 p=107865 u=dmeta n=ansible | changed: [arteva1] => (item=extras)
+2026-08-03 16:49:34,261 p=107865 u=dmeta n=ansible | TASK [config-repo : list repository] ************************************************************************************
+2026-08-03 16:49:34,262 p=107865 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 16:49:34,297 p=107865 u=dmeta n=ansible | TASK [config-repo : display repository list] ****************************************************************************
+2026-08-03 16:49:34,298 p=107865 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "repo id                     repo name                                   status",
+        "appstream                   Rocky Linux 8 - AppStream                   disabled",
+        "appstream-debuginfo         Rocky Linux 8 - AppStream - Source          disabled",
+        "appstream-source            Rocky Linux 8 - AppStream - Source          disabled",
+        "baseos                      Rocky Linux 8 - BaseOS                      disabled",
+        "baseos-debuginfo            Rocky Linux 8 - BaseOS - Source             disabled",
+        "baseos-source               Rocky Linux 8 - BaseOS - Source             disabled",
+        "devel                       Rocky Linux 8 - Devel WARNING! FOR BUILDROO disabled",
+        "extras                      Rocky Linux 8 - Extras                      disabled",
+        "ha                          Rocky Linux 8 - HighAvailability            disabled",
+        "ha-debuginfo                Rocky Linux 8 - High Availability - Source  disabled",
+        "ha-source                   Rocky Linux 8 - High Availability - Source  disabled",
+        "media-appstream             Rocky Linux 8 - Media - AppStream           disabled",
+        "media-baseos                Rocky Linux 8 - Media - BaseOS              disabled",
+        "nfv                         Rocky Linux 8 - NFV                         disabled",
+        "plus                        Rocky Linux 8 - Plus                        disabled",
+        "powertools                  Rocky Linux 8 - PowerTools                  disabled",
+        "powertools-debuginfo        Rocky Linux 8 - PowerTools - Source         disabled",
+        "powertools-source           Rocky Linux 8 - PowerTools - Source         disabled",
+        "resilient-storage           Rocky Linux 8 - ResilientStorage            disabled",
+        "resilient-storage-debuginfo Rocky Linux 8 - Resilient Storage - Source  disabled",
+        "resilient-storage-source    Rocky Linux 8 - Resilient Storage - Source  disabled",
+        "rt                          Rocky Linux 8 - Realtime                    disabled"
+    ]
+}
+2026-08-03 16:49:34,304 p=107865 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 16:49:34,305 p=107865 u=dmeta n=ansible | arteva1                    : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 16:58:18,078 p=108127 u=dmeta n=ansible | PLAY [Configure timcedate] **********************************************************************************************
+2026-08-03 16:58:21,886 p=108127 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 16:58:21,889 p=108127 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:58:23,736 p=108127 u=dmeta n=ansible | TASK [config-timedate : set timezone to Asia/Seoul] *********************************************************************
+2026-08-03 16:58:23,736 p=108127 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:58:23,826 p=108127 u=dmeta n=ansible | TASK [config-timedate : display return values] **************************************************************************
+2026-08-03 16:58:23,827 p=108127 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": {
+        "changed": false,
+        "diff": {
+            "after": {
+                "name": "Asia/Seoul"
+            },
+            "before": {
+                "name": "Asia/Seoul"
+            }
+        },
+        "failed": false
+    }
+}
+2026-08-03 16:58:25,383 p=108127 u=dmeta n=ansible | TASK [config-limits : Add a line soft, hard] ****************************************************************************
+2026-08-03 16:58:25,384 p=108127 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2026-08-03 16:58:25,386 p=108127 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:58:27,051 p=108127 u=dmeta n=ansible | TASK [config-limits : Copy file orifinal config] ************************************************************************
+2026-08-03 16:58:27,052 p=108127 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/security/limits.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 2422, 'inode': 658894, 'dev': 64768, 'nlink': 1, 'atime': 1785771097.8636386, 'mtime': 1707757012.0, 'ctime': 1785767194.162036, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'ab3650bcfa282b6e363bda173c3bde56bc57e1b1', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '1440973813', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/security/limits.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': 'limits.conf', 'ansible_loop_var': 'item'})
+2026-08-03 16:58:29,788 p=108127 u=dmeta n=ansible | TASK [config-limits : change limits.conf] *******************************************************************************
+2026-08-03 16:58:29,789 p=108127 u=dmeta n=ansible | changed: [arteva1] => (item=limits.conf)
+2026-08-03 16:58:31,361 p=108127 u=dmeta n=ansible | TASK [config-selinux : change selinux] **********************************************************************************
+2026-08-03 16:58:31,363 p=108127 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^SELINUX=', 'line': 'SELINUX=permissive'})
+2026-08-03 16:58:33,092 p=108127 u=dmeta n=ansible | TASK [config-hostname : set a hostname] *********************************************************************************
+2026-08-03 16:58:33,093 p=108127 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 16:58:33,153 p=108127 u=dmeta n=ansible | TASK [config-hostname : display hostname] *******************************************************************************
+2026-08-03 16:58:33,154 p=108127 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": ""
+}
+2026-08-03 16:58:33,176 p=108127 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 16:58:33,177 p=108127 u=dmeta n=ansible | arteva1                    : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 16:58:47,037 p=108266 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 16:59:26,626 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : upload src rpm files] *************************************************************************
+2026-08-03 16:59:26,628 p=108266 u=dmeta n=ansible | changed: [arteva1] => (item=rpm.tar)
+2026-08-03 16:59:56,161 p=108266 u=dmeta n=ansible | changed: [arteva1] => (item=nvidia-driver.tar.gz)
+2026-08-03 16:59:56,308 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 16:59:56,309 p=108266 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:59:56,369 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 16:59:56,371 p=108266 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "bpftool-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-core-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-devel-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-headers-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-modules-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-tools-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "kernel-tools-libs-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "python3-perf-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "make-4.2.1-11.el8.x86_64.rpm",
+        "cpp-8.5.0-22.el8_10.x86_64.rpm",
+        "glibc-headers-2.28-251.el8_10.2.x86_64.rpm",
+        "libxcrypt-devel-4.1.1-6.el8.x86_64.rpm",
+        "glibc-devel-2.28-251.el8_10.2.x86_64.rpm",
+        "gcc-8.5.0-22.el8_10.x86_64.rpm",
+        "elfutils-libelf-devel-0.190-2.el8.x86_64.rpm",
+        "isl-0.16.1-6.el8.x86_64.rpm",
+        "keyutils-libs-devel-1.5.10-9.el8.x86_64.rpm",
+        "krb5-devel-1.18.2-27.el8_10.x86_64.rpm",
+        "libcom_err-devel-1.45.6-5.el8.x86_64.rpm",
+        "libsepol-devel-2.9-3.el8.x86_64.rpm",
+        "libverto-devel-0.3.2-2.el8.x86_64.rpm",
+        "libzstd-devel-1.4.4-1.el8.x86_64.rpm",
+        "m4-1.4.18-7.el8.x86_64.rpm",
+        "pcre2-devel-10.32-3.el8_6.x86_64.rpm",
+        "pcre2-utf16-10.32-3.el8_6.x86_64.rpm",
+        "pcre2-utf32-10.32-3.el8_6.x86_64.rpm",
+        "zlib-devel-1.2.11-26.el8.x86_64.rpm",
+        "bison-3.0.4-10.el8.x86_64.rpm",
+        "flex-2.6.1-9.el8.x86_64.rpm",
+        "openssl-devel-1.1.1k-12.el8_9.x86_64.rpm",
+        "libkadm5-1.18.2-27.el8_10.x86_64.rpm",
+        "libselinux-devel-2.9-8.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 16:59:56,426 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 16:59:56,428 p=108266 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 16:59:56,498 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 16:59:56,499 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=bpftool-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,504 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,517 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-core-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,529 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-devel-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,539 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-headers-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,552 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-modules-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,557 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-tools-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,571 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=kernel-tools-libs-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,585 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=python3-perf-4.18.0-553.27.1.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,596 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=make-4.2.1-11.el8.x86_64.rpm)
+2026-08-03 16:59:56,608 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=cpp-8.5.0-22.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,621 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=glibc-headers-2.28-251.el8_10.2.x86_64.rpm)
+2026-08-03 16:59:56,630 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libxcrypt-devel-4.1.1-6.el8.x86_64.rpm)
+2026-08-03 16:59:56,643 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=glibc-devel-2.28-251.el8_10.2.x86_64.rpm)
+2026-08-03 16:59:56,657 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=gcc-8.5.0-22.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,673 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=elfutils-libelf-devel-0.190-2.el8.x86_64.rpm)
+2026-08-03 16:59:56,681 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=isl-0.16.1-6.el8.x86_64.rpm)
+2026-08-03 16:59:56,697 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=keyutils-libs-devel-1.5.10-9.el8.x86_64.rpm)
+2026-08-03 16:59:56,708 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=krb5-devel-1.18.2-27.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,722 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libcom_err-devel-1.45.6-5.el8.x86_64.rpm)
+2026-08-03 16:59:56,735 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libsepol-devel-2.9-3.el8.x86_64.rpm)
+2026-08-03 16:59:56,750 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libverto-devel-0.3.2-2.el8.x86_64.rpm)
+2026-08-03 16:59:56,770 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libzstd-devel-1.4.4-1.el8.x86_64.rpm)
+2026-08-03 16:59:56,785 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=m4-1.4.18-7.el8.x86_64.rpm)
+2026-08-03 16:59:56,801 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=pcre2-devel-10.32-3.el8_6.x86_64.rpm)
+2026-08-03 16:59:56,815 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=pcre2-utf16-10.32-3.el8_6.x86_64.rpm)
+2026-08-03 16:59:56,832 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=pcre2-utf32-10.32-3.el8_6.x86_64.rpm)
+2026-08-03 16:59:56,844 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=zlib-devel-1.2.11-26.el8.x86_64.rpm)
+2026-08-03 16:59:56,865 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=bison-3.0.4-10.el8.x86_64.rpm)
+2026-08-03 16:59:56,867 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=flex-2.6.1-9.el8.x86_64.rpm)
+2026-08-03 16:59:56,882 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=openssl-devel-1.1.1k-12.el8_9.x86_64.rpm)
+2026-08-03 16:59:56,898 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libkadm5-1.18.2-27.el8_10.x86_64.rpm)
+2026-08-03 16:59:56,911 p=108266 u=dmeta n=ansible | ok: [arteva1] => (item=libselinux-devel-2.9-8.el8.x86_64.rpm)
+2026-08-03 16:59:56,961 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 16:59:56,962 p=108266 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/bpftool-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-core-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-devel-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-headers-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-modules-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-tools-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/kernel-tools-libs-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/python3-perf-4.18.0-553.27.1.el8_10.x86_64.rpm",
+        "/tmp/rpm/make-4.2.1-11.el8.x86_64.rpm",
+        "/tmp/rpm/cpp-8.5.0-22.el8_10.x86_64.rpm",
+        "/tmp/rpm/glibc-headers-2.28-251.el8_10.2.x86_64.rpm",
+        "/tmp/rpm/libxcrypt-devel-4.1.1-6.el8.x86_64.rpm",
+        "/tmp/rpm/glibc-devel-2.28-251.el8_10.2.x86_64.rpm",
+        "/tmp/rpm/gcc-8.5.0-22.el8_10.x86_64.rpm",
+        "/tmp/rpm/elfutils-libelf-devel-0.190-2.el8.x86_64.rpm",
+        "/tmp/rpm/isl-0.16.1-6.el8.x86_64.rpm",
+        "/tmp/rpm/keyutils-libs-devel-1.5.10-9.el8.x86_64.rpm",
+        "/tmp/rpm/krb5-devel-1.18.2-27.el8_10.x86_64.rpm",
+        "/tmp/rpm/libcom_err-devel-1.45.6-5.el8.x86_64.rpm",
+        "/tmp/rpm/libsepol-devel-2.9-3.el8.x86_64.rpm",
+        "/tmp/rpm/libverto-devel-0.3.2-2.el8.x86_64.rpm",
+        "/tmp/rpm/libzstd-devel-1.4.4-1.el8.x86_64.rpm",
+        "/tmp/rpm/m4-1.4.18-7.el8.x86_64.rpm",
+        "/tmp/rpm/pcre2-devel-10.32-3.el8_6.x86_64.rpm",
+        "/tmp/rpm/pcre2-utf16-10.32-3.el8_6.x86_64.rpm",
+        "/tmp/rpm/pcre2-utf32-10.32-3.el8_6.x86_64.rpm",
+        "/tmp/rpm/zlib-devel-1.2.11-26.el8.x86_64.rpm",
+        "/tmp/rpm/bison-3.0.4-10.el8.x86_64.rpm",
+        "/tmp/rpm/flex-2.6.1-9.el8.x86_64.rpm",
+        "/tmp/rpm/openssl-devel-1.1.1k-12.el8_9.x86_64.rpm",
+        "/tmp/rpm/libkadm5-1.18.2-27.el8_10.x86_64.rpm",
+        "/tmp/rpm/libselinux-devel-2.9-8.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 17:01:55,807 p=108266 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:01:55,808 p=108266 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:01:55,823 p=108266 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:01:55,824 p=108266 u=dmeta n=ansible | arteva1                    : ok=7    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2026-08-03 17:02:45,866 p=108379 u=dmeta n=ansible | PLAY [Configure NVIDIA] *************************************************************************************************
+2026-08-03 17:02:48,821 p=108379 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:02:48,823 p=108379 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:02:50,837 p=108379 u=dmeta n=ansible | TASK [config-nvidia : Xorg server down] *********************************************************************************
+2026-08-03 17:02:50,838 p=108379 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:02:53,805 p=108379 u=dmeta n=ansible | TASK [config-nvidia : Added blacklist-nouveau.conf] *********************************************************************
+2026-08-03 17:02:53,805 p=108379 u=dmeta n=ansible | changed: [arteva1] => (item=blacklist-nouveau.conf)
+2026-08-03 17:03:29,212 p=108379 u=dmeta n=ansible | TASK [config-nvidia : change limits.conf] *******************************************************************************
+2026-08-03 17:03:29,213 p=108379 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:03:30,650 p=108379 u=dmeta n=ansible | TASK [config-nvidia : Update kernel args] *******************************************************************************
+2026-08-03 17:03:30,650 p=108379 u=dmeta n=ansible | changed: [arteva1] => (item=modprobe.blacklist=nouveau)
+2026-08-03 17:03:38,405 p=108379 u=dmeta n=ansible | TASK [config-nvidia : Relection of changes to the system] ***************************************************************
+2026-08-03 17:03:38,406 p=108379 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:03:39,966 p=108379 u=dmeta n=ansible | TASK [config-nvidia : check that file exist] ****************************************************************************
+2026-08-03 17:03:39,967 p=108379 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2026-08-03 17:03:39,968 p=108379 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:03:41,434 p=108379 u=dmeta n=ansible | TASK [config-nvidia : Synchronize cached writes to persistent storage] **************************************************
+2026-08-03 17:03:41,435 p=108379 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:04:25,834 p=108379 u=dmeta n=ansible | TASK [config-nvidia : reboot the machine with delay 1] ******************************************************************
+2026-08-03 17:04:25,836 p=108379 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:04:25,862 p=108379 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:04:25,863 p=108379 u=dmeta n=ansible | arteva1                    : ok=9    changed=7    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-08-03 17:05:05,792 p=108587 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:05:05,991 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 17:05:05,993 p=108587 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:05:06,033 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:05:06,034 p=108587 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "cuda-drivers-525.85.12-1.x86_64.rpm",
+        "dkms-3.1.4-3.el8.noarch.rpm",
+        "dnf-plugin-nvidia-2.0-1.el8.noarch.rpm",
+        "egl-wayland-1.1.9-3.el8.x86_64.rpm",
+        "kmod-nvidia-open-dkms-525.85.12-1.el8.x86_64.rpm",
+        "libglvnd-opengl-1.3.4-2.el8.x86_64.rpm",
+        "libvdpau-1.4-2.el8.x86_64.rpm",
+        "libX11-devel-1.6.8-8.el8.x86_64.rpm",
+        "libXau-devel-1.0.9-3.el8.x86_64.rpm",
+        "libxcb-devel-1.13.1-1.el8.x86_64.rpm",
+        "mesa-vulkan-drivers-23.1.4-3.el8_10.x86_64.rpm",
+        "nvidia-driver-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-cuda-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-cuda-libs-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-devel-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-libs-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-NvFBCOpenGL-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-driver-NVML-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-kmod-common-525.85.12-1.el8.noarch.rpm",
+        "nvidia-kmod-source-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-libXNVCtrl-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-libXNVCtrl-devel-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-modprobe-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-persistenced-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-settings-525.85.12-1.el8.x86_64.rpm",
+        "nvidia-xconfig-525.85.12-1.el8.x86_64.rpm",
+        "ocl-icd-2.2.12-1.el8.x86_64.rpm",
+        "opencl-filesystem-1.0-6.el8.noarch.rpm",
+        "patch-2.7.6-11.el8.x86_64.rpm",
+        "vulkan-loader-1.3.283.0-1.el8_10.x86_64.rpm",
+        "xorg-x11-proto-devel-2020.1-3.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:05:06,066 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 17:05:06,067 p=108587 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:05:06,104 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 17:05:06,105 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-drivers-525.85.12-1.x86_64.rpm)
+2026-08-03 17:05:06,110 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=dkms-3.1.4-3.el8.noarch.rpm)
+2026-08-03 17:05:06,116 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=dnf-plugin-nvidia-2.0-1.el8.noarch.rpm)
+2026-08-03 17:05:06,124 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=egl-wayland-1.1.9-3.el8.x86_64.rpm)
+2026-08-03 17:05:06,131 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=kmod-nvidia-open-dkms-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,136 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=libglvnd-opengl-1.3.4-2.el8.x86_64.rpm)
+2026-08-03 17:05:06,144 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=libvdpau-1.4-2.el8.x86_64.rpm)
+2026-08-03 17:05:06,150 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=libX11-devel-1.6.8-8.el8.x86_64.rpm)
+2026-08-03 17:05:06,155 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=libXau-devel-1.0.9-3.el8.x86_64.rpm)
+2026-08-03 17:05:06,165 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=libxcb-devel-1.13.1-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,169 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=mesa-vulkan-drivers-23.1.4-3.el8_10.x86_64.rpm)
+2026-08-03 17:05:06,174 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,182 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-cuda-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,186 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-cuda-libs-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,193 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-devel-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,201 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-libs-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,211 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-NvFBCOpenGL-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,222 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-driver-NVML-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,233 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-kmod-common-525.85.12-1.el8.noarch.rpm)
+2026-08-03 17:05:06,244 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-kmod-source-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,250 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-libXNVCtrl-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,255 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-libXNVCtrl-devel-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,261 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-modprobe-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,267 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-persistenced-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,273 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-settings-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,279 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=nvidia-xconfig-525.85.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,285 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=ocl-icd-2.2.12-1.el8.x86_64.rpm)
+2026-08-03 17:05:06,289 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=opencl-filesystem-1.0-6.el8.noarch.rpm)
+2026-08-03 17:05:06,299 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=patch-2.7.6-11.el8.x86_64.rpm)
+2026-08-03 17:05:06,307 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=vulkan-loader-1.3.283.0-1.el8_10.x86_64.rpm)
+2026-08-03 17:05:06,311 p=108587 u=dmeta n=ansible | ok: [arteva1] => (item=xorg-x11-proto-devel-2020.1-3.el8.noarch.rpm)
+2026-08-03 17:05:06,334 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:05:06,335 p=108587 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/nvidia-driver/cuda-drivers-525.85.12-1.x86_64.rpm",
+        "/tmp/nvidia-driver/dkms-3.1.4-3.el8.noarch.rpm",
+        "/tmp/nvidia-driver/dnf-plugin-nvidia-2.0-1.el8.noarch.rpm",
+        "/tmp/nvidia-driver/egl-wayland-1.1.9-3.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/kmod-nvidia-open-dkms-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/libglvnd-opengl-1.3.4-2.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/libvdpau-1.4-2.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/libX11-devel-1.6.8-8.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/libXau-devel-1.0.9-3.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/libxcb-devel-1.13.1-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/mesa-vulkan-drivers-23.1.4-3.el8_10.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-cuda-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-cuda-libs-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-devel-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-libs-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-NvFBCOpenGL-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-driver-NVML-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-kmod-common-525.85.12-1.el8.noarch.rpm",
+        "/tmp/nvidia-driver/nvidia-kmod-source-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-libXNVCtrl-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-libXNVCtrl-devel-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-modprobe-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-persistenced-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-settings-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/nvidia-xconfig-525.85.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/ocl-icd-2.2.12-1.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/opencl-filesystem-1.0-6.el8.noarch.rpm",
+        "/tmp/nvidia-driver/patch-2.7.6-11.el8.x86_64.rpm",
+        "/tmp/nvidia-driver/vulkan-loader-1.3.283.0-1.el8_10.x86_64.rpm",
+        "/tmp/nvidia-driver/xorg-x11-proto-devel-2020.1-3.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:08:29,084 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:08:29,084 p=108587 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:08:30,871 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : delete rpm file to VM] ************************************************************************
+2026-08-03 17:08:30,872 p=108587 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:08:33,323 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : Synchronize cached writes to persistent storage] **********************************************
+2026-08-03 17:08:33,323 p=108587 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:09:17,734 p=108587 u=dmeta n=ansible | TASK [upgrade-local-rpm : reboot the machine with delay 1] **************************************************************
+2026-08-03 17:09:17,735 p=108587 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:09:17,747 p=108587 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:09:17,747 p=108587 u=dmeta n=ansible | arteva1                    : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:13:18,348 p=108761 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:13:20,058 p=108761 u=dmeta n=ansible | TASK [upgrade-local-rpm : upload src rpm files] *************************************************************************
+2026-08-03 17:13:20,062 p=108761 u=dmeta n=ansible | failed: [arteva1] (item=cuda-11-8.tar.gz) => {"ansible_loop_var": "item", "changed": false, "item": "cuda-11-8.tar.gz", "msg": "Could not find or access '../file/cuda-11-8.tar.gz'\nSearched in:\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/files/../file/cuda-11-8.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/../file/cuda-11-8.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/tasks/files/../file/cuda-11-8.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/upgrade-local-rpm/tasks/../file/cuda-11-8.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/playbook/files/../file/cuda-11-8.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/playbook/../file/cuda-11-8.tar.gz on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2026-08-03 17:13:20,068 p=108761 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:13:20,069 p=108761 u=dmeta n=ansible | arteva1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2026-08-03 17:13:57,742 p=108800 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:19:41,557 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : upload src rpm files] *************************************************************************
+2026-08-03 17:19:41,560 p=108800 u=dmeta n=ansible | changed: [arteva1] => (item=cuda-11-8.tar.gz)
+2026-08-03 17:19:41,653 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 17:19:41,654 p=108800 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:19:41,700 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:19:41,702 p=108800 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "copy-jdk-configs-4.0-2.el8.noarch.rpm",
+        "cuda-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-cccl-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-command-line-tools-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-compiler-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-cudart-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-cudart-devel-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-cuobjdump-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-cupti-11-8-11.8.87-1.x86_64.rpm",
+        "cuda-cuxxfilt-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-demo-suite-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-documentation-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-driver-devel-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-gdb-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-libraries-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-libraries-devel-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-memcheck-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nsight-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nsight-compute-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-nsight-systems-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-nvcc-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-nvdisasm-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nvml-devel-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nvprof-11-8-11.8.87-1.x86_64.rpm",
+        "cuda-nvprune-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nvrtc-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-nvrtc-devel-11-8-11.8.89-1.x86_64.rpm",
+        "cuda-nvtx-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-nvvp-11-8-11.8.87-1.x86_64.rpm",
+        "cuda-profiler-api-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-runtime-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-sanitizer-11-8-11.8.86-1.x86_64.rpm",
+        "cuda-toolkit-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-toolkit-11-8-config-common-11.8.89-1.noarch.rpm",
+        "cuda-toolkit-11-config-common-11.8.89-1.noarch.rpm",
+        "cuda-toolkit-config-common-11.8.89-1.noarch.rpm",
+        "cuda-tools-11-8-11.8.0-1.x86_64.rpm",
+        "cuda-visual-tools-11-8-11.8.0-1.x86_64.rpm",
+        "gcc-c++-8.5.0-22.el8_10.x86_64.rpm",
+        "gds-tools-11-8-1.4.0.31-1.x86_64.rpm",
+        "java-1.8.0-openjdk-1.8.0.442.b06-2.el8.x86_64.rpm",
+        "java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm",
+        "javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm",
+        "libcublas-11-8-11.11.3.6-1.x86_64.rpm",
+        "libcublas-devel-11-8-11.11.3.6-1.x86_64.rpm",
+        "libcufft-11-8-10.9.0.58-1.x86_64.rpm",
+        "libcufft-devel-11-8-10.9.0.58-1.x86_64.rpm",
+        "libcufile-11-8-1.4.0.31-1.x86_64.rpm",
+        "libcufile-devel-11-8-1.4.0.31-1.x86_64.rpm",
+        "libcurand-11-8-10.3.0.86-1.x86_64.rpm",
+        "libcurand-devel-11-8-10.3.0.86-1.x86_64.rpm",
+        "libcusolver-11-8-11.4.1.48-1.x86_64.rpm",
+        "libcusolver-devel-11-8-11.4.1.48-1.x86_64.rpm",
+        "libcusparse-11-8-11.7.5.86-1.x86_64.rpm",
+        "libcusparse-devel-11-8-11.7.5.86-1.x86_64.rpm",
+        "libnpp-11-8-11.8.0.86-1.x86_64.rpm",
+        "libnpp-devel-11-8-11.8.0.86-1.x86_64.rpm",
+        "libnvjpeg-11-8-11.9.0.86-1.x86_64.rpm",
+        "libnvjpeg-devel-11-8-11.9.0.86-1.x86_64.rpm",
+        "libstdc++-devel-8.5.0-22.el8_10.x86_64.rpm",
+        "lksctp-tools-1.0.18-3.el8.x86_64.rpm",
+        "nsight-compute-2022.3.0-2022.3.0.22-1.x86_64.rpm",
+        "nsight-systems-2022.4.2-2022.4.2.1_df9881f-0.x86_64.rpm",
+        "ttmkfdir-3.0.9-54.el8.x86_64.rpm",
+        "tzdata-java-2024b-4.el8.noarch.rpm",
+        "xcb-util-image-0.4.0-9.el8.x86_64.rpm",
+        "xcb-util-keysyms-0.4.0-7.el8.x86_64.rpm",
+        "xcb-util-renderutil-0.3.9-10.el8.x86_64.rpm",
+        "xcb-util-wm-0.4.1-12.el8.x86_64.rpm",
+        "xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:19:41,740 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 17:19:41,741 p=108800 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:19:41,803 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 17:19:41,804 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=copy-jdk-configs-4.0-2.el8.noarch.rpm)
+2026-08-03 17:19:41,817 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:41,824 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cccl-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:41,834 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-command-line-tools-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:41,844 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-compiler-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:41,859 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cudart-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:41,870 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cudart-devel-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:41,880 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cuobjdump-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,890 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cupti-11-8-11.8.87-1.x86_64.rpm)
+2026-08-03 17:19:41,899 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-cuxxfilt-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,910 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-demo-suite-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,919 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-documentation-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,930 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-driver-devel-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:41,941 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-gdb-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,948 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-libraries-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:41,956 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-libraries-devel-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:41,966 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-memcheck-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,976 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nsight-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:41,986 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nsight-compute-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,002 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nsight-systems-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,086 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvcc-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:42,097 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvdisasm-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,108 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvml-devel-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,116 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvprof-11-8-11.8.87-1.x86_64.rpm)
+2026-08-03 17:19:42,127 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvprune-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,134 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvrtc-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:42,142 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvrtc-devel-11-8-11.8.89-1.x86_64.rpm)
+2026-08-03 17:19:42,151 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvtx-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,159 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-nvvp-11-8-11.8.87-1.x86_64.rpm)
+2026-08-03 17:19:42,164 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-profiler-api-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,171 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-runtime-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,178 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-sanitizer-11-8-11.8.86-1.x86_64.rpm)
+2026-08-03 17:19:42,181 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-toolkit-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,190 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-toolkit-11-8-config-common-11.8.89-1.noarch.rpm)
+2026-08-03 17:19:42,193 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-toolkit-11-config-common-11.8.89-1.noarch.rpm)
+2026-08-03 17:19:42,198 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-toolkit-config-common-11.8.89-1.noarch.rpm)
+2026-08-03 17:19:42,204 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-tools-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,216 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=cuda-visual-tools-11-8-11.8.0-1.x86_64.rpm)
+2026-08-03 17:19:42,217 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=gcc-c++-8.5.0-22.el8_10.x86_64.rpm)
+2026-08-03 17:19:42,224 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=gds-tools-11-8-1.4.0.31-1.x86_64.rpm)
+2026-08-03 17:19:42,229 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=java-1.8.0-openjdk-1.8.0.442.b06-2.el8.x86_64.rpm)
+2026-08-03 17:19:42,233 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm)
+2026-08-03 17:19:42,238 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm)
+2026-08-03 17:19:42,252 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcublas-11-8-11.11.3.6-1.x86_64.rpm)
+2026-08-03 17:19:42,253 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcublas-devel-11-8-11.11.3.6-1.x86_64.rpm)
+2026-08-03 17:19:42,264 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcufft-11-8-10.9.0.58-1.x86_64.rpm)
+2026-08-03 17:19:42,267 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcufft-devel-11-8-10.9.0.58-1.x86_64.rpm)
+2026-08-03 17:19:42,281 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcufile-11-8-1.4.0.31-1.x86_64.rpm)
+2026-08-03 17:19:42,281 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcufile-devel-11-8-1.4.0.31-1.x86_64.rpm)
+2026-08-03 17:19:42,284 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcurand-11-8-10.3.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,289 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcurand-devel-11-8-10.3.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,300 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcusolver-11-8-11.4.1.48-1.x86_64.rpm)
+2026-08-03 17:19:42,305 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcusolver-devel-11-8-11.4.1.48-1.x86_64.rpm)
+2026-08-03 17:19:42,316 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcusparse-11-8-11.7.5.86-1.x86_64.rpm)
+2026-08-03 17:19:42,321 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libcusparse-devel-11-8-11.7.5.86-1.x86_64.rpm)
+2026-08-03 17:19:42,328 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libnpp-11-8-11.8.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,336 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libnpp-devel-11-8-11.8.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,348 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libnvjpeg-11-8-11.9.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,349 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libnvjpeg-devel-11-8-11.9.0.86-1.x86_64.rpm)
+2026-08-03 17:19:42,358 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=libstdc++-devel-8.5.0-22.el8_10.x86_64.rpm)
+2026-08-03 17:19:42,366 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=lksctp-tools-1.0.18-3.el8.x86_64.rpm)
+2026-08-03 17:19:42,374 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=nsight-compute-2022.3.0-2022.3.0.22-1.x86_64.rpm)
+2026-08-03 17:19:42,383 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=nsight-systems-2022.4.2-2022.4.2.1_df9881f-0.x86_64.rpm)
+2026-08-03 17:19:42,392 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=ttmkfdir-3.0.9-54.el8.x86_64.rpm)
+2026-08-03 17:19:42,398 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=tzdata-java-2024b-4.el8.noarch.rpm)
+2026-08-03 17:19:42,408 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=xcb-util-image-0.4.0-9.el8.x86_64.rpm)
+2026-08-03 17:19:42,418 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=xcb-util-keysyms-0.4.0-7.el8.x86_64.rpm)
+2026-08-03 17:19:42,424 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=xcb-util-renderutil-0.3.9-10.el8.x86_64.rpm)
+2026-08-03 17:19:42,430 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=xcb-util-wm-0.4.1-12.el8.x86_64.rpm)
+2026-08-03 17:19:42,437 p=108800 u=dmeta n=ansible | ok: [arteva1] => (item=xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm)
+2026-08-03 17:19:42,501 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:19:42,503 p=108800 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/cuda-11-8/copy-jdk-configs-4.0-2.el8.noarch.rpm",
+        "/tmp/cuda-11-8/cuda-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cccl-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-command-line-tools-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-compiler-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cudart-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cudart-devel-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cuobjdump-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cupti-11-8-11.8.87-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-cuxxfilt-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-demo-suite-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-documentation-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-driver-devel-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-gdb-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-libraries-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-libraries-devel-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-memcheck-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nsight-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nsight-compute-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nsight-systems-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvcc-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvdisasm-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvml-devel-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvprof-11-8-11.8.87-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvprune-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvrtc-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvrtc-devel-11-8-11.8.89-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvtx-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-nvvp-11-8-11.8.87-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-profiler-api-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-runtime-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-sanitizer-11-8-11.8.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-toolkit-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-toolkit-11-8-config-common-11.8.89-1.noarch.rpm",
+        "/tmp/cuda-11-8/cuda-toolkit-11-config-common-11.8.89-1.noarch.rpm",
+        "/tmp/cuda-11-8/cuda-toolkit-config-common-11.8.89-1.noarch.rpm",
+        "/tmp/cuda-11-8/cuda-tools-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/cuda-visual-tools-11-8-11.8.0-1.x86_64.rpm",
+        "/tmp/cuda-11-8/gcc-c++-8.5.0-22.el8_10.x86_64.rpm",
+        "/tmp/cuda-11-8/gds-tools-11-8-1.4.0.31-1.x86_64.rpm",
+        "/tmp/cuda-11-8/java-1.8.0-openjdk-1.8.0.442.b06-2.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm",
+        "/tmp/cuda-11-8/libcublas-11-8-11.11.3.6-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcublas-devel-11-8-11.11.3.6-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcufft-11-8-10.9.0.58-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcufft-devel-11-8-10.9.0.58-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcufile-11-8-1.4.0.31-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcufile-devel-11-8-1.4.0.31-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcurand-11-8-10.3.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcurand-devel-11-8-10.3.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcusolver-11-8-11.4.1.48-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcusolver-devel-11-8-11.4.1.48-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcusparse-11-8-11.7.5.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libcusparse-devel-11-8-11.7.5.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libnpp-11-8-11.8.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libnpp-devel-11-8-11.8.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libnvjpeg-11-8-11.9.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libnvjpeg-devel-11-8-11.9.0.86-1.x86_64.rpm",
+        "/tmp/cuda-11-8/libstdc++-devel-8.5.0-22.el8_10.x86_64.rpm",
+        "/tmp/cuda-11-8/lksctp-tools-1.0.18-3.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/nsight-compute-2022.3.0-2022.3.0.22-1.x86_64.rpm",
+        "/tmp/cuda-11-8/nsight-systems-2022.4.2-2022.4.2.1_df9881f-0.x86_64.rpm",
+        "/tmp/cuda-11-8/ttmkfdir-3.0.9-54.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/tzdata-java-2024b-4.el8.noarch.rpm",
+        "/tmp/cuda-11-8/xcb-util-image-0.4.0-9.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/xcb-util-keysyms-0.4.0-7.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/xcb-util-renderutil-0.3.9-10.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/xcb-util-wm-0.4.1-12.el8.x86_64.rpm",
+        "/tmp/cuda-11-8/xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:22:25,803 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:22:25,804 p=108800 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:22:27,978 p=108800 u=dmeta n=ansible | TASK [upgrade-local-rpm : delete rpm file to VM] ************************************************************************
+2026-08-03 17:22:27,979 p=108800 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:22:27,991 p=108800 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:22:27,992 p=108800 u=dmeta n=ansible | arteva1                    : ok=8    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2026-08-03 17:22:58,899 p=108943 u=dmeta n=ansible | PLAY [Configure NVIDIA] *************************************************************************************************
+2026-08-03 17:23:01,824 p=108943 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:23:01,826 p=108943 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:27:36,396 p=108943 u=dmeta n=ansible | TASK [install-nvidia : upload cudnn files] ******************************************************************************
+2026-08-03 17:27:36,397 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=cudnn-linux-x86_64-8.6.0.163_cuda11-archive.tar.xz)
+2026-08-03 17:27:38,237 p=108943 u=dmeta n=ansible | TASK [install-nvidia : find libcudnn] ***********************************************************************************
+2026-08-03 17:27:38,237 p=108943 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:27:40,091 p=108943 u=dmeta n=ansible | TASK [install-nvidia : Copy files] **************************************************************************************
+2026-08-03 17:27:40,093 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_version_v8.h)
+2026-08-03 17:27:41,327 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn.h)
+2026-08-03 17:27:42,829 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_cnn_infer.h)
+2026-08-03 17:27:44,111 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_backend_v8.h)
+2026-08-03 17:27:45,503 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_v8.h)
+2026-08-03 17:27:46,835 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_adv_train_v8.h)
+2026-08-03 17:27:48,109 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_ops_train_v8.h)
+2026-08-03 17:27:49,187 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_cnn_train_v8.h)
+2026-08-03 17:27:50,280 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_ops_infer.h)
+2026-08-03 17:27:51,376 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_version.h)
+2026-08-03 17:27:52,526 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_ops_infer_v8.h)
+2026-08-03 17:27:53,713 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_cnn_infer_v8.h)
+2026-08-03 17:27:54,889 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_ops_train.h)
+2026-08-03 17:27:56,036 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_adv_infer.h)
+2026-08-03 17:27:57,391 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_backend.h)
+2026-08-03 17:27:58,726 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_adv_infer_v8.h)
+2026-08-03 17:28:00,145 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_cnn_train.h)
+2026-08-03 17:28:01,455 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn_adv_train.h)
+2026-08-03 17:28:02,870 p=108943 u=dmeta n=ansible | TASK [install-nvidia : find libcudnn] ***********************************************************************************
+2026-08-03 17:28:02,871 p=108943 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:28:05,449 p=108943 u=dmeta n=ansible | TASK [install-nvidia : Copy files] **************************************************************************************
+2026-08-03 17:28:05,450 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_cnn_train_static.a)
+2026-08-03 17:28:07,682 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_adv_infer.so.8.6.0)
+2026-08-03 17:28:09,129 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_ops_train_static.a)
+2026-08-03 17:28:19,378 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_cnn_infer.so.8.6.0)
+2026-08-03 17:28:21,948 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_adv_infer_static.a)
+2026-08-03 17:28:23,357 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_ops_train.so.8.6.0)
+2026-08-03 17:28:24,538 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn.so.8.6.0)
+2026-08-03 17:28:26,458 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_adv_train.so.8.6.0)
+2026-08-03 17:28:38,319 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_cnn_infer_static.a)
+2026-08-03 17:28:40,277 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_adv_train_static.a)
+2026-08-03 17:28:42,187 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_ops_infer_static.a)
+2026-08-03 17:28:43,883 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_ops_infer.so.8.6.0)
+2026-08-03 17:28:45,698 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item=/tmp/cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn_cnn_train.so.8.6.0)
+2026-08-03 17:28:47,243 p=108943 u=dmeta n=ansible | TASK [install-nvidia : chmod ar] ****************************************************************************************
+2026-08-03 17:28:47,245 p=108943 u=dmeta n=ansible | [WARNING]: Consider using 'become', 'become_method', and 'become_user' rather than running sudo
+
+2026-08-03 17:28:47,246 p=108943 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:28:48,752 p=108943 u=dmeta n=ansible | TASK [install-nvidia : soft link] ***************************************************************************************
+2026-08-03 17:28:48,754 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_train.so.8.6.0', 'dest': 'libcudnn_adv_train.so.8'})
+2026-08-03 17:28:50,296 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_infer.so.8.6.0', 'dest': 'libcudnn_ops_infer.so.8'})
+2026-08-03 17:28:51,885 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_train.so.8.6.0', 'dest': 'libcudnn_cnn_train.so.8'})
+2026-08-03 17:28:53,553 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_infer.so.8.6.0', 'dest': 'libcudnn_adv_infer.so.8'})
+2026-08-03 17:28:55,248 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_train.so.8.6.0', 'dest': 'libcudnn_ops_train.so.8'})
+2026-08-03 17:28:56,399 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_infer.so.8.6.0', 'dest': 'libcudnn_cnn_infer.so.8'})
+2026-08-03 17:28:57,594 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn.so.8.6.0', 'dest': 'libcudnn.so.8'})
+2026-08-03 17:28:58,725 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_train.so.8', 'dest': 'libcudnn_adv_train.so'})
+2026-08-03 17:29:00,089 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_infer.so.8', 'dest': 'libcudnn_ops_infer.so'})
+2026-08-03 17:29:01,187 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_train.so.8', 'dest': 'libcudnn_cnn_train.so'})
+2026-08-03 17:29:02,436 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_infer.so.8', 'dest': 'libcudnn_adv_infer.so'})
+2026-08-03 17:29:03,684 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_train.so.8', 'dest': 'libcudnn_ops_train.so'})
+2026-08-03 17:29:04,863 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_infer.so.8', 'dest': 'libcudnn_cnn_infer.so'})
+2026-08-03 17:29:06,125 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn.so.8', 'dest': 'libcudnn.so'})
+2026-08-03 17:29:07,511 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_train_static.a', 'dest': 'libcudnn_adv_train_static_v8.a'})
+2026-08-03 17:29:08,863 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_adv_infer_static.a', 'dest': 'libcudnn_adv_infer_static_v8.a'})
+2026-08-03 17:29:10,180 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_train_static.a', 'dest': 'libcudnn_ops_train_static_v8.a'})
+2026-08-03 17:29:11,446 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_ops_infer_static.a', 'dest': 'libcudnn_ops_infer_static_v8.a'})
+2026-08-03 17:29:12,646 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_train_static.a', 'dest': 'libcudnn_cnn_train_static_v8.a'})
+2026-08-03 17:29:13,955 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libcudnn_cnn_infer_static.a', 'dest': 'libcudnn_cnn_infer_static_v8.a'})
+2026-08-03 17:29:15,322 p=108943 u=dmeta n=ansible | TASK [install-nvidia : run ldconfig] ************************************************************************************
+2026-08-03 17:29:15,323 p=108943 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:29:15,381 p=108943 u=dmeta n=ansible | TASK [install-nvidia : verify install] **********************************************************************************
+2026-08-03 17:29:15,382 p=108943 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "#define CUDNN_MAJOR 8",
+        "#define CUDNN_MINOR 6",
+        "#define CUDNN_PATCHLEVEL 0",
+        "--",
+        "#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)",
+        "",
+        "/* cannot use constexpr here since this is a C-only file */"
+    ]
+}
+2026-08-03 17:29:17,049 p=108943 u=dmeta n=ansible | TASK [install-nvidia : delete rpm file to VM] ***************************************************************************
+2026-08-03 17:29:17,049 p=108943 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:29:20,052 p=108943 u=dmeta n=ansible | TASK [install-nvidia : update bashrc] ***********************************************************************************
+2026-08-03 17:29:20,053 p=108943 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:29:21,725 p=108943 u=dmeta n=ansible | TASK [install-nvidia : bashrc] ******************************************************************************************
+2026-08-03 17:29:21,726 p=108943 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:29:23,440 p=108943 u=dmeta n=ansible | TASK [install-nvidia : check that file exist] ***************************************************************************
+2026-08-03 17:29:23,441 p=108943 u=dmeta n=ansible | ok: [arteva1] => (item=None)
+2026-08-03 17:29:23,443 p=108943 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:29:24,785 p=108943 u=dmeta n=ansible | TASK [install-nvidia : Copy file original config] ***********************************************************************
+2026-08-03 17:29:24,786 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/X11/xorg.conf.d/10-nvidia.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 338, 'inode': 420562, 'dev': 64768, 'nlink': 1, 'atime': 1674895616.0, 'mtime': 1674895616.0, 'ctime': 1785776356.137556, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': '1ba351a02240fbec1adbf53ee40f25a372c79d20', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '666006278', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/X11/xorg.conf.d/10-nvidia.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': '10-nvidia.conf', 'ansible_loop_var': 'item'})
+2026-08-03 17:29:26,220 p=108943 u=dmeta n=ansible | TASK [install-nvidia : Copy file original config] ***********************************************************************
+2026-08-03 17:29:26,221 p=108943 u=dmeta n=ansible | changed: [arteva1] => (item={'changed': False, 'stat': {'exists': True, 'path': '/etc/X11/xorg.conf.d/10-nvidia.conf', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 338, 'inode': 420562, 'dev': 64768, 'nlink': 1, 'atime': 1674895616.0, 'mtime': 1674895616.0, 'ctime': 1785776356.137556, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 8, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': '1ba351a02240fbec1adbf53ee40f25a372c79d20', 'mimetype': 'text/plain', 'charset': 'us-ascii', 'version': '666006278', 'attributes': ['extents'], 'attr_flags': 'e'}, 'invocation': {'module_args': {'path': '/etc/X11/xorg.conf.d/10-nvidia.conf', 'follow': False, 'get_md5': False, 'get_checksum': True, 'get_mime': True, 'get_attributes': True, 'checksum_algorithm': 'sha1'}}, 'failed': False, 'item': '10-nvidia.conf', 'ansible_loop_var': 'item'})
+2026-08-03 17:29:26,246 p=108943 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:29:26,247 p=108943 u=dmeta n=ansible | arteva1                    : ok=16   changed=11   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:29:54,554 p=109883 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:29:54,776 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 17:29:54,778 p=109883 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:29:54,836 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:29:54,838 p=109883 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "MariaDB-client-11.4.12-1.el8.x86_64.rpm",
+        "MariaDB-client-compat-11.4.12-1.el8.noarch.rpm",
+        "MariaDB-common-11.4.12-1.el8.x86_64.rpm",
+        "MariaDB-server-11.4.12-1.el8.x86_64.rpm",
+        "MariaDB-server-compat-11.4.12-1.el8.noarch.rpm",
+        "MariaDB-shared-11.4.12-1.el8.x86_64.rpm",
+        "liburing-1.0.7-3.el8.x86_64.rpm",
+        "galera-4-26.4.19-1.el8.x86_64.rpm",
+        "socat-1.7.4.1-1.el8.x86_64.rpm",
+        "python3-PyMySQL-0.10.1-2.module+el8.10.0+1592+61442852.noarch.rpm",
+        "python3-cryptography-3.2.1-7.el8_9.x86_64.rpm",
+        "python3-cffi-1.11.5-6.el8.x86_64.rpm",
+        "python3-pycparser-2.14-14.el8.noarch.rpm",
+        "cockpit-pcp-310.3-2.el8.x86_64.rpm",
+        "libsodium-1.0.18-9.el8.x86_64.rpm",
+        "libuv-1.41.1-1.el8_4.x86_64.rpm",
+        "pcp-5.3.7-20.el8_10.x86_64.rpm",
+        "pcp-conf-5.3.7-20.el8_10.x86_64.rpm",
+        "pcp-libs-5.3.7-20.el8_10.x86_64.rpm",
+        "pcp-pmda-nvidia-gpu-5.3.7-20.el8_10.x86_64.rpm",
+        "pcp-selinux-5.3.7-20.el8_10.x86_64.rpm",
+        "pcp-system-tools-5.3.7-20.el8_10.x86_64.rpm",
+        "python3-bcrypt-3.1.6-2.el8.1.x86_64.rpm",
+        "python3-paramiko-2.12.0-2.el8.noarch.rpm",
+        "python3-pcp-5.3.7-20.el8_10.x86_64.rpm",
+        "python3-pynacl-1.3.0-5.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 17:29:54,874 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 17:29:54,875 p=109883 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:29:54,945 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 17:29:54,946 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-client-11.4.12-1.el8.x86_64.rpm)
+2026-08-03 17:29:54,952 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-client-compat-11.4.12-1.el8.noarch.rpm)
+2026-08-03 17:29:54,963 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-common-11.4.12-1.el8.x86_64.rpm)
+2026-08-03 17:29:54,975 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-server-11.4.12-1.el8.x86_64.rpm)
+2026-08-03 17:29:54,988 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-server-compat-11.4.12-1.el8.noarch.rpm)
+2026-08-03 17:29:54,999 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=MariaDB-shared-11.4.12-1.el8.x86_64.rpm)
+2026-08-03 17:29:55,008 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=liburing-1.0.7-3.el8.x86_64.rpm)
+2026-08-03 17:29:55,017 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=galera-4-26.4.19-1.el8.x86_64.rpm)
+2026-08-03 17:29:55,030 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=socat-1.7.4.1-1.el8.x86_64.rpm)
+2026-08-03 17:29:55,045 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-PyMySQL-0.10.1-2.module+el8.10.0+1592+61442852.noarch.rpm)
+2026-08-03 17:29:55,065 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-cryptography-3.2.1-7.el8_9.x86_64.rpm)
+2026-08-03 17:29:55,080 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-cffi-1.11.5-6.el8.x86_64.rpm)
+2026-08-03 17:29:55,092 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-pycparser-2.14-14.el8.noarch.rpm)
+2026-08-03 17:29:55,110 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=cockpit-pcp-310.3-2.el8.x86_64.rpm)
+2026-08-03 17:29:55,119 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=libsodium-1.0.18-9.el8.x86_64.rpm)
+2026-08-03 17:29:55,132 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=libuv-1.41.1-1.el8_4.x86_64.rpm)
+2026-08-03 17:29:55,142 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,152 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-conf-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,162 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-libs-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,172 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-pmda-nvidia-gpu-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,180 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-selinux-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,189 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=pcp-system-tools-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,196 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-bcrypt-3.1.6-2.el8.1.x86_64.rpm)
+2026-08-03 17:29:55,211 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-paramiko-2.12.0-2.el8.noarch.rpm)
+2026-08-03 17:29:55,215 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-pcp-5.3.7-20.el8_10.x86_64.rpm)
+2026-08-03 17:29:55,221 p=109883 u=dmeta n=ansible | ok: [arteva1] => (item=python3-pynacl-1.3.0-5.el8.x86_64.rpm)
+2026-08-03 17:29:55,247 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:29:55,248 p=109883 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/MariaDB-client-11.4.12-1.el8.x86_64.rpm",
+        "/tmp/rpm/MariaDB-client-compat-11.4.12-1.el8.noarch.rpm",
+        "/tmp/rpm/MariaDB-common-11.4.12-1.el8.x86_64.rpm",
+        "/tmp/rpm/MariaDB-server-11.4.12-1.el8.x86_64.rpm",
+        "/tmp/rpm/MariaDB-server-compat-11.4.12-1.el8.noarch.rpm",
+        "/tmp/rpm/MariaDB-shared-11.4.12-1.el8.x86_64.rpm",
+        "/tmp/rpm/liburing-1.0.7-3.el8.x86_64.rpm",
+        "/tmp/rpm/galera-4-26.4.19-1.el8.x86_64.rpm",
+        "/tmp/rpm/socat-1.7.4.1-1.el8.x86_64.rpm",
+        "/tmp/rpm/python3-PyMySQL-0.10.1-2.module+el8.10.0+1592+61442852.noarch.rpm",
+        "/tmp/rpm/python3-cryptography-3.2.1-7.el8_9.x86_64.rpm",
+        "/tmp/rpm/python3-cffi-1.11.5-6.el8.x86_64.rpm",
+        "/tmp/rpm/python3-pycparser-2.14-14.el8.noarch.rpm",
+        "/tmp/rpm/cockpit-pcp-310.3-2.el8.x86_64.rpm",
+        "/tmp/rpm/libsodium-1.0.18-9.el8.x86_64.rpm",
+        "/tmp/rpm/libuv-1.41.1-1.el8_4.x86_64.rpm",
+        "/tmp/rpm/pcp-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/pcp-conf-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/pcp-libs-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/pcp-pmda-nvidia-gpu-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/pcp-selinux-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/pcp-system-tools-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/python3-bcrypt-3.1.6-2.el8.1.x86_64.rpm",
+        "/tmp/rpm/python3-paramiko-2.12.0-2.el8.noarch.rpm",
+        "/tmp/rpm/python3-pcp-5.3.7-20.el8_10.x86_64.rpm",
+        "/tmp/rpm/python3-pynacl-1.3.0-5.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 17:31:00,178 p=109883 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:31:00,178 p=109883 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:31:00,189 p=109883 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:31:00,189 p=109883 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:32:30,960 p=109933 u=dmeta n=ansible | PLAY [configure mysql] **************************************************************************************************
+2026-08-03 17:32:54,021 p=109933 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:32:54,022 p=109933 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:32:57,241 p=109933 u=dmeta n=ansible | TASK [config-mysql : create mysql dir] **********************************************************************************
+2026-08-03 17:32:57,242 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:33:33,765 p=109933 u=dmeta n=ansible | TASK [config-mysql : chown data dir] ************************************************************************************
+2026-08-03 17:33:33,766 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:33,402 p=109933 u=dmeta n=ansible | TASK [config-mysql : stop mysql] ****************************************************************************************
+2026-08-03 17:34:33,404 p=109933 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:34:35,761 p=109933 u=dmeta n=ansible | TASK [config-mysql : copy mysql] ****************************************************************************************
+2026-08-03 17:34:35,762 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:38,711 p=109933 u=dmeta n=ansible | TASK [config-mysql : update my.cnf] *************************************************************************************
+2026-08-03 17:34:38,712 p=109933 u=dmeta n=ansible | changed: [arteva1] => (item=my.cnf)
+2026-08-03 17:34:42,431 p=109933 u=dmeta n=ansible | TASK [config-mysql : start mysql] ***************************************************************************************
+2026-08-03 17:34:42,432 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:44,234 p=109933 u=dmeta n=ansible | TASK [config-mysql : config firewall port] ******************************************************************************
+2026-08-03 17:34:44,236 p=109933 u=dmeta n=ansible | changed: [arteva1] => (item=3306/tcp)
+2026-08-03 17:34:46,394 p=109933 u=dmeta n=ansible | TASK [config-mysql : reload firewalld] **********************************************************************************
+2026-08-03 17:34:46,395 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:49,480 p=109933 u=dmeta n=ansible | TASK [config-mysql : upload db script] **********************************************************************************
+2026-08-03 17:34:49,481 p=109933 u=dmeta n=ansible | changed: [arteva1] => (item=db-script.tar)
+2026-08-03 17:34:51,904 p=109933 u=dmeta n=ansible | TASK [config-mysql : create db] *****************************************************************************************
+2026-08-03 17:34:51,905 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:53,111 p=109933 u=dmeta n=ansible | TASK [config-mysql : delete upload file] ********************************************************************************
+2026-08-03 17:34:53,111 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:54,462 p=109933 u=dmeta n=ansible | TASK [config-mysql : update root passwd] ********************************************************************************
+2026-08-03 17:34:54,463 p=109933 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:34:54,490 p=109933 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:34:54,490 p=109933 u=dmeta n=ansible | arteva1                    : ok=13   changed=11   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:35:57,589 p=110196 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:35:57,676 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 17:35:57,677 p=110196 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:35:57,700 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:35:57,701 p=110196 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "erlang-26.2.5.4-1.el8.x86_64.rpm",
+        "rabbitmq-server-3.13.7-1.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:35:57,734 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 17:35:57,735 p=110196 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:35:57,768 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 17:35:57,769 p=110196 u=dmeta n=ansible | ok: [arteva1] => (item=erlang-26.2.5.4-1.el8.x86_64.rpm)
+2026-08-03 17:35:57,778 p=110196 u=dmeta n=ansible | ok: [arteva1] => (item=rabbitmq-server-3.13.7-1.el8.noarch.rpm)
+2026-08-03 17:35:57,805 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:35:57,806 p=110196 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/erlang-26.2.5.4-1.el8.x86_64.rpm",
+        "/tmp/rpm/rabbitmq-server-3.13.7-1.el8.noarch.rpm"
+    ]
+}
+2026-08-03 17:36:08,576 p=110196 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:36:08,577 p=110196 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:36:08,595 p=110196 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:36:08,596 p=110196 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:36:18,214 p=110237 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-03 17:36:18,382 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-03 17:36:18,384 p=110237 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:36:18,433 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:36:18,434 p=110237 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "java-11-openjdk-11.0.25.0.9-2.el8.x86_64.rpm",
+        "java-11-openjdk-devel-11.0.25.0.9-2.el8.x86_64.rpm",
+        "java-11-openjdk-headless-11.0.25.0.9-2.el8.x86_64.rpm",
+        "javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm",
+        "copy-jdk-configs-4.0-2.el8.noarch.rpm",
+        "lksctp-tools-1.0.18-3.el8.x86_64.rpm",
+        "tzdata-java-2024b-4.el8.noarch.rpm",
+        "ttmkfdir-3.0.9-54.el8.x86_64.rpm",
+        "xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm",
+        "java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 17:36:18,467 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-03 17:36:18,468 p=110237 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:36:18,524 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-03 17:36:18,526 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=java-11-openjdk-11.0.25.0.9-2.el8.x86_64.rpm)
+2026-08-03 17:36:18,529 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=java-11-openjdk-devel-11.0.25.0.9-2.el8.x86_64.rpm)
+2026-08-03 17:36:18,541 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=java-11-openjdk-headless-11.0.25.0.9-2.el8.x86_64.rpm)
+2026-08-03 17:36:18,552 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm)
+2026-08-03 17:36:18,563 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=copy-jdk-configs-4.0-2.el8.noarch.rpm)
+2026-08-03 17:36:18,575 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=lksctp-tools-1.0.18-3.el8.x86_64.rpm)
+2026-08-03 17:36:18,590 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=tzdata-java-2024b-4.el8.noarch.rpm)
+2026-08-03 17:36:18,604 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=ttmkfdir-3.0.9-54.el8.x86_64.rpm)
+2026-08-03 17:36:18,614 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm)
+2026-08-03 17:36:18,625 p=110237 u=dmeta n=ansible | ok: [arteva1] => (item=java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm)
+2026-08-03 17:36:18,662 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-03 17:36:18,663 p=110237 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/java-11-openjdk-11.0.25.0.9-2.el8.x86_64.rpm",
+        "/tmp/rpm/java-11-openjdk-devel-11.0.25.0.9-2.el8.x86_64.rpm",
+        "/tmp/rpm/java-11-openjdk-headless-11.0.25.0.9-2.el8.x86_64.rpm",
+        "/tmp/rpm/javapackages-filesystem-5.3.0-2.module+el8.3.0+125+5da1ae29.noarch.rpm",
+        "/tmp/rpm/copy-jdk-configs-4.0-2.el8.noarch.rpm",
+        "/tmp/rpm/lksctp-tools-1.0.18-3.el8.x86_64.rpm",
+        "/tmp/rpm/tzdata-java-2024b-4.el8.noarch.rpm",
+        "/tmp/rpm/ttmkfdir-3.0.9-54.el8.x86_64.rpm",
+        "/tmp/rpm/xorg-x11-fonts-Type1-7.5-19.el8.noarch.rpm",
+        "/tmp/rpm/java-1.8.0-openjdk-headless-1.8.0.442.b06-2.el8.x86_64.rpm"
+    ]
+}
+2026-08-03 17:36:30,112 p=110237 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-03 17:36:30,113 p=110237 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:36:30,122 p=110237 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:36:30,122 p=110237 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:36:51,574 p=110271 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-03 17:36:54,599 p=110271 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:36:54,602 p=110271 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:36:56,295 p=110271 u=dmeta n=ansible | TASK [config-alternatives : Correct java version selected] **************************************************************
+2026-08-03 17:36:56,295 p=110271 u=dmeta n=ansible | changed: [arteva1] => (item=2,java)
+2026-08-03 17:36:56,317 p=110271 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:36:56,318 p=110271 u=dmeta n=ansible | arteva1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:37:07,618 p=110313 u=dmeta n=ansible | PLAY [configure rabbitmq] ***********************************************************************************************
+2026-08-03 17:37:10,574 p=110313 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:37:10,576 p=110313 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:37:14,895 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : UI enable] **************************************************************************************
+2026-08-03 17:37:14,896 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:14,950 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : rabbitmq list] **********************************************************************************
+2026-08-03 17:37:14,952 p=110313 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Enabling plugins on node rabbit@YS-TNMS-VDOAN-101:",
+        "rabbitmq_management",
+        "The following plugins have been configured:",
+        "  rabbitmq_management",
+        "  rabbitmq_management_agent",
+        "  rabbitmq_web_dispatch",
+        "Applying plugin configuration to rabbit@YS-TNMS-VDOAN-101...",
+        "The following plugins have been enabled:",
+        "  rabbitmq_management",
+        "  rabbitmq_management_agent",
+        "  rabbitmq_web_dispatch",
+        "",
+        "set 3 plugins.",
+        "Offline change; changes will take effect at broker restart.",
+        "Listing plugins with pattern \".*\" ...",
+        " Configured: E = explicitly enabled; e = implicitly enabled",
+        " | Status: [failed to contact rabbit@YS-TNMS-VDOAN-101 - status not shown]",
+        " |/",
+        "[  ] rabbitmq_amqp1_0                  3.13.7",
+        "[  ] rabbitmq_auth_backend_cache       3.13.7",
+        "[  ] rabbitmq_auth_backend_http        3.13.7",
+        "[  ] rabbitmq_auth_backend_ldap        3.13.7",
+        "[  ] rabbitmq_auth_backend_oauth2      3.13.7",
+        "[  ] rabbitmq_auth_mechanism_ssl       3.13.7",
+        "[  ] rabbitmq_consistent_hash_exchange 3.13.7",
+        "[  ] rabbitmq_event_exchange           3.13.7",
+        "[  ] rabbitmq_federation               3.13.7",
+        "[  ] rabbitmq_federation_management    3.13.7",
+        "[  ] rabbitmq_jms_topic_exchange       3.13.7",
+        "[E ] rabbitmq_management               3.13.7",
+        "[e ] rabbitmq_management_agent         3.13.7",
+        "[  ] rabbitmq_mqtt                     3.13.7",
+        "[  ] rabbitmq_peer_discovery_aws       3.13.7",
+        "[  ] rabbitmq_peer_discovery_common    3.13.7",
+        "[  ] rabbitmq_peer_discovery_consul    3.13.7",
+        "[  ] rabbitmq_peer_discovery_etcd      3.13.7",
+        "[  ] rabbitmq_peer_discovery_k8s       3.13.7",
+        "[  ] rabbitmq_prometheus               3.13.7",
+        "[  ] rabbitmq_random_exchange          3.13.7",
+        "[  ] rabbitmq_recent_history_exchange  3.13.7",
+        "[  ] rabbitmq_sharding                 3.13.7",
+        "[  ] rabbitmq_shovel                   3.13.7",
+        "[  ] rabbitmq_shovel_management        3.13.7",
+        "[  ] rabbitmq_stomp                    3.13.7",
+        "[  ] rabbitmq_stream                   3.13.7",
+        "[  ] rabbitmq_stream_management        3.13.7",
+        "[  ] rabbitmq_top                      3.13.7",
+        "[  ] rabbitmq_tracing                  3.13.7",
+        "[  ] rabbitmq_trust_store              3.13.7",
+        "[e ] rabbitmq_web_dispatch             3.13.7",
+        "[  ] rabbitmq_web_mqtt                 3.13.7",
+        "[  ] rabbitmq_web_mqtt_examples        3.13.7",
+        "[  ] rabbitmq_web_stomp                3.13.7",
+        "[  ] rabbitmq_web_stomp_examples       3.13.7"
+    ]
+}
+2026-08-03 17:37:23,722 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : start rabbitmq] *********************************************************************************
+2026-08-03 17:37:23,723 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:24,872 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : Download rabbitmqadmin tool] ********************************************************************
+2026-08-03 17:37:24,873 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:30,775 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : create user] ************************************************************************************
+2026-08-03 17:37:30,777 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:32,575 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : verify user] ************************************************************************************
+2026-08-03 17:37:32,576 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:32,616 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : rabbitmq user] **********************************************************************************
+2026-08-03 17:37:32,617 p=110313 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Listing users ...",
+        "user\ttags",
+        "dmeta\t[administrator]",
+        "ai_engine_svc\t[administrator]",
+        "guest\t[administrator]"
+    ]
+}
+2026-08-03 17:37:34,075 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : create queue] ***********************************************************************************
+2026-08-03 17:37:34,077 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:35,285 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : verify queue] ***********************************************************************************
+2026-08-03 17:37:35,285 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:35,328 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : queue list] *************************************************************************************
+2026-08-03 17:37:35,329 p=110313 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "+----------+----------+",
+        "|   name   | messages |",
+        "+----------+----------+",
+        "| config   |          |",
+        "| event    |          |",
+        "| geofence |          |",
+        "| monitor  |          |",
+        "+----------+----------+"
+    ]
+}
+2026-08-03 17:37:37,201 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : create exchange] ********************************************************************************
+2026-08-03 17:37:37,201 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:39,172 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : verify exchange] ********************************************************************************
+2026-08-03 17:37:39,174 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:39,225 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : exchange list] **********************************************************************************
+2026-08-03 17:37:39,226 p=110313 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Listing exchanges for vhost / ...",
+        "name\ttype",
+        "amq.headers\theaders",
+        "geofence_exc\tdirect",
+        "monitor_exc\tdirect",
+        "amq.fanout\tfanout",
+        "config_exc\tdirect",
+        "amq.topic\ttopic",
+        "amq.match\theaders",
+        "\tdirect",
+        "amq.direct\tdirect",
+        "event_exc\tdirect",
+        "amq.rabbitmq.trace\ttopic"
+    ]
+}
+2026-08-03 17:37:41,009 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : bind exchange and queue] ************************************************************************
+2026-08-03 17:37:41,010 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:43,171 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : verify bind] ************************************************************************************
+2026-08-03 17:37:43,173 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:43,231 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : bind list] **************************************************************************************
+2026-08-03 17:37:43,233 p=110313 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "Listing bindings for vhost /...",
+        "source_name\tsource_kind\tdestination_name\tdestination_kind\trouting_key\targuments",
+        "\texchange\tgeofence\tqueue\tgeofence\t[]",
+        "\texchange\tconfig\tqueue\tconfig\t[]",
+        "\texchange\tevent\tqueue\tevent\t[]",
+        "\texchange\tmonitor\tqueue\tmonitor\t[]",
+        "config_exc\texchange\tconfig\tqueue\t\t[]",
+        "event_exc\texchange\tevent\tqueue\t\t[]",
+        "geofence_exc\texchange\tgeofence\tqueue\t\t[]",
+        "monitor_exc\texchange\tmonitor\tqueue\t\t[]"
+    ]
+}
+2026-08-03 17:37:45,385 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : config firewall port] ***************************************************************************
+2026-08-03 17:37:45,385 p=110313 u=dmeta n=ansible | changed: [arteva1] => (item=5672/tcp)
+2026-08-03 17:37:47,181 p=110313 u=dmeta n=ansible | changed: [arteva1] => (item=15672/tcp)
+2026-08-03 17:37:49,700 p=110313 u=dmeta n=ansible | TASK [config-rabbitmq : reload firewalld] *******************************************************************************
+2026-08-03 17:37:49,701 p=110313 u=dmeta n=ansible | changed: [arteva1]
+2026-08-03 17:37:49,723 p=110313 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:37:49,724 p=110313 u=dmeta n=ansible | arteva1                    : ok=19   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-03 17:37:59,500 p=110574 u=dmeta n=ansible | PLAY [install pm2 node] *************************************************************************************************
+2026-08-03 17:38:02,549 p=110574 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-03 17:38:02,550 p=110574 u=dmeta n=ansible | ok: [arteva1]
+2026-08-03 17:38:10,048 p=110574 u=dmeta n=ansible | TASK [install-pm : upload pm2 node files] *******************************************************************************
+2026-08-03 17:38:10,049 p=110574 u=dmeta n=ansible | changed: [arteva1] => (item=pm2.tar.gz)
+2026-08-03 17:38:10,517 p=110574 u=dmeta n=ansible | failed: [arteva1] (item=node-v10.24.0-linux-x64.tar.gz) => {"ansible_loop_var": "item", "changed": false, "item": "node-v10.24.0-linux-x64.tar.gz", "msg": "Could not find or access '../file/node-v10.24.0-linux-x64.tar.gz'\nSearched in:\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/install-pm/files/../file/node-v10.24.0-linux-x64.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/install-pm/../file/node-v10.24.0-linux-x64.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/install-pm/tasks/files/../file/node-v10.24.0-linux-x64.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/roles/install-pm/tasks/../file/node-v10.24.0-linux-x64.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/playbook/files/../file/node-v10.24.0-linux-x64.tar.gz\n\t/home/dmeta/arteva/01-dmeta-install-arteva/playbook/../file/node-v10.24.0-linux-x64.tar.gz on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2026-08-03 17:38:10,524 p=110574 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-03 17:38:10,525 p=110574 u=dmeta n=ansible | arteva1                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-08-04 08:03:30,483 p=111863 u=dmeta n=ansible |  [ERROR]: User interrupted execution
+
+2026-08-04 08:03:35,358 p=111866 u=dmeta n=ansible | PLAY [install pm2 node] *************************************************************************************************
+2026-08-04 08:03:38,141 p=111866 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:03:38,142 p=111866 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:03:43,940 p=111866 u=dmeta n=ansible | TASK [install-pm : upload pm2 node files] *******************************************************************************
+2026-08-04 08:03:43,940 p=111866 u=dmeta n=ansible | ok: [arteva1] => (item=pm2.tar.gz)
+2026-08-04 08:03:54,926 p=111866 u=dmeta n=ansible | changed: [arteva1] => (item=node-v10.24.0-linux-x64.tar.gz)
+2026-08-04 08:03:56,261 p=111866 u=dmeta n=ansible | TASK [install-pm : soft link] *******************************************************************************************
+2026-08-04 08:03:56,262 p=111866 u=dmeta n=ansible | changed: [arteva1] => (item={'src': '/apps/node-v10.24.0-linux-x64/bin/node', 'dest': '/usr/sbin/node'})
+2026-08-04 08:03:57,327 p=111866 u=dmeta n=ansible | changed: [arteva1] => (item={'src': '/apps/pm2-5.4.2/bin/pm2', 'dest': '/usr/sbin/pm2'})
+2026-08-04 08:03:58,485 p=111866 u=dmeta n=ansible | TASK [install-pm : soft link] *******************************************************************************************
+2026-08-04 08:03:58,485 p=111866 u=dmeta n=ansible | changed: [arteva1] => (item={'src': '/apps/node-v10.24.0-linux-x64', 'dest': '/apps/pm2-5.4.2/node'})
+2026-08-04 08:03:58,492 p=111866 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 08:03:58,493 p=111866 u=dmeta n=ansible | arteva1                    : ok=4    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2026-08-04 08:04:44,489 p=112004 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-04 08:04:46,947 p=112004 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:04:46,948 p=112004 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:04:48,341 p=112004 u=dmeta n=ansible | TASK [install-service : add group] **************************************************************************************
+2026-08-04 08:04:48,341 p=112004 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:04:49,879 p=112004 u=dmeta n=ansible | TASK [install-service : add the user] ***********************************************************************************
+2026-08-04 08:04:49,880 p=112004 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:04:51,283 p=112004 u=dmeta n=ansible | TASK [install-service : add the user] ***********************************************************************************
+2026-08-04 08:04:51,283 p=112004 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:04:58,974 p=112004 u=dmeta n=ansible | TASK [install-service : upload arteva backend files] ********************************************************************
+2026-08-04 08:04:58,975 p=112004 u=dmeta n=ansible | changed: [arteva1] => (item=arteva.tar)
+2026-08-04 08:04:59,870 p=112004 u=dmeta n=ansible | TASK [install-service : soft link] **************************************************************************************
+2026-08-04 08:04:59,871 p=112004 u=dmeta n=ansible | failed: [arteva1] (item={'src': '/apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war', 'dest': '/apps/arteva/webapps/arteva.war'}) => {"ansible_loop_var": "item", "changed": false, "item": {"dest": "/apps/arteva/webapps/arteva.war", "src": "/apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war"}, "msg": "src file does not exist, use \"force=yes\" if you really want to create the link: /apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war", "path": "/apps/arteva/webapps/arteva.war", "src": "/apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war"}
+2026-08-04 08:04:59,873 p=112004 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 08:04:59,874 p=112004 u=dmeta n=ansible | arteva1                    : ok=5    changed=4    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2026-08-04 08:36:00,773 p=112334 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-04 08:36:03,847 p=112334 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:36:03,849 p=112334 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:36:05,273 p=112334 u=dmeta n=ansible | TASK [install-service : add group] **************************************************************************************
+2026-08-04 08:36:05,273 p=112334 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:36:06,615 p=112334 u=dmeta n=ansible | TASK [install-service : add the user] ***********************************************************************************
+2026-08-04 08:36:06,615 p=112334 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:36:07,988 p=112334 u=dmeta n=ansible | TASK [install-service : add the user] ***********************************************************************************
+2026-08-04 08:36:07,989 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:18,853 p=112334 u=dmeta n=ansible | TASK [install-service : upload arteva backend files] ********************************************************************
+2026-08-04 08:36:18,853 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=arteva.tar)
+2026-08-04 08:36:20,202 p=112334 u=dmeta n=ansible | TASK [install-service : soft link] **************************************************************************************
+2026-08-04 08:36:20,202 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'src': '/apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war', 'dest': '/apps/arteva/webapps/arteva.war'})
+2026-08-04 08:36:24,118 p=112334 u=dmeta n=ansible | TASK [install-service : upload arteva backend files] ********************************************************************
+2026-08-04 08:36:24,118 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=apache-tomcat-9.0.105.tar.gz)
+2026-08-04 08:36:25,106 p=112334 u=dmeta n=ansible | TASK [install-service : create tomcat directory] ************************************************************************
+2026-08-04 08:36:25,107 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:26,563 p=112334 u=dmeta n=ansible | TASK [install-service : move tomcat] ************************************************************************************
+2026-08-04 08:36:26,563 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:27,711 p=112334 u=dmeta n=ansible | TASK [install-service : delete] *****************************************************************************************
+2026-08-04 08:36:27,711 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:29,307 p=112334 u=dmeta n=ansible | TASK [install-service : update profile] *********************************************************************************
+2026-08-04 08:36:29,308 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^JAVA_HOME=', 'line': 'export JAVA_HOME=/usr/lib/jvm/java'})
+2026-08-04 08:36:30,575 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^CATALINA_HOME=', 'line': 'CATALINA_HOME=/apps/tomcat'})
+2026-08-04 08:36:31,782 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^PATH=', 'line': 'PATH=$PATH:$JAVA_HOME/bin:/bin:/sbin'})
+2026-08-04 08:36:33,030 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^CLASSPATH=', 'line': 'CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib-jsp-api.jar:$CATALINA_HOME/lib/servlet-api.jar'})
+2026-08-04 08:36:34,162 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^export CUDA_VISIBLE_DEVICES=', 'line': 'export CUDA_VISIBLE_DEVICES=0'})
+2026-08-04 08:36:35,392 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^export CUDA_MPS_PIPE_DIRECTORY=', 'line': 'export CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps'})
+2026-08-04 08:36:36,491 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^export CUDA_MPS_LOG_DIRECTORY=', 'line': 'export CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-log'})
+2026-08-04 08:36:37,907 p=112334 u=dmeta n=ansible | TASK [install-service : apply config] ***********************************************************************************
+2026-08-04 08:36:37,907 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:40,161 p=112334 u=dmeta n=ansible | TASK [install-service : update bashrc] **********************************************************************************
+2026-08-04 08:36:40,161 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:41,537 p=112334 u=dmeta n=ansible | TASK [install-service : bashrc] *****************************************************************************************
+2026-08-04 08:36:41,537 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:43,936 p=112334 u=dmeta n=ansible | TASK [install-service : upload server.xml] ******************************************************************************
+2026-08-04 08:36:43,937 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=server.xml)
+2026-08-04 08:36:46,426 p=112334 u=dmeta n=ansible | TASK [install-service : upload context.xml] *****************************************************************************
+2026-08-04 08:36:46,427 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=context.xml)
+2026-08-04 08:36:48,859 p=112334 u=dmeta n=ansible | TASK [install-service : upload web.xml] *********************************************************************************
+2026-08-04 08:36:48,860 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=web.xml)
+2026-08-04 08:36:51,207 p=112334 u=dmeta n=ansible | TASK [install-service : upload tomcat.service] **************************************************************************
+2026-08-04 08:36:51,207 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=tomcat.service)
+2026-08-04 08:36:52,784 p=112334 u=dmeta n=ansible | TASK [install-service : chown tomcat] ***********************************************************************************
+2026-08-04 08:36:52,784 p=112334 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:36:54,839 p=112334 u=dmeta n=ansible | TASK [install-service : systemd reread] *********************************************************************************
+2026-08-04 08:36:54,840 p=112334 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:36:56,462 p=112334 u=dmeta n=ansible | TASK [install-service : systemd enable tomcat] **************************************************************************
+2026-08-04 08:36:56,463 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:36:57,990 p=112334 u=dmeta n=ansible | TASK [install-service : config firewall port] ***************************************************************************
+2026-08-04 08:36:57,990 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=8443/tcp)
+2026-08-04 08:37:00,156 p=112334 u=dmeta n=ansible | TASK [install-service : reload firewalld] *******************************************************************************
+2026-08-04 08:37:00,157 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:01,833 p=112334 u=dmeta n=ansible | TASK [install-service : systemd stop tomcat] ****************************************************************************
+2026-08-04 08:37:01,833 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:03,023 p=112334 u=dmeta n=ansible | TASK [install-service : upload arteva backend files] ********************************************************************
+2026-08-04 08:37:03,023 p=112334 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/log4j2.xml)
+2026-08-04 08:37:04,142 p=112334 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/dmeta/egovProps/globals.properties)
+2026-08-04 08:37:05,369 p=112334 u=dmeta n=ansible | ok: [arteva1] => (item=/apps/arteva/webapps/arteva/WEB-INF/classes/dmeta/spring/com/context-properties.xml)
+2026-08-04 08:37:06,874 p=112334 u=dmeta n=ansible | TASK [install-service : systemd stop tomcat] ****************************************************************************
+2026-08-04 08:37:06,875 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:08,522 p=112334 u=dmeta n=ansible | TASK [install-service : Allow tomcat directory] *************************************************************************
+2026-08-04 08:37:08,522 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:11,051 p=112334 u=dmeta n=ansible | TASK [install-service : upload package files] ***************************************************************************
+2026-08-04 08:37:11,052 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:12,232 p=112334 u=dmeta n=ansible | TASK [install-service : link gpu-monitor] *******************************************************************************
+2026-08-04 08:37:12,232 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:13,366 p=112334 u=dmeta n=ansible | TASK [install-service : copy rocky image update] ************************************************************************
+2026-08-04 08:37:13,366 p=112334 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:37:14,628 p=112334 u=dmeta n=ansible | TASK [install-service : copy hide-menu] *********************************************************************************
+2026-08-04 08:37:14,628 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=kdump.override.json)
+2026-08-04 08:37:15,705 p=112334 u=dmeta n=ansible | changed: [arteva1] => (item=selinux.override.json)
+2026-08-04 08:37:16,764 p=112334 u=dmeta n=ansible | TASK [install-service : update tomcat.service] **************************************************************************
+2026-08-04 08:37:16,765 p=112334 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Source ../file//tomcat.service not found"}
+2026-08-04 08:37:16,767 p=112334 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 08:37:16,767 p=112334 u=dmeta n=ansible | arteva1                    : ok=31   changed=25   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2026-08-04 08:38:39,913 p=113103 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-04 08:38:44,278 p=113103 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:38:44,280 p=113103 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:38:46,977 p=113103 u=dmeta n=ansible | TASK [install-service : upload package files] ***************************************************************************
+2026-08-04 08:38:46,977 p=113103 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:38:48,114 p=113103 u=dmeta n=ansible | TASK [install-service : link gpu-monitor] *******************************************************************************
+2026-08-04 08:38:48,115 p=113103 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:38:49,330 p=113103 u=dmeta n=ansible | TASK [install-service : copy rocky image update] ************************************************************************
+2026-08-04 08:38:49,330 p=113103 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:38:50,479 p=113103 u=dmeta n=ansible | TASK [install-service : copy hide-menu] *********************************************************************************
+2026-08-04 08:38:50,480 p=113103 u=dmeta n=ansible | ok: [arteva1] => (item=kdump.override.json)
+2026-08-04 08:38:51,748 p=113103 u=dmeta n=ansible | ok: [arteva1] => (item=selinux.override.json)
+2026-08-04 08:38:53,126 p=113103 u=dmeta n=ansible | TASK [install-service : update tomcat.service] **************************************************************************
+2026-08-04 08:38:53,127 p=113103 u=dmeta n=ansible | fatal: [arteva1]: FAILED! => {"changed": false, "msg": "Source ../file/tomcat.service not found"}
+2026-08-04 08:38:53,129 p=113103 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 08:38:53,130 p=113103 u=dmeta n=ansible | arteva1                    : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-08-04 08:40:07,832 p=113296 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-04 08:40:12,873 p=113296 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:40:12,873 p=113296 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:40:15,927 p=113296 u=dmeta n=ansible | TASK [install-service : upload package files] ***************************************************************************
+2026-08-04 08:40:15,927 p=113296 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:40:17,541 p=113296 u=dmeta n=ansible | TASK [install-service : link gpu-monitor] *******************************************************************************
+2026-08-04 08:40:17,542 p=113296 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:40:18,822 p=113296 u=dmeta n=ansible | TASK [install-service : copy rocky image update] ************************************************************************
+2026-08-04 08:40:18,823 p=113296 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:40:20,182 p=113296 u=dmeta n=ansible | TASK [install-service : copy hide-menu] *********************************************************************************
+2026-08-04 08:40:20,183 p=113296 u=dmeta n=ansible | ok: [arteva1] => (item=kdump.override.json)
+2026-08-04 08:40:21,498 p=113296 u=dmeta n=ansible | ok: [arteva1] => (item=selinux.override.json)
+2026-08-04 08:40:23,713 p=113296 u=dmeta n=ansible | TASK [install-service : update tomcat.service] **************************************************************************
+2026-08-04 08:40:23,713 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:25,980 p=113296 u=dmeta n=ansible | TASK [install-service : daemon-reload] **********************************************************************************
+2026-08-04 08:40:25,981 p=113296 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:40:27,827 p=113296 u=dmeta n=ansible | TASK [install-service : restart cockpit.socket] *************************************************************************
+2026-08-04 08:40:27,828 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:29,623 p=113296 u=dmeta n=ansible | TASK [install-service : enable start pmcd] ******************************************************************************
+2026-08-04 08:40:29,623 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:31,388 p=113296 u=dmeta n=ansible | TASK [install-service : enable start pmproxy] ***************************************************************************
+2026-08-04 08:40:31,389 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:33,690 p=113296 u=dmeta n=ansible | TASK [install-service : enable start pmproxy] ***************************************************************************
+2026-08-04 08:40:33,691 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:39,391 p=113296 u=dmeta n=ansible | TASK [install-service : register nvidia] ********************************************************************************
+2026-08-04 08:40:39,391 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:41,015 p=113296 u=dmeta n=ansible | TASK [install-service : pminfo] *****************************************************************************************
+2026-08-04 08:40:41,016 p=113296 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:40:41,049 p=113296 u=dmeta n=ansible | TASK [install-service : debug] ******************************************************************************************
+2026-08-04 08:40:41,050 p=113296 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "",
+        "nvidia.gpuactive",
+        "No value(s) available!"
+    ]
+}
+2026-08-04 08:40:41,065 p=113296 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 08:40:41,066 p=113296 u=dmeta n=ansible | arteva1                    : ok=14   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-04 08:43:32,247 p=113574 u=dmeta n=ansible | PLAY [install arteva service] *******************************************************************************************
+2026-08-04 08:43:35,221 p=113574 u=dmeta n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2026-08-04 08:43:35,223 p=113574 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 08:44:14,247 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : upload ai engine files] ***********************************************************************
+2026-08-04 08:44:14,258 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=Intelligent-AI-Video-Analytics-AI-Enginge-1.1.6.tar.gz)
+2026-08-04 08:44:17,579 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : copy ai engine] *******************************************************************************
+2026-08-04 08:44:17,579 p=113574 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:44:24,354 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : delete upload file] ***************************************************************************
+2026-08-04 08:44:24,355 p=113574 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 08:44:25,692 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : create ai directory] **************************************************************************
+2026-08-04 08:44:25,693 p=113574 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 09:00:53,990 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : upload arteva backend files] ******************************************************************
+2026-08-04 09:00:53,990 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=ai_env.tar.gz)
+2026-08-04 09:00:57,673 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : untar dotenvx_file] ***************************************************************************
+2026-08-04 09:00:57,674 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=dotenvx.tar.gz)
+2026-08-04 09:00:59,101 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : move dotenvx] *********************************************************************************
+2026-08-04 09:00:59,101 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=dotenvx)
+2026-08-04 09:01:00,249 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : soft link] ************************************************************************************
+2026-08-04 09:01:00,250 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libavcodec-9aae324f.so.59.37.100', 'dest': 'libavcodec.so.59'})
+2026-08-04 09:01:01,392 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libavformat-3ff1be5b.so.59.27.100', 'dest': 'libavformat.so.59'})
+2026-08-04 09:01:02,536 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libavutil-a0a0531e.so.57.28.100', 'dest': 'libavutil.so.57'})
+2026-08-04 09:01:03,609 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libswresample-2ec4394e.so.4.7.100', 'dest': 'libswresample.so.4'})
+2026-08-04 09:01:04,790 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'src': 'libswscale-2c3c8be7.so.6.7.100', 'dest': 'libswscale.so.6'})
+2026-08-04 09:01:06,309 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : update run arteva script] *********************************************************************
+2026-08-04 09:01:06,310 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^source ', 'line': 'source /home/tomcat/.bashrc'})
+2026-08-04 09:01:07,539 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : update run arteva script] *********************************************************************
+2026-08-04 09:01:07,539 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=/apps/arteva/ai_engine/run_arteva.sh)
+2026-08-04 09:01:08,670 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : create nvidia-mps directory] ******************************************************************
+2026-08-04 09:01:08,670 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=nvidia-mps)
+2026-08-04 09:01:09,879 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=nvidia-log)
+2026-08-04 09:01:11,460 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : source profile] *******************************************************************************
+2026-08-04 09:01:11,461 p=113574 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 09:01:24,912 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : source profile] *******************************************************************************
+2026-08-04 09:01:24,913 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item=conda-unpack && pip3 install -e .)
+2026-08-04 09:01:24,913 p=113574 u=dmeta n=ansible | [WARNING]: Module remote_tmp /home/tomcat/.ansible/tmp did not exist and was created with a mode of 0700, this may cause
+issues when running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+
+2026-08-04 09:01:26,070 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : update profile] *******************************************************************************
+2026-08-04 09:01:26,071 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^alias ar=', 'line': "alias ar='tail -f /apps/arteva/log/arteva_service.log'"})
+2026-08-04 09:01:27,267 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^alias ai=', 'line': "alias ai='tail -f /apps/arteva/ai_engine/log/ai_engine/ai_process.log'"})
+2026-08-04 09:01:28,557 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^alias pm=', 'line': "alias pm='tail -f /apps/arteva/ai_engine/log/process_manager/process_manager.log'"})
+2026-08-04 09:01:29,698 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^alias rt=', 'line': "alias rt='tail -f /apps/arteva/ai_engine/log/rtsp_process/rtsp_process.log'"})
+2026-08-04 09:01:30,709 p=113574 u=dmeta n=ansible | changed: [arteva1] => (item={'regexp': '^alias db=', 'line': "alias db='mariadb -u dmeta -p dmeta_arteva'"})
+2026-08-04 09:01:31,924 p=113574 u=dmeta n=ansible | TASK [install-ai-engine : apply config] *********************************************************************************
+2026-08-04 09:01:31,924 p=113574 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 09:01:31,939 p=113574 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 09:01:31,939 p=113574 u=dmeta n=ansible | arteva1                    : ok=16   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-04 09:05:25,846 p=114212 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-04 09:05:25,917 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : Read rpm update list file] ********************************************************************
+2026-08-04 09:05:25,918 p=114212 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 09:05:25,936 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-04 09:05:25,936 p=114212 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "openscap-scanner-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm",
+        "scap-security-guide-0.1.75-1.el8.rocky.1.3.noarch.rpm",
+        "openscap-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm",
+        "aide-0.16-14.el8_5.1.x86_64.rpm ",
+        "fapolicyd-1.3.2-1.el8.x86_64.rpm",
+        "usbguard-1.0.0-13.el8.x86_64.rpm",
+        "rpm-plugin-fapolicyd-4.14.3-32.el8_10.x86_64.rpm",
+        "rpm-4.14.3-32.el8_10.x86_64.rpm ",
+        "rpm-libs-4.14.3-32.el8_10.x86_64.rpm",
+        "python3-rpm-4.14.3-32.el8_10.x86_64.rpm",
+        "protobuf-3.5.0-15.el8.x86_64.rpm",
+        "libqb-1.0.3-13.el8_7.x86_64.rpm",
+        "rpm-build-libs-4.14.3-32.el8_10.x86_64.rpm",
+        "rpm-plugin-selinux-4.14.3-32.el8_10.x86_64.rpm",
+        "rpm-plugin-systemd-inhibit-4.14.3-32.el8_10.x86_64.rpm"
+    ]
+}
+2026-08-04 09:05:25,956 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : create list var] ******************************************************************************
+2026-08-04 09:05:25,956 p=114212 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 09:05:25,984 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : put the rpm name in list] *********************************************************************
+2026-08-04 09:05:25,985 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=openscap-scanner-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm)
+2026-08-04 09:05:25,990 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=scap-security-guide-0.1.75-1.el8.rocky.1.3.noarch.rpm)
+2026-08-04 09:05:25,994 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=openscap-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm)
+2026-08-04 09:05:26,001 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=aide-0.16-14.el8_5.1.x86_64.rpm )
+2026-08-04 09:05:26,005 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=fapolicyd-1.3.2-1.el8.x86_64.rpm)
+2026-08-04 09:05:26,010 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=usbguard-1.0.0-13.el8.x86_64.rpm)
+2026-08-04 09:05:26,015 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-plugin-fapolicyd-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,019 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-4.14.3-32.el8_10.x86_64.rpm )
+2026-08-04 09:05:26,025 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-libs-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,030 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=python3-rpm-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,035 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=protobuf-3.5.0-15.el8.x86_64.rpm)
+2026-08-04 09:05:26,040 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=libqb-1.0.3-13.el8_7.x86_64.rpm)
+2026-08-04 09:05:26,045 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-build-libs-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,051 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-plugin-selinux-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,054 p=114212 u=dmeta n=ansible | ok: [arteva1] => (item=rpm-plugin-systemd-inhibit-4.14.3-32.el8_10.x86_64.rpm)
+2026-08-04 09:05:26,074 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : display csv files] ****************************************************************************
+2026-08-04 09:05:26,074 p=114212 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "/tmp/rpm/openscap-scanner-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm",
+        "/tmp/rpm/scap-security-guide-0.1.75-1.el8.rocky.1.3.noarch.rpm",
+        "/tmp/rpm/openscap-1.3.10-2.el8_10.rocky.1.0.x86_64.rpm",
+        "/tmp/rpm/aide-0.16-14.el8_5.1.x86_64.rpm ",
+        "/tmp/rpm/fapolicyd-1.3.2-1.el8.x86_64.rpm",
+        "/tmp/rpm/usbguard-1.0.0-13.el8.x86_64.rpm",
+        "/tmp/rpm/rpm-plugin-fapolicyd-4.14.3-32.el8_10.x86_64.rpm",
+        "/tmp/rpm/rpm-4.14.3-32.el8_10.x86_64.rpm ",
+        "/tmp/rpm/rpm-libs-4.14.3-32.el8_10.x86_64.rpm",
+        "/tmp/rpm/python3-rpm-4.14.3-32.el8_10.x86_64.rpm",
+        "/tmp/rpm/protobuf-3.5.0-15.el8.x86_64.rpm",
+        "/tmp/rpm/libqb-1.0.3-13.el8_7.x86_64.rpm",
+        "/tmp/rpm/rpm-build-libs-4.14.3-32.el8_10.x86_64.rpm",
+        "/tmp/rpm/rpm-plugin-selinux-4.14.3-32.el8_10.x86_64.rpm",
+        "/tmp/rpm/rpm-plugin-systemd-inhibit-4.14.3-32.el8_10.x86_64.rpm"
+    ]
+}
+2026-08-04 09:05:46,290 p=114212 u=dmeta n=ansible | TASK [upgrade-local-rpm : upgrade rpm] **********************************************************************************
+2026-08-04 09:05:46,290 p=114212 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 09:05:46,294 p=114212 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 09:05:46,294 p=114212 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-04 09:06:23,318 p=114249 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-04 09:06:23,375 p=114249 u=dmeta n=ansible | TASK [delete-rpm : Read rpm delete list file] ***************************************************************************
+2026-08-04 09:06:23,376 p=114249 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 09:06:23,393 p=114249 u=dmeta n=ansible | TASK [delete-rpm : display csv files] ***********************************************************************************
+2026-08-04 09:06:23,393 p=114249 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "nfs-utils",
+        "gssproxy",
+        "iprutils"
+    ]
+}
+2026-08-04 09:06:23,409 p=114249 u=dmeta n=ansible | TASK [delete-rpm : create list var] *************************************************************************************
+2026-08-04 09:06:23,409 p=114249 u=dmeta n=ansible | ok: [arteva1]
+2026-08-04 09:06:23,430 p=114249 u=dmeta n=ansible | TASK [delete-rpm : put the rpm name in list] ****************************************************************************
+2026-08-04 09:06:23,430 p=114249 u=dmeta n=ansible | ok: [arteva1] => (item=nfs-utils)
+2026-08-04 09:06:23,435 p=114249 u=dmeta n=ansible | ok: [arteva1] => (item=gssproxy)
+2026-08-04 09:06:23,438 p=114249 u=dmeta n=ansible | ok: [arteva1] => (item=iprutils)
+2026-08-04 09:06:23,454 p=114249 u=dmeta n=ansible | TASK [delete-rpm : display csv files] ***********************************************************************************
+2026-08-04 09:06:23,454 p=114249 u=dmeta n=ansible | ok: [arteva1] => {
+    "msg": [
+        "nfs-utils",
+        "gssproxy",
+        "iprutils"
+    ]
+}
+2026-08-04 09:07:08,797 p=114249 u=dmeta n=ansible | TASK [delete-rpm : remove rpm] ******************************************************************************************
+2026-08-04 09:07:08,797 p=114249 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 09:07:08,801 p=114249 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 09:07:08,801 p=114249 u=dmeta n=ansible | arteva1                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-08-04 09:07:21,029 p=114285 u=dmeta n=ansible | ERROR! the playbook: 01-arteva-os-security.yml could not be found
+2026-08-04 10:23:52,627 p=124342 u=dmeta n=ansible | PLAY [Upgrade local RPM] ************************************************************************************************
+2026-08-04 10:23:54,682 p=124342 u=dmeta n=ansible | TASK [upgrade-local-rpm : delete rpm file to VM] ************************************************************************
+2026-08-04 10:23:54,683 p=124342 u=dmeta n=ansible | changed: [arteva1]
+2026-08-04 10:23:54,690 p=124342 u=dmeta n=ansible | PLAY RECAP **************************************************************************************************************
+2026-08-04 10:23:54,690 p=124342 u=dmeta n=ansible | arteva1                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,34 @@
+---
+
+- name: U-23 SUID, SGID, Sticky bit 
+  command: find / -user root -type f \( -perm -04000 -o -perm -02000 \) -xdev -exec ls -al {} \;
+  register: result
+
+- name: display 
+  debug: 
+   msg: "{{ result.stdout_lines }}"
+    
+- name: read sticky-bit.txt
+  set_fact:
+    csvfile: "{{ lookup('file', '{{ def_dir }}/sticky-bit.txt') }}"
+
+- name: remove enter
+  set_fact:
+    str_file: "{{ csvfile | replace('\n', ' ') }}"
+
+- name: remove Sticky bit file permision
+  file:
+    path: "{{ item }}"
+    owner: root
+    group: root
+    mode: 'u-s'
+  with_items:
+    - "{{ csvfile.split('\r\n') }}"
+
+- name: display
+  shell: ls -ltr {{ str_file }} 
+  register: result
+
+- name: display 
+  debug: 
+   msg: "{{ result.stdout_lines }}"

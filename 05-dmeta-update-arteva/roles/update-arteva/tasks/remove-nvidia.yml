@@ -1,0 +1,17 @@
+---
+
+- name: register nvidia
+  become: True
+  become_method: sudo
+  command: ./Remove
+  args:
+    chdir: /var/lib/pcp/pmdas/nvidia
+
+- name: pminfo
+  become: True
+  shell: pminfo -f nvidia.gpuactive
+  register: result
+
+- name: debug
+  debug:
+    msg: "{{ result.stdout_lines }}"

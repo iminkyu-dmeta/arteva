@@ -1,0 +1,9 @@
+---
+
+- name: gather kernel repo list
+  shell: dnf list kernel
+  register: list
+
+- name: show kernel repo list
+  debug:
+    msg: "{{ list.stdout_lines }}"

@@ -1,0 +1,47 @@
+---
+
+- name: restore ai file
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/backup/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - { src: 'camera_thread.py', dest: '/apps/arteva/ai_engine/ai_process/camera_thread.py' }
+    - { src: 'arteva.py', dest: '/apps/arteva/ai_engine/ai_process/arteva.py' }
+    - { src: 'event_manager.py', dest: '/apps/arteva/ai_engine/ai_process/event_manager.py' }
+    - { src: 'obj_utils.py', dest: '/apps/arteva/ai_engine/common/utils/obj_utils.py' }
+    - { src: 'single_buffer.py', dest: '/apps/arteva/ai_engine/rtsp_process/tool/single_buffer.py' }
+    - { src: 'rtsp_thread.py', dest: '/apps/arteva/ai_engine/rtsp_process/service/rtsp_thread.py' }
+    - { src: 'client.py', dest: '/apps/arteva/ai_engine/rtsp_process/infurastructure/rtsp/client.py' }
+    - { src: 'worker_manager.py', dest: '/apps/arteva/ai_engine/worker_manager.py' }
+    - { src: 'app.py', dest: '/apps/arteva/ai_engine/process_manager/app.py' }
+    - { src: 'process_manager_master.py', dest: '/apps/arteva/ai_engine/process_manager/service/process_manager_master.py' }
+    - { src: 'shared_memory.py', dest: '/apps/arteva/ai_engine/process_manager/service/shared_memory.py' }
+    - { src: 'run_arteva.sh', dest: '/apps/arteva/ai_engine/run_arteva.sh' }
+
+- name: restore ai file
+  become: True
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - '/apps/arteva/ai_engine/ai_process/model/weights/v4/detect/yolo_v8_medium_x32.engine'
+    - '/apps/arteva/ai_engine/ai_process/model/weights/v4/detect/lwdetr_medium_fp16_msgs.onnx'
+    - '/apps/arteva/ai_engine/rtsp_process/packet_pipeline.py'
+    - '/apps/arteva/ai_engine/rtsp_process/tool/frame_store.py'
+    - '/apps/arteva/ai_engine/rtsp_process/tool/gpu_stream_decoder.py'
+    - '/apps/arteva/ai_engine/ai_process/central_inference_worker.py'
+    - '/apps/arteva/ai_engine/ai_process/pose_logic/__init__.py'
+    - '/apps/arteva/ai_engine/ai_process/pose_logic/falldown_detection.py'
+    - '/apps/arteva/ai_engine/ai_process/pose_logic/violence_detection.py'
+    - '/apps/arteva/ai_engine/ai_process/pose_logic/group_violence_detection.py'
+    - '/apps/arteva/ai_engine/ai_process/pose_logic/shadow.py'
+
+- name: restore ai file
+  become: True
+  file:
+    path: /apps/arteva/ai_engine/ai_process/pose_logic
+    state: absent

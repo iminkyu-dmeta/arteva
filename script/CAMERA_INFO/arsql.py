@@ -36,7 +36,8 @@ INSERT_CAMERA_EVENT_BID_SQL="insert t_arteva_camera_event_conf (camera_id, event
 INSERT_CAMERA_EVENT_SQL="insert t_arteva_camera_event_conf (camera_id, event_type, active, detect_start_time, detect_end_time, accuracy, duration, broadcast_id, param, expire_duration, create_time, update_time, create_user, update_user ) "
 UPDATE_CAMERA_EVENT_TIME_SQL="UPDATE t_arteva_event_conf SET DETECT_START_TIME = '{}', DETECT_END_TIME = '{}' where EVENT_TYPE = '{}' ;"
 UPDATE_CAMERA_EVENT_BID_SQL="update t_arteva_camera_event_conf set broadcast_area_code = '{}', broadcast_id = {} where camera_id = {} and event_type = '{}'"
-SELECT_ELEVATOR_ID="select ID from t_arteva_extern_info where TYPE = '{}' and MODBUS_REGISTER = {};"
+SELECT_ELEVATOR_ID="select ID from t_arteva_extern_info where TYPE = '{}' and MODBUS_REGISTER = {} and MODBUS_ON_VALUE = {};"
+#SELECT_ELEVATOR_ID="select ID from t_arteva_extern_info where TYPE = '{}' and MODBUS_REGISTER = {};"
 UPDATE_CAMERA_EVENT_EL_SQL="update t_arteva_camera_event_conf set elevater_id = {} where camera_id = '{}' and event_type = '{}';"
 
 ## Select Camera envent type 

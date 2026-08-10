@@ -1,0 +1,9 @@
+---
+
+- name: backup ai file
+  become: True
+  file:
+    path: "{{ apps_dir }}/arteva/ai_engine/{{ item }}"
+    state: absent
+  with_items:
+    - 'ffmpeg6'

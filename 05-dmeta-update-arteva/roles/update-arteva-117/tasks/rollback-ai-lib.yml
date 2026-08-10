@@ -1,0 +1,53 @@
+---
+
+- name: Check ai lib
+  become: True
+  shell:
+    cmd: |
+      source /apps/arteva/ai_engine/ai/bin/activate
+      python -c "import onnxruntime as ort; print(ort.__version__)"
+      python -c "import onnxruntime as ort;print(ort.get_available_providers())"
+      pip show av
+      pip show PyNvCodec
+      pip show onnxruntime-gpu
+    chdir: "{{ apps_dir }}/PKG/{{ pkg_dir }}/ai/whl"
+  failed_when: result.rc not in [ 0, 1 ]
+  register: result
+
+- name: check onnx 
+  debug:
+    msg: "{{ result.stdout_lines }}"
+
+- name: rollback ai lib 
+  become: True
+  shell: 
+    cmd: |
+      source /apps/arteva/ai_engine/ai/bin/activate
+      pip uninstall -y PyNvCodec
+      pip uninstall -y onnxruntime_gpu
+      pip uninstall -y av
+      pip install onnxruntime-1.15.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    chdir: "{{ apps_dir }}/PKG/{{ pkg_dir }}/ai/whl"
+  register: result
+
+- name: 
+  debug:
+    msg: "{{ result.stdout_lines }}"
+
+- name: rollback check ai lib
+  become: True
+  shell:
+    cmd: |
+      source /apps/arteva/ai_engine/ai/bin/activate
+      python -c "import onnxruntime as ort; print(ort.__version__)"
+      python -c "import onnxruntime as ort;print(ort.get_available_providers())"
+      pip show av
+      pip show PyNvCodec
+      pip show onnxruntime-gpu
+    chdir: "{{ apps_dir }}/PKG/{{ pkg_dir }}/ai/whl"
+  failed_when: result.rc not in [ 0, 1 ]
+  register: result
+
+- name: check onnx
+  debug:
+    msg: "{{ result.stdout_lines }}"

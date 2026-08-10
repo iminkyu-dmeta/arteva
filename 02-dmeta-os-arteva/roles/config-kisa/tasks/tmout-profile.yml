@@ -1,0 +1,20 @@
+--- 
+
+- name: session time out
+  lineinfile: 
+    path: "/etc/{{ item }}"
+    regexp: "^TMOUT="
+    line: 'TMOUT=600'
+  with_items:
+    - 'profile'
+    - 'bashrc'
+
+- name: export TMOUT 
+  lineinfile: 
+    path: "/etc/{{ item }}"
+    regexp: "^export TMOUT"
+    insertafter: '^TMOUT='
+    line: 'export TMOUT'
+  with_items:
+    - 'profile'
+    - 'bashrc'

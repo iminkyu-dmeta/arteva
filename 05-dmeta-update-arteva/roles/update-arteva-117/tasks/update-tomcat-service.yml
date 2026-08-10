@@ -1,0 +1,16 @@
+---
+
+- name: update tomcat.service
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/tomcat.service"
+    dest: /usr/lib/systemd/system/
+    owner: root
+    group: root
+    remote_src: yes
+    mode: 0644
+
+- name: daemon-reload
+  become: True
+  systemd:
+    daemon-reload: true

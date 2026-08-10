@@ -1,0 +1,12 @@
+---
+
+- name: backup ai file
+  become: True
+  unarchive:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/ai/whl/{{ item }}"
+    dest: "{{ apps_dir }}/arteva/ai_engine/"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - 'ffmpeg6.tar.gz'

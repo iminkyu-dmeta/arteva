@@ -1,0 +1,13 @@
+---
+
+- name: upload package files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ upload_file }}"
+    dest: "{{ apps_dir }}/PKG"
+    owner: dmeta
+    group: dmeta
+
+#  when: upload_file is defined
+#  with_items:
+#    - "{{ upload_file }}"

@@ -481,7 +481,7 @@ class CameraInfo:
 
                 print(regi)
                 print(camera_id[0])
-                SEL_SQL = arsql.SELECT_ELEVATOR_ID.format(elevator, regi[0])
+                SEL_SQL = arsql.SELECT_ELEVATOR_ID.format(elevator, regi[0],regi[1])
                 ID = db.select_row_sql(SEL_SQL)
 
                 ## set elevator id (poor transportation) WC, ST 

@@ -1,0 +1,17 @@
+---
+
+- name: update arteva service
+  gather_facts: True
+  vars:
+    hostname: "ARTEVA01"
+    host: arteva
+    ansible_python_interpreter: /usr/bin/python3
+    disable_gpg: true
+    pkg_dir: "arteva-1.1.6"
+    update_db: "arteva-1105-1106.sql"
+    rollback_db: "arteva-1106-1105.sql"
+  hosts: "{{ host }}"
+  become: True 
+
+  roles:
+    - role: update-arteva

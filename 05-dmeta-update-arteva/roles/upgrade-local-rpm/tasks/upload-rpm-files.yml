@@ -1,0 +1,20 @@
+---
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  when: upload_file is not defined
+  with_items:
+    - "rpm.tar"
+    - "nvidia-driver.tar.gz"
+
+- name: upload src rpm files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/{{ item }}"
+    dest: "{{ tmp_dir }}"
+  when: upload_file is defined
+  with_items:
+    - "{{ upload_file }}"

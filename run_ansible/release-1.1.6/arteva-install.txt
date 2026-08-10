@@ -1,0 +1,17 @@
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags "upload-package" --extra-vars "upload_file=arteva-1.1.6.tar.gz"
+
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags "stop-arteva"
+
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags "upgrade-rpm" --extra-vars "rpm_file=update-rpm.txt"
+
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags "upgrade-rpm" --extra-vars "rpm_file=update-mariadb.yml"
+
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags " upgrade-arteva" 
+
+cd ~/arteva/05-dmeta-update-arteva/playbook
+ansible-playbook -u dmeta -k -i ../inventory/arteva.ini 02-arteva-update.yml --tags "start-arteva"

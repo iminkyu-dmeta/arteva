@@ -1,0 +1,22 @@
+---
+
+- name: systemd stop tomcat
+  become: True
+  systemd:
+    name: tomcat
+    state: stopped
+
+- name: pm2 stop 
+  become: True
+  become_user : "{{ user }}"
+  shell: sudo su - tomcat -c 'pm2 stop 0'
+  register: result
+  failed_when: result.rc not in [ 0, 1 ]
+
+- name: status
+  shell: ps -aef | grep tomcat
+  register: result
+
+- name: display tomcat status
+  debug:
+    msg: "{{ result.stdout_lines }}"

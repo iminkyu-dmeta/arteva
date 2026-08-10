@@ -1,6 +1,6 @@
 ---
 
-  arteva_version: "1.0.17"
+  arteva_version: "1.1.6"
   user: "dmeta"
   group: "dmeta"
   password: 'dmeta!@34'
@@ -29,10 +29,12 @@
     - "arteva.tar"
 
   ai_files:
-    - "Intelligent-AI-Video-Analytics-AI-Enginge-1.0.12.tar.gz"
-  ai_ver: "Intelligent-AI-Video-Analytics-AI-Enginge-1.0.12"
+    - "Intelligent-AI-Video-Analytics-AI-Enginge-1.1.6.tar.gz"
+  ai_ver: "Intelligent-AI-Video-Analytics-AI-Enginge-1.1.6"
   ai_env_files:
     - "ai_env.tar.gz"
+
+  ai_env_path: "/apps/arteva/ai_engine/ai/lib/python3.9/site-packages/opencv_python.libs"
 
   dotenvx_file:
     - "dotenvx.tar.gz"
@@ -52,7 +54,7 @@
   cudnn_dir: "cudnn-linux-x86_64-8.6.0.163_cuda11-archive"
   cudnn_link_dir: "/usr/local/cuda/lib64"
 
-  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.0.17.war"
+  backend: "D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war"
 
   was_port: "8443/tcp"
 

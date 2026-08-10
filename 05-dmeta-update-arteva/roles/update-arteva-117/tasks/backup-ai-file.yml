@@ -1,0 +1,31 @@
+---
+
+- name: Create backup directory 
+  become: True
+  file:
+    path: "{{ apps_dir }}/PKG/{{ pkg_dir }}/backup"
+    state: directory 
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+
+- name: backup ai file
+  become: True
+  copy:
+    src: "{{ item }}"
+    dest: "{{ apps_dir }}/PKG/{{ pkg_dir }}/backup/"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
+    remote_src: yes
+  with_items:
+    - "/apps/arteva/ai_engine/ai_process/camera_thread.py"
+    - "/apps/arteva/ai_engine/ai_process/arteva.py"
+    - "/apps/arteva/ai_engine/ai_process/event_manager.py"
+    - "/apps/arteva/ai_engine/common/utils/obj_utils.py"
+    - "/apps/arteva/ai_engine/rtsp_process/tool/single_buffer.py"
+    - "/apps/arteva/ai_engine/rtsp_process/service/rtsp_thread.py"
+    - "/apps/arteva/ai_engine/rtsp_process/infurastructure/rtsp/client.py"
+    - "/apps/arteva/ai_engine/worker_manager.py"
+    - "/apps/arteva/ai_engine/process_manager/app.py"
+    - "/apps/arteva/ai_engine/process_manager/service/process_manager_master.py"
+    - "/apps/arteva/ai_engine/process_manager/service/shared_memory.py"
+    - "/apps/arteva/ai_engine/run_arteva.sh"

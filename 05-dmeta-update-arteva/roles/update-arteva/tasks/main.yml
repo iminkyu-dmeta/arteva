@@ -1,0 +1,46 @@
+---
+
+- import_tasks: stop-arteva.yml
+  tags: [ 'never', 'stop-arteva', 'update-arteva', 'rollback-arteva']
+
+- import_tasks: upload-package.yml
+  tags: [ 'never', 'upload-package', 'update-arteva' ]
+
+- import_tasks: backup-dir.yml
+  tags: [ 'never', 'backup-dir', 'update-arteva' ]
+
+- import_tasks: upgrade-rpm.yml
+  tags: [ 'never', 'upgrade-rpm', 'update-arteva' ]
+
+- import_tasks: update-arteva.yml
+  tags: [ 'never', 'upgrade-arteva', 'update-arteva' ]
+
+- import_tasks: register-nvidia.yml
+  tags: [ 'never', 'register-nvidia', 'update-arteva' ]
+
+- import_tasks: restore-rpm.yml
+  tags: [ 'never', 'restore-rpm', 'rollback-arteva' ]
+
+- import_tasks: restore-arteva.yml
+  tags: [ 'never', 'restore-arteva', 'rollback-arteva' ]
+
+- import_tasks: remove-nvidia.yml
+  tags: [ 'never', 'remove-nvidia', 'rollback-arteva' ]
+
+- import_tasks: start-arteva.yml
+  tags: [ 'never', 'start-arteva', 'update-arteva', 'rollback-arteva']
+
+#- import_tasks: update-bashrc.yml
+#  tags: [ 'never', 'update-bashrc', 'install-arteva' ]
+#
+#- import_tasks: config-tomcat.yml
+#  tags: [ 'never', 'config-tomcat', 'install-arteva' ]
+#
+#- import_tasks: change-config.yml
+#  tags: [ 'never', 'change-config', 'install-arteva' ]
+#
+#- import_tasks: fcontext-tomcat.yml
+#  tags: [ 'never', 'fcontext-tomcat', 'install-arteva' ]
+
+- import_tasks: verify.yml
+  tags: [ 'never', 'verify' ]

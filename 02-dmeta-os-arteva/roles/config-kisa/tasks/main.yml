@@ -1,0 +1,13 @@
+---
+
+- import_tasks: sticky-bit.yml
+  tags: [ 'never', 'sticky-bit', 'config-kisa']
+
+- import_tasks: crontab-permission.yml
+  tags: [ 'never', 'crontab-permission', 'config-kisa']
+
+- import_tasks: rsyslog-permission.yml
+  tags: [ 'never', 'rsyslog-permission', 'config-kisa']
+
+- import_tasks: tmout-profile.yml
+  tags: [ 'never', 'tmout-profile', 'config-kisa']

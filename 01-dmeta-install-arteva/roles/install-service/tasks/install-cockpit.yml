@@ -1,0 +1,93 @@
+---
+
+- name: upload package files
+  become: True
+  unarchive:
+    src: "{{ def_dir }}/cockpit.tar"
+    dest: "{{ apps_dir }}/arteva"
+    owner: tomcat
+    group: tomcat
+
+- name: link gpu-monitor
+  become: True
+  file:
+    src: "{{ apps_dir }}/arteva/cockpit/gpu-monitor"
+    dest: /usr/share/cockpit/gpu-monitor
+    state: link
+
+- name: copy rocky image update
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/cockpit/rocky"
+    dest: /usr/share/cockpit/branding/rocky/
+    remote_src: yes
+
+- name: copy hide-menu
+  become: True
+  copy:
+    src: "{{ apps_dir }}/arteva/cockpit/hide-menu/{{ item }}"
+    dest: /etc/cockpit
+    remote_src: yes
+  with_items:
+    - "kdump.override.json"
+    - "selinux.override.json"
+
+- name: update tomcat.service
+  become: True
+  copy:
+    src: "{{ def_dir }}/tomcat.service"
+    dest: /usr/lib/systemd/system/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: daemon-reload
+  become: True
+  systemd:
+    daemon-reload: true
+
+- name: restart cockpit.socket
+  become: True
+  systemd:
+    name: cockpit.socket
+    state: restarted
+    enabled: true
+
+- name: enable start pmcd
+  become: True
+  systemd:
+    name: pmcd
+    state: started
+    enabled: true
+
+- name: enable start pmproxy
+  become: True
+  systemd:
+    name: pmproxy
+    state: started
+    enabled: true
+
+- name: enable start pmproxy
+  become: True
+  systemd:
+    name: pmlogger
+    state: started
+    enabled: true
+
+- name: register nvidia
+  become: True
+  become_method: sudo
+  expect:
+    command: ./Install
+    chdir: /var/lib/pcp/pmdas/nvidia
+    responses:
+      "(?i) [daemon] ": "daemon"
+
+- name: pminfo
+  become: True
+  shell: pminfo -f nvidia.gpuactive
+  register: result
+
+- name: debug
+  debug:
+    msg: "{{ result.stdout_lines }}"

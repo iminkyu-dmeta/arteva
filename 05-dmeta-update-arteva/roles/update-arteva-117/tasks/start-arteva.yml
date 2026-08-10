@@ -1,0 +1,16 @@
+---
+
+- name: systemd start tomcat
+  become: True
+  systemd:
+    name: tomcat
+    state: started
+    enabled: yes
+
+- name: status
+  shell: ps -aef | grep tomcat
+  register: result
+
+- name: display tomcat status
+  debug:
+    msg: "{{ result.stdout_lines }}"

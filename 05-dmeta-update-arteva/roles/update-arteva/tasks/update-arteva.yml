@@ -1,0 +1,114 @@
+---
+
+- name: copy backup war
+  become: True
+  copy: 
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war"
+    dest: /apps/arteva/wars
+    owner: tomcat
+    group: tomcat
+    remote_src: yes
+
+- name: link war file
+  become: True
+  file:
+    src: /apps/arteva/wars/D-Meta-LabIntelligent-AI-Video-Analytics-Backend_1.1.6.war
+    dest: /apps/arteva/webapps/arteva.war
+    owner: tomcat
+    group: tomcat
+    state: link
+
+- name: copy cockpit
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/cockpit"
+    dest: /apps/arteva/
+    owner: tomcat
+    group: tomcat
+    remote_src: yes
+
+- name: link gpu-monitor
+  become: True
+  file:
+    src: "{{ apps_dir }}/arteva/cockpit/gpu-monitor"
+    dest: /usr/share/cockpit/gpu-monitor
+    state: link
+    
+- name: copy rocky image update 
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/cockpit/rocky"
+    dest: /usr/share/cockpit/branding/rocky/
+    remote_src: yes
+
+- name: copy hide-menu
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/cockpit/hide-menu/{{ item }}"
+    dest: /etc/cockpit
+    remote_src: yes
+  with_items:
+    - "kdump.override.json"
+    - "selinux.override.json"
+
+- name: update tomcat.service
+  become: True
+  copy:
+    src: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/tomcat.service"
+    dest: /usr/lib/systemd/system/
+    owner: root
+    group: root
+    remote_src: yes
+    mode: 0644
+
+- name: daemon-reload
+  become: True
+  systemd:
+    daemon-reload: true
+
+- name: update dmeta_arteva 
+  mysql_db:
+    name: dmeta_arteva
+    state: import
+    login_user: "{{ user }}"
+    login_password: "{{ db_password }}"
+    target: "{{ apps_dir }}/PKG/{{ pkg_dir }}/arteva/sql/{{ update_db }}"
+
+- name: restart cockpit.socket 
+  become: True
+  systemd:
+    name: cockpit.socket
+    state: restarted
+    enabled: true
+
+- name: enable start pmcd 
+  become: True
+  systemd:
+    name: pmcd
+    state: started
+    enabled: true
+
+- name: enable start pmproxy
+  become: True
+  systemd:
+    name: pmproxy
+    state: started
+    enabled: true
+
+- name: register nvidia
+  become: True
+  become_method: sudo
+  expect:
+    command: ./Install
+    chdir: /var/lib/pcp/pmdas/nvidia
+    responses:
+      "(?i) [daemon] ": "daemon"
+
+- name: pminfo
+  become: True
+  shell: pminfo -f nvidia.gpuactive
+  register: result
+
+- name: debug
+  debug:
+    msg: "{{ result.stdout_lines }}"
